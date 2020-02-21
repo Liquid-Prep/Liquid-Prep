@@ -1,0 +1,10 @@
+com\liquidPrep\models\DeviceData.class
+com\liquidPrep\App.class
+com\liquidPrep\api\WaterGuidenceAPI.class
+com\liquidPrep\models\SensorInformation.class
+com\liquidPrep\models\Advice.class
+com\liquidPrep\models\CropInformation.class
+com\liquidPrep\models\WaterGuidence.class
+com\liquidPrep\models\Weather.class
+com\liquidPrep\models\Forecast.class
+com\liquidPrep\processor\WaterGuidenceProcessor.class

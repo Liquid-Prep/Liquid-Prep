@@ -1,0 +1,145 @@
+{
+    "forecast": [
+        {
+            "date": "2019-05-31",
+            "dayTime": {
+                "weather": {
+                    "currentTemperature": 38,
+                    "minTemperature": 32,
+                    "maxTemperature": 42,
+                    "pressure": 1019,
+                    "humidity": 47
+                },
+                "advice": {
+                    "state": "Sunny",
+                    "waterNeed": "NONE",
+                    "minRequiredLevel": 250,
+                    "maxRequiredLevel": 600,
+                    "optimumRequiredLevel": 320
+                }
+            },
+            "nightTime": {
+                "weather": {
+                    "currentTemperature": 38,
+                    "minTemperature": 32,
+                    "maxTemperature": 42,
+                    "pressure": 1019,
+                    "humidity": 47
+                },
+                "advice": {
+                    "state": "Clear",
+                    "waterNeed": "NONE",
+                    "minRequiredLevel": 250,
+                    "maxRequiredLevel": 600,
+                    "optimumRequiredLevel": 320
+                }
+            }
+        },
+        {
+            "date": "2019-06-01",
+            "dayTime": {
+                "weather": {
+                    "currentTemperature": 38,
+                    "minTemperature": 32,
+                    "maxTemperature": 42,
+                    "pressure": 1019,
+                    "humidity": 47
+                },
+                "advice": {
+                    "state": "Sunny",
+                    "waterNeed": "NONE",
+                    "minRequiredLevel": 250,
+                    "maxRequiredLevel": 600,
+                    "optimumRequiredLevel": 320
+                }
+            },
+            "nightTime": {
+                "weather": {
+                    "currentTemperature": 38,
+                    "minTemperature": 32,
+                    "maxTemperature": 42,
+                    "pressure": 1019,
+                    "humidity": 47
+                },
+                "advice": {
+                    "state": "Clear",
+                    "waterNeed": "NONE",
+                    "minRequiredLevel": 250,
+                    "maxRequiredLevel": 600,
+                    "optimumRequiredLevel": 320
+                }
+            }
+        },
+        {
+            "date": "2019-06-02",
+            "dayTime": {
+                "weather": {
+                    "currentTemperature": 38,
+                    "minTemperature": 32,
+                    "maxTemperature": 42,
+                    "pressure": 1019,
+                    "humidity": 47
+                },
+                "advice": {
+                    "state": "Cloudy",
+                    "waterNeed": "RAIN",
+                    "minRequiredLevel": 250,
+                    "maxRequiredLevel": 600,
+                    "optimumRequiredLevel": 320
+                }
+            },
+            "nightTime": {
+                "weather": {
+                    "currentTemperature": 38,
+                    "minTemperature": 32,
+                    "maxTemperature": 42,
+                    "pressure": 1019,
+                    "humidity": 47
+                },
+                "advice": {
+                    "state": "Cloudy",
+                    "waterNeed": "RAIN",
+                    "minRequiredLevel": 250,
+                    "maxRequiredLevel": 600,
+                    "optimumRequiredLevel": 320
+                }
+            }
+        },
+        {
+            "date": "2019-06-03",
+            "dayTime": {
+                "weather": {
+                    "currentTemperature": 38,
+                    "minTemperature": 32,
+                    "maxTemperature": 42,
+                    "pressure": 1019,
+                    "humidity": 47
+                },
+                "advice": {
+                    "state": "Cloudy",
+                    "waterNeed": "RAIN",
+                    "minRequiredLevel": 250,
+                    "maxRequiredLevel": 600,
+                    "optimumRequiredLevel": 320
+                }
+            },
+            "nightTime": {
+                "weather": {
+                    "currentTemperature": 38,
+                    "minTemperature": 32,
+                    "maxTemperature": 42,
+                    "pressure": 1019,
+                    "humidity": 47
+                },
+                "advice": {
+                    "state": "Cloudy",
+                    "waterNeed": "RAIN",
+                    "minRequiredLevel": 250,
+                    "maxRequiredLevel": 600,
+                    "optimumRequiredLevel": 320
+                }
+            }
+        }
+    ],
+    "timestamp": "2019-05-31T13:07:57"
+}

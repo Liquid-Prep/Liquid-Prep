@@ -82,3 +82,8 @@ Our solution roadmap also adds more functionality to the Liquid Prep platform by
 The webservice to GET mock water advice is deployed on a tomcat server running on a IBM Fyre VM. The link to GET mock water advice is http://9.21.108.205:8080/liquidPrep/api/waterAdvice.
 
 #### NOTE: To access the link to GET mock water advice, you need to be connected on an IBM network.
+
+
+### License
+
+This project is licensed under the Apache 2 License - see the LICENSE.md file for details

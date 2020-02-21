@@ -29,19 +29,19 @@ We have developed **Liquid Prep**, an end-to-end solution for farmers looking to
 **Example workflow:** 
 -	Rani, a farmer, walks to the field with her Liquid Prep app installed on her Android phone, and the humidity sensor stick.
 <p align="center">
-  <img src="https://github.ibm.com/yuanyua1/liquidPrep/blob/master/images/home+stick.png" alt="liquidPrep-home" width ="40%" height="40%">
+  <img src="https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/home+stick.png" alt="liquidPrep-home" width ="40%" height="40%">
 </p>
 
 -	The app instructs her, in the local language and with clear pictorial explanations, how to insert the sensor stick into the ground.
 <p align="center">
-  <img src="https://github.ibm.com/yuanyua1/liquidPrep/blob/master/images/instructions.png" alt="liquidPrep-instructions">
+  <img src="https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/instructions.png" alt="liquidPrep-instructions">
 </p>
 
 -	The stick’s sensor reading is transferred to the app on her phone (via NFC).
 -	As soon as the reading is successful, the app will connect to the Cloud where the watering advice is computed. *The watering recommendation is computed by taking into account the specific farm’s soil moisture (using the humidity sensor stick) and combining this information with local weather forecasts and other agricultural metrics in the cloud.*
 -	The Android app provides the farmer with up-to-date suggestions and recommendations about the best day/time to water their particular crops to increase the chances of having a successful yield. *For example, if the soil moisture is currently normal and rain is expected tomorrow, the app may recommend the farmer to save his/her water and not water their crops today.*
 <p align="center">
-  <img src="https://github.ibm.com/yuanyua1/liquidPrep/blob/master/images/suggestions.png" alt="liquidPrep-suggestions">
+  <img src="https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/suggestions.png" alt="liquidPrep-suggestions">
 </p>
 
 
@@ -57,7 +57,7 @@ We also plan to add the functionality for farmers to take pictures of their crop
 
 For example, crop growth stages could be depicted in the app as follows:
 <p align="center">
-  <img src="https://github.ibm.com/yuanyua1/liquidPrep/blob/master/images/explanation.png" alt="liquidPrep-explanation">
+  <img src="https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/explanation.png" alt="liquidPrep-explanation">
 </p>
 
 ### Internet of Things

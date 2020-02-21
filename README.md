@@ -86,4 +86,6 @@ The webservice to GET mock water advice is deployed on a tomcat server running o
 
 ### License
 
+Copyright 2019-2020 Liquid Prep
+
 This project is licensed under the Apache 2 License - see the LICENSE.md file for details

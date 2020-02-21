@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ibm.liquidprep">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".InstructionActivityScan"
+            android:parentActivityName=".InstructionActivityTurnOn"></activity>
+        <activity
+            android:name=".InstructionActivityTurnOn"
+            android:parentActivityName=".InstructionActivityPlant"/>
+        <activity
+            android:name=".InstructionActivityPlant"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".AdviceDetailsActivity"
+            android:parentActivityName=".WaterScheduleActivity"/>
+        <activity
+            android:name=".WaterScheduleActivity"
+            android:parentActivityName=".InstructionActivityScan"/>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

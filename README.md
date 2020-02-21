@@ -4,9 +4,7 @@ Liquid Prep offers an end-to-end solution for farmers looking to optimize their 
 
 By leveraging the use of an intuitive mobile Android app, local soil sensors, and an advanced agricultural decision platform hosted in the cloud, farmers can be better informed on how to use limited water supplies and increase their chances of growing healthy crop for their small plots of land.
 
-The code for the app can be found in this repository: https://github.ibm.com/Walid-Bounouar/LiquidPrepApp
-
-[![Watch the video](https://github.ibm.com/yuanyua1/liquidPrep/blob/master/images/thumbnail.png)](https://ibm.box.com/s/tf0kwpszgi2idqvxtj9vk2aw048uu5rs)
+[![Watch the video](https://github.com/Code-and-Response/Liquid-Prep/tree/master/images/thumbnail.png)](https://ibm.box.com/s/tf0kwpszgi2idqvxtj9vk2aw048uu5rs)
 
 
 

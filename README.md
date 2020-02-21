@@ -77,9 +77,7 @@ We are using a microchip to convert the analog signal of the sensor to digital a
 Our solution roadmap also adds more functionality to the Liquid Prep platform by leveraging the use of IBM’s [Watson Decision Platform for Agriculture](https://www.ibm.com/blogs/research/2018/09/smarter-farms-agriculture/) which harnesses the power of predictive analytics, artificial intelligence, and the other Internet of Things sensors. This will allow us to incorporate much more data such as satellite imagery for monitoring crop health (specific to a farmer’s particular crop), advanced models for computing soil moisture and weather behaviour, and an advanced AI decision framework to act on all the available information.
 
 
-### Mock Water Advice Source Code
-
-The repository for the mock water advice source code can be found in https://github.ibm.com/gaurav-ramakrishna/liquidPrep.
+### Mock Water Advice API
 
 The webservice to GET mock water advice is deployed on a tomcat server running on a IBM Fyre VM. The link to GET mock water advice is http://9.21.108.205:8080/liquidPrep/api/waterAdvice.
 

@@ -17,7 +17,7 @@ Farmers are the key food providers of the world. Their crops are essential to gl
 We have developed **Liquid Prep**, an end-to-end solution for farmers looking to optimize their usage of water; especially during times of drought. The following depicts what our Liquid Prep solution consists of:
 
 <p align="center">
-  <img src="https://github.com/Code-and-Response/Liquid-Prep/tree/master/images/architecture.png" alt="liquidPrep-architecture" width ="60%" height="60%">
+  <img src="https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/architecture.png" alt="liquidPrep-architecture" width ="60%" height="60%">
 </p>
 
 -	Simple humidity sensor (physical stick) - to make the measurement of the soil humidity much more precise.

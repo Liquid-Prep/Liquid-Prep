@@ -4,6 +4,8 @@ Liquid Prep offers an end-to-end solution for farmers looking to optimize their 
 
 By leveraging the use of an intuitive mobile Android app, local soil sensors, and an advanced agricultural decision platform hosted in the cloud, farmers can be better informed on how to use limited water supplies and increase their chances of growing healthy crop for their small plots of land.
 
+[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://join.slack.com/t/code-and-response/shared_invite/enQtNzkyMDUyODg1NDU5LTdkZDhmMjJkMWI1MDk1ODc2YTc2OTEwZTI4MGI3NDI0NmZmNTg0Zjg5NTVmYzNiNTYzNzRiM2JkZjYzOWIwMWE)
+
 [![Watch the video](https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/IBM-interview-video-image.png)](https://youtu.be/uJ7DUfCzypE)
 
 

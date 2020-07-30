@@ -44,7 +44,6 @@ We have developed **Liquid Prep**, an end-to-end solution for farmers looking to
   <img src="https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/suggestions.png" alt="liquidPrep-suggestions">
 </p>
 
-
 ## Solution Roadmap
 
 The Liquid Prep solution currently features a mobile Android app, a soil humidity sensor, and a cloud platform for compiling data and decision making. Our future roadmap adds more functionality to the Liquid Prep platform by improving the ease-of-use of the app, using the Internet of Things technologies, and leveraging the use of the [IBM Watson Decision Platform for Agriculture](https://www.ibm.com/blogs/research/2018/09/smarter-farms-agriculture/).
@@ -76,15 +75,17 @@ We are using a microchip to convert the analog signal of the sensor to digital a
 
 Our solution roadmap also adds more functionality to the Liquid Prep platform by leveraging the use of IBM’s [Watson Decision Platform for Agriculture](https://www.ibm.com/blogs/research/2018/09/smarter-farms-agriculture/) which harnesses the power of predictive analytics, artificial intelligence, and the other Internet of Things sensors. This will allow us to incorporate much more data such as satellite imagery for monitoring crop health (specific to a farmer’s particular crop), advanced models for computing soil moisture and weather behaviour, and an advanced AI decision framework to act on all the available information.
 
-
 ### Mock Water Advice API
 
 The webservice to GET mock water advice is deployed on a tomcat server running on a IBM Fyre VM. The link to GET mock water advice is http://9.21.108.205:8080/liquidPrep/api/waterAdvice.
 
 #### NOTE: To access the link to GET mock water advice, you need to be connected on an IBM network.
 
+## Contributing
 
-### License
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## License
 
 Copyright 2019-2020 Liquid Prep
 

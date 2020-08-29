@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <!-- <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button> -->
+    <h1>Clever Crop</h1>
+    <span class="menu-spacer"></span>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+      <span style="font-size: 12px;">Clever Crop for smarter farming</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/'">Home</a>
+      <a mat-list-item [routerLink]="'/select-crop'">Select Crop Type</a>
+      <a mat-list-item [routerLink]="'/help'">Help</a>
+      <!-- <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a> -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 68vh;">
+
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

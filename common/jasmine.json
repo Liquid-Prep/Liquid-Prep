@@ -1,0 +1,10 @@
+{
+    "spec_dir": "tests",
+    "spec_files": ["**/*[tT]est.ts"],
+    "helpers": [
+      "helpers/**/*.ts",
+      "node_modules/jasmine-ajax/lib/mock-ajax.js"
+    ],
+    "oneFailurePerSpec": false,
+    "random": true
+  }

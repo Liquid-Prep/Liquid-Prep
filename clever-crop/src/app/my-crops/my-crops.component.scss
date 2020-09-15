@@ -1,0 +1,53 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  //even children color
+  background-color: #f2f2f2;
+}
+
+th {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.mat-tab-group {
+  margin-bottom: 48px;
+}
+
+body {
+  margin-top: 10px;
+}
+
+.card {
+  max-width: 150px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.vertical {
+  // display: inline-block;
+  // margin-left: 0px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.description {
+  font-size: 13px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

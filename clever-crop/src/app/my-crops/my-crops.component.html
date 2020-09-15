@@ -1,0 +1,27 @@
+<nav mat-tab-nav-bar [backgroundColor]="background">
+  <a
+    mat-tab-link
+    *ngFor="let tab of tabs"
+    (click)="tabClicked(tab)"
+    [active]="activeTab == tab"
+  >
+    {{ tab }}
+  </a>
+</nav>
+
+<div class="content" fxLayout="row wrap">
+  <div fxFlex="25%" *ngFor="let crop of dataSource">
+    <mat-card class="card">
+      <mat-card-header> </mat-card-header>
+      <img mat-card-image src="{{ crop.url }}" alt="{{crop.title}}" />
+      <mat-card-content>
+        <div class="vertical">
+          <Label class="title" textWrap="true">{{ crop.title }}</Label>
+          <Label class="description" textWrap="true">{{
+            crop.description
+          }}</Label>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
-import { MatCardModule } from "@angular/material/card";
+import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -20,6 +20,18 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppServicesService } from './app-services.service';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { SwiperModule, SwiperConfigInterface, SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  observer: true,
+  direction: 'horizontal',
+  threshold: 50,
+  spaceBetween: 5,
+  slidesPerView: 1,
+  centeredSlides: true
+};
 
 @NgModule({
   declarations: [AppComponent, WelcomeComponent, MyCropsComponent],
@@ -41,8 +53,16 @@ import { AppServicesService } from './app-services.service';
     MatSortModule,
     MatProgressSpinnerModule,
     MatCardModule,
+    SwiperModule,
+    FlexLayoutModule
   ],
-  providers: [AppServicesService],
+  providers: [
+    AppServicesService,
+    {
+      provide: SWIPER_CONFIG,
+      useValue: DEFAULT_SWIPER_CONFIG
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

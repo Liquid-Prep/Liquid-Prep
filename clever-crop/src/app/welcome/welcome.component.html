@@ -1,1 +1,29 @@
-<p class="center">welcome works!</p>
+<div class="content-container">
+  <swiper class="swiper-container"
+          [config]="config"
+          [disabled]="disabled"
+          (indexChange)="onIndexChange($event)"
+          (swiperTransitionStart)="onSwiperEvent('transitionStart')"
+          (swiperTransitionEnd)="onSwiperEvent('transitionEnd')">
+    <div class="swiper-slide">
+      <div fxLayout="column" fxFlexFill>
+        <img src="assets/img-31.png" alt="welcome 1">
+        <button mat-flat-button color="accent" class="c-btn">GET STARTED</button>
+      </div>
+
+    </div>
+    <div class="swiper-slide">
+      <div fxLayout="column"  fxFlexFill>
+        <img src="assets/img-32.png" alt="welcome 2">
+        <button mat-flat-button color="primary" class="c-btn" (click)="onGetStarted()">GET STARTED</button>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div fxLayout="column" fxFlexFill>
+        <img src="assets/img-33.png" alt="welcome 3">
+        <button mat-flat-button color="primary" class="c-btn" (click)="onGetStarted()">GET STARTED</button>
+      </div>
+    </div>
+
+  </swiper>
+</div>

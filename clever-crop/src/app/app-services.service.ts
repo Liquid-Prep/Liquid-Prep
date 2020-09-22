@@ -1,27 +1,43 @@
 import { Injectable } from '@angular/core';
 import { Crop } from './models/Crop';
-import { Observable, observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+// import * as Rx from 'rxjs/Rx';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
+import { CropListResponse } from './models/api/CropListResponse';
+import { CropInfoResponse } from './models/api/CropInfoResponse';
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppServicesService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   // private cropsUrl = 'https://liquidprep.com/crops';
   private cropsUrl = '/assets/json/crops.json';
 
   // private cropUrl = 'https://liquidprep.com/crops/';
   private cropUrl = '/assets/json/crop.json';
 
-
-  requestCropsList(): Observable<Crop[]> {
-    return this.http.get<Crop[]>(this.cropsUrl);
+  requestCropsList(): Observable<CropListResponse> {
+    return this.http.get<CropListResponse>(this.cropsUrl).pipe(
+      map((response: CropListResponse) => {
+        if (response.data) {
+          response.data.map((crop) => {
+            this.fetchCropImage(crop);
+          });
+        }
+        return response;
+      })
+    );
   }
 
-  requestCropsInfo(id): Observable<Crop[]> {
-    return this.http.get<Crop[]>(this.cropUrl + id);
+  requestCropsInfo(id): Observable<CropInfoResponse> {
+    return this.http.get<CropInfoResponse>(this.cropUrl + id);
+  }
+
+  private fetchCropImage(crop: Crop) {
+    // TODO fix the mapping
+    crop.url = '../assets/crops-images/corn.jpg';
   }
 }

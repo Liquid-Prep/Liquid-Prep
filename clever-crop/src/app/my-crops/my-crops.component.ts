@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ThemePalette } from '@angular/material/core';
 
-import { Crop } from 'src/app/models/Crop';
 import { AppServicesService } from '../app-services.service';
+import { CropListResponse } from '../models/api/CropListResponse';
+import { CropInfoResponse } from '../models/api/CropInfoResponse';
 
 @Component({
   selector: 'app-my-crops',
@@ -19,19 +20,21 @@ export class MyCropsComponent implements OnInit {
   activeTab = this.tabs[0];
   background: ThemePalette = undefined;
 
-  constructor(private _appService: AppServicesService) {}
+  constructor(private appService: AppServicesService) {}
 
   ngOnInit(): void {
-    this._appService.requestCropsList().subscribe(data => {
-      this.dataSource = data;
+    this.appService.requestCropsList().subscribe(cropListResponse => {
+      this.dataSource = cropListResponse.data;
     });
   }
-  
+
   public tabClicked(tab) {
+    console.log('clicked ' , tab);
     this.activeTab = tab;
+
   }
 
-  public onRowClicked(row) {
-    console.log('row clicked ' , row);
+  public fabClicked() {
+    console.log('fab clicked' );
   }
 }

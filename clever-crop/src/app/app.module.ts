@@ -18,6 +18,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppServicesService } from './app-services.service';
 
@@ -54,7 +55,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatProgressSpinnerModule,
     MatCardModule,
     SwiperModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatGridListModule,
   ],
   providers: [
     AppServicesService,

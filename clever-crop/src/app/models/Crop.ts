@@ -1,13 +1,20 @@
 export class Crop {
-    id: Number;
-    title: string;
-    description: string;
-    url: string;
+    index: Number;
+    cropName: String;
+    cropGrowthStage: CropGrowthStage;
+    url: String;
+}
 
-    constructor(id, title, description, url) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.url = url;
-    }
+export class CropGrowthStage {
+    numberOfStages: Number;
+    waterMeasurementMetric: String; // inches
+    waterUsage: String; // daily
+    stages: Stage[]
+}
+
+export class Stage {
+   stageNumber: Number;
+   stage: String;
+   waterUseMin: Number;
+   waterUseMax: Number;
 }

@@ -3,7 +3,7 @@
   position: relative;
 
   overflow: auto;
-  height: 640px;
+  height: 600px;
   min-height: 0;
   margin: 0px 0px;
   border-radius: 00px;
@@ -29,12 +29,12 @@
   background-color: #aaa;
 }
 
-
 /* customise*/
 .c-btn {
   position: absolute;
-  top: 80%;
+  top: 88%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
+

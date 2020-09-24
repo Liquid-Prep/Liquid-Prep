@@ -12,7 +12,7 @@ export class WelcomeComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   public config: SwiperOptions = {
-    a11y: { enabled: true },
+    a11y: {enabled: true},
     direction: 'horizontal',
     slidesPerView: 1,
     keyboard: true,
@@ -25,8 +25,15 @@ export class WelcomeComponent implements OnInit {
       hideOnClick: false
     },
     autoplay: {
-      delay: 2000
+      delay: 2000,
+      stopOnLastSlide: true,
+      disableOnInteraction: true,
+      waitForTransition: false
     },
+    speed: 500,
+    longSwipesRatio: 0.1,
+    longSwipesMs: 100,
+    threshold: 5
   };
 
   public disabled = false;

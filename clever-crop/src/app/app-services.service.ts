@@ -19,6 +19,9 @@ export class AppServicesService {
   // private cropUrl = 'https://liquidprep.com/crops/';
   private cropUrl = '/assets/json/crop.json';
 
+  // private weatherUrl = 'https://liquidprep.com/crops/';
+  private weatherUrl = '/assets/json/weather.json';
+
   requestCropsList(): Observable<CropListResponse> {
     return this.http.get<CropListResponse>(this.cropsUrl).pipe(
       map((response: CropListResponse) => {
@@ -32,8 +35,12 @@ export class AppServicesService {
     );
   }
 
-  requestCropsInfo(id): Observable<CropInfoResponse> {
+  public requestCropsInfo(id): Observable<CropInfoResponse> {
     return this.http.get<CropInfoResponse>(this.cropUrl + id);
+  }
+
+  public requestWeatherInfo(): Observable<WeatherResponse> {
+    return this.http.get<WeatherResponse>(this.weatherUrl);
   }
 
   private fetchCropImage(crop: Crop) {

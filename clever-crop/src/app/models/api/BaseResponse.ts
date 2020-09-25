@@ -1,5 +1,9 @@
 export class BaseResponse {
-    status: String;
-    statusCode: String;
-    message: String;
+  status: string;
+  statusCode: string;
+  message: string;
+
+  public isSuccessful(): boolean {
+    return status === 'success';
+  }
 }

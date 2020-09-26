@@ -1,0 +1,30 @@
+<mat-toolbar class="custom-toolbar">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon class="volume-icon">menu</mat-icon>
+  </button>
+  <!-- <title class="toolbar-title">Measure Soil moinsture</title> -->
+  <span class="toolbar-title">Measure Soil moinsture</span>
+  <span class="toolbar-spacer"></span>
+  <button mat-icon-button class="volume-icon" aria-label="read text" (click)="volumeClicked()">
+    <mat-icon>volume_up</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="content-container">
+  <swiper class="swiper-container" [config]="config" [(index)]="index" [disabled]="disabled"
+    (indexChange)="onIndexChange($event)" (swiperTransitionStart)="onSwiperEvent('transitionStart')"
+    (swiperTransitionEnd)="onSwiperEvent('transitionEnd')">
+
+    <div class="swiper-slide" *ngFor="let item of dataSource">
+      <div fxLayout="column" fxFlexFill >
+        <div class="vertical">
+          <Label class="title" textWrap="true">{{ item.title }}</Label>
+          <Label class="description" textWrap="true">{{ item.description }}</Label>
+        </div>
+        <img src="{{ item.url }}" alt="{{ item.title }}">
+        <button mat-flat-button color="primary" class="btn-next" (click)="onGetStarted()">Next</button>
+      </div>
+    </div>
+  
+  </swiper>
+</div>

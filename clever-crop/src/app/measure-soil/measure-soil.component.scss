@@ -1,0 +1,65 @@
+.content-container {
+  position: relative;
+
+  overflow: auto;
+  height: 600px;
+  min-height: 0;
+  margin: 0px 0px;
+  border-radius: 00px;
+  background-color: #fff;
+}
+
+.swiper-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.swiper-slide {
+  color: #aaa;
+  background-color: #eee;
+}
+
+.title {
+  color: black;
+  font-size: 16px;
+}
+
+.description {
+  color: gray;
+  font-size: 14px;
+}
+
+.btn-next {
+  position: absolute;
+  top: 88%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.custom-toolbar {
+  background-color: rgba(0, 0, 255, 0.774);
+  padding: 0 5px;
+}
+
+.toolbar-title {
+  color: #fff;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.volume-icon {
+  color: #fff;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}

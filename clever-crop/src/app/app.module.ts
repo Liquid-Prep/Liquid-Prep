@@ -19,11 +19,13 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { AppServicesService } from './app-services.service';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SwiperModule, SwiperConfigInterface, SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { MeasureSoilComponent } from './measure-soil/measure-soil.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   observer: true,
@@ -35,7 +37,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 };
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, MyCropsComponent],
+  declarations: [AppComponent, WelcomeComponent, MyCropsComponent, MeasureSoilComponent],
   imports: [
     BrowserModule,
     MaterialModule,
@@ -57,6 +59,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SwiperModule,
     FlexLayoutModule,
     MatGridListModule,
+    MatToolbarModule,
   ],
   providers: [
     AppServicesService,

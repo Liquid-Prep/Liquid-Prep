@@ -1,0 +1,21 @@
+<mat-toolbar class="custom-toolbar">
+    <button mat-icon-button class="white-icon" aria-label="back clicked" (click)="backClicked()">
+        <mat-icon class="volume-icon">arrow_back</mat-icon>
+    </button>
+    <span class="toolbar-title">Select Growth stage</span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button class="white-icon" aria-label="read text" (click)="volumeClicked()">
+        <mat-icon>volume_up</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-grid-list cols="2" rowHeight="1:1" gutterSize="2px">
+    <mat-grid-tile *ngFor="let stage of stages">
+        <mat-card>
+            <img mat-card-image src="{{ stage.url }}" alt="{{ stage.stage }}" />
+            <mat-card-footer>
+                <mat-card-title>{{ stage.stage }}</mat-card-title>
+            </mat-card-footer>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

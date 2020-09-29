@@ -30,7 +30,7 @@ export class AppServicesService {
   // private weatherUrl = 'https://liquidprep.com/crops/';
   private weatherUrl = '/assets/json/weather.json';
 
-  requestCropsList(): Observable<CropListResponse> {
+  public requestCropsList(): Observable<CropListResponse> {
     return this.http.get<CropListResponse>(this.cropsUrl).pipe(
       map((response: CropListResponse) => {
         if (response.data) {
@@ -44,7 +44,14 @@ export class AppServicesService {
   }
 
   public requestCropsInfo(id): Observable<CropInfoResponse> {
-    return this.http.get<CropInfoResponse>(this.cropUrl + id);
+    return this.http.get<CropInfoResponse>(this.cropUrl).pipe(
+      map((response: CropInfoResponse) => {
+        if (response.data) {
+          this.fetchCropImage(response.data);
+        }
+        return response;
+      })
+    );
   }
 
   public requestWeatherInfo(): Observable<WeatherResponse> {
@@ -54,12 +61,16 @@ export class AppServicesService {
   private fetchCropImage(crop: Crop) {
     // TODO fix the mapping
     crop.url = '../assets/crops-images/corn.jpg';
+
+    if (crop.cropGrowthStage) {
+      crop.cropGrowthStage.stages.forEach((stage) => {
+        stage.url = '../assets/crops-images/corn.jpg';
+      });
+    }
   }
 
   public getMyCrops(): Observable<CropListResponse> {
-   return of(
-      this.storage.get(STORAGE_KEY) || this.getEmptyMyCrops()
-    );
+    return of(this.storage.get(STORAGE_KEY) || this.getEmptyMyCrops());
   }
 
   public setMyCrops(cropListResponse: CropListResponse) {

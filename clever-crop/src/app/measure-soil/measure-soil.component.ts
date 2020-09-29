@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
-import { SwiperOptions } from 'swiper';
 import { Router } from '@angular/router';
 
+import { SwiperOptions } from 'swiper';
 import { MeasureSoilItems } from '../models/MeasureSoil';
 
 @Component({

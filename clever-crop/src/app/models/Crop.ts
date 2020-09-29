@@ -1,20 +1,21 @@
 export class Crop {
-    index: Number;
-    cropName: String;
+    index: number;
+    cropName: string;
     cropGrowthStage: CropGrowthStage;
-    url: String;
+    url: string;
 }
 
 export class CropGrowthStage {
-    numberOfStages: Number;
-    waterMeasurementMetric: String; // inches
-    waterUsage: String; // daily
-    stages: Stage[]
+    numberOfStages: number;
+    waterMeasurementMetric: string; // inches
+    waterUsage: string; // daily
+    stages: Stage[];
 }
 
 export class Stage {
-   stageNumber: Number;
-   stage: String;
-   waterUseMin: Number;
-   waterUseMax: Number;
+   stageNumber: number;
+   stage: string;
+   waterUseMin: number;
+   waterUseMax: number;
+   url: string;
 }

@@ -1,53 +1,50 @@
-table {
-  border-collapse: collapse;
+.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.md-fab-bottom-right {
+  position: fixed !important;
+  right: 15px; /* Add this and change value to set the margin you want */
+  bottom: 15px;
+  z-index: 99;
+}
+
+.custom-toolbar {
+  background-color: rgba(0, 0, 255, 0.774);
+  padding: 0 5px;
+}
+
+.toolbar-title {
+  color: #fff;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.white-icon {
+  color: #fff;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: flex;
   width: 100%;
 }
 
-th,
-td {
+.date {
+  display: inline-block;
+  width: 40%;
   text-align: left;
-  padding: 8px;
-}
-tr:nth-child(even) {
-  //even children color
-  background-color: #f2f2f2;
-}
-
-th {
-  background-color: #1e90ff;
-  color: white;
-}
-
-.mat-tab-group {
-  margin-bottom: 48px;
-}
-
-body {
-  margin-top: 10px;
-}
-
-.card {
-  max-width: 150px;
-  margin-top: 10px;
   margin-left: 10px;
-}
-
-.vertical {
-  // display: inline-block;
-  // margin-left: 0px;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.title {
   font-size: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
 }
 
-.description {
-  font-size: 13px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
+.imgHolder {
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+  margin-right: 10px;}

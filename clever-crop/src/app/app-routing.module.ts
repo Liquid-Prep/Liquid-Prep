@@ -4,6 +4,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { MyCropsComponent } from './my-crops/my-crops.component';
 import { MeasureSoilComponent } from './measure-soil/measure-soil.component';
 import { GrowthStageComponent } from './growth-stage/growth-stage.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'select-growth',
     component: GrowthStageComponent
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent
   },
 ];
 

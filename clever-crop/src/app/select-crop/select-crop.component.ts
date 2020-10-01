@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { formatDate, Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select-crop',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectCropComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _location: Location) { }
 
   ngOnInit(): void {
   }
 
+  public backClicked() {
+    this._location.back();
+  }
 }

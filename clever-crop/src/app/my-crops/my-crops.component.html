@@ -1,27 +1,42 @@
+<mat-toolbar class="custom-toolbar">
+  <button mat-icon-button class="white-icon" aria-label="back clicked" (click)="backClicked()">
+    <mat-icon class="volume-icon">arrow_back</mat-icon>
+  </button>
+  <span class="toolbar-title">My Crops</span>
+  <span class="toolbar-spacer"></span>
+  <button mat-icon-button class="white-icon" aria-label="read text" (click)="volumeClicked()">
+    <mat-icon>volume_up</mat-icon>
+  </button>
+</mat-toolbar>
+
 <nav mat-tab-nav-bar [backgroundColor]="background">
-  <a
-    mat-tab-link
-    *ngFor="let tab of tabs"
-    (click)="tabClicked(tab)"
-    [active]="activeTab == tab"
-  >
-    {{ tab }}
+  <a mat-tab-link *ngFor="let tab of tabs" (click)="tabClicked(tab)" [active]="activeTab == tab">
+    <div class="vertical">
+      <mat-icon>{{ tab == tabs[0] ? "home" : "settings" }}</mat-icon>
+      <Label class="description" textWrap="true">{{ tab }}</Label>
+    </div>
   </a>
 </nav>
 
-<div class="content" fxLayout="row wrap">
-  <div fxFlex="25%" *ngFor="let crop of dataSource">
-    <mat-card class="card">
-      <mat-card-header> </mat-card-header>
-      <img mat-card-image src="{{ crop.url }}" alt="{{crop.title}}" />
-      <mat-card-content>
-        <div class="vertical">
-          <Label class="title" textWrap="true">{{ crop.title }}</Label>
-          <Label class="description" textWrap="true">{{
-            crop.description
-          }}</Label>
-        </div>
-      </mat-card-content>
-    </mat-card>
+<button mat-mini-fab class="md-fab-bottom-right" (click)="fabClicked()">
+  <mat-icon>add</mat-icon>
+</button>
+
+<div class="horizontal">
+  <h2>{{ currentDate }}</h2>
+  <div class="imgHolder">
+    <mat-icon class="degree">wb_sunny</mat-icon>
+    <span>30c</span>
   </div>
 </div>
+
+<mat-grid-list cols="2" rowHeight="1:1" gutterSize="2px" *ngIf="activeTab == tabs[0]">
+  <mat-grid-tile *ngFor="let crop of dataSource">
+    <mat-card>
+      <img mat-card-image src="{{ crop.url }}" alt="{{ crop.title }}" />
+      <mat-card-footer>
+        <mat-card-title>{{ crop.cropName }}</mat-card-title>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

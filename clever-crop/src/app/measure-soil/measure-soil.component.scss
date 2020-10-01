@@ -1,7 +1,7 @@
 .content-container {
   position: relative;
   overflow: auto;
-  height: 600px;
+  height: 90%;
   min-height: 0;
   margin: 0px 0px;
   border-radius: 00px;
@@ -17,8 +17,8 @@
 }
 
 .swiper-slide {
-  color: #aaa;
-  background-color: #eee;
+  color: white;
+  background-color: white;
 }
 
 .title {
@@ -33,10 +33,18 @@
 
 .btn-next {
   position: absolute;
-  top: 88%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  bottom: 0%;
+  right: 10%;
+  // transform: translate(-50%, -50%);
+  // -ms-transform: translate(-50%, -50%);
+}
+
+.btn-previous {
+  position: absolute;
+  bottom: 0%;
+  left: 10%;
+  // transform: translate(-50%, -50%);
+  // -ms-transform: translate(-50%, -50%);
 }
 
 .custom-toolbar {

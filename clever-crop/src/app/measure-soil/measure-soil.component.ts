@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { SwiperOptions } from 'swiper';
@@ -11,7 +11,7 @@ import { MeasureSoilItems } from '../models/MeasureSoil';
   styleUrls: ['./measure-soil.component.scss'],
 })
 export class MeasureSoilComponent implements OnInit {
-  constructor(private _router: Router, private _location: Location) {}
+  constructor(private _router: Router, private _location: Location) { }
 
   public config: SwiperOptions = {
     a11y: { enabled: true },
@@ -35,19 +35,23 @@ export class MeasureSoilComponent implements OnInit {
   public disabled = false;
   public dataSource = MeasureSoilItems;
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  public onGetStarted() {
+  public onNextClicked() {
     if (this.index < this.dataSource.length) {
       this.index++;
-    } else {
-      this._router.navigateByUrl('my-crops');
     }
   }
 
-  public onIndexChange(index: number): void {}
+  public onPrevClicked() {
+    if (this.index > 0) {
+      this.index--;
+    }
+  }
 
-  public onSwiperEvent(event: string): void {}
+  public onIndexChange(index: number): void { }
+
+  public onSwiperEvent(event: string): void { }
 
   public volumeClicked() {
     console.log('volume clicked');

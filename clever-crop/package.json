@@ -28,6 +28,7 @@
     "@angular/service-worker": "^10.0.14",
     "ngx-swiper-wrapper": "^10.0.0",
     "ngx-webstorage-service": "^4.1.0",
+    "ng2-search-filter": "0.5.1",
     "rxjs": "~6.6.2",
     "swiper": "^6.2.0",
     "tslib": "^2.0.1",

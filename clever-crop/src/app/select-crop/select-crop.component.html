@@ -1,1 +1,39 @@
-<p class="center">select-crop works!</p>
+<div class="add-crop" style="overflow-x:hidden;" fxFlexFill cdkScrollable>
+  <mat-toolbar color="primary" class="add-crop-header mat-elevation-z4" [class.hidden]="toggleSearch">
+    <mat-toolbar-row style="padding: 0 5px;">
+      <button mat-icon-button class="close-icon" aria-label="Icon-button with close icon">
+        <mat-icon>close</mat-icon>
+      </button>
+      <div style="padding:8px 0 0 10px; flex:1;">
+        <div class="mat-title" style="margin-bottom:2px;">Add a crop</div>
+      </div>
+      <button mat-icon-button class="search-icon" aria-label="Icon-button with search icon"  (click)="openSearch()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-toolbar class="search-block mat-elevation-z4" [class.active]="toggleSearch">
+    <mat-toolbar-row style="padding: 0 5px;">
+      <button class="search-icon" mat-icon-button disabled>
+        <mat-icon>search</mat-icon>
+      </button>
+      <input class="search-control" type="text" placeholder="Search" [(ngModel)]="searchText" #searchbar>
+      <button mat-button mat-icon-button (click)="searchClose()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-grid-list cols="2" rowHeight="1:1"    gutterSize="2px"  >
+    <mat-grid-tile
+      *ngFor="let picture of pictures">
+      <mat-card>
+        <img mat-card-image [src]="picture.img">
+        <mat-card-footer>
+          <mat-card-title>{{picture.title}}</mat-card-title>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

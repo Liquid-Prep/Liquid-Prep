@@ -28,8 +28,7 @@ export class MyCropsComponent implements OnInit {
   constructor(private appService: AppServicesService, private router: Router, private _location: Location) { }
 
   ngOnInit(): void {
-    this.appService.requestCropsList().subscribe(cropListResponse => {
-      console.log('clicked ', cropListResponse);
+    this.appService.getMyCrops().subscribe(cropListResponse => {
       this.dataSource = cropListResponse.data;
     });
     this.currentDate = 'Today, ' + formatDate(new Date(), 'MMMM d, yyyy', 'en');

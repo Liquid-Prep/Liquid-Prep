@@ -16,8 +16,8 @@ export class GrowthStageComponent implements OnInit {
   stages: Stage[];
 
   constructor(
-    private _router: Router,
-    private _location: Location,
+    private router: Router,
+    private location: Location,
     private appService: AppServicesService
   ) {}
 
@@ -36,7 +36,10 @@ export class GrowthStageComponent implements OnInit {
   }
 
   public backClicked() {
-    this._location.back();
+    this.location.back();
   }
 
+  cardClicked(stage: Stage) {
+    this.router.navigateByUrl('/measure-soil');
+  }
 }

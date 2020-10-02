@@ -25,10 +25,6 @@ const routes: Routes = [
     component: MeasureSoilComponent
   },
   {
-    path: 'measure-soil',
-    component: MeasureSoilComponent
-  },
-  {
     path: 'select-growth',
     component: GrowthStageComponent
   },

@@ -77,6 +77,14 @@ export class AppServicesService {
     this.storage.set(STORAGE_KEY, cropListResponse);
   }
 
+  public deleteMyCrops(): boolean{
+    if (this.storage.get(STORAGE_KEY)){
+      this.setMyCrops(this.getEmptyMyCrops());
+      return true;
+    }
+    return false;
+  }
+
   private getEmptyMyCrops(): CropListResponse {
     const emptyCropsResponse = new CropListResponse();
     emptyCropsResponse.status = 'success';

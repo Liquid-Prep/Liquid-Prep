@@ -11,7 +11,7 @@ import { MeasureSoilItems } from '../models/MeasureSoil';
   styleUrls: ['./measure-soil.component.scss'],
 })
 export class MeasureSoilComponent implements OnInit {
-  constructor(private _router: Router, private _location: Location) { }
+  constructor(private router: Router, private location: Location) { }
 
   public config: SwiperOptions = {
     a11y: { enabled: true },
@@ -40,6 +40,8 @@ export class MeasureSoilComponent implements OnInit {
   public onNextClicked() {
     if (this.index < this.dataSource.length) {
       this.index++;
+    } else {
+      this.router.navigateByUrl('/my-crops');
     }
   }
 
@@ -58,6 +60,6 @@ export class MeasureSoilComponent implements OnInit {
   }
 
   public backClicked() {
-    this._location.back();
+    this.location.back();
   }
 }

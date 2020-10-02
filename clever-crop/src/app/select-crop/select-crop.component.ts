@@ -1,5 +1,12 @@
 
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AppServicesService} from '../app-services.service';
+import {Router} from '@angular/router';
+import {formatDate, Location} from '@angular/common';
+
+import { CropListResponse } from '../models/api/CropListResponse';
+import { CropInfoResponse } from '../models/api/CropInfoResponse';
+import { Crop } from '../models/Crop';
 
 @Component({
   selector: 'app-select-crop',
@@ -7,39 +14,34 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
   styleUrls: ['./select-crop.component.scss']
 })
 
-export class SelectCropComponent {
-  items = ["Kyle","Eric","Bailey", "Deborah", "Glenn", "Jaco", "Joni", "Gigi"]
+export class SelectCropComponent implements OnInit{
 
   searchText = '';
   title = 'Select Crop';
-  pictures = [
-    {
-      id: 1,
-      title: 'Corn',
-      img: './assets/crops-images/corn.jpg'
-    },
-    {
-      id: 2,
-      title: 'Lentil',
-      img: './assets/crops-images/corn.jpg'
-    },
-    {
-      id: 3,
-      title: 'Rice',
-      img: './assets/crops-images/corn.jpg'
-    },
-    {
-      id: 4,
-      title: 'Soy',
-      img: './assets/crops-images/corn.jpg'
-    },
-  ];
 
   @ViewChild('searchbar') searchbar: ElementRef;
 
   toggleSearch = false;
-  constructor() {
+  dataSource: Crop[];
+  myCrops: CropListResponse;
 
+  constructor(private appService: AppServicesService, private router: Router, private location: Location) { }
+
+  ngOnInit(): void {
+    this.appService.deleteMyCrops();
+    this.appService.requestCropsList().subscribe(cropListResponse => {
+      console.log('clicked ', cropListResponse);
+      this.dataSource = cropListResponse.data;
+    });
+
+    this.appService.getMyCrops().subscribe(cropListResponse => {
+      console.log('clicked ', cropListResponse);
+      this.myCrops = cropListResponse;
+    });
+  }
+
+  backToMyCrops(){
+    this.location.back();
   }
 
   openSearch() {
@@ -49,5 +51,21 @@ export class SelectCropComponent {
   searchClose() {
     this.searchText = '';
     this.toggleSearch = false;
+  }
+
+  addCrop(clickedCrop: Crop) {
+    if (this.myCrops.data.findIndex(c => c.index === clickedCrop.index) === -1){
+      this.myCrops.data.push(clickedCrop);
+      this.appService.setMyCrops(this.myCrops);
+      this.router.navigateByUrl('/select-growth');
+    }
+  }
+
+  filterFunction(): Crop[]{
+    if (this.searchText === null || this.searchText === ''){
+      return this.dataSource;
+    }else{
+      return this.dataSource.filter(i => i.cropName.includes( this.searchText));
+    }
   }
 }

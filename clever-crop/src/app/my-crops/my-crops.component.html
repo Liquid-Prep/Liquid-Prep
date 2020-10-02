@@ -33,7 +33,7 @@
 <mat-grid-list cols="2" rowHeight="1:1" gutterSize="2px" *ngIf="activeTab == tabs[0]">
   <mat-grid-tile *ngFor="let crop of dataSource">
     <mat-card>
-      <img mat-card-image src="{{ crop.url }}" alt="{{ crop.title }}" />
+      <img mat-card-image src="{{ crop.url }}" alt="{{ crop.cropName }}" />
       <mat-card-footer>
         <mat-card-title>{{ crop.cropName }}</mat-card-title>
       </mat-card-footer>

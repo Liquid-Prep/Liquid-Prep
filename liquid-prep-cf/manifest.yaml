@@ -12,3 +12,4 @@ packages:
           memorySize: 256
         inputs:
           apiKey: ${APIKEY}
+          cloudantUrl: ${CLOUDANT_URL}

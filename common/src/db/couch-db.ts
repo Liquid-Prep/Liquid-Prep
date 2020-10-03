@@ -4,13 +4,13 @@ import * as Cloudant from '@cloudant/cloudant';
 class CouchDBClass {
   cloudant: any;
   db: any;
-  constructor(dbName) {
+  constructor(dbName:string, url:string) {
     let params = {
-      url: 'https://d44a1815-07de-4807-bd7a-baf4b9adc1c4-bluemix:2808e309234a627482f093ca8880266394522d2b89c456ec3706cfd40aec3111@d44a1815-07de-4807-bd7a-baf4b9adc1c4-bluemix.cloudantnosqldb.appdomain.cloud'
+      url: url
       // account: 'd44a1815-07de-4807-bd7a-baf4b9adc1c4-bluemix.cloudantnosqldb.appdomain.cloud',
       // plugins: {
       //   iamauth: {
-      //     iamApiKey: '6hEXRD9zpfFONrpCBZTvm5HRgidTMByag2vAOm0bwxb8'
+      //     iamApiKey: '*********************'
       //   }
       // } 
     };

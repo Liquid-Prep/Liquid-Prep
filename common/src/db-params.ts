@@ -10,4 +10,5 @@ export interface DBParams extends Params {
   cert: string;
   uri: string;
   options: any;
+  cloudantUrl: string;
 }

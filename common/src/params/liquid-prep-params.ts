@@ -1,6 +1,6 @@
-import { Params } from "../params";
+import { DBParams } from "../db-params";
 
-export interface LiquidPrepParams extends Params {
+export interface LiquidPrepParams extends DBParams {
   moistureLevel: number;
   soilWet: string;
   rainTomorrow: string;

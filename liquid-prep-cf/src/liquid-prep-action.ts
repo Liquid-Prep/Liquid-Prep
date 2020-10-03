@@ -5,10 +5,11 @@ import { util } from '@common/utility';
 import { Soil, Weather } from './triggers';
 import { CouchDB } from '@common/db/couch-db';
 
-let couchDB = new CouchDB('liquid-prep');
+let couchDB;
 
 export default function main(params: LiquidPrepParams) {
   let result: any;
+  couchDB = new CouchDB('liquid-prep', params.cloudantUrl);
   return new Promise((resolve, reject) => {
     action.exec(params)
     .subscribe((data) => {

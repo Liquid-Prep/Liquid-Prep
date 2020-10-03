@@ -20,7 +20,7 @@ const yaml = process.env.npm_config_api ? 'manifest-api.yaml' : 'manifest.yaml';
 let build = {
   deploy: () => {
     build.getEnvVar();
-    let arg = `APIKEY=${process.env.APIKEY} wskdeploy -m ${yaml}`;
+    let arg = `APIKEY=${process.env.APIKEY} CLOUDANT_URL=${process.env.CLOUDANT_URL} wskdeploy -m ${yaml}`;
     console.log('deploying...')
     exec(arg, {maxBuffer: 1024 * 2000}, (err, stdout, stderr) => {
       if(!err) {
@@ -36,6 +36,7 @@ let build = {
     let pEnv = process.env;
     pEnv.PACKAGE = package;
     pEnv.APIKEY = weather[env]['apikey'];
+    pEnv.CLOUDANT_URL = weather[env]['cloudantUrl'];
 
   },
   createComposer: () => {

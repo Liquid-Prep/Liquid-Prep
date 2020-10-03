@@ -29,5 +29,4 @@ export interface Params {
   basin: string;
   expires: string;
   geoCode: string;
-  query: string;
 }

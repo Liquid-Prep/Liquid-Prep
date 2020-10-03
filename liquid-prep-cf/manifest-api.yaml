@@ -12,6 +12,7 @@ packages:
           memorySize: 256
         inputs:
           apiKey: ${APIKEY}
+          cloudantUrl: ${CLOUDANT_URL}
     apis:
       liquid-prep-api-gateway:
         liquid-prep:

@@ -5,13 +5,6 @@ const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 const dist = 'dist';  // be aware 'dist' folder is also used for tsconfig output
 
 var nodeModules = {};
-// fs.readdirSync('node_modules')
-//   .filter(function(x) {
-//     return ['.bin'].indexOf(x) === -1;
-//   })
-//   .forEach(function(mod) {
-//     nodeModules[mod] = 'commonjs ' + mod;
-//   });
 
 module.exports = {
   entry: {
@@ -25,12 +18,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true
-          }
-        },
+        use: 'ts-loader',
         exclude: /node_modules/
       }
     ],

@@ -4,6 +4,7 @@
   "description": "Liquid Prep Cloud Functions",
   "main": "index.js",
   "scripts": {
+    "upload": "bin/upload.js",
     "build": "npm run tsc",
     "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
     "tsc": "tsc",
@@ -20,6 +21,7 @@
   "author": "ljeff@us.ibm.com",
   "license": "ISC",
   "dependencies": {
+    "@cloudant/cloudant": "^4.3.0",
     "ibm-cos-sdk": "^1.6.1",
     "ibm-watson": "^5.4.0",
     "openwhisk-composer": "^0.12.0",

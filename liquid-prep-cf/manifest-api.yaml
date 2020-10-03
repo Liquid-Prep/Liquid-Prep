@@ -27,3 +27,11 @@ packages:
             liquid-prep-action:
               method: GET
               response: json
+          get_crop_list:
+            liquid-prep-action:
+              method: GET
+              response: json              
+          get_crop_list:
+            liquid-prep-action:
+              method: POST
+              response: json                            

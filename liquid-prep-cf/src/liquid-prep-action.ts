@@ -3,6 +3,9 @@ import { LiquidPrepParams } from '@common/params/liquid-prep-params';
 import { IftttMessenger } from '@common/ifttt-messenger';
 import { util } from '@common/utility';
 import { Soil, Weather } from './triggers';
+import { CouchDB } from '@common/db/couch-db';
+
+let couchDB = new CouchDB('liquid-prep');
 
 export default function main(params: LiquidPrepParams) {
   let result: any;
@@ -59,6 +62,16 @@ let action = {
     } else {
       let soil = new Soil(params.moistureLevel, params.rainTomorrow === 'true');
       return of({body: soil.isWaterNeeded()});
+    }
+  },
+  get_crop_list: (params: LiquidPrepParams) => {
+    if(params.body) {
+      console.log(params.body);
+      return couchDB.dbFind(params.body);
+    } else {
+      let query = JSON.parse(params.query);
+      // console.log('query', query)
+      return couchDB.dbFind(query);
     }
   },
   error: (msg) => {

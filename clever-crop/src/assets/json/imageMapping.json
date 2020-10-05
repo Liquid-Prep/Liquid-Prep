@@ -1,0 +1,38 @@
+{
+    "cropsMap": {
+        "0": {
+            "url": "../assets/crops-images/corn.jpg",
+            "stages": {
+                "1": {
+                    "url": "../assets/crops-images/corn.jpg"
+                },
+                "2": {
+                    "url": "../assets/crops-images/corn.jpg"
+                },
+                "3": {
+                    "url": "../assets/crops-images/corn.jpg"
+                },
+                "4": {
+                    "url": "../assets/crops-images/corn.jpg"
+                }
+            }
+        },
+        "1": {
+            "url": "../assets/crops-images/soybean.jpg",
+            "stages": {
+                "1": {
+                    "url": "../assets/crops-images/soybean.jpg"
+                },
+                "2": {
+                    "url": "../assets/crops-images/soybean.jpg"
+                },
+                "3": {
+                    "url": "../assets/crops-images/soybean.jpg"
+                },
+                "4": {
+                    "url": "../assets/crops-images/soybean.jpg"
+                }
+            }
+        }
+    }
+}

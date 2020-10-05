@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { Crop } from './models/Crop';
-// import * as Rx from 'rxjs/Rx';
+import { ImageMapping } from './models/ImageMapping';
+
 import { Observable, pipe, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -19,7 +20,16 @@ export class AppServicesService {
   constructor(
     private http: HttpClient,
     @Inject(SESSION_STORAGE) private storage: StorageService
-  ) {}
+  ) {
+    http.get<ImageMapping>(this.mappingFile)
+      .subscribe(data => {
+        this.imageMapping = data;
+      });
+  }
+
+  private mappingFile = '/assets/json/imageMapping.json';
+  private imageMapping: ImageMapping;
+  // private imageMapping = [string:string]
 
   // private cropsUrl = 'https://liquidprep.com/crops';
   private cropsUrl = '/assets/json/crops.json';
@@ -60,12 +70,26 @@ export class AppServicesService {
 
   private fetchCropImage(crop: Crop) {
     // TODO fix the mapping
-    crop.url = '../assets/crops-images/corn.jpg';
+    const defaultImage = '../assets/crops-images/missing.jpg';
 
-    if (crop.cropGrowthStage) {
-      crop.cropGrowthStage.stages.forEach((stage) => {
-        stage.url = '../assets/crops-images/corn.jpg';
-      });
+    console.log('crop map', this.imageMapping);
+    if (this.imageMapping != null && this.imageMapping.cropsMap[crop.index.toString()]) {
+      crop.url = this.imageMapping.cropsMap[crop.index.toString()].url;
+
+      if (crop.cropGrowthStage) {
+        crop.cropGrowthStage.stages.forEach((stage) => {
+          stage.url = this.imageMapping.cropsMap[crop.index.toString()].stages[stage.stageNumber.toString()];
+        });
+      }
+    }
+    else {
+      crop.url = defaultImage;
+
+      if (crop.cropGrowthStage) {
+        crop.cropGrowthStage.stages.forEach((stage) => {
+          stage.url = defaultImage;
+        });
+      }
     }
   }
 
@@ -77,8 +101,8 @@ export class AppServicesService {
     this.storage.set(STORAGE_KEY, cropListResponse);
   }
 
-  public deleteMyCrops(): boolean{
-    if (this.storage.get(STORAGE_KEY)){
+  public deleteMyCrops(): boolean {
+    if (this.storage.get(STORAGE_KEY)) {
       this.setMyCrops(this.getEmptyMyCrops());
       return true;
     }

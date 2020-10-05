@@ -50,7 +50,6 @@ export class MyCropsComponent implements OnInit {
 
   public volumeClicked() {
     console.log('volume clicked');
-    this.router.navigateByUrl('/measure-soil');
   }
 
   public backClicked() {

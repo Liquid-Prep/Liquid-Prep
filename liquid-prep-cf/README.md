@@ -32,24 +32,26 @@ sdk-gen                            0.1.12
 cloud-functions/wsk/functions/fn   1.0.32
 
 ### sso commandline examples
-ibmcloud login --sso -r us-east -o <user> -s sandbox && ibmcloud wsk list
-ibmcloud --account
-ibmcloud wsk list
-ibmcloud target -r us-south -o <user> -s sandbox
-ibmcloud fn package create ibmcos
-ibmcloud version
-ibmcloud target --cf sandbox
-ibmcloud login --sso
-ibmcloud account space dev
-ibmcloud fn package list
-ibmcloud target
-ibmcloud wsk api list
+ibmcloud login --sso -r us-east -o \<user> -s sandbox && ibmcloud wsk list<br>
+
+ibmcloud --account<br>
+ibmcloud wsk list<br>
+ibmcloud target -r us-south -o \<user> -s sandbox<br>
+ibmcloud fn package create ibmcos<br>
+ibmcloud version<br>
+ibmcloud target --cf sandbox<br>
+ibmcloud login --sso<br>
+ibmcloud account space dev<br>
+ibmcloud fn package list<br>
+ibmcloud target<br>
+ibmcloud wsk api list<br>
 
 ### swithcing account
-cd into liquid-prep-cf
+cd into liquid-prep-cf<br>
 run "npm run switch-account --account=serverless"  
 
 OR
+
 ibmcloud login --apikey ****************** -r us-south -o jefflu -s corporate_service_corp
 
 ### To refresh token
@@ -60,20 +62,29 @@ delete /Users/<username>/.wskprops then run "ibmcloud fn package list"
 
 ### fsh commands
 fsh app invoke weather-stage/cos-intellicast-composer --param animate yes
+
 fsh action invoke weather-stage/cos-intellicast-action --param env prod --param purge byDate --param directory 20190201
+
 fsh app invoke tools/intellicast-composer --param env prod --param animate yes
+
 fsh action invoke tools/intellicast-action --param env prod --param purge byDate --param directory 20190201
 
 ### kui commands against twcwebnp@us.ibm.com or twcwebp@us.ibm.com  
 kui app invoke weather-dev/cos-intellicast-composer --param animate yes
+
 kui app invoke weather-stage/cos-intellicast-composer --param animate yes
+
 kui app invoke weather-prod/cos-intellicast-composer --param animate yes
+
 kui action invoke weather-prod/cos-intellicast-purge-action --param purge byDate --param directory 20190628
+
 kui action invoke weather-prod/cos-intellicast-purge-action --param purge thisFile --param fileName animate.png
 
 ### Example for deployment
 npm run deploy --task=deploy --package=demo --env=dev
+
 npm run deploy --task=deploy --package=weather-stage --env=stage --composer=true
+
 npm run deploy --task=deploy --package=weather-prod --env=prod --composer=true
 
 ### Test out api call

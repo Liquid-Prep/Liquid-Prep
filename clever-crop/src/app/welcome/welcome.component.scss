@@ -1,8 +1,8 @@
-
+div {
+  overflow: hidden;
+}
 .content-container {
   position: relative;
-
-  overflow: auto;
   height: 600px;
   min-height: 0;
   margin: 0px 0px;
@@ -13,6 +13,7 @@
 
 .swiper-container {
   position: absolute;
+  height: 600px;
   top: 0;
   right: 0;
   bottom: 0;
@@ -20,6 +21,7 @@
 }
 
 .swiper-slide {
+  height: 600px;
   color: #aaa;
   background-color: #eee;
 }

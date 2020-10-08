@@ -9,24 +9,24 @@
   </button>
 </mat-toolbar>
 
-<nav mat-tab-nav-bar [backgroundColor]="background">
+<!-- <nav mat-tab-nav-bar [backgroundColor]="background">
   <a mat-tab-link *ngFor="let tab of tabs" (click)="tabClicked(tab)" [active]="activeTab == tab">
     <div class="vertical">
       <mat-icon>{{ tab == tabs[0] ? "home" : "settings" }}</mat-icon>
       <Label class="description" textWrap="true">{{ tab }}</Label>
     </div>
   </a>
-</nav>
+</nav> -->
 
 <button mat-mini-fab class="md-fab-bottom-right" (click)="fabClicked()">
   <mat-icon>add</mat-icon>
 </button>
 
 <div class="horizontal">
-  <h2>{{ currentDate }}</h2>
+  <h2 class="date">{{ currentDate }}</h2>
   <div class="imgHolder">
-    <mat-icon class="degree">wb_sunny</mat-icon>
-    <span>30c</span>
+    <mat-icon class="vertical-align-middle yellow" >wb_sunny</mat-icon>
+    <span class="vertical-align-middle temp">30c</span>
   </div>
 </div>
 

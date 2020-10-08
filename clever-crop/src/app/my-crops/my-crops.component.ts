@@ -35,7 +35,6 @@ export class MyCropsComponent implements OnInit {
   }
 
   public tabClicked(tab) {
-    console.log('clicked ', tab);
     this.activeTab = tab;
     if (tab === tab[0]) {
       this.router.navigateByUrl('/my-crops');
@@ -49,7 +48,7 @@ export class MyCropsComponent implements OnInit {
   }
 
   public volumeClicked() {
-    console.log('volume clicked');
+    
   }
 
   public backClicked() {

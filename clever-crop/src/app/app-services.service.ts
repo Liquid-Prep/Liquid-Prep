@@ -72,22 +72,22 @@ export class AppServicesService {
     // TODO fix the mapping
     const defaultImage = '../assets/crops-images/missing.jpg';
 
-    console.log('crop map', this.imageMapping);
     if (this.imageMapping != null && this.imageMapping.cropsMap[crop.index.toString()]) {
       crop.url = this.imageMapping.cropsMap[crop.index.toString()].url;
 
       if (crop.cropGrowthStage) {
         crop.cropGrowthStage.stages.forEach((stage) => {
           stage.url = this.imageMapping.cropsMap[crop.index.toString()].stages[stage.stageNumber.toString()];
+
         });
       }
-    }
-    else {
+    } else {
       crop.url = defaultImage;
 
       if (crop.cropGrowthStage) {
         crop.cropGrowthStage.stages.forEach((stage) => {
-          stage.url = defaultImage;
+          const stageUrl = '../assets/crops-images/stage' + stage.stageNumber + '.png';
+          stage.url = stageUrl;
         });
       }
     }

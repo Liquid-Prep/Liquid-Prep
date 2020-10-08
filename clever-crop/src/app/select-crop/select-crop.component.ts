@@ -30,12 +30,10 @@ export class SelectCropComponent implements OnInit{
   ngOnInit(): void {
     this.appService.deleteMyCrops();
     this.appService.requestCropsList().subscribe(cropListResponse => {
-      console.log('clicked ', cropListResponse);
       this.dataSource = cropListResponse.data;
     });
 
     this.appService.getMyCrops().subscribe(cropListResponse => {
-      console.log('clicked ', cropListResponse);
       this.myCrops = cropListResponse;
     });
   }
@@ -57,7 +55,7 @@ export class SelectCropComponent implements OnInit{
     if (this.myCrops.data.findIndex(c => c.index === clickedCrop.index) === -1){
       this.myCrops.data.push(clickedCrop);
       this.appService.setMyCrops(this.myCrops);
-      this.router.navigateByUrl('/select-growth');
+      this.router.navigateByUrl('/select-growth/' + clickedCrop.index);
     }
   }
 

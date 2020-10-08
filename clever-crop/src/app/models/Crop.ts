@@ -9,7 +9,7 @@ export class CropGrowthStage {
   numberOfStages: number;
   waterMeasurementMetric: string; // inches
   waterUsage: string; // daily
-  stages =  [];
+  stages: Stage[];
 }
 
 export class Stage {

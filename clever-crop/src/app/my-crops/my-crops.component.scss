@@ -1,3 +1,11 @@
+.primaryBlue {
+  color: #2F4FFE;
+}
+
+.yellow{
+  color: #FFCA26;
+}
+
 .vertical {
   display: flex;
   flex-direction: column;
@@ -9,6 +17,9 @@
   right: 15px; /* Add this and change value to set the margin you want */
   bottom: 15px;
   z-index: 99;
+  width: 56px;
+  height: 56px;
+  background-color: #2F4FFE;
 }
 
 .custom-toolbar {
@@ -29,22 +40,26 @@
 }
 
 .horizontal {
-  display: flex;
+  display: block;
   flex-direction: row;
-  align-items: flex;
-  width: 100%;
+  padding: 16px;
 }
 
 .date {
   display: inline-block;
-  width: 40%;
   text-align: left;
-  margin-left: 10px;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .imgHolder {
   display: inline-block;
-  width: 50%;
-  text-align: right;
-  margin-right: 10px;}
+  float: right;
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+.temp {
+  font-size: 20px;
+}

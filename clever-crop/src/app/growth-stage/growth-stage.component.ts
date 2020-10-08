@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { AppServicesService } from '../app-services.service';
 import { Crop, Stage } from '../models/Crop';
@@ -18,21 +18,20 @@ export class GrowthStageComponent implements OnInit {
   constructor(
     private router: Router,
     private location: Location,
-    private appService: AppServicesService
+    private appService: AppServicesService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    // TODO find the correct id or figure out  a way to get the crop
-    this.appService.requestCropsInfo(1).subscribe(cropInfoResponse => {
+    // TODO find the correct id or figure out a way to get the crop
+    this.appService.requestCropsInfo(this.route.snapshot.paramMap.get('id')).subscribe(cropInfoResponse => {
       this.crop = cropInfoResponse.data;
-      console.log('date', this.crop);
       this.stages = cropInfoResponse.data.cropGrowthStage.stages;
-      console.log('stages', this.crop.cropGrowthStage.stages);
     });
   }
 
   public volumeClicked() {
-    console.log('volume clicked');
+
   }
 
   public backClicked() {

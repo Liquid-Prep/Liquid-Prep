@@ -4,16 +4,16 @@
             "url": "../assets/crops-images/corn.jpg",
             "stages": {
                 "1": {
-                    "url": "../assets/crops-images/corn.jpg"
+                    "url": "../assets/crops-images/stage1.png"
                 },
                 "2": {
-                    "url": "../assets/crops-images/corn.jpg"
+                    "url": "../assets/crops-images/stage2.png"
                 },
                 "3": {
-                    "url": "../assets/crops-images/corn.jpg"
+                    "url": "../assets/crops-images/stage3.png"
                 },
                 "4": {
-                    "url": "../assets/crops-images/corn.jpg"
+                    "url": "../assets/crops-images/stage4.png"
                 }
             }
         },
@@ -21,16 +21,33 @@
             "url": "../assets/crops-images/soybean.jpg",
             "stages": {
                 "1": {
-                    "url": "../assets/crops-images/soybean.jpg"
+                    "url": "../assets/crops-images/stage1.png"
                 },
                 "2": {
-                    "url": "../assets/crops-images/soybean.jpg"
+                    "url": "../assets/crops-images/stage2.png"
                 },
                 "3": {
-                    "url": "../assets/crops-images/soybean.jpg"
+                    "url": "../assets/crops-images/stage3.png"
                 },
                 "4": {
-                    "url": "../assets/crops-images/soybean.jpg"
+                    "url": "../assets/crops-images/stage4.png"
+                }
+            }
+        },
+        "3": {
+            "url": "../assets/crops-images/soybean.jpg",
+            "stages": {
+                "1": {
+                    "url": "../assets/crops-images/stage1.png"
+                },
+                "2": {
+                    "url": "../assets/crops-images/stage2.png"
+                },
+                "3": {
+                    "url": "../assets/crops-images/stage3.png"
+                },
+                "4": {
+                    "url": "../assets/crops-images/stage4.png"
                 }
             }
         }

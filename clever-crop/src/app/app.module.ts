@@ -28,6 +28,7 @@ import { SwiperModule, SwiperConfigInterface, SWIPER_CONFIG } from 'ngx-swiper-w
 import { MeasureSoilComponent } from './measure-soil/measure-soil.component';
 import { GrowthStageComponent } from './growth-stage/growth-stage.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AdviceComponent } from './advice/advice.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   observer: true,
@@ -39,7 +40,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 };
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, MyCropsComponent, MeasureSoilComponent, GrowthStageComponent, SettingsComponent],
+  declarations: [AppComponent, WelcomeComponent, MyCropsComponent, MeasureSoilComponent, GrowthStageComponent, SettingsComponent, AdviceComponent],
   imports: [
     BrowserModule,
     MaterialModule,

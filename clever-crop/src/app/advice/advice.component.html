@@ -1,0 +1,46 @@
+<mat-toolbar class="custom-toolbar">
+    <button mat-icon-button class="white-icon" aria-label="back clicked" (click)="backClicked()">
+        <mat-icon class="volume-icon">arrow_back</mat-icon>
+    </button>
+    <span class="toolbar-title"></span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button class="white-icon" aria-label="read text" (click)="volumeClicked()">
+        <mat-icon>volume_up</mat-icon>
+    </button>
+</mat-toolbar>
+
+<img class="topImage" src="/assets/crops-images/advice.png">
+<h2 class="date">{{ currentDate }}</h2>
+
+<div class="horizontal">
+    <div class="vertical">
+        <mat-icon>{{  "settings" }}</mat-icon>
+        <Label class="description" textWrap="true">{{ "Today's Advice" }}</Label>
+    </div>
+    <div class="vertical">
+        <div class="imgHolder">
+            <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
+            <span class="vertical-align-middle temp">30c</span>
+        </div>
+        <Label class="description" textWrap="true">{{ "Temprature" }}</Label>
+    </div>
+    <div class="vertical">
+        <span class="vertical-align-middle redText title">DRY</span>
+        <Label class="description" textWrap="true">{{ "Soil Moisture" }}</Label>
+    </div>
+</div>
+
+<div class="horizontal">
+    <div class="vertical">
+        <span class="vertical-align-middle title">23d</span>
+        <Label class="description" textWrap="true">{{ "Since Planting" }}</Label>
+    </div>
+    <div class="vertical">
+        <span class="vertical-align-middle title">1</span>
+        <Label class="description" textWrap="true">{{ "Growth Stage" }}</Label>
+    </div>
+    <div class="vertical">
+        <span class="vertical-align-middle title">TUE</span>
+        <Label class="description" textWrap="true">{{ "Next Watering" }}</Label>
+    </div>
+</div>

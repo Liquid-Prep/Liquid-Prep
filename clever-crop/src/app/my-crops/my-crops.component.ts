@@ -25,7 +25,7 @@ export class MyCropsComponent implements OnInit {
 
   currentDate = '';
 
-  constructor(private appService: AppServicesService, private router: Router, private _location: Location) { }
+  constructor(private appService: AppServicesService, private router: Router, private location: Location) { }
 
   ngOnInit(): void {
     this.appService.getMyCrops().subscribe(cropListResponse => {
@@ -48,10 +48,10 @@ export class MyCropsComponent implements OnInit {
   }
 
   public volumeClicked() {
-    
+
   }
 
   public backClicked() {
-    this._location.back();
+    this.location.back();
   }
 }

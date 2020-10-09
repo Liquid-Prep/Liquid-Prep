@@ -9,6 +9,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CropListResponse } from './models/api/CropListResponse';
 import { CropInfoResponse } from './models/api/CropInfoResponse';
 import { WeatherResponse } from './models/api/WeatherResponse';
+import { AdviceResponse } from './models/api/AdviceResponse';
 
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 const STORAGE_KEY = 'my-crops';
@@ -39,6 +40,9 @@ export class AppServicesService {
 
   // private weatherUrl = 'https://liquidprep.com/crops/';
   private weatherUrl = '/assets/json/weather.json';
+
+  // private adviceUrl = 'https://liquidprep.com/advice/';
+  private adviceUrl = '/assets/json/advice.json';
 
   public requestCropsList(): Observable<CropListResponse> {
     return this.http.get<CropListResponse>(this.cropsUrl).pipe(
@@ -119,4 +123,7 @@ export class AppServicesService {
     return emptyCropsResponse;
   }
 
+  public requestAdvice(): Observable<AdviceResponse> {
+    return this.http.get<WeatherResponse>(this.weatherUrl);
+  }
 }

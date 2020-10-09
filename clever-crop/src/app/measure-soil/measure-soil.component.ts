@@ -38,7 +38,7 @@ export class MeasureSoilComponent implements OnInit {
   ngOnInit(): void { }
 
   public onNextClicked() {
-    if (this.index < this.dataSource.length) {
+    if (this.index < this.dataSource.length - 1) {
       this.index++;
     } else {
       this.router.navigateByUrl('/my-crops');

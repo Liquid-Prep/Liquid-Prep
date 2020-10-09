@@ -25,7 +25,7 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-grid-list cols="2" rowHeight="1:1"    gutterSize="2px"  >
+  <mat-grid-list class="gridMargin" cols="2" rowHeight="1:1"    gutterSize="2px"  >
     <mat-grid-tile *ngFor="let crop of filterFunction()">
       <mat-card (click)="addCrop(crop)">
         <img mat-card-image src="{{ crop.url }}" alt="{{ crop.cropName }}" />

@@ -1,13 +1,13 @@
 <div class="add-crop" style="overflow-x:hidden;" fxFlexFill cdkScrollable>
-  <mat-toolbar color="primary" class="add-crop-header mat-elevation-z4" [class.hidden]="toggleSearch">
+  <mat-toolbar class="add-crop-header mat-elevation-z4 custom-toolbar" [class.hidden]="toggleSearch">
     <mat-toolbar-row style="padding: 0 5px;">
-      <button mat-icon-button class="close-icon" aria-label="Icon-button with close icon" (click)="backToMyCrops()">
+      <button mat-icon-button class="toolbar-title" aria-label="Icon-button with close icon" (click)="backToMyCrops()">
         <mat-icon>close</mat-icon>
       </button>
       <div style="padding:8px 0 0 10px; flex:1;">
-        <div class="mat-title" style="margin-bottom:2px;">Add a crop</div>
+        <div class="mat-title toolbar-title" style="margin-bottom:2px;">Add a crop</div>
       </div>
-      <button mat-icon-button class="search-icon" aria-label="Icon-button with search icon"  (click)="openSearch()">
+      <button mat-icon-button class="toolbar-title" aria-label="Icon-button with search icon"  (click)="openSearch()">
         <mat-icon>search</mat-icon>
       </button>
     </mat-toolbar-row>
@@ -25,12 +25,12 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-grid-list class="gridMargin" cols="2" rowHeight="1:1"    gutterSize="2px"  >
+  <mat-grid-list class="grid" cols="2" rowHeight="1:1"    gutterSize="2px"  >
     <mat-grid-tile *ngFor="let crop of filterFunction()">
       <mat-card (click)="addCrop(crop)">
-        <img mat-card-image src="{{ crop.url }}" alt="{{ crop.cropName }}" />
+        <img mat-card-image class="cardImage" src="{{ crop.url }}" alt="{{ crop.cropName }}" />
         <mat-card-footer>
-          <mat-card-title>{{ crop.cropName }}</mat-card-title>
+          <mat-card-title class="cardTittle">{{ crop.cropName }}</mat-card-title>
         </mat-card-footer>
       </mat-card>
     </mat-grid-tile>

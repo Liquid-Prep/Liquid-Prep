@@ -9,12 +9,12 @@
     </button>
 </mat-toolbar>
 
-<mat-grid-list cols="2" rowHeight="1:1" gutterSize="2px">
+<mat-grid-list class="grid" cols="2" rowHeight="1:1" gutterSize="2px">
     <mat-grid-tile *ngFor="let stage of stages">
         <mat-card (click) = "cardClicked(stage)">
-            <img mat-card-image src="{{ stage.url }}" alt="{{ stage.stage }}" />
+            <img mat-card-image class="cardImg" src="{{ stage.url }}" alt="{{ stage.stage }}" />
             <mat-card-footer>
-                <mat-card-title>{{ stage.stage }}</mat-card-title>
+                <mat-card-title class="cardTittle">{{ stage.stage }}</mat-card-title>
             </mat-card-footer>
         </mat-card>
     </mat-grid-tile>

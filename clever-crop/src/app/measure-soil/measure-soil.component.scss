@@ -8,6 +8,10 @@
   background-color: #fff;
 }
 
+.primaryBlue {
+  color: #2F4FFE;
+}
+
 .swiper-container {
   position: absolute;
   top: 0;
@@ -35,20 +39,18 @@
   position: absolute;
   bottom: 0%;
   right: 10%;
-  // transform: translate(-50%, -50%);
-  // -ms-transform: translate(-50%, -50%);
+  color: #2F4FFE;
 }
 
 .btn-previous {
   position: absolute;
   bottom: 0%;
   left: 10%;
-  // transform: translate(-50%, -50%);
-  // -ms-transform: translate(-50%, -50%);
+  color: #2F4FFE;
 }
 
 .custom-toolbar {
-  background-color: rgba(0, 0, 255, 0.774);
+  background-color: #2F4FFE;
   padding: 0 5px;
 }
 
@@ -65,11 +67,12 @@
 }
 
 .vertical {
-  position: absolute;
+  // position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
+  margin-top: 30px;
   top: 8%;
   width: 100%;
 }

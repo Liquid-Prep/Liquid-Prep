@@ -11,7 +11,6 @@ export class MeasureSoil {
 }
 
 export const MeasureSoilItems = [
-  new MeasureSoil('Step 1:', 'Get your sensor Ready', 'assets/img-31.png'),
-  new MeasureSoil('Step 2:', 'Place your sensor in the soil', 'assets/img-32.png'),
-  new MeasureSoil('Step 3:', 'Read information on it', 'assets/img-33.png'),
+  new MeasureSoil('Step 1:', 'Get your sensor Ready', 'assets/crops-images/ms1.png'),
+  new MeasureSoil('Step 2:', 'Place your sensor in the soil', 'assets/crops-images/ms2.png'),
 ];

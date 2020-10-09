@@ -1,3 +1,7 @@
+.mainPage {
+  background-color: #F5F5F6;
+}
+
 .primaryBlue {
   color: #2F4FFE;
 }
@@ -14,7 +18,7 @@
 
 .md-fab-bottom-right {
   position: fixed !important;
-  right: 15px; /* Add this and change value to set the margin you want */
+  right: 15px;
   bottom: 15px;
   z-index: 99;
   width: 56px;
@@ -23,7 +27,7 @@
 }
 
 .custom-toolbar {
-  background-color: rgba(0, 0, 255, 0.774);
+  background-color: #2F4FFE;
   padding: 0 5px;
 }
 
@@ -42,13 +46,18 @@
 .horizontal {
   display: block;
   flex-direction: row;
-  padding: 16px;
+  padding-top: 10px;
+  // padding-bottom: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .date {
   display: inline-block;
   text-align: left;
   font-size: 20px;
+  font-weight: 100;
+  margin-bottom: 0px;
 }
 
 .imgHolder {
@@ -62,4 +71,22 @@
 
 .temp {
   font-size: 20px;
+}
+
+.grid {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+mat-card {
+  border: 2px solid #F5F5F6;
+}
+
+.cardImage {
+  margin-bottom: 0px;
+}
+
+.cardTittle {
+  padding: 8px;
+  font-weight: 100;
 }

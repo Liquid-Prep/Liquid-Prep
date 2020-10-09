@@ -31,7 +31,7 @@ export class MyCropsComponent implements OnInit {
     this.appService.getMyCrops().subscribe(cropListResponse => {
       this.dataSource = cropListResponse.data;
     });
-    this.currentDate = 'Today, ' + formatDate(new Date(), 'MMMM d, yyyy', 'en');
+    this.currentDate =  formatDate(new Date(), 'MMMM d, yyyy', 'en');
   }
 
   public tabClicked(tab) {

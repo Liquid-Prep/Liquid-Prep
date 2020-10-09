@@ -1,6 +1,10 @@
 .custom-toolbar {
-    background-color: rgba(0, 0, 255, 0.774);
+    background-color: #2F4FFE;
     padding: 0 5px;
+  }
+
+  .primaryBlue {
+    color: #2F4FFE;
   }
   
   .toolbar-title {
@@ -13,4 +17,24 @@
   
   .white-icon {
     color: #fff;
+  }
+
+  .grid {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  
+  mat-card {
+    border: 2px solid #F5F5F6;
+  }
+  
+  .cardImage {
+    margin-bottom: 0px;
+    width: 70px;
+    height: 90px;
+  }
+  
+  .cardTittle {
+    padding: 8px;
+    font-weight: 100;
   }

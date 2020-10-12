@@ -6,6 +6,7 @@ import { MeasureSoilComponent } from './measure-soil/measure-soil.component';
 import { GrowthStageComponent } from './growth-stage/growth-stage.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AdviceComponent } from './advice/advice.component';
+import { WaterAdviceComponent } from './water-advice/water-advice.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'advice',
     component: AdviceComponent
+  },
+  {
+    path: 'water-advice/:id',
+    component: WaterAdviceComponent
   }
 ];
 

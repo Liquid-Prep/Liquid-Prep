@@ -4,7 +4,7 @@
   "description": "Liquid Prep Cloud Functions",
   "main": "index.js",
   "scripts": {
-    "upload": "bin/upload.js",
+    "upload": "upload.js",
     "build": "npm run tsc",
     "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
     "tsc": "tsc",
@@ -13,7 +13,7 @@
     "deploy": "npm run build && npm run bundle && npm run wskdeploy",
     "deploy-dev": "npm run deploy --package=demo --env=dev",
     "deploy-dev-api": "npm run deploy --package=demo --env=dev --api=true",
-    "wskdeploy": "bin/deploy.js",
+    "wskdeploy": "node deploy.js",
     "deploy-composer": "npm run deploy --package=wx-labs --env=dev --task=createComposer",
     "switch-account": "bin/switch-account.js",
     "compromise-pack": "compromise-pack ./src/assets/plugin.json > ./src/assets/plugin.min.json"

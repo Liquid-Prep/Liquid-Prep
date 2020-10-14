@@ -11,5 +11,5 @@ packages:
           timeout: 60000
           memorySize: 256
         inputs:
-          apiKey: ${APIKEY}
+          weatherApiKey: ${WEATHERAPIKEY}
           cloudantUrl: ${CLOUDANT_URL}

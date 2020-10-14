@@ -7,9 +7,12 @@ import { CouchDB } from '@common/db/couch-db';
 
 let couchDB;
 
+// Standard entry point for cloud functions
 export default function main(params: LiquidPrepParams) {
   let result: any;
-  couchDB = new CouchDB('liquid-prep', params.cloudantUrl);
+  //couchDB = new CouchDB('crop-info', params.cloudantUrl);
+  couchDB = new CouchDB('crop-info', "https://446ac891-dd3c-4287-8dc3-6996f9df27b4-bluemix.cloudantnosqldb.appdomain.cloud");
+  
   return new Promise((resolve, reject) => {
     action.exec(params)
     .subscribe((data) => {
@@ -26,7 +29,7 @@ export default function main(params: LiquidPrepParams) {
   });
 }
 
-(<any>global).main = main;  // required when using webpack
+(<any>global).main = main;  // required when using webpack to bundle the project
 
 let action = {
   exec: (params: LiquidPrepParams) => {
@@ -49,7 +52,7 @@ let action = {
   is_water_needed: (params: LiquidPrepParams) => {
     if(params.rainTomorrow === undefined) {
       return Observable.create((observer) => {
-        let weather = new Weather(params.apiKey, params.geoCode, params.language, params.units);
+        let weather = new Weather(params.weatherApiKey, params.geoCode, params.language, params.units);
         weather.willItRainTomorrow()
         .subscribe((data) => {
           let soil = new Soil(params.moistureLevel, data.rain);
@@ -65,13 +68,43 @@ let action = {
       return of({body: soil.isWaterNeeded()});
     }
   },
+  get_weather_info: (params: LiquidPrepParams) => {
+      return Observable.create((observer) => {
+        // units will either be "m" for Celcius or "e" for Farenheit
+        let weather = new Weather(params.weatherApiKey, params.geoCode, params.language, params.units);
+        weather.getForecast()
+        .subscribe((data) => {
+          //let soil = new Soil(params.moistureLevel, data.rain);
+          console.log("weather info: ",data)
+          observer.next({body: data});
+          observer.complete();
+        }, (err) => {
+          console.log(err);
+          observer.error(err)
+        });  
+      });
+  },
   get_crop_list: (params: LiquidPrepParams) => {
     if(params.body) {
       console.log(params.body);
       return couchDB.dbFind(params.body);
     } else {
-      let query = JSON.parse(params.query);
-      // console.log('query', query)
+      //let query = JSON.parse(params.query);
+      let query = {"selector": {"_id": {"$gt": "0"}},"fields": ["_id"],"sort": [{"_id": "asc"}]};
+      console.log('query', query)
+      return couchDB.dbFind(query);
+    }
+  },
+  get_crop_info: (params: LiquidPrepParams) => {
+    if(params.body) {
+      console.log(params.body);
+      return couchDB.dbFind(params.body);
+    } else {
+      //let query = JSON.parse(params.query);
+      let cropName:string = JSON.parse(params.name);
+      console.log('cropName', cropName);
+      let query = {"selector": {"_id": cropName}};
+      console.log('query', query)
       return couchDB.dbFind(query);
     }
   },

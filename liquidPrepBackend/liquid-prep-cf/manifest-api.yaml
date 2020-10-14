@@ -1,5 +1,5 @@
 packages:
-  ${PACKAGE}:
+  test1:
     version: 1.0
     license: Apache-2.0
     actions:
@@ -11,20 +11,12 @@ packages:
           timeout: 60000
           memorySize: 256
         inputs:
-          apiKey: ${APIKEY}
+          weatherApiKey: ${WEATHERAPIKEY}
           cloudantUrl: ${CLOUDANT_URL}
     apis:
       liquid-prep-api-gateway:
         liquid-prep:
-          demo_get:
-            liquid-prep-action:
-              method: GET
-              response: json
-          demo_post:
-            liquid-prep-action:
-              method: POST
-              response: json
-          is_water_needed:
+          get_weather_info:
             liquid-prep-action:
               method: GET
               response: json
@@ -32,7 +24,7 @@ packages:
             liquid-prep-action:
               method: GET
               response: json              
-          get_crop_list:
+          get_crop_info:
             liquid-prep-action:
-              method: POST
+              method: GET
               response: json                            

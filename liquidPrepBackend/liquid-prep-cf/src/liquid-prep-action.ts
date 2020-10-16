@@ -11,7 +11,9 @@ let couchDB;
 export default function main(params: LiquidPrepParams) {
   let result: any;
   //couchDB = new CouchDB('crop-info', params.cloudantUrl);
-  couchDB = new CouchDB('crop-info', "https://446ac891-dd3c-4287-8dc3-6996f9df27b4-bluemix.cloudantnosqldb.appdomain.cloud");
+  
+  //couchDB = new CouchDB('crop-info', "https://446ac891-dd3c-4287-8dc3-6996f9df27b4-bluemix.cloudantnosqldb.appdomain.cloud", "DjMXPTr84L_Ox_gY36AnEFWhkZTS2a9eHFFkLK1JRrKU");
+  couchDB = new CouchDB('crop_info', "https://446ac891-dd3c-4287-8dc3-6996f9df27b4-bluemix.cloudantnosqldb.appdomain.cloud", "kZj0arpbSl2qIVl_DZsraZgR8oKK1JO9Gme0IXFvQL3x");
   
   return new Promise((resolve, reject) => {
     action.exec(params)
@@ -33,9 +35,10 @@ export default function main(params: LiquidPrepParams) {
 
 let action = {
   exec: (params: LiquidPrepParams) => {
-    const baseUrl = 'https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/49179127a9e2f6a723fc9874cbbff82f0d9dd1504d220c829fa4579b3c355e55/liquid-prep/';
+    //const baseUrl = 'https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/49179127a9e2f6a723fc9874cbbff82f0d9dd1504d220c829fa4579b3c355e55/liquid-prep/';
+    const baseUrl = 'https://service.us-east.apiconnect.ibmcloud.com/gws/apigateway/api/ac06cb5991ae6aa5dc50c799b05a1cbcadc93c9d815442e69a5a3acdbeb46e1d/liquid-prep/'
     let path = params['__ow_headers']['x-forwarded-url'].replace(baseUrl, '').replace(/\//g, '_').replace(/\?.+/, '');
-    console.log('$$$$$$', params['__ow_path'], path, params.moistureLevel, params.rainTomorrow, !params.rainTomorrow)
+    console.log('$$$$$$', params['__ow_path'], path, params.moistureLevel, params.rainTomorrow, !params.rainTomorrow, params.weatherApiKey)
     params.days = params.days ? params.days : '1';
     if(!params.date) {
       const date = util.formatMD(util.getDate());
@@ -90,7 +93,15 @@ let action = {
       return couchDB.dbFind(params.body);
     } else {
       //let query = JSON.parse(params.query);
-      let query = {"selector": {"_id": {"$gt": "0"}},"fields": ["_id"],"sort": [{"_id": "asc"}]};
+      //let query = {"selector": {"_id": {"$gt": "0"}},"fields": ["_id"],"sort": [{"_id": "asc"}]};
+      let query = {
+        "selector": {
+           "type": "crop"
+        },
+        "fields": [
+           "cropName"
+        ]
+     }
       console.log('query', query)
       return couchDB.dbFind(query);
     }
@@ -101,7 +112,7 @@ let action = {
       return couchDB.dbFind(params.body);
     } else {
       //let query = JSON.parse(params.query);
-      let cropName:string = JSON.parse(params.name);
+      let cropName:string = params.name;
       console.log('cropName', cropName);
       let query = {"selector": {"_id": cropName}};
       console.log('query', query)

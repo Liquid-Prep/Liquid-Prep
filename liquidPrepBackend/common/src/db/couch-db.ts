@@ -4,8 +4,9 @@ import * as Cloudant from '@cloudant/cloudant';
 class CouchDBClass {
   cloudant: any;
   db: any;
-  constructor(dbName:string, url:string) {
-    let params = {
+  //var cloudant = Cloudant({ url: 'https://examples.cloudant.com', plugins: { iamauth: { iamApiKey: 'xxxxxxxxxx' } } });
+  constructor(dbName:string, url:string, apiKey:string) {
+    /*let params = {
       url: url
       // account: 'd44a1815-07de-4807-bd7a-baf4b9adc1c4-bluemix.cloudantnosqldb.appdomain.cloud',
       // plugins: {
@@ -13,8 +14,10 @@ class CouchDBClass {
       //     iamApiKey: '*********************'
       //   }
       // } 
-    };
+    };*/
+    let params = { url: url, plugins: { iamauth: { iamApiKey: apiKey } } }
     this.cloudant = Cloudant(params);
+    console.log('DB Name: ', dbName);
     this.db = this.cloudant.db.use(dbName);
   }
 

@@ -1,5 +1,5 @@
 packages:
-  test1:
+  test3:
     version: 1.0
     license: Apache-2.0
     actions:
@@ -11,8 +11,8 @@ packages:
           timeout: 60000
           memorySize: 256
         inputs:
-          weatherApiKey: ${WEATHERAPIKEY}
-          cloudantUrl: ${CLOUDANT_URL}
+          weatherApiKey: "c1b59e5734f4474fb59e5734f4074ff6"
+          cloudantUrl: "https://446ac891-dd3c-4287-8dc3-6996f9df27b4-bluemix.cloudantnosqldb.appdomain.cloud"
     apis:
       liquid-prep-api-gateway:
         liquid-prep:

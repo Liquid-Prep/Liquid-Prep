@@ -6,7 +6,7 @@ export class Weather {
   private api: string;
 
   constructor(
-    private apiKey: string,
+    private weatherApiKey: string,
     private geoCode: string,
     private language: string,
     private units: string
@@ -14,7 +14,7 @@ export class Weather {
     this.geoCode = this.geoCode ? this.geoCode : '33.84,-84.25';
     this.language = this.language ? this.language : 'en-US';
     this.units = this.units ? this.units : 'e';
-    this.api = `${this.url}&apiKey=${this.apiKey}&geocode=${this.geoCode}&language=${this.language}&units=${this.units}`;
+    this.api = `${this.url}&apiKey=${weatherApiKey}&geocode=${geoCode}&language=${language}&units=${units}`;
   }  
 
   willItRainTomorrow() {

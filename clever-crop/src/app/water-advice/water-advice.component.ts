@@ -72,4 +72,8 @@ export class WaterAdviceComponent implements OnInit {
   public onClose(){
     this.location.back();
   }
+
+  public onFabClicked(){
+    this.router.navigate(['/measure-soil']);
+  }
 }

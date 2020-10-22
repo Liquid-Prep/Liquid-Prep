@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 export interface Advice {
   weather_icon: string;
@@ -14,7 +16,7 @@ export interface Advice {
 })
 export class WaterAdviceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private location: Location) { }
 
   public bgImg = '../../assets/crops-images/corn.jpg';
   public cropName = 'Waxy corn';
@@ -65,5 +67,9 @@ export class WaterAdviceComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+  }
+
+  public onClose(){
+    this.location.back();
   }
 }

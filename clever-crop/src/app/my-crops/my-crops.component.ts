@@ -51,6 +51,10 @@ export class MyCropsComponent implements OnInit {
 
   }
 
+  public cropClicked(event){
+    this.router.navigate(['/water-advice/:1']);
+  }
+
   public backClicked() {
     this.location.back();
   }

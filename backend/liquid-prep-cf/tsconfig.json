@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "declaration": false,
+        "module": "commonjs",
+        "target": "ES2017",
+        "noImplicitAny": false,
+        "sourceMap": false,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "outDir": "dist",
+        "baseUrl": ".",
+        "paths": {
+            "@common/*": [
+                "../common/src/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "../common/src/**/*.ts"
+    ]
+}

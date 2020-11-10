@@ -1,0 +1,27 @@
+packages:
+  test3:
+    version: 1.0
+    license: Apache-2.0
+    actions:
+      liquid-prep-action:
+        function: dist/liquid-prep-action.js
+        runtime: nodejs:12
+        web-export: true
+        limits:
+          timeout: 60000
+          memorySize: 256
+    apis:
+      liquid-prep-api-gateway:
+        liquid-prep:
+          get_weather_info:
+            liquid-prep-action:
+              method: GET
+              response: json
+          get_crop_list:
+            liquid-prep-action:
+              method: GET
+              response: json              
+          get_crop_info:
+            liquid-prep-action:
+              method: GET
+              response: json                            

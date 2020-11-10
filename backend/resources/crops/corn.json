@@ -1,0 +1,73 @@
+{
+    "_id": "corn",
+	"index": 1,
+    "cropName": "corn",
+	"type": "crop",
+    "cropGrowthStage": {
+        "numberOfStages": 10,
+        "waterMeasurementMetric": "inches",
+        "waterUsage": "daily",
+        "stages":[
+            {
+                "stageNumber": 1,
+                "stage": "emergence",
+                "waterUseMin": 0.08,
+                "waterUseMax": 0.08
+            },
+            {
+                "stageNumber": 2,
+                "stage": "4-leaf",
+                "waterUseMin": 0.10,
+                "waterUseMax": 0.10
+            },
+            {
+                "stageNumber": 3,
+                "stage": "8-leaf",
+                "waterUseMin": 0.18,
+                "waterUseMax": 0.18
+            },
+            {
+                "stageNumber": 4,
+                "stage": "12-leaf",
+                "waterUseMin": 0.26,
+                "waterUseMax": 0.26
+            },
+			{
+                "stageNumber": 5,
+                "stage": "early-tassel",
+                "waterUseMin": 0.32,
+                "waterUseMax": 0.32
+            },
+            {
+                "stageNumber": 6,
+                "stage": "silking",
+                "waterUseMin": 0.32,
+                "waterUseMax": 0.32
+            },
+            {
+                "stageNumber": 7,
+                "stage": "blister-kernel",
+                "waterUseMin": 0.32,
+                "waterUseMax": 0.32
+            },
+            {
+                "stageNumber": 8,
+                "stage": "beginning-dent",
+                "waterUseMin": 0.24,
+                "waterUseMax": 0.24
+            },
+            {
+                "stageNumber": 9,
+                "stage": "full-dent",
+                "waterUseMin": 0.20,
+                "waterUseMax": 0.20
+            },
+            {
+                "stageNumber": 8,
+                "stage": "maturity",
+                "waterUseMin": 0.10,
+                "waterUseMax": 0.10
+            }
+        ]
+    }
+}

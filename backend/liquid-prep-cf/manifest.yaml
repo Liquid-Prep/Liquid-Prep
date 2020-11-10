@@ -1,0 +1,15 @@
+packages:
+  ${PACKAGE}:
+    version: 1.0
+    license: Apache-2.0
+    actions:
+      liquid-prep-action:
+        function: dist/liquid-prep-action.js
+        runtime: nodejs:12
+        web-export: true
+        limits:
+          timeout: 60000
+          memorySize: 256
+        inputs:
+          weatherApiKey: ${WEATHERAPIKEY}
+          cloudantUrl: ${CLOUDANT_URL}

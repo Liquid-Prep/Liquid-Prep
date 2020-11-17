@@ -11,10 +11,13 @@ export class Weather {
     private language: string,
     private units: string
   ) {
+    console.log("weather fetch info kicked off......");
+    console.log("weatherApiKey: ",this.weatherApiKey);
     this.geoCode = this.geoCode ? this.geoCode : '33.84,-84.25';
     this.language = this.language ? this.language : 'en-US';
     this.units = this.units ? this.units : 'e';
-    this.api = `${this.url}&apiKey=${weatherApiKey}&geocode=${geoCode}&language=${language}&units=${units}`;
+    this.api = `${this.url}&apiKey=${this.weatherApiKey}&geocode=${geoCode}&language=${language}&units=${units}`;
+    console.log("weather API: ",this.api);
   }  
 
   willItRainTomorrow() {
@@ -38,11 +41,13 @@ export class Weather {
   }
 
   getForecast() {
+    console.log('getForecast() is executed..')
     let result;
     return Observable.create((observer) => {
       util.httpGet(this.api)
       .subscribe((data) => {
         result = data;
+        console.log('weather API response: ',result)
       }, (err) => {
         console.log(err);
         observer.error(err)

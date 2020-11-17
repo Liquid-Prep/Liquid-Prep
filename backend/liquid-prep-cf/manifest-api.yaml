@@ -1,5 +1,5 @@
 packages:
-  test3:
+  liquidPrep:
     version: 1.0
     license: Apache-2.0
     actions:
@@ -10,9 +10,15 @@ packages:
         limits:
           timeout: 60000
           memorySize: 256
+        inputs:
+          iamApiKey: ${IAM_API_KEY}
+          weatherApiKey: ${WEATHER_API_KEY}
+          cloudFunctionsURL: ${CLOUD_FUNCTIONS_URL}
+          cloudantUrl: ${CLOUDANT_DB_URL}
+          databaseName: ${DB_NAME}
     apis:
-      liquid-prep-api-gateway:
-        liquid-prep:
+      liquidprep-cf-api:
+        liquidprep-cf-api:
           get_weather_info:
             liquid-prep-action:
               method: GET

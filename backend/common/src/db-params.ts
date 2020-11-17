@@ -1,7 +1,7 @@
 import { Params } from './params';
 
 export interface DBParams extends Params {
-  database: string;
+  databaseName: string;
   collection: string;
   username: string;
   user: string;

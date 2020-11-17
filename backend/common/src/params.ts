@@ -6,6 +6,7 @@ export interface Params {
   delimiter: string;
   acl: string;
   filename: any;
+  iamApiKey: string;
   weatherApiKey: string;
   accessKeyId: string;
   secretAccessKey: string;

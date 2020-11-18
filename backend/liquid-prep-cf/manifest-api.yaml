@@ -15,7 +15,7 @@ packages:
           weatherApiKey: ${WEATHER_API_KEY}
           cloudFunctionsURL: ${CLOUD_FUNCTIONS_URL}
           cloudantUrl: ${CLOUDANT_DB_URL}
-          databaseName: ${DB_NAME}
+          databaseName: ${CLOUDANT_DB_NAME}
     apis:
       liquidprep-cf-api:
         liquidprep-cf-api:

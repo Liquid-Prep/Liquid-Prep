@@ -10,11 +10,6 @@ const env = process.env.npm_config_env || 'dev';
 const package = process.env.npm_config_package || 'liquidPrep';
 const yaml = process.env.npm_config_api ? 'manifest-api.yaml' : 'manifest.yaml';
 
-/*const iamApiKey = process.env.IAM_API_KEY;
-const cloudFunctionUrl = process.env.CLOUD_FUNCTIONS_URL;
-const cloudantUrl = process.env.CLOUDANT_DB_URL;
-const weatherApiKey = process.env.WEATHER_API_KEY;*/
-
 let build = {
   deploy: () => {
     
@@ -26,11 +21,10 @@ let build = {
     console.log('iamApiKey: ',process.env.IAM_API_KEY);
     console.log('cloudFunctionUrl: ',process.env.CLOUD_FUNCTIONS_URL);
     console.log('cloudantUrl: ',process.env.CLOUDANT_DB_URL);
-    console.log('databaseName: ',process.env.DB_NAME);
+    console.log('databaseName: ',process.env.CLOUDANT_DB_NAME);
     console.log('weatherApiKey: ',process.env.WEATHER_API_KEY);
 
-    //let cfCMD = `IAM_API_KEY=${iamApiKey} WEATHER_API_KEY=${weatherApiKey} CLOUD_FUNCTIONS_URL=${cloudFunctionUrl} CLOUDANT_URL=${cloudantUrl} ibmcloud fn deploy -m ${yaml}`;
-    let cfCMD = `ibmcloud fn deploy -m ${yaml} --param IAM_API_KEY ${process.env.IAM_API_KEY} --param CLOUD_FUNCTIONS_URL ${process.env.CLOUD_FUNCTIONS_URL} --param DB_NAME ${process.env.DB_NAME} --param WEATHER_API_KEY ${process.env.WEATHER_API_KEY}`;
+    let cfCMD = `ibmcloud fn deploy -m ${yaml} --param IAM_API_KEY ${process.env.IAM_API_KEY} --param CLOUD_FUNCTIONS_URL ${process.env.CLOUD_FUNCTIONS_URL} --param CLOUDANT_DB_NAME ${process.env.DB_NAME} --param WEATHER_API_KEY ${process.env.WEATHER_API_KEY}`;
     exec(cfCMD, {maxBuffer: 1024 * 2000}, (err, stdout, stderr) => {
       if(!err) {
         console.log(stdout)

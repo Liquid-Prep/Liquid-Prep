@@ -107,7 +107,7 @@ Instructions on how to setup, configure and deploy the backend service is as fol
     <p align="left">
         <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudant/liquidPrep_cloudant_cropsList.PNG" width ="30%" height="30%">
     </p>
-14.	Similarly, create step 13 for all the other crops document.
+14.	Similarly, repeat step 13 for all the other crops document.
 
 ## Deploy Liquid Prep Backend Service
 

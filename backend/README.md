@@ -91,7 +91,7 @@ Instructions on how to setup, configure and deploy the backend service is as fol
 9.	On the Databases page, select **Create Database** on the top right of the Cloudant dashboard.
 10.	Enter Database name as **liquid-prep-crops**. Select the Partitioning option as **Non-partitioned**. And click on **Create** button at the bottom.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudant/createDBCloudant.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudant/createDBCloudant.PNG" width ="15%" height="30%">
     </p>
 11.	**liquid-prep-crops** database will be created and listed in Databases page.
 12.	Select **liquid-prep-crops** and click on **Create Document** on top right of the page. A document with auto generated **_id** key will open.
@@ -118,13 +118,15 @@ After configuring IBM Cloud Functions and Cloudant DB, the Liquid Prep backend p
    <p align="left">
         <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/envEntries/env-entries.PNG" width ="30%" height="30%">
     </p>
-    ***CLOUD_FUNCTIONS_URL:*** <br>
+
+    **CLOUD_FUNCTIONS_URL:** <br>
     - Go to IBM Cloud dashboard.
     - Click on the **Navigation Menu** on the top left corner of the dashboard.
     - Select **API Management** option.
     <p align="left">
         <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/envEntries/apiManage.PNG" width ="30%" height="30%">
     </p>
+    
     - Select **Shared APIs** in **API Management** dashboard.
     - The **Route** value in **Shared APIs** dashboard is the **CLOUD_FUNCTIONS_URL** value.
     <p align="left">
@@ -143,6 +145,7 @@ After configuring IBM Cloud Functions and Cloudant DB, the Liquid Prep backend p
     <p align="left">
         <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/envEntries/cloudantService.PNG" width ="30%" height="30%">
     </p>
+
     - The **External Endpoint (preffered)** value is the **CLOUDANT_DB_URL** value.
     <p align="left">
         <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/envEntries/cloudantEndpoint.PNG" width ="30%" height="30%">
@@ -167,7 +170,7 @@ The backend service is deployed in Liquid Prep cloud account and the APIs can be
    https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/96fd655207897b11587cfcf2b3f58f6e0792f788cf2a04daa79b53fc3d4efb32/liquidprep-cf-api/get_weather_info?geoCode=<lat,long>&units=<metric/imperical> <br>
 
    **Params:** <br>
-   - **geoCode**: latitude, longitude
+   - **geoCode**: Geo-coordinates (latitude, longitude) of location.
    - **units**: metric (e) or imperical (m)
 
    Example: <br>

@@ -1,0 +1,33 @@
+packages:
+  liquidPrep:
+    version: 1.0
+    license: Apache-2.0
+    actions:
+      liquid-prep-action:
+        function: dist/liquid-prep-action.js
+        runtime: nodejs:12
+        web-export: true
+        limits:
+          timeout: 60000
+          memorySize: 256
+        inputs:
+          iamApiKey: ${IAM_API_KEY}
+          weatherApiKey: ${WEATHER_API_KEY}
+          cloudFunctionsURL: ${CLOUD_FUNCTIONS_URL}
+          cloudantUrl: ${CLOUDANT_DB_URL}
+          databaseName: ${CLOUDANT_DB_NAME}
+    apis:
+      liquidprep-cf-api:
+        liquidprep-cf-api:
+          get_weather_info:
+            liquid-prep-action:
+              method: GET
+              response: json
+          get_crop_list:
+            liquid-prep-action:
+              method: GET
+              response: json              
+          get_crop_info:
+            liquid-prep-action:
+              method: GET
+              response: json                            

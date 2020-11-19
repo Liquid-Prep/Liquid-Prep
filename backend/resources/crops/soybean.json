@@ -1,0 +1,37 @@
+{
+    "_id": "soybeans",
+	"index": 2,
+    "cropName": "soyabeans",
+	"type": "crop",
+    "cropGrowthStage": {
+        "numberOfStages": 4,
+        "waterMeasurementMetric": "inches",
+        "waterUsage": "daily",
+        "stages":[
+            {
+                "stageNumber": 1,
+                "stage": "germination",
+                "waterUseMin": 0.05,
+                "waterUseMax": 0.10
+            },
+            {
+                "stageNumber": 2,
+                "stage": "growing",
+                "waterUseMin": 0.10,
+                "waterUseMax": 0.20
+            },
+            {
+                "stageNumber": 3,
+                "stage": "reproduction",
+                "waterUseMin": 0.20,
+                "waterUseMax": 0.30
+            },
+            {
+                "stageNumber": 4,
+                "stage": "maturation",
+                "waterUseMin": 0.05,
+                "waterUseMax": 0.20
+            }
+        ]
+    }
+}

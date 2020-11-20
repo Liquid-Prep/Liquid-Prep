@@ -25,12 +25,12 @@ Instructions on how to setup, configure and deploy the backend service is as fol
      - Select **API keys** option on left pane of the dashboard.
      - Select **Create an IBM Cloud API key** button on right of the **API keys** dashboard.
      <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/IAM/iamKey.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/IAM/iamKey.PNG" width ="30%" height="30%">
      </p>
 
      - Enter an API key name and description. Example,
      <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/IAM/createIAMApikey.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/IAM/createIAMApikey.PNG" width ="30%" height="30%">
      </p> 
 
      - An IAM API key will be created, copy and/or download the key and secure it safely.
@@ -40,21 +40,21 @@ Instructions on how to setup, configure and deploy the backend service is as fol
      - Click on **Manage** tab on top right of the IBM Cloud dashboard. And click on **Account** option to open **Account** dashboard.
      - Select **Resource groups** option on the left panee of the dashboard. Usually a **Default** resource group will be ceated when a cloud account is created. If not a new Resource group can be created by clicking on the **Create** button on the right of the **Resource groups** dashboard.
      <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/account/resourceGrp.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/account/resourceGrp.PNG" width ="30%" height="30%">
      </p>
 
    - **Create Cloud Foundry Organization**;
      - From the **Account** dashboard, select **Cloud Foundry orgs** option on the left pane to open **Cloud Foundry Orgs** dashboard.
      - Click on **Create** on the top right of the dashboard to create new Organization. If an organization already exists, you can use the same.
      <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/account/organization.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/account/organization.PNG" width ="30%" height="30%">
      </p>
 
    - **Create Space**;
      - From the **Cloud Foundry Orgs** dashboard, click on the Name of the organization to open the **Space** tab for the organization.
      - Click on the **Add a space** button the top right of the dashboard to create new Space. If a space already exists, you can use the same.
      <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/account/space.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/account/space.PNG" width ="30%" height="30%">
      </p>
 
 2. Git:
@@ -76,73 +76,73 @@ Instructions on how to setup, configure and deploy the backend service is as fol
 1.	Create a new IBM cloud account. If you already have an account, please log in to account.
 2.	Select **IBM Cloud Functions** icon on left the pane of the IBM Cloud account dashboard <br>
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudFunctions/dashboard_cloudFunctions.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudFunctions/dashboard_cloudFunctions.PNG" width ="30%" height="30%">
     </p>
     Or you can search for **Functions** in search bar and select **Functions**.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudFunctions/searchCF.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudFunctions/searchCF.PNG" width ="30%" height="30%">
     </p>
 3.	Select **Actions** option on the left pane of **IBM Cloud Functions** dashboard.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudFunctions/actionsCF.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudFunctions/actionsCF.PNG" width ="30%" height="30%">
     </p>
 4.	Create new Actions by clicking the **Create** on top right of the dashboard, enter Action Name as **liquid-prep-action**. Create new Package **liquidPrep**. Select **Node.js 12** as Runtime.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudFunctions/createActionCF.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudFunctions/createActionCF.PNG" width ="30%" height="30%">
     </p>
 5.	Go back to **IBM Cloud Functions** dashboard and select **APIs** option on the left pane.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudFunctions/api_cloudFunctions.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudFunctions/api_cloudFunctions.PNG" width ="30%" height="30%">
     </p>
 6.	Select **Create API** option on top right of the dashboard, enter API name as **liquidPrep-cf-api**. Let the **Base path for API** be default **/liquidPrep-cf-api**. Let other settings be default values, unless other specific entries are required. Scroll down the page and select **Create**.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudFunctions/createAPI_CF.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudFunctions/createAPI_CF.PNG" width ="30%" height="30%">
     </p>
 7.	Once API is created, select the API **liquidPrep-cf-api**, select **Mange Sharing and Keys** on the left pane of the API dashboard. Enable **Include API in organization-level Shared APIs view**.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudFunctions/shareAPI_CF.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudFunctions/shareAPI_CF.PNG" width ="30%" height="30%">
     </p>
 
 ## IBM Cloudant
 
 1.	Enter **Cloudant** in the IBM Cloud search bar and select **Cloudant**.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudant/searchCloudant.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudant/searchCloudant.PNG" width ="30%" height="30%">
     </p>
 2.	Under **Select an environment** section, enter Instance Name as **Cloudant-liquidPrep**.
 3.	Select **IAM** as Authentication method.
 4.	Select a suitable pricing Plan – Lite, Standard and Standard on Transaction Engine.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudant/configureCloudant.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudant/configureCloudant.PNG" width ="30%" height="30%">
     </p>
 5.	Select **Create** on the bottom right pane of Cloudant dashboard. After you click **Create**, a message displays to say that the instance is being provisioned, which returns you to the Resource list. From the Resource list, you see the status for your instance is, **Provision in progress.**
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudant/activeCloudant.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudant/activeCloudant.PNG" width ="30%" height="30%">
     </p>
 6.	When status of the instance changes to **Active**, click the **Cloudant-liquidPrep** instance and select **Service Credentials** tab on left pane of dashboard.
 7.	Select **New Credential**, enter Name as **liquid-prep** and Role as **Manager**. A service credential will be created.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudant/serviceCredsCloudant.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudant/serviceCredsCloudant.PNG" width ="30%" height="30%">
     </p>
 8.	Select **Manage** tab on the left pane and select **Launch Dashboard** on the top right of the page. It will launch a Cloudant dashboard to create new database.
 9.	On the Databases page, select **Create Database** on the top right of the Cloudant dashboard.
 10.	Enter Database name as **liquid-prep-crops**. Select the Partitioning option as **Non-partitioned**. And click on **Create** button at the bottom.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudant/createDBCloudant.PNG" width ="15%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudant/createDBCloudant.PNG" width ="15%" height="30%">
     </p>
 11.	**liquid-prep-crops** database will be created and listed in Databases page.
 12.	Select **liquid-prep-crops** and click on **Create Document** on top right of the page. A document with auto generated **_id** key will open.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudant/createDoc_cloudant.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudant/createDoc_cloudant.PNG" width ="30%" height="30%">
     </p>
 13.	Go to Liquid Prep project directory `~/Liquid-Prep/backend/resources/crops`. Open each crop document, copy the contents in the document and paste it in the **New Document** that was opened in **liquid-prep-crops** database and click **Create Document** button. <br>
     Example for Corn crop;
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudant/createDoc_cloudant_corn.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudant/createDoc_cloudant_corn.PNG" width ="30%" height="30%">
     </p> 
     Corn document will be created and listed in **liquid-prep-crops** database.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudant/liquidPrep_cloudant_cropsList.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudant/liquidPrep_cloudant_cropsList.PNG" width ="30%" height="30%">
     </p>
 14.	Similarly, repeat step 13 for all the other crops document.
 
@@ -153,7 +153,7 @@ After configuring IBM Cloud Functions and Cloudant DB, the Liquid Prep backend p
 1. Go to Liquid Prep project directory `~/Liquid-Prep/backend/liquid-prep-cf` and create **.env** file.
 2. Add following entries to the **.env** file;
    <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/envEntries/env-entries.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/envEntries/env-entries.PNG" width ="30%" height="30%">
     </p>
 
     **IAM_API_KEY:** <br>
@@ -164,13 +164,13 @@ After configuring IBM Cloud Functions and Cloudant DB, the Liquid Prep backend p
     - Click on the **Navigation Menu** on the top left corner of the dashboard.
     - Select **API Management** option.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/envEntries/apiManage.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/envEntries/apiManage.PNG" width ="30%" height="30%">
     </p>
     
     - Select **Shared APIs** in **API Management** dashboard.
     - The **Route** value in **Shared APIs** dashboard is the **CLOUD_FUNCTIONS_URL** value.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/envEntries/sharedApi.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/envEntries/sharedApi.PNG" width ="30%" height="30%">
     </p>
 
     ***CLOUDANT_DB_NAME: liquid-prep-crops*** <br>
@@ -183,12 +183,12 @@ After configuring IBM Cloud Functions and Cloudant DB, the Liquid Prep backend p
     - Select **Resource List** option.
     - Select **Cloudant-liquidPrep** instance under **Services** in **Resource list** dashboard.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/envEntries/cloudantService.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/envEntries/cloudantService.PNG" width ="30%" height="30%">
     </p>
 
     - The **External Endpoint (preffered)** value is the **CLOUDANT_DB_URL** value.
     <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/envEntries/cloudantEndpoint.PNG" width ="30%" height="30%">
+        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/envEntries/cloudantEndpoint.PNG" width ="30%" height="30%">
     </p>
 
     ***WEATHER_API_KEY:*** <br>
@@ -196,7 +196,7 @@ After configuring IBM Cloud Functions and Cloudant DB, the Liquid Prep backend p
 
 3. Open command terminal and execute `npm install` in project directories `~/Liquid-Prep/backend/liquid-prep-cf` and `~/Liquid-Prep/backend/common`.
 4. Log into IBM Cloud account from command terminal with **ibmcloud** CLI. Execute the login command, <br>
-   ibmcloud login --apikey <IAM API key> -g <Resource Group> -o <organisation> -s <space> -r <region> <br>
+   `ibmcloud login --apikey <IAM API key> -g <Resource Group> -o <organisation> -s <space> -r <region>` <br>
 
    - **--apikey**: <br>
    It is the **API key** created at the beginning when an IBM Cloud account is created. Please refer to the **Pre-requisites --> IBM Cloud account --> Create IAM API key** section on how to create/obtain the IAM API key.
@@ -214,14 +214,14 @@ After configuring IBM Cloud Functions and Cloudant DB, the Liquid Prep backend p
    - **-r**: <br>
    It is the **Region** of the cloud account. Region can be obtained in the selected **Cloud Foundry Organization** dashboard beside the **Space** Name.
    <p align="left">
-    <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/account/space.PNG" width ="30%" height="30%">
+    <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/account/space.PNG" width ="30%" height="30%">
    </p>
 
 5. Navigate to project directory `~/Liquid-Prep/backend/liquid-prep-cf` from command terminal and execute `npm run deploy-dev-api`.
 
 Once the deployment is successful, go to IBM Cloud Functions dashboard, select **Actions** tab on the left pane and you can see **liquid-prep-action** instance in the **Actions** dashboard.
 <p align="left">
-    <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/dev-backend/images/backend/cloudFunctions/liquidPrep-Actions-CF.PNG" width ="30%" height="30%">
+    <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudFunctions/liquidPrep-Actions-CF.PNG" width ="30%" height="30%">
 </p>
 
 

@@ -1,8 +1,9 @@
 import { Observable, forkJoin } from 'rxjs';
 import { util } from '@common/utility';
+import { WeatherInfo } from 'src/services/responses/weatherInfoResponse';
 
 export class Weather {
-  private url = 'https://api.weather.com/v3/wx/forecast/daily/3day?format=json';
+  private FiveDaysURL = 'https://api.weather.com/v3/wx/forecast/daily/5day?format=json';
   private api: string;
 
   constructor(
@@ -15,15 +16,13 @@ export class Weather {
     console.log("weatherApiKey: ",this.weatherApiKey);
     this.geoCode = this.geoCode ? this.geoCode : '33.84,-84.25';
     this.language = this.language ? this.language : 'en-US';
-    this.units = this.units ? this.units : 'e';
-    this.api = `${this.url}&apiKey=${this.weatherApiKey}&geocode=${geoCode}&language=${language}&units=${units}`;
-    console.log("weather API: ",this.api);
+    this.units = this.units ? this.units : 'm';
   }  
 
   willItRainTomorrow() {
     let result;
     return Observable.create((observer) => {
-      this.getForecast()
+      this.get5DaysForecast()
       .subscribe((data) => {
         result = data.result;
         let precip = result['daypart'][0]['precipChance'];
@@ -40,8 +39,10 @@ export class Weather {
     });
   }
 
-  getForecast() {
+  get5DaysForecast() {
     console.log('getForecast() is executed..')
+    this.api = `${this.FiveDaysURL}&apiKey=${this.weatherApiKey}&geocode=${this.geoCode}&language=${this.language}&units=${this.units}`;
+    console.log("5 days weather API: ",this.api);
     let result;
     return Observable.create((observer) => {
       util.httpGet(this.api)
@@ -52,7 +53,7 @@ export class Weather {
         console.log(err);
         observer.error(err)
       }, () => {
-        observer.next({result: result});
+        observer.next(result);
         observer.complete();
       });  
     });

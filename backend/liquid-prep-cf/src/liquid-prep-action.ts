@@ -1,23 +1,13 @@
 import { Observable, of } from 'rxjs';
 import { LiquidPrepParams } from '@common/params/liquid-prep-params';
-import { IftttMessenger } from '@common/ifttt-messenger';
 import { util } from '@common/utility';
-import { Soil, Weather } from './triggers';
-import { CouchDB } from '@common/db/couch-db';
-
-let couchDB;
+import { Weather } from './triggers';
+import { CloudantDBService } from './services/cloudant/cloudantDBService';
+import { BaseResponse } from './services/responses/baseResponse';
 
 // Standard entry point for cloud functions
 export default function main(params: LiquidPrepParams) {
   let result: any;
-
-  console.log("cloudantDBUrl: ", params.cloudantUrl);
-  console.log("databaseName: ", params.databaseName);
-  console.log("iamApiKey: ", params.iamApiKey);
-  console.log("cloudFunctionUrl: ", params.cloudFunctionsURL);
-  console.log("weatherApiKey: ", params.weatherApiKey);
-
-  couchDB = new CouchDB(params.databaseName, params.cloudantUrl, params.iamApiKey);
   
   return new Promise((resolve, reject) => {
     action.exec(params)
@@ -26,11 +16,11 @@ export default function main(params: LiquidPrepParams) {
       console.log('$data', result);
     }, (err) => {
       console.log(err);
-      const response = new IftttMessenger(params);
-      resolve(response.error('something went wrong...', 400));
+      const response = new BaseResponse();
+      resolve(response.errorResponse('API request is not responding as expected.'));
     }, () => {
-      const response = new IftttMessenger(params);
-      resolve(response.send(result));
+      const response = new BaseResponse();
+      resolve(response.generateResponse(result, null));
     });
   });
 }
@@ -51,49 +41,19 @@ let action = {
     return (action[path] || action[params.method] || action.default)(params);
   },
   get_weather_info: (params: LiquidPrepParams) => {
-      return Observable.create((observer) => {
-        // units will either be "m" for Celcius or "e" for Farenheit
-        let weather = new Weather(params.weatherApiKey, params.geoCode, params.language, params.units);
-        weather.getForecast()
-        .subscribe((data) => {
-          console.log("MAIN: getForecast retruned response...")
-          console.log("MAIN: weather info: ",data)
-          observer.next({body: data});
-          observer.complete();
-        }, (err) => {
-          console.log(err);
-          observer.error(err)
-        });  
-      });
+    // units will either be "m" for Celcius or "e" for Farenheit
+    let weather = new Weather(params.weatherApiKey, params.geoCode, params.language, params.units);
+    let fiveDaysWeatherInfo = weather.get5DaysForecast();
+    return fiveDaysWeatherInfo;
   },
   get_crop_list: (params: LiquidPrepParams) => {
-    if(params.body) {
-      console.log(params.body);
-      return couchDB.dbFind(params.body);
-    } else {
-      let query = {
-        "selector": {
-           "type": "crop"
-        },
-        "fields": [
-           "cropName"
-        ]
-     }
-      console.log('query', query)
-      return couchDB.dbFind(query);
-    }
+    let cloudantService = new CloudantDBService(params);
+    let cropList = cloudantService.getCropList();
+    return cropList;
   },
   get_crop_info: (params: LiquidPrepParams) => {
-    if(params.body) {
-      console.log(params.body);
-      return couchDB.dbFind(params.body);
-    } else {
-      let cropName:string = params.name;
-      console.log('cropName', cropName);
-      let query = {"selector": {"_id": cropName}};
-      console.log('query', query)
-      return couchDB.dbFind(query);
-    }
+    let cropInfo = new CloudantDBService(params).getCropInfo();
+    return cropInfo;
   },
   error: (msg) => {
     return Observable.create((observer) => {
@@ -103,7 +63,7 @@ let action = {
   },
   default: (params: LiquidPrepParams) => {
     return Observable.create((observer) => {
-      observer.next(`Method ${params.method} not found.`);
+      observer.next(`API not found.`);
       observer.complete();
     });
   }

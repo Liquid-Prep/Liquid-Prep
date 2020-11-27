@@ -22,6 +22,7 @@ class CouchDBClass {
   }
 
   dbFind(query) {
+    console.log('dbFind initiated..: ');
     return Observable.create((observer) => {
       this.db.find(query, (err, data) => {
         if (err) {

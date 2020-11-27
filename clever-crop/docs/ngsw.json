@@ -1,0 +1,132 @@
+{
+  "configVersion": 1,
+  "timestamp": 1606500103541,
+  "index": "/Liquid-Prep/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/Liquid-Prep/5-es2015.34a13d81ddda5c987051.js",
+        "/Liquid-Prep/5-es5.34a13d81ddda5c987051.js",
+        "/Liquid-Prep/favicon.ico",
+        "/Liquid-Prep/index.html",
+        "/Liquid-Prep/main-es2015.53035507866e7ddb03d0.js",
+        "/Liquid-Prep/main-es5.53035507866e7ddb03d0.js",
+        "/Liquid-Prep/manifest.webmanifest",
+        "/Liquid-Prep/polyfills-es2015.259b81c535727833bc21.js",
+        "/Liquid-Prep/polyfills-es5.42f1fca2b4a7293b972c.js",
+        "/Liquid-Prep/runtime-es2015.f45708a1009616df146d.js",
+        "/Liquid-Prep/runtime-es5.f45708a1009616df146d.js",
+        "/Liquid-Prep/styles.a0e69865125005ab1542.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/Liquid-Prep/assets/crops-images/advice.png",
+        "/Liquid-Prep/assets/crops-images/corn.jpg",
+        "/Liquid-Prep/assets/crops-images/missing.jpg",
+        "/Liquid-Prep/assets/crops-images/ms1.png",
+        "/Liquid-Prep/assets/crops-images/ms2.png",
+        "/Liquid-Prep/assets/crops-images/soybean.jpg",
+        "/Liquid-Prep/assets/crops-images/stage1.png",
+        "/Liquid-Prep/assets/crops-images/stage2.png",
+        "/Liquid-Prep/assets/crops-images/stage3.png",
+        "/Liquid-Prep/assets/crops-images/stage4.png",
+        "/Liquid-Prep/assets/icons/icon-128x128.png",
+        "/Liquid-Prep/assets/icons/icon-144x144.png",
+        "/Liquid-Prep/assets/icons/icon-152x152.png",
+        "/Liquid-Prep/assets/icons/icon-192x192.png",
+        "/Liquid-Prep/assets/icons/icon-384x384.png",
+        "/Liquid-Prep/assets/icons/icon-512x512.png",
+        "/Liquid-Prep/assets/icons/icon-72x72.png",
+        "/Liquid-Prep/assets/icons/icon-96x96.png",
+        "/Liquid-Prep/assets/img-31.png",
+        "/Liquid-Prep/assets/img-32.png",
+        "/Liquid-Prep/assets/img-33.png",
+        "/Liquid-Prep/assets/json/advice.json",
+        "/Liquid-Prep/assets/json/crop.json",
+        "/Liquid-Prep/assets/json/crops.json",
+        "/Liquid-Prep/assets/json/imageMapping.json",
+        "/Liquid-Prep/assets/json/weather.json",
+        "/Liquid-Prep/assets/water-volume-1.png",
+        "/Liquid-Prep/assets/water-volume-2.png",
+        "/Liquid-Prep/assets/water-volume-3.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/Liquid-Prep/5-es2015.34a13d81ddda5c987051.js": "d51059f2d22bb6be7f039fb371cc1aa2d12b1671",
+    "/Liquid-Prep/5-es5.34a13d81ddda5c987051.js": "4a5f789fa78ef5c96a6b43428f18a9a143fbed42",
+    "/Liquid-Prep/assets/crops-images/advice.png": "b8e8664d972d372a3c5c660c636fb8a626cea96f",
+    "/Liquid-Prep/assets/crops-images/corn.jpg": "95b168e96e56df55a0f5feb75c89b2cce37e65bd",
+    "/Liquid-Prep/assets/crops-images/missing.jpg": "a9ad054d8d4b782eb2c4c8f1ad78229be7a0f043",
+    "/Liquid-Prep/assets/crops-images/ms1.png": "7567fe7a75f66066fcd8d7f878b9addb1877415b",
+    "/Liquid-Prep/assets/crops-images/ms2.png": "393f12f3be364d8cd8a9018b5509806af0e48fad",
+    "/Liquid-Prep/assets/crops-images/soybean.jpg": "f67ef10558c271d8dbb235ead2f470417fa56c7d",
+    "/Liquid-Prep/assets/crops-images/stage1.png": "5fa2339e70b095c6b99d1eee1be9690238559983",
+    "/Liquid-Prep/assets/crops-images/stage2.png": "d81fdb2ba6a5c981ffa8885d57e0d73f86930985",
+    "/Liquid-Prep/assets/crops-images/stage3.png": "f29cad26cb113e7ddc35425a779fa516a2c32192",
+    "/Liquid-Prep/assets/crops-images/stage4.png": "26bd5f651c72e186eb60184fc15c741f31a6aaab",
+    "/Liquid-Prep/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/Liquid-Prep/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/Liquid-Prep/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/Liquid-Prep/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/Liquid-Prep/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/Liquid-Prep/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/Liquid-Prep/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/Liquid-Prep/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/Liquid-Prep/assets/img-31.png": "3be49de1589c6269d9ed0ada7634cef54a41fde7",
+    "/Liquid-Prep/assets/img-32.png": "44ff66e3a718c818ead2f35a77e21234dd9239f6",
+    "/Liquid-Prep/assets/img-33.png": "9d4ed6ea0692f79a816fde63acaaa41313213a2a",
+    "/Liquid-Prep/assets/json/advice.json": "61681904daffa96b593d8a807b28c44118c29809",
+    "/Liquid-Prep/assets/json/crop.json": "2c9a728821cb468f8fa55761b0408706073ce6fc",
+    "/Liquid-Prep/assets/json/crops.json": "b8c0f48a23d39838218c974077de03d9ec89b7e1",
+    "/Liquid-Prep/assets/json/imageMapping.json": "99359620472d575d1a28aafd0377a422cea0e4c9",
+    "/Liquid-Prep/assets/json/weather.json": "c5c2736a845a49500b8a72b011207f55f2203392",
+    "/Liquid-Prep/assets/water-volume-1.png": "fff52bb1883026714a9d96e634b4d5b4a260815b",
+    "/Liquid-Prep/assets/water-volume-2.png": "6112417d38f1e4d453590a50972581eaf84c244b",
+    "/Liquid-Prep/assets/water-volume-3.png": "649a178d0ed60e3d0eeb3d8077c17a1d7f2c7f5e",
+    "/Liquid-Prep/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/Liquid-Prep/index.html": "506f0d0cf24e1c00f6e92a5ae04c092b136fe3b4",
+    "/Liquid-Prep/main-es2015.53035507866e7ddb03d0.js": "45b1903193fc56d9ac9438f2389f1b5a05c0f78c",
+    "/Liquid-Prep/main-es5.53035507866e7ddb03d0.js": "ccfa765baf684cfef72735a26e18faf103c1cc0e",
+    "/Liquid-Prep/manifest.webmanifest": "920d36577bb5dd0b07eea0db844ebf20c0a33c26",
+    "/Liquid-Prep/polyfills-es2015.259b81c535727833bc21.js": "8300c2dacacd4a32c3dd12f3ba92bd1db20a6978",
+    "/Liquid-Prep/polyfills-es5.42f1fca2b4a7293b972c.js": "90429a136036f81d4c3144f2e73b945245eb35f8",
+    "/Liquid-Prep/runtime-es2015.f45708a1009616df146d.js": "a925ac3050ba015a3614e0674c67275de760b9e3",
+    "/Liquid-Prep/runtime-es5.f45708a1009616df146d.js": "cb3274889b93f354732eff0f0282aebaab23b355",
+    "/Liquid-Prep/styles.a0e69865125005ab1542.css": "0b757ca872324cc1aaf9087fe02abaac11128bb6"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

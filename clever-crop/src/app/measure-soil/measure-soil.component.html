@@ -14,17 +14,42 @@
     (indexChange)="onIndexChange($event)" (swiperTransitionStart)="onSwiperEvent('transitionStart')"
     (swiperTransitionEnd)="onSwiperEvent('transitionEnd')">
 
-    <div class="swiper-slide" *ngFor="let item of dataSource">
-      <div class="vertical">
-        <Label class="title" textWrap="true">{{ item.title }}</Label>
-        <Label class="description" textWrap="true">{{ item.description }}</Label>
-      </div>
-      <div fxLayout="column" fxFlexFill >
-        <img src="{{ item.url }}" alt="{{ item.title }}">
-        <button mat-flat-button class="btn-next" (click)="onNextClicked()">Next</button>
-        <button mat-flat-button class="btn-previous" (click)="onPrevClicked()">Previous</button>
-      </div>
-    </div>
-  
+<!--    <div class="swiper-slide" *ngFor="let item of dataSource">-->
+<!--      <div class="vertical">-->
+<!--        <Label class="title" textWrap="true">{{ item.title }}</Label>-->
+<!--        <Label class="description" textWrap="true">{{ item.description }}</Label>-->
+<!--      </div>-->
+<!--      <div fxLayout="column" fxFlexFill >-->
+<!--        <img src="{{ item.url }}" alt="{{ item.title }}">-->
+<!--        <button mat-flat-button class="btn-next" (click)="onNextClicked()">Next</button>-->
+<!--        <button mat-flat-button class="btn-previous" (click)="onPrevClicked()">Previous</button>-->
+<!--      </div>-->
+<!--    </div>-->
+
+        <div class="swiper-slide">
+          <div class="vertical">
+            <Label class="title" textWrap="true">Step 1:</Label>
+            <Label class="description" textWrap="true">Get your sensor Ready</Label>
+          </div>
+          <div fxLayout="column" fxFlexFill >
+            <img src="assets/crops-images/ms1.png" alt="Step 1:">
+            <button mat-flat-button class="btn-next" (click)="onNextClicked()">Next</button>
+            <button mat-flat-button class="btn-previous" (click)="onPrevClicked()">Previous</button>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="vertical">
+            <Label class="title" textWrap="true">Step 2:</Label>
+            <Label class="description" textWrap="true">Place your sensor in the soil</Label>
+          </div>
+          <div fxLayout="column" fxFlexFill >
+            <img src="assets/crops-images/ms2.png" alt="Step 1:">
+            <button mat-flat-button class="c-btn" (click)="onSensorConnect()">Connect Sensor</button>
+            <button mat-flat-button class="btn-next" (click)="onNextClicked()">Next</button>
+            <button mat-flat-button class="btn-previous" (click)="onPrevClicked()">Previous</button>
+          </div>
+        </div>
+
   </swiper>
 </div>

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { SwiperOptions } from 'swiper';
 import { MeasureSoilItems } from '../models/MeasureSoil';
+import {ConnectingDialogComponent} from './connecting-dialog/connecting-dialog.component';
 
 @Component({
   selector: 'app-measure-soil',
@@ -11,7 +14,7 @@ import { MeasureSoilItems } from '../models/MeasureSoil';
   styleUrls: ['./measure-soil.component.scss'],
 })
 export class MeasureSoilComponent implements OnInit {
-  constructor(private router: Router, private location: Location) { }
+  constructor(private router: Router, private location: Location, private dialog: MatDialog) { }
 
   public config: SwiperOptions = {
     a11y: { enabled: true },
@@ -36,6 +39,13 @@ export class MeasureSoilComponent implements OnInit {
   public dataSource = MeasureSoilItems;
 
   ngOnInit(): void { }
+
+  public onSensorConnect(){
+    this.dialog.open(ConnectingDialogComponent, {
+      panelClass: 'myapp-no-padding-dialog',
+      data: {timeout: 3000}
+    });
+  }
 
   public onNextClicked() {
     if (this.index < this.dataSource.length - 1) {

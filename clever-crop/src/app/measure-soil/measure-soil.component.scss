@@ -76,3 +76,13 @@
   top: 8%;
   width: 100%;
 }
+
+.c-btn {
+  position: absolute;
+  top: 88%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  background-color: #2F4FFE;
+}

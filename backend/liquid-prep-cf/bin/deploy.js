@@ -1,13 +1,11 @@
 #! /usr/bin/env node
-const path = require('path');
 const cp = require('child_process'),
   exec = cp.exec;
-const fs = require('fs');
 require('dotenv').config();
 
 const task = process.env.npm_config_task || 'deploy'
 const env = process.env.npm_config_env || 'dev';
-const package = process.env.npm_config_package || 'liquidPrep';
+const cloud_package = process.env.npm_config_package || 'liquidPrep';
 const yaml = process.env.npm_config_api ? 'manifest-api.yaml' : 'manifest.yaml';
 
 let build = {
@@ -15,7 +13,7 @@ let build = {
     
     console.log('task: ',task);
     console.log('env: ',env);
-    console.log('package: ',package);
+    console.log('package: ',cloud_package);
     console.log('yaml: ',yaml);
 
     console.log('iamApiKey: ',process.env.IAM_API_KEY);
@@ -28,7 +26,7 @@ let build = {
     exec(cfCMD, {maxBuffer: 1024 * 2000}, (err, stdout, stderr) => {
       if(!err) {
         console.log(stdout)
-        console.log(`done deploying ${package}`);
+        console.log(`done deploying ${cloud_package}`);
       } else {
         console.log(stderr);
         console.log('failed to deploy', err);

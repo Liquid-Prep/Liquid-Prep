@@ -4,45 +4,46 @@ import { ErrorMessages } from 'src/constants/errorMessages';
 
 export class CloudantDBService {
 
-    private databaseName: string = null;
-    private cloudantURL: string = null;
-    private iamAPIKey: string = null;
-
-    private cropList: any = null;
-    private cropInfo: any = null;
-    private cropName: string = null;
+    private params: LiquidPrepParams;
+    private cropList: any;
+    private cropInfo: any;
+    private couchDB;
 
     constructor(params: LiquidPrepParams){
+        this.params = params;
+        this.instantiateCloudantService(this.params);
+    }
+
+    private instantiateCloudantService(params){
+        let databaseName: string;
+        let cloudantURL: string;
+        let iamAPIKey: string;
+
         if(params.databaseName){
-            this.databaseName = params.databaseName;
+            databaseName = params.databaseName;
         } else {
             throw Error(ErrorMessages.CLOUDANT_DATABASE_NAME_UNDEFINED)
         }
         
         if(params.cloudantUrl){
-            this.cloudantURL = params.cloudantUrl;
+            cloudantURL = params.cloudantUrl;
         } else {
             throw Error(ErrorMessages.CLOUDANT_DATABASE_URL_UNDEFINED)
         }
 
         if(params.iamApiKey){
-            this.iamAPIKey = params.iamApiKey;
+            iamAPIKey = params.iamApiKey;
         } else {
             throw Error(ErrorMessages.IAM_API_KEY_UNDEFINED)
         }
 
-        if(params.cropName){
-            this.cropName = params.cropName;
-        } else {
-            throw Error(ErrorMessages.CROP_NAME_UNDEFINED)
-        }
+        this.couchDB = new CouchDB(databaseName, cloudantURL, iamAPIKey);
     }
 
-    private couchDB = new CouchDB(this.databaseName, this.cloudantURL, this.iamAPIKey);
-
     public getCropList() {
+        console.log('getCropList method initiated');
         if(this.cropList) {
-            return this.couchDB.dbFind(this.cropList);
+            return this.cropList;
         } else {
             let query = {
               "selector": {
@@ -54,20 +55,23 @@ export class CloudantDBService {
            }
         console.log('crop list query: ', query);
         this.cropList = this.couchDB.dbFind(query);
-        }
-
         return this.cropList;
+        }
     }
 
     public getCropInfo() {
-        if(this.cropInfo) {
-            return this.couchDB.dbFind(this.cropInfo);
+        console.log('getCropInfo method initiated');
+        let cropName: string;
+        if(this.params.cropName){
+            cropName = this.params.cropName;
         } else {
-            console.log('cropName', this.cropName);
-            let query = {"selector": {"_id": this.cropName}};
-            console.log('crop info query: ', query);
-            this.cropInfo = this.couchDB.dbFind(query);
-            return this.cropInfo;
+            throw Error(ErrorMessages.CROP_NAME_UNDEFINED)
         }
+        console.log('cropName', cropName);
+        let query = {"selector": {"_id": cropName}};
+        console.log('crop info query: ', query);
+        this.cropInfo = this.couchDB.dbFind(query);
+
+        return this.cropInfo;
     }
 }

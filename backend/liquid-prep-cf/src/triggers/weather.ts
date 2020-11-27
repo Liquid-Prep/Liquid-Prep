@@ -1,9 +1,9 @@
 import { Observable, forkJoin } from 'rxjs';
 import { util } from '@common/utility';
-import { WeatherInfo } from 'src/services/responses/weatherInfoResponse';
 
 export class Weather {
   private FiveDaysURL = 'https://api.weather.com/v3/wx/forecast/daily/5day?format=json';
+  private ThreeDaysURL = 'https://api.weather.com/v3/wx/forecast/daily/3day?format=json';
   private api: string;
 
   constructor(

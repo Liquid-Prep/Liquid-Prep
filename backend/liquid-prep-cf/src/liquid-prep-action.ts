@@ -1,6 +1,5 @@
 import { Observable, of } from 'rxjs';
 import { LiquidPrepParams } from '@common/params/liquid-prep-params';
-import { IftttMessenger } from '@common/ifttt-messenger';
 import { util } from '@common/utility';
 import { Weather } from './triggers';
 import { CloudantDBService } from './services/cloudant/cloudantDBService';
@@ -9,12 +8,6 @@ import { BaseResponse } from './services/responses/baseResponse';
 // Standard entry point for cloud functions
 export default function main(params: LiquidPrepParams) {
   let result: any;
-
-  console.log("cloudantDBUrl: ", params.cloudantUrl);
-  console.log("databaseName: ", params.databaseName);
-  console.log("iamApiKey: ", params.iamApiKey);
-  console.log("cloudFunctionUrl: ", params.cloudFunctionsURL);
-  console.log("weatherApiKey: ", params.weatherApiKey);
   
   return new Promise((resolve, reject) => {
     action.exec(params)
@@ -23,11 +16,11 @@ export default function main(params: LiquidPrepParams) {
       console.log('$data', result);
     }, (err) => {
       console.log(err);
-      const response = new IftttMessenger(params);
-      resolve(response.error('something went wrong...', 400));
+      const response = new BaseResponse();
+      resolve(response.errorResponse('API request is not responding as expected.'));
     }, () => {
-      const response = new IftttMessenger(params);
-      resolve(response.send(result));
+      const response = new BaseResponse();
+      resolve(response.generateResponse(result, null));
     });
   });
 }
@@ -51,18 +44,16 @@ let action = {
     // units will either be "m" for Celcius or "e" for Farenheit
     let weather = new Weather(params.weatherApiKey, params.geoCode, params.language, params.units);
     let fiveDaysWeatherInfo = weather.get5DaysForecast();
-    let weatherResponse = new BaseResponse().generateResponse(fiveDaysWeatherInfo, null);
-    return weatherResponse;
+    return fiveDaysWeatherInfo;
   },
   get_crop_list: (params: LiquidPrepParams) => {
-    let cropList = new CloudantDBService(params).getCropList();
-    let cropsListResponse = new BaseResponse().generateResponse(cropList, null);
-    return cropsListResponse;
+    let cloudantService = new CloudantDBService(params);
+    let cropList = cloudantService.getCropList();
+    return cropList;
   },
   get_crop_info: (params: LiquidPrepParams) => {
     let cropInfo = new CloudantDBService(params).getCropInfo();
-    let cropsInfoResponse = new BaseResponse().generateResponse(cropInfo, null);
-    return cropsInfoResponse;
+    return cropInfo;
   },
   error: (msg) => {
     return Observable.create((observer) => {

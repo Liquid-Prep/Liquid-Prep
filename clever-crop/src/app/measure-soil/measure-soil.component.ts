@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import { MatDialog } from '@angular/material/dialog';
 import { SwiperOptions } from 'swiper';
 import { MeasureSoilItems } from '../models/MeasureSoil';
-import {ConnectingDialogComponent} from './connecting-dialog/connecting-dialog.component';
+import { ConnectingDialogComponent} from './connecting-dialog/connecting-dialog.component';
+import { USB } from 'webusb';
 
 @Component({
   selector: 'app-measure-soil',
@@ -41,10 +40,22 @@ export class MeasureSoilComponent implements OnInit {
   ngOnInit(): void { }
 
   public onSensorConnect(){
-    this.dialog.open(ConnectingDialogComponent, {
+    const dialogRef = this.dialog.open(ConnectingDialogComponent, {
       panelClass: 'myapp-no-padding-dialog',
-      data: {timeout: 3000}
+      data: {}
     });
+    console.log(window.navigator.usb.getDevices());
+    window.navigator.usb.requestDevice({filters: []})
+      .then(usbDevice => {
+        console.log('Product name: ' + usbDevice.productName);
+        console.log('Product vendorId: ' + usbDevice.vendorId.toString(16));
+        console.log('Product productId: ' + usbDevice.productId);
+        dialogRef.close();
+      })
+      .catch(e => {
+        console.log(e);
+        dialogRef.close();
+      });
   }
 
   public onNextClicked() {

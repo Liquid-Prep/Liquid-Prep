@@ -241,14 +241,14 @@ The backend service is deployed in Liquid Prep cloud account and the APIs can be
 
 2. **GET-CROP-INFO:**
    Get crop information for a particular crop supported by Liquid Prep. <br> 
-   https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/96fd655207897b11587cfcf2b3f58f6e0792f788cf2a04daa79b53fc3d4efb32/liquidprep-cf-api/get_crop_info?name=<crop name> <br>
+   https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/96fd655207897b11587cfcf2b3f58f6e0792f788cf2a04daa79b53fc3d4efb32/liquidprep-cf-api/get_crop_info?id=<_id> <br>
 
    **Params:** <br>
-   - **name**: Crop name (corn/soybeans). Crop names can be obtained from list of supported crops in https://github.com/Call-for-Code/Liquid-Prep/tree/master/backend/resources/crops <br>
+   - **id**: Id is the unique identity number assigned for the crop and can be obtained from list of supported crops in https://github.com/Call-for-Code/Liquid-Prep/tree/master/backend/resources/crops <br>
 
    **Example:** <br>
    Get crop information for Corn. <br>
-   https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/96fd655207897b11587cfcf2b3f58f6e0792f788cf2a04daa79b53fc3d4efb32/liquidprep-cf-api/get_crop_info?name=corn
+   https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/96fd655207897b11587cfcf2b3f58f6e0792f788cf2a04daa79b53fc3d4efb32/liquidprep-cf-api/get_crop_info?name=1
 
 3. **GET-CROP-INFO:**
    Get list of all crop names supported by Liquid Prep. <br>

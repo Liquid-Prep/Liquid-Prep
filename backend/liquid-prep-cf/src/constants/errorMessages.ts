@@ -12,5 +12,6 @@ export class ErrorMessages {
 
     //CROPS
     public static CROP_NAME_UNDEFINED: string = "Crop name is not defined or null."
+    public static CROP_ID_UNDEFINED: string = "Crop id is not defined or null."
 
 }

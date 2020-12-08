@@ -30,5 +30,4 @@ export interface Params {
   basin: string;
   expires: string;
   geoCode: string;
-  cropName: string;
 }

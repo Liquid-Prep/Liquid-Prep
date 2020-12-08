@@ -47,10 +47,11 @@ export class CloudantDBService {
         } else {
             let query = {
               "selector": {
-                 "type": "crop"
+                "type": "crop"
               },
               "fields": [
-                 "cropName"
+                "_id",
+                "cropName"
                 ]
            }
         console.log('crop list query: ', query);
@@ -61,14 +62,14 @@ export class CloudantDBService {
 
     public getCropInfo() {
         console.log('getCropInfo method initiated');
-        let cropName: string;
-        if(this.params.cropName){
-            cropName = this.params.cropName;
+        let id: number;
+        if(this.params.id){
+            id = this.params.id;
         } else {
-            throw Error(ErrorMessages.CROP_NAME_UNDEFINED)
+            throw Error(ErrorMessages.CROP_ID_UNDEFINED);
         }
-        console.log('cropName', cropName);
-        let query = {"selector": {"_id": cropName}};
+        console.log('crop id', id);
+        let query = {"selector": {"_id": id}};
         console.log('crop info query: ', query);
         this.cropInfo = this.couchDB.dbFind(query);
 

@@ -5,4 +5,6 @@ export interface LiquidPrepParams extends DBParams {
   soilWet: string;
   rainTomorrow: string;
   cloudFunctionsURL: string;
+  cropName: string;
+  id: number;
 }

@@ -1,6 +1,6 @@
 {
-  "_id": "1",
-  "cropName": "corn",
+  "_id": "2",
+  "cropName": "soyabeans",
   "type": "crop",
   "cropGrowthStage": {
     "numberOfStages": 4,
@@ -15,12 +15,12 @@
       {
         "stageNumber": 2,
         "stage": "development",
-        "waterUse": 0.66
+        "waterUse": 0.5
       },
       {
         "stageNumber": 3,
         "stage": "mid-season",
-        "waterUse": 0.81
+        "waterUse": 0.76
       },
       {
         "stageNumber": 4,

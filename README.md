@@ -23,17 +23,14 @@ We have developed **Liquid Prep**, an end-to-end solution for farmers looking to
 -	Soil Moisture Sensor module to measure the soil moisture level. 
 - Clever Crop mobile app for users/famers with low literacy to easily understand, interact and get water advice for selectd crop.
 -	IBM Cloud Backend Service hosted on [IBM Cloud](https://www.ibm.com/cloud). 
-- The Weat[The Weather Company](https://business.weather.com/).
-
-
-
+- [The Weather Company APIs](https://business.weather.com/).
 
 ### Get Started
 
 1. Project Setup
-  - [Moisture Sensor Module Setup](https://github.com/Call-for-Code/Liquid-Prep/blob/master/soilSensor/User-Manual.pdf)
-  - Clever Crop App - coming soon
-  - [IBM Cloud Backend Service](https://github.com/Call-for-Code/Liquid-Prep/blob/master/backend/README.md)
+    - [Moisture Sensor Module Setup](https://github.com/Call-for-Code/Liquid-Prep/blob/master/soilSensor/User-Manual.pdf)
+    - Clever Crop App Setup - coming soon
+    - [IBM Cloud Backend Service Setup](https://github.com/Call-for-Code/Liquid-Prep/blob/master/backend/README.md)
 2. [Project Roadmap](#project-roadmap)
 3. [Contributing](#contributing)
 
@@ -41,7 +38,7 @@ We have developed **Liquid Prep**, an end-to-end solution for farmers looking to
 
 The Liquid Prep solution currently comprises mainly a mobile app, a soil humidity sensor module, and IBM cloud platform for accessing weather and crop data. Our future roadmap adds more functionality to the Liquid Prep platform by <br>
 1. Localizing the app
-2. Add more types of crop data
+2. Add more crops data
 3. Consider soil properties for better water advice.
 
 ## Contributing

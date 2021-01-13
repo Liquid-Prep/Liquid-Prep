@@ -119,6 +119,6 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
   }
 
   onGetAdvise() {
-    // TODO navigate to next component
+    this.router.navigate(['advice']).then(r => {});
   }
 }

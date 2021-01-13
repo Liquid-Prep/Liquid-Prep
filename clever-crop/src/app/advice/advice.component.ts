@@ -34,4 +34,8 @@ export class AdviceComponent implements OnInit {
   public backClicked() {
     this.location.back();
   }
+
+  onFabClicked() {
+    // TODO
+  }
 }

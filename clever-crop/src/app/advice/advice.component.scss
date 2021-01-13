@@ -73,3 +73,13 @@
     font-size: 13px;
     margin-top: 10px;
 }
+
+.float-btn {
+  position: absolute;
+  top: 61%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  background-color: #2F4FFE;
+}

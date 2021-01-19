@@ -39,6 +39,7 @@ export class GrowthStageComponent implements OnInit {
   }
 
   cardClicked(stage: Stage) {
-    this.router.navigateByUrl('/my-crops');
+    // this.router.navigateByUrl('/my-crops');
+    this.router.navigate(['/measure-soil']).then(r => {});
   }
 }

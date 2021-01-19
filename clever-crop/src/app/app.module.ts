@@ -32,6 +32,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { AdviceComponent } from './advice/advice.component';
 import { WaterAdviceComponent } from './water-advice/water-advice.component';
 import { ConnectingDialogComponent } from './measure-soil/connecting-dialog/connecting-dialog.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   observer: true,
@@ -53,30 +54,31 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     AdviceComponent,
     WaterAdviceComponent,
     ConnectingDialogComponent],
-  imports: [
-    BrowserModule,
-    MaterialModule,
-    AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-}),
-    BrowserAnimationsModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatInputModule,
-    MatTableModule,
-    MatTabsModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatCardModule,
-    SwiperModule,
-    FlexLayoutModule,
-    MatGridListModule,
-    MatToolbarModule,
-    MatDialogModule
-  ],
+    imports: [
+        BrowserModule,
+        MaterialModule,
+        AppRoutingModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+        }),
+        BrowserAnimationsModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatInputModule,
+        MatTableModule,
+        MatTabsModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatProgressSpinnerModule,
+        MatCardModule,
+        SwiperModule,
+        FlexLayoutModule,
+        MatGridListModule,
+        MatToolbarModule,
+        MatDialogModule,
+        MatMenuModule
+    ],
   providers: [
     AppServicesService,
     {

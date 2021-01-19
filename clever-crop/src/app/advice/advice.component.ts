@@ -36,6 +36,10 @@ export class AdviceComponent implements OnInit {
   }
 
   onFabClicked() {
-    // TODO
+    this.router.navigate(['/measure-soil']).then(r => {});
+  }
+
+  onCrop() {
+    this.router.navigateByUrl('/my-crops').then(r => {});
   }
 }

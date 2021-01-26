@@ -9,7 +9,11 @@ import { WeatherDataService } from './WeatherDataService';
 import { SoilMoistureService } from './SoilMoistureService';
 import { SoilMoisture } from '../models/SoilMoisture';
 import { Observable, Observer } from 'rxjs';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+    providedIn: 'root',
+})
 export class WaterAdviceService {
 
     public LOW = 'LOW';
@@ -62,6 +66,7 @@ export class WaterAdviceService {
         // gather crop info for a stage
         const dateTimeUtil = new DateTimeUtil();
         let waterAdvice = new Advice();
+        console.log('cropInfo: ', cropInfo)
         waterAdvice.cropName = cropInfo.cropName;
         waterAdvice.id = cropInfo.id;
         waterAdvice.stage = cropInfo.stage.stage;

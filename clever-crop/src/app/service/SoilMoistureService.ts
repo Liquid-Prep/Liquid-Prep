@@ -1,4 +1,9 @@
+import { Injectable } from "@angular/core";
 import { SoilMoisture } from "../models/SoilMoisture";
+
+@Injectable({
+    providedIn: 'root',
+})
 
 export class SoilMoistureService {
 

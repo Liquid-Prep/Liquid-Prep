@@ -47,4 +47,12 @@ export class AdviceComponent implements OnInit {
   public backClicked() {
     this.location.back();
   }
+
+  onFabClicked() {
+    this.router.navigate(['/measure-soil']).then(r => {});
+  }
+
+  onCrop() {
+    this.router.navigateByUrl('/my-crops').then(r => {});
+  }
 }

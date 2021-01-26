@@ -29,8 +29,8 @@ export class MyCropsComponent implements OnInit {
   activeTab = this.tabs[0];
   background: ThemePalette = undefined;
 
-  private currentDate = '';
-  private temperature = 0;
+  public currentDate = '';
+  public temperature = 0;
 
   constructor(private appService: AppServicesService, private router: Router, private location: Location,
               private weatherService: WeatherDataService, private cropDataService: CropDataService) {
@@ -89,10 +89,24 @@ export class MyCropsComponent implements OnInit {
   }
 
   public cropClicked(event){
-    this.router.navigate(['/water-advice/:1']);
+    //this.router.navigate(['/water-advice/:1']);
+    this.router.navigate(['advice']).then(r => {});
   }
 
   public backClicked() {
     this.location.back();
+  }
+
+  onContextMenu($event: MouseEvent, crop: Crop) {
+    console.log('onContextMenu');
+  }
+
+  onViewCropAdvice(crop: Crop) {
+    this.router.navigate(['advice']).then(r => {});
+  }
+
+  onRemoveCrop(crop: Crop) {
+    this.appService.deleteMyCrops();
+    window.location.reload();
   }
 }

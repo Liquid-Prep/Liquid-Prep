@@ -21,6 +21,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatDialogModule} from '@angular/material/dialog';
+import {MatMenuModule} from "@angular/material/menu";
 
 import { AppServicesService } from './app-services.service';
 
@@ -31,9 +33,9 @@ import { GrowthStageComponent } from './components/growth-stage/growth-stage.com
 import { SettingsComponent } from './components/settings/settings.component';
 import { AdviceComponent } from './components/advice/advice.component';
 import { WaterAdviceComponent } from './components/water-advice/water-advice.component';
-import { WeatherDataService } from './service/WeatherDataService';
 import { DataService } from './service/DataService';
-import { DateTimeUtil } from './utility/DateTimeUtil';
+import { ConnectingDialogComponent } from './components/measure-soil/connecting-dialog/connecting-dialog.component';
+import { WaterAdviceService } from './service/WaterAdviceService';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   observer: true,
@@ -53,7 +55,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     GrowthStageComponent,
     SettingsComponent,
     AdviceComponent,
-    WaterAdviceComponent],
+    WaterAdviceComponent,
+    ConnectingDialogComponent],
   imports: [
     BrowserModule,
     MaterialModule,
@@ -76,6 +79,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     FlexLayoutModule,
     MatGridListModule,
     MatToolbarModule,
+    MatDialogModule,
+    MatMenuModule,
   ],
   providers: [
     AppServicesService,

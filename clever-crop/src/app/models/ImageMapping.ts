@@ -2,7 +2,10 @@ export class ImageMapping {
     cropsMap: Map<string, Crop>;
 }
 
-class Crop {
+export class Crop {
     url: string;
-    stagesMap: Map<string, string>;
+}
+
+export class CropGrowthStageImageMapping {
+    cropStageMap: Map<string, string>;
 }

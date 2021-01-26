@@ -20,7 +20,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { MatDialogModule} from '@angular/material/dialog';
 
 import { AppServicesService } from './app-services.service';
 
@@ -31,8 +30,7 @@ import { GrowthStageComponent } from './components/growth-stage/growth-stage.com
 import { SettingsComponent } from './components/settings/settings.component';
 import { AdviceComponent } from './components/advice/advice.component';
 import { WaterAdviceComponent } from './components/water-advice/water-advice.component';
-import { ConnectingDialogComponent } from './components/measure-soil/connecting-dialog/connecting-dialog.component';
-import {MatMenuModule} from "@angular/material/menu";
+import { DataService } from './service/DataService';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   observer: true,
@@ -52,35 +50,33 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     GrowthStageComponent,
     SettingsComponent,
     AdviceComponent,
-    WaterAdviceComponent,
-    ConnectingDialogComponent],
-    imports: [
-        BrowserModule,
-        MaterialModule,
-        AppRoutingModule,
-        ServiceWorkerModule.register('ngsw-worker.js', {
-            enabled: environment.production,
-        }),
-        BrowserAnimationsModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatInputModule,
-        MatTableModule,
-        MatTabsModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatProgressSpinnerModule,
-        MatCardModule,
-        SwiperModule,
-        FlexLayoutModule,
-        MatGridListModule,
-        MatToolbarModule,
-        MatDialogModule,
-        MatMenuModule
-    ],
+    WaterAdviceComponent],
+  imports: [
+    BrowserModule,
+    MaterialModule,
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+}),
+    BrowserAnimationsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatInputModule,
+    MatTableModule,
+    MatTabsModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    SwiperModule,
+    FlexLayoutModule,
+    MatGridListModule,
+    MatToolbarModule,
+  ],
   providers: [
     AppServicesService,
+    DataService,
     {
       provide: SWIPER_CONFIG,
       useValue: DEFAULT_SWIPER_CONFIG

@@ -1,0 +1,19 @@
+export class WeatherInfo {
+    public narrative: string;
+    public  precipChance: number;
+    public  precipType: string;
+    public  humidity: number;
+    public  temperature: number;
+    public  windSpeed: number;
+}
+
+export class Today {
+    public dayOfWeek: string;
+    public narrative: string;
+    public sunriseTime: Date;
+    public sunsetTime: Date;
+    public maxTemperature: number;
+    public minTemperature: number;
+    public dayTime: WeatherInfo;
+    public nightTime: WeatherInfo;
+}

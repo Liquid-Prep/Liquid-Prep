@@ -9,6 +9,10 @@ import { AppServicesService } from '../../app-services.service';
 import { CropListResponse } from '../../models/api/CropListResponse';
 import { CropInfoResponse } from '../../models/api/CropInfoResponse';
 import { Crop } from '../../models/Crop';
+import { DataService } from '../../service/DataService';
+import { WeatherResponse } from 'src/app/models/api/WeatherResponse';
+import { WeatherDataService } from 'src/app/service/WeatherDataService';
+import { Today } from 'src/app/models/Today';
 
 @Component({
   selector: 'app-my-crops',
@@ -25,13 +29,24 @@ export class MyCropsComponent implements OnInit {
 
   currentDate = '';
 
-  constructor(private appService: AppServicesService, private router: Router, private location: Location) { }
+  constructor(private appService: AppServicesService, private router: Router, private location: Location,
+              private weatherService: WeatherDataService) { }
 
   ngOnInit(): void {
     this.appService.getMyCrops().subscribe(cropListResponse => {
       this.dataSource = cropListResponse.data;
     });
     this.currentDate =  formatDate(new Date(), 'MMMM d, yyyy', 'en');
+
+    /*this.dataService.getWeatherInfo().subscribe((weatherInfo: WeatherResponse) => {
+      //console.log('weather data: ', weatherInfo);
+      const todayWeather = WeatherService.getInstance().createTodayWeather(weatherInfo);
+      console.log('today weather: ', todayWeather);
+    });*/
+
+    this.weatherService.getTodayWeather().subscribe((todayWeather: Today) => {
+      console.log('today weather: ', todayWeather);
+    });
   }
 
   public tabClicked(tab) {
@@ -52,24 +67,10 @@ export class MyCropsComponent implements OnInit {
   }
 
   public cropClicked(event){
-    // this.router.navigate(['/water-advice/:1']);
-    this.router.navigate(['advice']).then(r => {});
+    this.router.navigate(['/water-advice/:1']);
   }
 
   public backClicked() {
     this.location.back();
-  }
-
-  onContextMenu($event: MouseEvent, crop: Crop) {
-    console.log('onContextMenu');
-  }
-
-  onViewCropAdvice(crop: Crop) {
-    this.router.navigate(['advice']).then(r => {});
-  }
-
-  onRemoveCrop(crop: Crop) {
-    this.appService.deleteMyCrops();
-    window.location.reload();
   }
 }

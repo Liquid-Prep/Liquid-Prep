@@ -1,0 +1,92 @@
+.mainPage {
+  background-color: #F5F5F6;
+}
+
+.primaryBlue {
+  color: #2F4FFE;
+}
+
+.yellow{
+  color: #FFCA26;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.md-fab-bottom-right {
+  position: fixed !important;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99;
+  width: 56px;
+  height: 56px;
+  background-color: #2F4FFE;
+}
+
+.custom-toolbar {
+  background-color: #2F4FFE;
+  padding: 0 5px;
+}
+
+.toolbar-title {
+  color: #fff;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.white-icon {
+  color: #fff;
+}
+
+.horizontal {
+  display: block;
+  flex-direction: row;
+  padding-top: 10px;
+  // padding-bottom: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.date {
+  display: inline-block;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 100;
+  margin-bottom: 0px;
+}
+
+.imgHolder {
+  display: inline-block;
+  float: right;
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+.temp {
+  font-size: 20px;
+}
+
+.grid {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+mat-card {
+  border: 2px solid #F5F5F6;
+}
+
+.cardImage {
+  margin-bottom: 0px;
+}
+
+.cardTittle {
+  padding: 8px;
+  font-weight: 100;
+}

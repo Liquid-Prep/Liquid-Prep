@@ -1,0 +1,88 @@
+.content-container {
+  position: relative;
+  overflow: auto;
+  height: 90%;
+  min-height: 0;
+  margin: 0px 0px;
+  border-radius: 00px;
+  background-color: #fff;
+}
+
+.primaryBlue {
+  color: #2F4FFE;
+}
+
+.swiper-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.swiper-slide {
+  color: white;
+  background-color: white;
+}
+
+.title {
+  color: black;
+  font-size: 16px;
+}
+
+.description {
+  color: gray;
+  font-size: 14px;
+}
+
+.btn-next {
+  position: absolute;
+  bottom: 0%;
+  right: 10%;
+  color: #2F4FFE;
+}
+
+.btn-previous {
+  position: absolute;
+  bottom: 0%;
+  left: 10%;
+  color: #2F4FFE;
+}
+
+.custom-toolbar {
+  background-color: #2F4FFE;
+  padding: 0 5px;
+}
+
+.toolbar-title {
+  color: #fff;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.white-icon {
+  color: #fff;
+}
+
+.vertical {
+  // position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  margin-top: 30px;
+  top: 8%;
+  width: 100%;
+}
+
+.c-btn {
+  position: absolute;
+  top: 88%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  background-color: #2F4FFE;
+}

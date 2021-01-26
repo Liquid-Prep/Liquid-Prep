@@ -1,0 +1,40 @@
+{
+  "status": "success",
+  "statusCode": "200",
+  "data": {
+    "index": 2,
+    "cropName": "soyabeans",
+    "cropGrowthStage": {
+      "numberOfStages": 4,
+      "waterMeasurementMetric": "inches",
+      "waterUsage": "daily",
+      "stages": [
+        {
+          "stageNumber": 1,
+          "stage": "germination",
+          "waterUseMin": 0.05,
+          "waterUseMax": 0.1
+        },
+        {
+          "stageNumber": 2,
+          "stage": "growing",
+          "waterUseMin": 0.1,
+          "waterUseMax": 0.2
+        },
+        {
+          "stageNumber": 3,
+          "stage": "reproduction",
+          "waterUseMin": 0.2,
+          "waterUseMax": 0.3
+        },
+        {
+          "stageNumber": 4,
+          "stage": "maturation",
+          "waterUseMin": 0.05,
+          "waterUseMax": 0.2
+        }
+      ]
+    }
+  },
+  "message": ""
+}

@@ -1,0 +1,58 @@
+header {
+    position: fixed;
+    top: 0;
+    z-index: 11;
+    transition: all 250ms ease-in-out;
+}
+.add-crop-header {
+    @extend header;
+    &.hidden {
+        opacity: 0;
+    }
+}
+
+.custom-toolbar {
+  background-color: #2F4FFE;
+  padding: 0 5px;
+}
+
+.toolbar-title {
+  color: #fff;
+}
+
+.search-block {
+    width: 0;
+    right: 0;
+    @extend header;
+    background: #fff;
+    &.active {
+        width: 100%;
+    }
+    .search-control {
+        flex: 1;
+        font-size: 1rem;
+        border: 0;
+        outline: none;
+        padding-left: 10px;
+    }
+}
+
+.grid {
+    margin-top: 50px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+mat-card {
+    margin: 4px;
+    border: 2px solid #F5F5F6;
+}
+
+.cardImage {
+    margin-bottom: 0;
+}
+
+.cardTittle {
+    padding: 8px;
+    font-weight: 100;
+}

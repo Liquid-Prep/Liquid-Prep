@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { MyCropsComponent } from './my-crops/my-crops.component';
-import { MeasureSoilComponent } from './measure-soil/measure-soil.component';
-import { GrowthStageComponent } from './growth-stage/growth-stage.component';
-import { SettingsComponent } from './settings/settings.component';
-import { AdviceComponent } from './advice/advice.component';
-import { WaterAdviceComponent } from './water-advice/water-advice.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { MyCropsComponent } from './components/my-crops/my-crops.component';
+import { MeasureSoilComponent } from './components/measure-soil/measure-soil.component';
+import { GrowthStageComponent } from './components/growth-stage/growth-stage.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { AdviceComponent } from './components/advice/advice.component';
+import { WaterAdviceComponent } from './components/water-advice/water-advice.component';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'select-crop',
-    loadChildren: () => import('./select-crop/select-crop.module')
+    loadChildren: () => import('./components/select-crop/select-crop.module')
       .then(m => m.SelectCropModule)
   },
   {

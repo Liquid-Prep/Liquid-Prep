@@ -10,8 +10,8 @@ import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { MyCropsComponent } from './my-crops/my-crops.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { MyCropsComponent } from './components/my-crops/my-crops.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -26,12 +26,12 @@ import { AppServicesService } from './app-services.service';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SwiperModule, SwiperConfigInterface, SWIPER_CONFIG } from 'ngx-swiper-wrapper';
-import { MeasureSoilComponent } from './measure-soil/measure-soil.component';
-import { GrowthStageComponent } from './growth-stage/growth-stage.component';
-import { SettingsComponent } from './settings/settings.component';
-import { AdviceComponent } from './advice/advice.component';
-import { WaterAdviceComponent } from './water-advice/water-advice.component';
-import { ConnectingDialogComponent } from './measure-soil/connecting-dialog/connecting-dialog.component';
+import { MeasureSoilComponent } from './components/measure-soil/measure-soil.component';
+import { GrowthStageComponent } from './components/growth-stage/growth-stage.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { AdviceComponent } from './components/advice/advice.component';
+import { WaterAdviceComponent } from './components/water-advice/water-advice.component';
+import { ConnectingDialogComponent } from './components/measure-soil/connecting-dialog/connecting-dialog.component';
 import {MatMenuModule} from "@angular/material/menu";
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {

@@ -51,3 +51,5 @@ dist
 dist-old
 history*.txt
 notes/
+env.json
+.env

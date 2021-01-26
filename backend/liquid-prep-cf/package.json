@@ -1,0 +1,47 @@
+{
+  "name": "liquid-prep-cf",
+  "version": "1.0.0",
+  "description": "Liquid Prep Cloud Functions",
+  "main": "index.js",
+  "scripts": {
+    "upload": "upload.js",
+    "build": "npm run tsc",
+    "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "tsc": "tsc",
+    "test": "mocha -r ts-node/register test/functionsTest.ts",
+    "bundle": "webpack --config webpack.config.js",
+    "deploy": "npm run build && npm run bundle && npm run deploy-cf",
+    "deploy-dev": "npm run deploy --package=liquidPrep --env=dev",
+    "deploy-dev-api": "npm run deploy --package=liquidPrep --env=dev --api=true",
+    "deploy-cf": "node bin/deploy.js",
+    "deploy-composer": "npm run deploy --package=wx-labs --env=dev --task=createComposer",
+    "switch-account": "bin/switch-account.js",
+    "compromise-pack": "compromise-pack ./src/assets/plugin.json > ./src/assets/plugin.min.json"
+  },
+  "author": "ljeff@us.ibm.com",
+  "license": "ISC",
+  "dependencies": {
+    "@cloudant/cloudant": "^4.3.0",
+    "ibm-cos-sdk": "^1.6.1",
+    "ibm-watson": "^5.4.0",
+    "openwhisk-composer": "^0.12.0",
+    "request": "^2.88.2",
+    "rxjs": "^6.5.5"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.36",
+    "@typescript-eslint/parser": "^2.29.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "copy-webpack-plugin": "^5.1.1",
+    "dotenv": "^6.2.0",
+    "jsonfile": "^5.0.0",
+    "native-ext-loader": "^2.3.0",
+    "nodemon": "^1.19.4",
+    "ts-loader": "^6.2.2",
+    "ts-node": "^8.9.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

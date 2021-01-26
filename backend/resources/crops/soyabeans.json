@@ -1,0 +1,32 @@
+{
+  "_id": "2",
+  "cropName": "soyabeans",
+  "type": "crop",
+  "cropGrowthStage": {
+    "numberOfStages": 4,
+    "waterMeasurementMetric": "cm",
+    "waterUsage": "daily",
+    "stages": [
+      {
+        "stageNumber": 1,
+        "stage": "initial",
+        "waterUse": 0.25
+      },
+      {
+        "stageNumber": 2,
+        "stage": "development",
+        "waterUse": 0.5
+      },
+      {
+        "stageNumber": 3,
+        "stage": "mid-season",
+        "waterUse": 0.76
+      },
+      {
+        "stageNumber": 4,
+        "stage": "late",
+        "waterUse": 0.5
+      }
+    ]
+  }
+}

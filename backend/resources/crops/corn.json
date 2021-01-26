@@ -1,0 +1,32 @@
+{
+  "_id": "1",
+  "cropName": "corn",
+  "type": "crop",
+  "cropGrowthStage": {
+    "numberOfStages": 4,
+    "waterMeasurementMetric": "cm",
+    "waterUsage": "daily",
+    "stages": [
+      {
+        "stageNumber": 1,
+        "stage": "initial",
+        "waterUse": 0.25
+      },
+      {
+        "stageNumber": 2,
+        "stage": "development",
+        "waterUse": 0.66
+      },
+      {
+        "stageNumber": 3,
+        "stage": "mid-season",
+        "waterUse": 0.81
+      },
+      {
+        "stageNumber": 4,
+        "stage": "late",
+        "waterUse": 0.5
+      }
+    ]
+  }
+}

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { formatDate, Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AppServicesService } from '../app-services.service';
+import { AppServicesService } from '../../app-services.service';
 
 @Component({
   selector: 'app-advice',

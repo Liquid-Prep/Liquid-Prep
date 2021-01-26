@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { SwiperOptions } from 'swiper';
-import { MeasureSoilItems } from '../models/MeasureSoil';
+import { MeasureSoilItems } from '../../models/MeasureSoil';
 import { ConnectingDialogComponent} from './connecting-dialog/connecting-dialog.component';
 import { USB } from 'webusb';
 

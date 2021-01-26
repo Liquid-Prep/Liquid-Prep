@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AppServicesService } from '../app-services.service';
-import { Crop, Stage } from '../models/Crop';
+import { AppServicesService } from '../../app-services.service';
+import { Crop, Stage } from '../../models/Crop';
 
 @Component({
   selector: 'app-growth-stage',

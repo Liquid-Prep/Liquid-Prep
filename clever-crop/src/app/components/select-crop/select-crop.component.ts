@@ -1,12 +1,12 @@
 
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {AppServicesService} from '../app-services.service';
+import {AppServicesService} from '../../app-services.service';
 import {Router} from '@angular/router';
 import {formatDate, Location} from '@angular/common';
 
-import { CropListResponse } from '../models/api/CropListResponse';
-import { CropInfoResponse } from '../models/api/CropInfoResponse';
-import { Crop } from '../models/Crop';
+import { CropListResponse } from '../../models/api/CropListResponse';
+import { CropInfoResponse } from '../../models/api/CropInfoResponse';
+import { Crop } from '../../models/Crop';
 
 @Component({
   selector: 'app-select-crop',

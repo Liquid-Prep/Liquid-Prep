@@ -1,3 +1,4 @@
+  
 export class WeatherInfo {
     public narrative: string;
     public  precipChance: number;
@@ -7,7 +8,7 @@ export class WeatherInfo {
     public  windSpeed: number;
 }
 
-export class Today {
+export class TodayWeather {
     public dayOfWeek: string;
     public narrative: string;
     public sunriseTime: Date;
@@ -16,4 +17,5 @@ export class Today {
     public minTemperature: number;
     public dayTime: WeatherInfo;
     public nightTime: WeatherInfo;
+    public date: string;
 }

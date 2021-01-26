@@ -1,5 +1,6 @@
 export class ImageMapping {
     cropsMap: Map<string, Crop>;
+    cropStageMap: Map<string, CropGrowthStageImageMapping>;
 }
 
 export class Crop {
@@ -7,5 +8,5 @@ export class Crop {
 }
 
 export class CropGrowthStageImageMapping {
-    cropStageMap: Map<string, string>;
+    stageUrl: string;
 }

@@ -1,36 +1,57 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { DatePipe, formatDate } from '@angular/common';
 import { Observable, Observer } from 'rxjs';
 import { WeatherResponse } from '../models/api/WeatherResponse';
-import { WeatherInfo, Today } from '../models/Today';
+import { WeatherInfo, TodayWeather } from '../models/TodayWeather';
 import { DataService } from './DataService';
+import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
+import { DateTimeUtil } from '../utility/DateTimeUtil';
+
+const TODAY_WEATHER = 'today-weather';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WeatherDataService {
 
-    public today = new Today();
+    public today = new TodayWeather();
+    private dateTimeUtil;
 
-    constructor(private dataService: DataService) {}
+    constructor(private dataService: DataService, @Inject(LOCAL_STORAGE) private localStorage: StorageService,
+                private datePipe: DatePipe) {
+                  this.dateTimeUtil = new DateTimeUtil();
+                }
 
-    public getTodayWeather(): Observable<Today>  {
-      return new Observable((observer: Observer<Today>) => {
-        if (this.today.dayOfWeek) {
-          observer.next(this.today);
+    public getTodayWeather(): Observable<TodayWeather>  {
+      // check if the weather data stored locally is valid for today
+      // else get today weather data from backend
+      const localTodayWeather = this.getTodayWeatherFromLocalStorage();
+      if (this.dateTimeUtil.isToday(localTodayWeather.date)) {
+        return new Observable((observer: Observer<TodayWeather>) => {
+          console.log('sending back local weather');
+          observer.next(localTodayWeather);
           observer.complete();
-        } else {
-          this.dataService.getWeatherInfo().subscribe((weatherInfo: WeatherResponse) => {
-            console.log('weather data: ', weatherInfo);
-            this.today = this.createTodayWeather(weatherInfo);
-            //console.log('today weather: ', todayWeather);
+        });
+      } else {
+        return new Observable((observer: Observer<TodayWeather>) => {
+          if (this.today.dayOfWeek) {
             observer.next(this.today);
             observer.complete();
-          });
-        }
-      });
+          } else {
+            this.dataService.getWeatherInfo().subscribe((weatherInfo: WeatherResponse) => {
+              console.log('weather data from TWC: ', weatherInfo);
+              this.today = this.createTodayWeather(weatherInfo);
+              console.log('today weather created: ', this.today);
+              this.storeTodayWeatherInLocalStorage(this.today);
+              observer.next(this.today);
+              observer.complete();
+            });
+          }
+        });
+      }
     }
 
-    public createTodayWeather(weatherData: WeatherResponse): Today {
+    public createTodayWeather(weatherData: WeatherResponse): TodayWeather {
         const weatherInfo = weatherData.data;
         this.today.dayOfWeek = weatherInfo.dayOfWeek[0];
         this.today.narrative = weatherInfo.narrative[0];
@@ -38,6 +59,7 @@ export class WeatherDataService {
         this.today.sunsetTime = weatherInfo.sunsetTimeLocal[0];
         this.today.maxTemperature = weatherInfo.temperatureMax[0];
         this.today.minTemperature = weatherInfo.temperatureMin[0];
+        this.today.date = this.dateTimeUtil.extractDateFromDateTime(weatherInfo.validTimeLocal[0]);
 
         const dayPart = weatherInfo.daypart[0];
 
@@ -63,5 +85,62 @@ export class WeatherDataService {
 
         return this.today;
     }
+
+    public storeTodayWeatherInLocalStorage(todayWeather: TodayWeather){
+      if (this.dateTimeUtil.isToday(todayWeather.date)) {
+        this.localStorage.set(TODAY_WEATHER, todayWeather);
+      }
+
+    }
+
+    public getTodayWeatherFromLocalStorage(): TodayWeather {
+      return this.localStorage.get(TODAY_WEATHER);
+    }
+
+    // determine if its raining more than 25%
+    public isRaining(weatherInfo: WeatherInfo) {
+      if ((weatherInfo.precipType === "rain") || (weatherInfo.precipType === "precip")) {
+          if (weatherInfo.precipChance > 25) {
+              return true;
+          } else {
+              return false;
+          }
+      } else {
+          return false;
+      }
+    }
+
+    public determineTemperatureIndex(temp: number) {
+      if (temp <= 25) {
+          return 'OPTIMUM'
+      } else if (temp > 25 && temp < 30) {
+          return 'MEDIUM'
+      } else {
+          return 'HIGH'
+      }
+    }
+
+    public determineRainIndex(precip: number) {
+      if (precip >= 25 && precip < 50) {
+          return 'LOW'
+      } else if (precip >= 50 && precip < 75) {
+          return 'MEDIUM'
+      } else {
+          return 'HIGH'
+      }
+    }
+
+    /*public isToday(date: string) {
+      const todayDate =  formatDate(new Date(), 'yyyy-MM-dd', 'en');
+      console.log('today date: ', todayDate);
+      if (date === todayDate.toString()) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    public extractDateFromDateTime(dateTime) {
+      return this.datePipe.transform(dateTime, 'yyyy-MM-dd');
+    }*/
 
 }

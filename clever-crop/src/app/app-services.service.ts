@@ -22,13 +22,13 @@ export class AppServicesService {
     private http: HttpClient,
     @Inject(SESSION_STORAGE) private storage: StorageService
   ) {
-    http.get<ImageMapping>(this.mappingFile)
+    /*http.get<ImageMapping>(this.mappingFile)
       .subscribe(data => {
         this.imageMapping = data;
-      });
+      });*/
   }
 
-  private mappingFile = '/assets/json/imageMapping.json';
+  //private mappingFile = '/assets/json/imageMapping.json';
   private imageMapping: ImageMapping;
   // private imageMapping = [string:string]
 
@@ -144,7 +144,7 @@ export class AppServicesService {
     return emptyCropsResponse;
   }
 
-  public requestAdvice(): Observable<AdviceResponse> {
-    return this.http.get<any>(this.weatherUrl);
-  }
+  /*public requestAdvice(): Observable<AdviceResponse> {
+    return this.http.get<WeatherResponse>(this.weatherUrl);
+  }*/
 }

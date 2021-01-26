@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
@@ -30,7 +31,9 @@ import { GrowthStageComponent } from './components/growth-stage/growth-stage.com
 import { SettingsComponent } from './components/settings/settings.component';
 import { AdviceComponent } from './components/advice/advice.component';
 import { WaterAdviceComponent } from './components/water-advice/water-advice.component';
+import { WeatherDataService } from './service/WeatherDataService';
 import { DataService } from './service/DataService';
+import { DateTimeUtil } from './utility/DateTimeUtil';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   observer: true,
@@ -77,6 +80,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   providers: [
     AppServicesService,
     DataService,
+    DatePipe,
     {
       provide: SWIPER_CONFIG,
       useValue: DEFAULT_SWIPER_CONFIG

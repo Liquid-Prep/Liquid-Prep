@@ -30,7 +30,7 @@ export class SelectCropComponent implements OnInit{
 
   ngOnInit(): void {
     // Delete locally stored crops list
-    this.appService.deleteMyCrops();
+    //this.appService.deleteMyCrops();
 
     // Get list of crops from backend service
     this.cropService.getCropsListData().subscribe((cropsListResponse) => {

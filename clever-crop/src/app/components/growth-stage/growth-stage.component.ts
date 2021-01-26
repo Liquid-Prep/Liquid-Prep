@@ -30,15 +30,9 @@ export class GrowthStageComponent implements OnInit {
     const cropId = this.route.snapshot.paramMap.get('id');
     this.cropService.getCropData(cropId).subscribe((cropData) => {
       console.log('crop data: ', cropData);
-      this.cropService.storeSelectedCropInSession(cropData);
       this.crop = cropData;
       this.stages = cropData.cropGrowthStage.stages;
-      
     });
-    /*this.appService.requestCropsInfo(this.route.snapshot.paramMap.get('id')).subscribe(cropInfoResponse => {
-      this.crop = cropInfoResponse.data;
-      this.stages = cropInfoResponse.data.cropGrowthStage.stages;
-    });*/
   }
 
   public volumeClicked() {
@@ -50,6 +44,9 @@ export class GrowthStageComponent implements OnInit {
   }
 
   cardClicked(stage: Stage) {
-    this.router.navigateByUrl('/my-crops');
+    //this.router.navigateByUrl('/my-crops');
+    const selectedCrop = this.cropService.createSelectedCrop(this.crop, stage);
+    this.cropService.storeSelectedCropInSession(selectedCrop);
+    this.router.navigateByUrl('/advice');
   }
 }

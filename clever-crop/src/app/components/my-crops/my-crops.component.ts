@@ -12,7 +12,9 @@ import { Crop } from '../../models/Crop';
 import { DataService } from '../../service/DataService';
 import { WeatherResponse } from 'src/app/models/api/WeatherResponse';
 import { WeatherDataService } from 'src/app/service/WeatherDataService';
-import { Today } from 'src/app/models/Today';
+import { TodayWeather } from 'src/app/models/TodayWeather';
+import { CropDataService } from 'src/app/service/CropDataService';
+import { DateTimeUtil } from 'src/app/utility/DateTimeUtil';
 
 @Component({
   selector: 'app-my-crops',
@@ -27,16 +29,38 @@ export class MyCropsComponent implements OnInit {
   activeTab = this.tabs[0];
   background: ThemePalette = undefined;
 
-  currentDate = '';
+  private currentDate = '';
+  private temperature = 0;
 
   constructor(private appService: AppServicesService, private router: Router, private location: Location,
-              private weatherService: WeatherDataService) { }
+              private weatherService: WeatherDataService, private cropDataService: CropDataService) {
+
+                console.log('currentDate: '+this.currentDate);
+                this.weatherService.getTodayWeather().subscribe((todayWeather: TodayWeather) => {
+                  console.log('today weather: ', todayWeather);
+                  const isDayTime = new DateTimeUtil().isDayTime(todayWeather.sunriseTime.toString(), todayWeather.sunsetTime.toString());
+                  if (isDayTime) {
+                    this.temperature = todayWeather.dayTime.temperature;
+                  } else {
+                    this.temperature = todayWeather.nightTime.temperature;
+                  }
+                  
+                });
+              }
 
   ngOnInit(): void {
-    this.appService.getMyCrops().subscribe(cropListResponse => {
+    /*this.appService.getMyCrops().subscribe(cropListResponse => {
       this.dataSource = cropListResponse.data;
+    });*/
+
+    this.cropDataService.getMyCrops().subscribe((myCrops: Crop[]) => {
+      this.dataSource = myCrops;
     });
+
     this.currentDate =  formatDate(new Date(), 'MMMM d, yyyy', 'en');
+
+    /*const today =  formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    console.log('today date: ', today);*/
 
     /*this.dataService.getWeatherInfo().subscribe((weatherInfo: WeatherResponse) => {
       //console.log('weather data: ', weatherInfo);
@@ -44,9 +68,7 @@ export class MyCropsComponent implements OnInit {
       console.log('today weather: ', todayWeather);
     });*/
 
-    this.weatherService.getTodayWeather().subscribe((todayWeather: Today) => {
-      console.log('today weather: ', todayWeather);
-    });
+    
   }
 
   public tabClicked(tab) {

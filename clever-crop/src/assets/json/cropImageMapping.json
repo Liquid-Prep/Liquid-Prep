@@ -1,0 +1,10 @@
+  {
+    "cropsMap": {
+        "1": {
+            "url": "../assets/crops-images/corn.jpg"
+        },
+        "2": {
+            "url": "../assets/crops-images/soybean.jpg"
+        }
+    }
+}

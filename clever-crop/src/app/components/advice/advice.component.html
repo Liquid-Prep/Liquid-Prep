@@ -19,12 +19,12 @@
 <br>
 <div class="horizontal">
     <div class="vertical">
-      <span class="vertical-align-middle title">3.5mm</span>
-      <Label class="description" textWrap="true">{{ "WATER ADVICE" }}</Label>
+      <span class="vertical-align-middle title">{{waterRecommeded}}cm</span>
+      <Label class="description" textWrap="true">{{ "WATER RECOMMENDED" }}</Label>
     </div>
     <div class="vertical">
-      <span class="vertical-align-middle title">Tomorrow</span>
-      <Label class="description" textWrap="true">{{ "TIME TO WATER" }}</Label>
+      <span class="vertical-align-middle title">{{"WATER ADVISE"}}</span>
+      <Label class="description" textWrap="true">{{ wateringDecision }}</Label>
     </div>
 
 </div>
@@ -33,13 +33,13 @@
     <div class="vertical">
       <div class="imgHolder">
         <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
-        <span class="vertical-align-middle temp">30&deg;c</span>
+        <span class="vertical-align-middle temp">{{temperature}}&deg;C</span>
       </div>
-      <Label class="description" textWrap="true">{{ "Temprature" }}</Label>
+      <Label class="description" textWrap="true">{{ "TEMPERATURE" }}</Label>
     </div>
     <div class="vertical">
       <div class="imgHolder">
-        <span class="vertical-align-middle redText title">50%</span>
+        <span class="vertical-align-middle redText title">{{soilMoistureLevel}}%</span>
       </div>
       <Label class="description" textWrap="true">{{ "SOIL MOISTURE" }}</Label>
     </div>

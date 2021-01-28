@@ -1,6 +1,6 @@
 export class BaseResponse {
   status: string;
-  statusCode: string;
+  statusCode: number;
   message: string;
 
   public isSuccessful(): boolean {

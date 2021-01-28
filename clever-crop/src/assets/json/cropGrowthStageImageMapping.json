@@ -1,0 +1,16 @@
+{
+    "cropStageMap": {
+      "1": {
+        "url": "../assets/crops-images/stage1.png"
+      },
+      "2": {
+        "url": "../assets/crops-images/stage2.png"
+      },
+      "3": {
+        "url": "../assets/crops-images/stage3.png"
+      },
+      "4": {
+        "url": "../assets/crops-images/stage4.png"
+      }
+    }
+  }

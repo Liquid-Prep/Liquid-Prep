@@ -33,10 +33,16 @@ export class Daypart {
 export class Data {
   dayOfWeek: string[];
   narrative: string[];
+  qpf: number[];
+  qpfSnow: number[];
   sunriseTimeLocal: Date[];
+  sunriseTimeUtc: number[];
   sunsetTimeLocal: Date[];
+  sunsetTimeUtc: number[];
   temperatureMax: number[];
   temperatureMin: number[];
+  validTimeLocal: Date[];
+  validTimeUtc: number[];
   daypart: Daypart[];
 }
 

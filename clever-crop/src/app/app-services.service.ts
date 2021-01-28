@@ -22,13 +22,13 @@ export class AppServicesService {
     private http: HttpClient,
     @Inject(SESSION_STORAGE) private storage: StorageService
   ) {
-    http.get<ImageMapping>(this.mappingFile)
+    /*http.get<ImageMapping>(this.mappingFile)
       .subscribe(data => {
         this.imageMapping = data;
-      });
+      });*/
   }
 
-  private mappingFile = '/assets/json/imageMapping.json';
+  //private mappingFile = '/assets/json/imageMapping.json';
   private imageMapping: ImageMapping;
   // private imageMapping = [string:string]
 
@@ -39,7 +39,8 @@ export class AppServicesService {
   private cropUrl = '/assets/json/crop.json';
 
   // private weatherUrl = 'https://liquidprep.com/crops/';
-  private weatherUrl = '/assets/json/weather.json';
+  //private weatherUrl = '/assets/json/weather.json';
+  private weatherUrl = 'https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/96fd655207897b11587cfcf2b3f58f6e0792f788cf2a04daa79b53fc3d4efb32/liquidprep-cf-api/get_weather_info?geoCode=43.595,-79.640&units=m';
 
   // private adviceUrl = 'https://liquidprep.com/advice/';
   private adviceUrl = '/assets/json/advice.json';
@@ -49,9 +50,11 @@ export class AppServicesService {
       map((response: CropListResponse) => {
         if (response.data) {
           response.data.map((crop) => {
+            console.log('crop: ', crop)
             this.fetchCropImage(crop);
           });
         }
+        console.log('response: ', response)
         return response;
       })
     );
@@ -76,12 +79,12 @@ export class AppServicesService {
     // TODO fix the mapping
     const defaultImage = '../assets/crops-images/missing.jpg';
 
-    if (this.imageMapping != null && this.imageMapping.cropsMap[crop.index.toString()]) {
-      crop.url = this.imageMapping.cropsMap[crop.index.toString()].url;
+    if (this.imageMapping != null && this.imageMapping.cropsMap[crop.cropName]) {
+      crop.url = this.imageMapping.cropsMap[crop.cropName].url;
 
       if (crop.cropGrowthStage) {
         crop.cropGrowthStage.stages.forEach((stage) => {
-          const url = this.imageMapping.cropsMap[crop.index.toString()].stagesMap[stage.stageNumber.toString()].url;
+          const url = this.imageMapping.cropsMap[crop.cropName].stagesMap[stage.stageNumber.toString()].url;
           stage.url = url;
         });
       }
@@ -95,6 +98,24 @@ export class AppServicesService {
         });
       }
     }
+
+    /*if (this.imageMapping != null && this.imageMapping.cropsMap[crop.index.toString()]) {
+      crop.url = this.imageMapping.cropsMap[crop.index.toString()].url;
+      if (crop.cropGrowthStage) {
+        crop.cropGrowthStage.stages.forEach((stage) => {
+          const url = this.imageMapping.cropsMap[crop.index.toString()].stagesMap[stage.stageNumber.toString()].url;
+          stage.url = url;
+        });
+      }
+    } else {
+      crop.url = defaultImage;
+      if (crop.cropGrowthStage) {
+        crop.cropGrowthStage.stages.forEach((stage) => {
+          const stageUrl = '../assets/crops-images/stage' + stage.stageNumber + '.png';
+          stage.url = stageUrl;
+        });
+      }
+    }*/
   }
 
   public getMyCrops(): Observable<CropListResponse> {
@@ -116,14 +137,14 @@ export class AppServicesService {
   private getEmptyMyCrops(): CropListResponse {
     const emptyCropsResponse = new CropListResponse();
     emptyCropsResponse.status = 'success';
-    emptyCropsResponse.statusCode = '200';
+    emptyCropsResponse.statusCode = 200;
     emptyCropsResponse.message = '';
     emptyCropsResponse.data = new Array<Crop>();
 
     return emptyCropsResponse;
   }
 
-  public requestAdvice(): Observable<AdviceResponse> {
+  /*public requestAdvice(): Observable<AdviceResponse> {
     return this.http.get<WeatherResponse>(this.weatherUrl);
-  }
+  }*/
 }

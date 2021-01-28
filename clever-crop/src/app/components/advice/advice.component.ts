@@ -3,6 +3,9 @@ import { formatDate, Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { AppServicesService } from '../../app-services.service';
+import { CropDataService } from 'src/app/service/CropDataService';
+import { WeatherDataService } from 'src/app/service/WeatherDataService';
+import { WaterAdviceService } from 'src/app/service/WaterAdviceService';
 
 @Component({
   selector: 'app-advice',
@@ -12,19 +15,35 @@ import { AppServicesService } from '../../app-services.service';
 export class AdviceComponent implements OnInit {
 
   currentDate = '';
+  waterRecommeded = undefined;
+  wateringDecision = '';
+  temperature = undefined;
+  soilMoistureLevel = undefined;
 
   constructor(
     private router: Router,
     private location: Location,
     private appService: AppServicesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private waterAdviceService: WaterAdviceService
   ) {}
 
   ngOnInit(): void {
     this.currentDate = 'Today, ' + formatDate(new Date(), 'MMMM d, yyyy', 'en');
-    this.appService.getMyCrops().subscribe(adviceResponse => {
-
+    /*this.appService.getMyCrops().subscribe(adviceResponse => {
+    });*/
+    this.waterAdviceService.getWaterAdvice().subscribe( advice => {
+      console.log('water advice: '+advice.soilMoistureReading.soilMoisturePercentage);
+      this.waterRecommeded = advice.waterRecommended;
+      this.wateringDecision = advice.wateringDecision;
+      this.temperature = advice.temperature;
+      this.soilMoistureLevel = advice.soilMoistureReading.soilMoisturePercentage;
     });
+    /*this.weatherDataService.getTodayWeather().subscribe(todayWeather => {
+      if (todayWeather) {
+        
+      
+    });*/
   }
 
   public volumeClicked() {

@@ -43,13 +43,18 @@ export class GrowthStageComponent implements OnInit {
     this.location.back();
   }
 
-  cardClicked(stage: Stage) {
+  clickGrowthStage(stage: Stage) {
     //this.router.navigateByUrl('/my-crops');
 
-    // Change the flow according new design
-    /*const selectedCrop = this.cropService.createSelectedCrop(this.crop, stage);
+    //this.router.navigateByUrl('/advice');
+
+    console.log('selected crop in growth stage: ',this.crop)
+
+    // add crop info to my crops list
+    this.cropService.storeMyCropsInLocalStorage(this.crop);
+    // store selected crop in session to generate water advise
+    const selectedCrop = this.cropService.createSelectedCrop(this.crop, stage);
     this.cropService.storeSelectedCropInSession(selectedCrop);
-    this.router.navigateByUrl('/advice');*/
 
     this.router.navigate(['/measure-soil']).then(r => {});
   }

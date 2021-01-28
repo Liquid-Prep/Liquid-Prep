@@ -11,7 +11,7 @@
 
 <mat-grid-list class="grid" cols="2" rowHeight="1:1" gutterSize="2px">
     <mat-grid-tile *ngFor="let stage of stages">
-        <mat-card (click) = "cardClicked(stage)">
+        <mat-card (click) = "clickGrowthStage(stage)">
             <img mat-card-image class="cardImg" src="{{ stage.url }}" alt="{{ stage.stage }}" />
             <mat-card-footer>
                 <mat-card-title class="cardTittle">{{ stage.stage }}</mat-card-title>

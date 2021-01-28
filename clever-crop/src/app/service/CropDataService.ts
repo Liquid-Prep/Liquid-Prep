@@ -21,17 +21,17 @@ export class CropDataService {
               @Inject(LOCAL_STORAGE) private localStorage: StorageService,
               @Inject(SESSION_STORAGE) private sessionStorage: StorageService,
               private dataService: DataService) {
-    http.get<ImageMapping>(this.cropImageMappingFile).subscribe((data) => {
+    /*http.get<ImageMapping>(this.cropImageMappingFile).subscribe((data) => {
       this.cropImageMapping = data;
     });
 
     http.get<ImageMapping>(this.stageImageMappingFile).subscribe((data) => {
-        this.cropGrowthStageImageMapping = data;
-      });
+      this.cropGrowthStageImageMapping = data;
+    });*/
   }
 
-  private cropImageMapping: ImageMapping;
-  private cropGrowthStageImageMapping: ImageMapping;
+  /*private cropImageMapping: ImageMapping;
+  private cropGrowthStageImageMapping: ImageMapping;*/
   private cropImageMappingFile = '/assets/json/cropImageMapping.json';
   private defaultImage = '../assets/crops-images/missing.jpg';
   private stageImageMappingFile = '../assets/json/cropGrowthStageImageMapping.json';
@@ -90,7 +90,8 @@ export class CropDataService {
     return selectedCrop;
   }
 
-  public storeSelectedCropInSession(selectedCrop) {
+  // Storing selected crop in session to access later to generate water advise
+  public storeSelectedCropInSession(selectedCrop: SelectedCrop) {
     if (selectedCrop) {
         this.sessionStorage.set(SELECTED_CROP, selectedCrop);
     }
@@ -100,6 +101,7 @@ export class CropDataService {
       return this.sessionStorage.get(SELECTED_CROP);
   }
 
+  // store crops list in session storage
   public storeCropListInSession(cropsListData) {
     this.getCropListFromSessionStorage().subscribe((cropsList: Crop[]) => {
         if (cropsList === undefined || cropsList.length === 0) {
@@ -110,14 +112,35 @@ export class CropDataService {
     });
   }
 
+  // check if crops list exits in session storage else return empty list
   public getCropListFromSessionStorage(): Observable<Crop[]> {
     return of(this.sessionStorage.get(CROP_LIST_KEY) || this.getEmptyMyCrops());
   }
 
-  public getMyCrops(): Observable<Crop[]> {
+  // check if my-crops list exists in local storage else return empty list
+  public getMyCropsFromLocalStorage(): Observable<Crop[]> {
     return of(this.localStorage.get(CROPS_STORAGE_KEY) || this.getEmptyMyCrops());
   }
 
+  // check if my-crops list exists in local storage else return empty list
+  public getMyCrops(): Observable<Crop[]> {
+    return new Observable((observer: Observer<any>) => {
+      let crops = [];
+      this.getMyCropsFromLocalStorage().subscribe((myCrops:any) => {
+        if (myCrops.length !== 0) {
+          myCrops.map((crop) => {
+            crop.id = crop._id;
+            this.fetchCropListImage(crop);
+          });
+          crops = myCrops;
+        }
+        observer.next(crops);
+        observer.complete();
+      })
+    });
+  }
+
+  // Filter out crops which are already existing in my-crops list stored locally
   public filterOutExistingCrops(cropsListData) {
     console.log('cropsListData: ', cropsListData);
     let filteredCropList = new Array<Crop>();
@@ -141,20 +164,24 @@ export class CropDataService {
   }
 
   public storeMyCropsInLocalStorage(crop: Crop) {
+    console.log('storeMyCropsInLocalStorage crop data: ', crop);
     const cropsData = new Array<Crop>();
-    this.getMyCrops().subscribe((myCrops: Crop[]) => {
-    console.log('crops: ', myCrops);
+    this.getMyCrops().subscribe((myCrops) => {
+    console.log('storeMyCropsInLocalStorage my-crops: ', myCrops);
 
-    // If no existing crops or the list is empty in local storage then store the crop
-    // Else store the crop if its not already stored.
-    if (myCrops === undefined || myCrops.length === 0) {
-        this.localStorage.set(CROPS_STORAGE_KEY, cropsData.push(crop));
+    // If the crops list is empty in local storage then store the crop
+    // Else store the crop if its not already existing.
+    if (myCrops.length === 0) {
+      cropsData.push(crop);
+      this.localStorage.set(CROPS_STORAGE_KEY, cropsData);
     } else {
         myCrops.forEach(eachCrop => {
             if (crop.id === eachCrop.id) {
                 console.log('crop is already stored locally.');
             } else {
-                this.localStorage.set(CROPS_STORAGE_KEY, myCrops.push(crop));
+              myCrops.push(crop);
+              this.localStorage.remove(CROPS_STORAGE_KEY);
+              this.localStorage.set(CROPS_STORAGE_KEY, myCrops);
             }
         });
     }
@@ -169,37 +196,60 @@ export class CropDataService {
     return false;
   }*/
 
-  private fetchCropStageImages(crop: Crop) {
-    if (this.cropGrowthStageImageMapping != null) {
-             if (crop.cropGrowthStage) {
-                crop.cropGrowthStage.stages.forEach((stage) => {
-                    const stageUrl = this.cropGrowthStageImageMapping.cropStageMap[stage.stageNumber.toString()].url;
-                    stage.url = stageUrl;
-                });
-            }
-        } else {
-            if (crop.cropGrowthStage) {
-                crop.cropGrowthStage.stages.forEach((stage) => {
-                    const stageUrl = '../assets/crops-images/stage' + stage.stageNumber + '.png';
-                    stage.url = stageUrl;
-                });
-            }
-        }
+  public getCropImageMapping(): Observable<ImageMapping> {
+    return new Observable((observer: Observer<ImageMapping>) => {
+      this.http.get<ImageMapping>(this.cropImageMappingFile).subscribe((data) => {
+        observer.next(data);
+        observer.complete();
+      });
+    });
+    
+  }
 
+  public getCropGrowthStageImageMapping(): Observable<ImageMapping> {
+    return new Observable((observer: Observer<ImageMapping>) => {
+      this.http.get<ImageMapping>(this.stageImageMappingFile).subscribe((data) => {
+        observer.next(data);
+        observer.complete();
+      });
+    });
+  }
+
+  private fetchCropStageImages(crop: Crop) {
+    this.getCropGrowthStageImageMapping().subscribe((cropGrowthStageImageMapping: ImageMapping) => {
+      if (cropGrowthStageImageMapping != null) {
+        if (crop.cropGrowthStage) {
+            crop.cropGrowthStage.stages.forEach((stage) => {
+              const stageUrl = cropGrowthStageImageMapping.cropStageMap[stage.stageNumber.toString()].url;
+              stage.url = stageUrl;
+            });
+       }
+      } else {
+        if (crop.cropGrowthStage) {
+            crop.cropGrowthStage.stages.forEach((stage) => {
+              const stageUrl = '../assets/crops-images/stage' + stage.stageNumber + '.png';
+              stage.url = stageUrl;
+            });
+        }
+      }
+    });
   }
 
   private fetchCropListImage(crop: Crop) {
-    // TODO fix the mapping
-    if (this.cropImageMapping != null &&
-      this.cropImageMapping.cropsMap[crop.id]) {
-      crop.url = this.cropImageMapping.cropsMap[crop.id].url;
+    this.getCropImageMapping().subscribe((cropImageMapping: ImageMapping) => {
+      console.log('fetchCropListImage: ', cropImageMapping)
+    if (cropImageMapping != null &&
+      cropImageMapping.cropsMap[crop.id]) {
+      console.log('fetchCropListImage: ', crop.id)
+      crop.url = cropImageMapping.cropsMap[crop.id].url;
     } else {
       crop.url = this.defaultImage;
     }
+    });
   }
 
   private getEmptyMyCrops(): Crop[] {
-      const emptyArray: Crop[] = [];
-      return emptyArray;
+    const emptyArray: Crop[] = [];
+    return emptyArray;
   }
 }

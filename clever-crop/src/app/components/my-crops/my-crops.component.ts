@@ -22,7 +22,7 @@ import { DateTimeUtil } from 'src/app/utility/DateTimeUtil';
   styleUrls: ['./my-crops.component.scss'],
 })
 export class MyCropsComponent implements OnInit {
-  dataSource: Crop[];
+  myCrops: Crop[];
   displayedColumns: string[] = ['EmptyColumnTitle'];
 
   tabs = ['My Crops', 'Settings'];
@@ -30,7 +30,7 @@ export class MyCropsComponent implements OnInit {
   background: ThemePalette = undefined;
 
   public currentDate = '';
-  public temperature = 0;
+  public temperature = undefined;
 
   constructor(private appService: AppServicesService, private router: Router, private location: Location,
               private weatherService: WeatherDataService, private cropDataService: CropDataService) {
@@ -53,8 +53,9 @@ export class MyCropsComponent implements OnInit {
       this.dataSource = cropListResponse.data;
     });*/
 
-    this.cropDataService.getMyCrops().subscribe((myCrops: Crop[]) => {
-      this.dataSource = myCrops;
+    this.cropDataService.getMyCrops().subscribe(myCrops => {
+      console.log('myCrops: ',myCrops)
+      this.myCrops = myCrops;
     });
 
     this.currentDate =  formatDate(new Date(), 'MMMM d, yyyy', 'en');

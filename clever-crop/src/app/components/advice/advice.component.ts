@@ -15,14 +15,16 @@ import { WaterAdviceService } from 'src/app/service/WaterAdviceService';
 export class AdviceComponent implements OnInit {
 
   currentDate = '';
+  waterRecommeded = undefined;
+  wateringDecision = '';
+  temperature = undefined;
+  soilMoistureLevel = undefined;
 
   constructor(
     private router: Router,
     private location: Location,
     private appService: AppServicesService,
     private route: ActivatedRoute,
-    private cropDataService: CropDataService,
-    private weatherDataService: WeatherDataService,
     private waterAdviceService: WaterAdviceService
   ) {}
 
@@ -31,7 +33,11 @@ export class AdviceComponent implements OnInit {
     /*this.appService.getMyCrops().subscribe(adviceResponse => {
     });*/
     this.waterAdviceService.getWaterAdvice().subscribe( advice => {
-      console.log('water advice: '+advice);
+      console.log('water advice: '+advice.soilMoistureReading.soilMoisturePercentage);
+      this.waterRecommeded = advice.waterRecommended;
+      this.wateringDecision = advice.wateringDecision;
+      this.temperature = advice.temperature;
+      this.soilMoistureLevel = advice.soilMoistureReading.soilMoisturePercentage;
     });
     /*this.weatherDataService.getTodayWeather().subscribe(todayWeather => {
       if (todayWeather) {

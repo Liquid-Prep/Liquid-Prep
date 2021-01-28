@@ -26,12 +26,25 @@ export class WeatherDataService {
       // check if the weather data stored locally is valid for today
       // else get today weather data from backend
       const localTodayWeather = this.getTodayWeatherFromLocalStorage();
-      if (this.dateTimeUtil.isToday(localTodayWeather.date)) {
-        return new Observable((observer: Observer<TodayWeather>) => {
-          console.log('sending back local weather');
-          observer.next(localTodayWeather);
-          observer.complete();
-        });
+      if (localTodayWeather) {
+        if (this.dateTimeUtil.isToday(localTodayWeather.date)) {
+          return new Observable((observer: Observer<TodayWeather>) => {
+            console.log('sending back local weather');
+            observer.next(localTodayWeather);
+            observer.complete();
+          });
+        } else {
+          return new Observable((observer: Observer<TodayWeather>) => {
+            this.dataService.getWeatherInfo().subscribe((weatherInfo: WeatherResponse) => {
+              console.log('weather data from TWC: ', weatherInfo);
+              this.today = this.createTodayWeather(weatherInfo);
+              console.log('today weather created: ', this.today);
+              this.storeTodayWeatherInLocalStorage(this.today);
+              observer.next(this.today);
+              observer.complete();
+            });
+          });
+        } 
       } else {
         return new Observable((observer: Observer<TodayWeather>) => {
           if (this.today.dayOfWeek) {

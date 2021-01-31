@@ -76,10 +76,18 @@
 
 .float-btn {
   position: absolute;
-  top: 61%;
-  left: 20%;
+  top: 56%;
+  left: 8%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   color: white;
   background-color: #2F4FFE;
+}
+
+.rotate-45 {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }

@@ -1,9 +1,9 @@
 
-  <mat-toolbar class="custom-toolbar">
+  <mat-toolbar *ngIf="measureView=='before-measuring'" class="custom-toolbar">
     <button mat-icon-button class="white-icon" aria-label="back clicked" (click)="backClicked()">
       <mat-icon class="volume-icon">arrow_back</mat-icon>
     </button>
-    <span class="toolbar-title">Measure Soil moinsture</span>
+    <span class="toolbar-title">Measure Soil Moisture</span>
     <span class="toolbar-spacer"></span>
     <button mat-icon-button class="white-icon" aria-label="read text" (click)="volumeClicked()">
       <mat-icon>volume_up</mat-icon>
@@ -72,7 +72,7 @@
        fxLayoutGap="25px"
        fxLayoutAlign="center center">
     <img src="../../assets/low-moisture.png" alt="low-moisture">
-    <p>SOIL MOISTURE</p>
-    <p><span>LOW </span> <span> 50%</span></p>
+    <p class="mat-body-1">SOIL MOISTURE</p>
+    <p class="mat-display-1"><span style="color:red">{{ soilData.soilMoistureIndex }} </span> <span> {{soilData.soilMoisturePercentage}}% </span></p>
     <button mat-flat-button color="primary" (click)="onGetAdvise()">GET ADVISE</button>
   </div>

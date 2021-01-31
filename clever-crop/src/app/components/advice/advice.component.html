@@ -1,6 +1,6 @@
 <mat-toolbar class="custom-toolbar">
     <button mat-icon-button class="white-icon" aria-label="back clicked" (click)="backClicked()">
-        <mat-icon class="volume-icon">arrow_back</mat-icon>
+        <mat-icon class="volume-icon">close</mat-icon>
     </button>
     <span class="toolbar-spacer"></span>
     <span class="toolbar-title">{{currentDate}}</span>
@@ -10,9 +10,9 @@
     </button>
 </mat-toolbar>
 <div>
-  <img class="topImage" src="/assets/crops-images/advice.png" (click)="onCrop()">
+  <img class="topImage" src="/assets/crops-images/advice.png">
 </div>
-<button id="measure-btn" mat-fab color="primary" class="float-btn" (click)="onFabClicked()">
+<button id="measure-btn" mat-fab color="primary" class="float-btn rotate-45" (click)="onFabClicked()">
   <mat-icon>straighten</mat-icon>
 </button>
 <br>

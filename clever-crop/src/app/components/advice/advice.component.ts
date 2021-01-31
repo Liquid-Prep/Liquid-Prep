@@ -33,7 +33,7 @@ export class AdviceComponent implements OnInit {
     /*this.appService.getMyCrops().subscribe(adviceResponse => {
     });*/
     this.waterAdviceService.getWaterAdvice().subscribe( advice => {
-      console.log('water advice: '+advice.soilMoistureReading.soilMoisturePercentage);
+      console.log('water advice: ' + advice.soilMoistureReading.soilMoisturePercentage);
       this.waterRecommeded = advice.waterRecommended;
       this.wateringDecision = advice.wateringDecision;
       this.temperature = advice.temperature;
@@ -41,8 +41,8 @@ export class AdviceComponent implements OnInit {
     });
     /*this.weatherDataService.getTodayWeather().subscribe(todayWeather => {
       if (todayWeather) {
-        
-      
+
+
     });*/
   }
 
@@ -51,14 +51,10 @@ export class AdviceComponent implements OnInit {
   }
 
   public backClicked() {
-    this.location.back();
+    this.router.navigateByUrl('/my-crops').then(r => {});
   }
 
   onFabClicked() {
     this.router.navigate(['/measure-soil']).then(r => {});
-  }
-
-  onCrop() {
-    this.router.navigateByUrl('/my-crops').then(r => {});
   }
 }

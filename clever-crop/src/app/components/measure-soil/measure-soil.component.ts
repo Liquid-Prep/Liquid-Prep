@@ -1,11 +1,11 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
 import { SwiperOptions } from 'swiper';
 import { MeasureSoilItems } from '../../models/MeasureSoil';
-import { ConnectingDialogComponent} from './connecting-dialog/connecting-dialog.component';
 import { USB } from 'webusb';
+import {SoilMoistureService} from '../../service/SoilMoistureService';
+import {SoilMoisture} from '../../models/SoilMoisture';
 
 @Component({
   selector: 'app-measure-soil',
@@ -13,7 +13,7 @@ import { USB } from 'webusb';
   styleUrls: ['./measure-soil.component.scss'],
 })
 export class MeasureSoilComponent implements OnInit, AfterViewInit {
-  constructor(private router: Router, private location: Location, private dialog: MatDialog) { }
+  constructor(private router: Router, private location: Location, private soilService: SoilMoistureService) { }
 
   public config: SwiperOptions = {
     a11y: { enabled: true },
@@ -39,6 +39,7 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
   public countdownSecond = 5;
   public measureView: 'before-measuring' | 'measuring' | 'after-measuring' = 'before-measuring';
   private interval;
+  public soilData: SoilMoisture;
 
   ngOnInit(): void { }
 
@@ -105,6 +106,7 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
         this.setMeasureView('after-measuring');
         clearInterval(this.interval);
         console.log('go to after measuring');
+        this.soilData = this.soilService.getSoilMoistureReading();
       }
       this.countdownSecond--;
     }, 1000);

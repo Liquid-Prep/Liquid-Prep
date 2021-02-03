@@ -2,7 +2,6 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { SwiperOptions } from 'swiper';
-import { MeasureSoilItems } from '../../models/MeasureSoil';
 import { USB } from 'webusb';
 import {SoilMoistureService} from '../../service/SoilMoistureService';
 import {SoilMoisture} from '../../models/SoilMoisture';
@@ -35,7 +34,6 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
 
   public index = 0;
   public disabled = false;
-  public dataSource = MeasureSoilItems;
   public countdownSecond = 5;
   public measureView: 'before-measuring' | 'measuring' | 'after-measuring' = 'before-measuring';
   private interval;
@@ -65,20 +63,6 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
         console.log(e);
         // dialogRef.close();
       });
-  }
-
-  public onNextClicked() {
-    if (this.index < this.dataSource.length - 1) {
-      this.index++;
-    } else {
-      this.router.navigateByUrl('/my-crops');
-    }
-  }
-
-  public onPrevClicked() {
-    if (this.index > 0) {
-      this.index--;
-    }
   }
 
   public onIndexChange(index: number): void { }

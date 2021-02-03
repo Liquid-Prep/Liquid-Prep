@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, ApplicationRef, NgZone} from '@angular/core';
 import { formatDate, Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { ThemePalette } from '@angular/material/core';
@@ -28,7 +28,7 @@ export class MyCropsComponent implements OnInit {
   constructor(private router: Router, private location: Location,
               private weatherService: WeatherDataService, private cropDataService: CropDataService) {
 
-                console.log('currentDate: '+this.currentDate);
+                console.log('currentDate: ' + this.currentDate);
                 this.weatherService.getTodayWeather().subscribe((todayWeather: TodayWeather) => {
                   console.log('today weather: ', todayWeather);
                   const isDayTime = new DateTimeUtil().isDayTime(todayWeather.sunriseTime.toString(), todayWeather.sunsetTime.toString());
@@ -37,14 +37,13 @@ export class MyCropsComponent implements OnInit {
                   } else {
                     this.temperature = todayWeather.nightTime.temperature;
                   }
-                  
                 });
               }
 
   ngOnInit(): void {
 
     this.cropDataService.getMyCrops().subscribe(myCrops => {
-      console.log('myCrops: ',myCrops)
+      console.log('myCrops: ', myCrops);
       this.myCrops = myCrops;
     });
 
@@ -57,7 +56,6 @@ export class MyCropsComponent implements OnInit {
       console.log('today weather: ', todayWeather);
     });*/
 
-    
   }
 
   public tabClicked(tab) {
@@ -78,7 +76,6 @@ export class MyCropsComponent implements OnInit {
   }
 
   public cropClicked(event){
-    //this.router.navigate(['/water-advice/:1']);
     this.router.navigate(['advice']).then(r => {});
   }
 
@@ -95,7 +92,9 @@ export class MyCropsComponent implements OnInit {
   }
 
   onRemoveCrop(crop: Crop) {
-    //this.cropDataService.deleteMyCrop(crop.id);
+    console.log('remove ', crop);
+    this.cropDataService.deleteMyCrop(crop.id);
     window.location.reload();
   }
+
 }

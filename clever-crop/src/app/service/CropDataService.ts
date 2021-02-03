@@ -119,7 +119,7 @@ export class CropDataService {
         }
         observer.next(crops);
         observer.complete();
-      })
+      });
     });
   }
 
@@ -170,12 +170,13 @@ export class CropDataService {
     this.getMyCropsFromLocalStorage().subscribe( myCrops => {
       myCrops.forEach((crop, index) => {
         if (crop.id === cropId) {
+          console.log(crop.cropName + 'is removed' );
           myCrops.splice(index, 1);
           this.localStorage.remove(CROPS_STORAGE_KEY);
           this.localStorage.set(CROPS_STORAGE_KEY, myCrops);
         }
-      })
-    })
+      });
+    });
   }
 
   public getCropImageMapping(): Observable<ImageMapping> {
@@ -185,7 +186,7 @@ export class CropDataService {
         observer.complete();
       });
     });
-    
+
   }
 
   public getCropGrowthStageImageMapping(): Observable<ImageMapping> {

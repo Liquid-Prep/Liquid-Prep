@@ -119,7 +119,7 @@ export class CropDataService {
         }
         observer.next(crops);
         observer.complete();
-      })
+      });
     });
   }
 
@@ -186,8 +186,8 @@ export class CropDataService {
           this.localStorage.remove(CROPS_STORAGE_KEY);
           this.localStorage.set(CROPS_STORAGE_KEY, myCrops);
         }
-      })
-    })
+      });
+    });
   }
 
   public getCropImageMapping(): Observable<ImageMapping> {
@@ -197,7 +197,7 @@ export class CropDataService {
         observer.complete();
       });
     });
-    
+
   }
 
   public getCropGrowthStageImageMapping(): Observable<ImageMapping> {

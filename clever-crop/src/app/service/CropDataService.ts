@@ -124,23 +124,35 @@ export class CropDataService {
   }
 
   // Filter out crops which are already existing in my-crops list stored locally
-  public filterOutExistingCrops(cropsListData) {
-    let filteredCropList = new Array<Crop>();
+  public filterOutExistingCrops(cropsListData: Crop[]) {
+    console.log('filterOutExistingCrops', cropsListData)
+    //let filteredCropList = new Array<Crop>();
     this.getMyCrops().subscribe(storedCrops => {
         if (storedCrops !== undefined && storedCrops.length !== 0) {
-            for (const eachCropData of cropsListData) {
-                storedCrops.forEach(eachStoredCrop => {
+          cropsListData.forEach((eachCrop, index) => {
+            storedCrops.forEach(eachStoredCrop => {
+              if (eachCrop.id !== eachStoredCrop.id) {
+                cropsListData.splice(index);
+                  //filteredCropList.push(eachCropData);
+              }
+
+            });
+          });
+          return cropsListData;
+            //for (const eachCropData of cropsListData) {
+                /*storedCrops.forEach(eachStoredCrop => {
                     if (eachCropData.id !== eachStoredCrop.id) {
                         filteredCropList.push(eachCropData);
                     }
 
-                });
-            }
+                });*/
+            //}
         } else {
-            filteredCropList = cropsListData;
+            //filteredCropList = cropsListData;
+            return cropsListData;
         }
     });
-    return filteredCropList;
+    //return filteredCropList;
   }
 
   public storeMyCropsInLocalStorage(crop: Crop) {

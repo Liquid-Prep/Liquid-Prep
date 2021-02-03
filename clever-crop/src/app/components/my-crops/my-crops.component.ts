@@ -43,7 +43,6 @@ export class MyCropsComponent implements OnInit {
   ngOnInit(): void {
 
     this.cropDataService.getMyCrops().subscribe(myCrops => {
-      console.log('myCrops: ', myCrops);
       this.myCrops = myCrops;
     });
 
@@ -84,7 +83,6 @@ export class MyCropsComponent implements OnInit {
   }
 
   onContextMenu($event: MouseEvent, crop: Crop) {
-    console.log('onContextMenu');
   }
 
   onViewCropAdvice(crop: Crop) {
@@ -92,7 +90,6 @@ export class MyCropsComponent implements OnInit {
   }
 
   onRemoveCrop(crop: Crop) {
-    console.log('remove ', crop);
     this.cropDataService.deleteMyCrop(crop.id);
     window.location.reload();
   }

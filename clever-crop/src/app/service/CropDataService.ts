@@ -170,7 +170,6 @@ export class CropDataService {
     this.getMyCropsFromLocalStorage().subscribe( myCrops => {
       myCrops.forEach((crop, index) => {
         if (crop.id === cropId) {
-          console.log(crop.cropName + 'is removed' );
           myCrops.splice(index, 1);
           this.localStorage.remove(CROPS_STORAGE_KEY);
           this.localStorage.set(CROPS_STORAGE_KEY, myCrops);

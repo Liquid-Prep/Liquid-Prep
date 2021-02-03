@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { formatDate, Location } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { formatDate } from '@angular/common';
+import { Router } from '@angular/router';
 
-import { AppServicesService } from '../../app-services.service';
-import { CropDataService } from 'src/app/service/CropDataService';
-import { WeatherDataService } from 'src/app/service/WeatherDataService';
 import { WaterAdviceService } from 'src/app/service/WaterAdviceService';
 
 @Component({
@@ -22,16 +19,11 @@ export class AdviceComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private location: Location,
-    private appService: AppServicesService,
-    private route: ActivatedRoute,
     private waterAdviceService: WaterAdviceService
   ) {}
 
   ngOnInit(): void {
     this.currentDate = 'Today, ' + formatDate(new Date(), 'MMMM d, yyyy', 'en');
-    /*this.appService.getMyCrops().subscribe(adviceResponse => {
-    });*/
     this.waterAdviceService.getWaterAdvice().subscribe( advice => {
       console.log('water advice: ' + advice.soilMoistureReading.soilMoisturePercentage);
       this.waterRecommeded = advice.waterRecommended;
@@ -39,11 +31,6 @@ export class AdviceComponent implements OnInit {
       this.temperature = advice.temperature;
       this.soilMoistureLevel = advice.soilMoistureReading.soilMoisturePercentage;
     });
-    /*this.weatherDataService.getTodayWeather().subscribe(todayWeather => {
-      if (todayWeather) {
-
-
-    });*/
   }
 
   public volumeClicked() {

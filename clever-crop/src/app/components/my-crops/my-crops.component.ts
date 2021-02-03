@@ -1,16 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { formatDate, Location } from '@angular/common';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { MatTabsModule } from '@angular/material/tabs';
 import { ThemePalette } from '@angular/material/core';
 
-import { AppServicesService } from '../../app-services.service';
-import { CropListResponse } from '../../models/api/CropListResponse';
-import { CropInfoResponse } from '../../models/api/CropInfoResponse';
 import { Crop } from '../../models/Crop';
-import { DataService } from '../../service/DataService';
-import { WeatherResponse } from 'src/app/models/api/WeatherResponse';
 import { WeatherDataService } from 'src/app/service/WeatherDataService';
 import { TodayWeather } from 'src/app/models/TodayWeather';
 import { CropDataService } from 'src/app/service/CropDataService';
@@ -32,7 +25,7 @@ export class MyCropsComponent implements OnInit {
   public currentDate = '';
   public temperature = undefined;
 
-  constructor(private appService: AppServicesService, private router: Router, private location: Location,
+  constructor(private router: Router, private location: Location,
               private weatherService: WeatherDataService, private cropDataService: CropDataService) {
 
                 console.log('currentDate: '+this.currentDate);
@@ -49,9 +42,6 @@ export class MyCropsComponent implements OnInit {
               }
 
   ngOnInit(): void {
-    /*this.appService.getMyCrops().subscribe(cropListResponse => {
-      this.dataSource = cropListResponse.data;
-    });*/
 
     this.cropDataService.getMyCrops().subscribe(myCrops => {
       console.log('myCrops: ',myCrops)
@@ -60,9 +50,7 @@ export class MyCropsComponent implements OnInit {
 
     this.currentDate =  formatDate(new Date(), 'MMMM d, yyyy', 'en');
 
-    /*const today =  formatDate(new Date(), 'yyyy-MM-dd', 'en');
-    console.log('today date: ', today);*/
-
+    // TODO: Add weather template
     /*this.dataService.getWeatherInfo().subscribe((weatherInfo: WeatherResponse) => {
       //console.log('weather data: ', weatherInfo);
       const todayWeather = WeatherService.getInstance().createTodayWeather(weatherInfo);
@@ -107,7 +95,7 @@ export class MyCropsComponent implements OnInit {
   }
 
   onRemoveCrop(crop: Crop) {
-    this.appService.deleteMyCrops();
+    //this.cropDataService.deleteMyCrop(crop.id);
     window.location.reload();
   }
 }

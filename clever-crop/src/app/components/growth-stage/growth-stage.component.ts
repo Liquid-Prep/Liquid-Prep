@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AppServicesService } from '../../app-services.service';
 import { Crop, Stage } from '../../models/Crop';
 import { CropDataService } from 'src/app/service/CropDataService';
 
@@ -19,7 +18,6 @@ export class GrowthStageComponent implements OnInit {
   constructor(
     private router: Router,
     private location: Location,
-    private appService: AppServicesService,
     private route: ActivatedRoute,
     private cropService: CropDataService
   ) {}
@@ -44,9 +42,6 @@ export class GrowthStageComponent implements OnInit {
   }
 
   clickGrowthStage(stage: Stage) {
-    //this.router.navigateByUrl('/my-crops');
-
-    //this.router.navigateByUrl('/advice');
 
     console.log('selected crop in growth stage: ',this.crop)
 

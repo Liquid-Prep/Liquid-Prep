@@ -24,8 +24,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from "@angular/material/menu";
 
-import { AppServicesService } from './app-services.service';
-
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SwiperModule, SwiperConfigInterface, SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { MeasureSoilComponent } from './components/measure-soil/measure-soil.component';
@@ -83,7 +81,6 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatMenuModule,
   ],
   providers: [
-    AppServicesService,
     DataService,
     DatePipe,
     {

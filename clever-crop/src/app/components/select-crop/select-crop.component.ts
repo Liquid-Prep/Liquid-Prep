@@ -1,10 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {AppServicesService} from '../../app-services.service';
 import {Router} from '@angular/router';
-import {formatDate, Location} from '@angular/common';
+import {Location} from '@angular/common';
 
 import { CropListResponse } from '../../models/api/CropListResponse';
-import { CropInfoResponse } from '../../models/api/CropInfoResponse';
 import { Crop } from '../../models/Crop';
 import { CropDataService } from '../../service/CropDataService';
 
@@ -25,12 +23,10 @@ export class SelectCropComponent implements OnInit{
   cropsList: Crop[];
   myCrops: CropListResponse;
 
-  constructor(private appService: AppServicesService, private router: Router, private location: Location,
+  constructor(private router: Router, private location: Location,
               private cropService: CropDataService) { }
 
   ngOnInit(): void {
-    // Delete locally stored crops list
-    //this.appService.deleteMyCrops();
 
     // Get list of crops from backend service
     this.cropService.getCropsListData().subscribe((cropsListResponse) => {
@@ -38,16 +34,6 @@ export class SelectCropComponent implements OnInit{
       this.cropsList = cropsListResponse;
     });
 
-    //this.cropService.setMyCrops(new Crop());
-
-    /*this.appService.getMyCrops().subscribe(cropListResponse => {
-      this.myCrops = cropListResponse;
-      console.log('crops: ', this.myCrops);
-    });*/
-
-    /*this.cropService.getCropData().subscribe((cropData) => {
-      console.log('crop data: ', cropData);
-    });*/
   }
 
   backToMyCrops(){
@@ -66,13 +52,7 @@ export class SelectCropComponent implements OnInit{
   addCrop(clickedCrop: Crop) {
     console.log('clicked crop: ', clickedCrop.id);
     this.router.navigateByUrl('/select-growth/' + clickedCrop.id);
-    
-    //console.log('id: ', id);
-    /*if (this.myCrops.data.findIndex(c => c._id === clickedCrop.index) === -1){
-      this.myCrops.data.push(clickedCrop);
-      this.appService.setMyCrops(this.myCrops);
-      this.router.navigateByUrl('/select-growth/' + clickedCrop.index);
-    }*/
+   
   }
 
   filterFunction(): Crop[]{

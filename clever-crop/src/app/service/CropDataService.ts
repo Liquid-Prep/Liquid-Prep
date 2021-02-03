@@ -1,7 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
 import { Observable, Observer, of } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { CropListResponse } from '../models/api/CropListResponse';
 import { Crop, Stage } from '../models/Crop';
 import { ImageMapping } from '../models/ImageMapping';
 import { DataService } from './DataService';
@@ -21,17 +19,8 @@ export class CropDataService {
               @Inject(LOCAL_STORAGE) private localStorage: StorageService,
               @Inject(SESSION_STORAGE) private sessionStorage: StorageService,
               private dataService: DataService) {
-    /*http.get<ImageMapping>(this.cropImageMappingFile).subscribe((data) => {
-      this.cropImageMapping = data;
-    });
-
-    http.get<ImageMapping>(this.stageImageMappingFile).subscribe((data) => {
-      this.cropGrowthStageImageMapping = data;
-    });*/
   }
 
-  /*private cropImageMapping: ImageMapping;
-  private cropGrowthStageImageMapping: ImageMapping;*/
   private cropImageMappingFile = '/assets/json/cropImageMapping.json';
   private defaultImage = '../assets/crops-images/missing.jpg';
   private stageImageMappingFile = '../assets/json/cropGrowthStageImageMapping.json';
@@ -63,14 +52,8 @@ export class CropDataService {
       this.dataService.getCropInfo(id).subscribe((cropInfo: any) => {
         const cropData: Crop = cropInfo.data.docs[0];
         if (cropData) {
-            console.log('testing cropData mod: ', cropData);
-            /*cropData.map((crop) => {
-                crop.id = crop._id;
-                this.fetchCropStageImages(crop);
-            });*/
             cropData.id = cropInfo.data.docs[0]._id;
             this.fetchCropStageImages(cropData);
-            //this.storeSelectedCropInSession(cropData);
             observer.next(cropData);
             observer.complete();
         } else {
@@ -142,11 +125,9 @@ export class CropDataService {
 
   // Filter out crops which are already existing in my-crops list stored locally
   public filterOutExistingCrops(cropsListData) {
-    console.log('cropsListData: ', cropsListData);
     let filteredCropList = new Array<Crop>();
     this.getMyCrops().subscribe(storedCrops => {
         if (storedCrops !== undefined && storedCrops.length !== 0) {
-            console.log('existing cropsListData: ', storedCrops);
             for (const eachCropData of cropsListData) {
                 storedCrops.forEach(eachStoredCrop => {
                     if (eachCropData.id !== eachStoredCrop.id) {
@@ -156,7 +137,6 @@ export class CropDataService {
                 });
             }
         } else {
-            console.log('returning all cropsListData: ');
             filteredCropList = cropsListData;
         }
     });
@@ -164,10 +144,8 @@ export class CropDataService {
   }
 
   public storeMyCropsInLocalStorage(crop: Crop) {
-    console.log('storeMyCropsInLocalStorage crop data: ', crop);
     const cropsData = new Array<Crop>();
     this.getMyCrops().subscribe((myCrops) => {
-    console.log('storeMyCropsInLocalStorage my-crops: ', myCrops);
 
     // If the crops list is empty in local storage then store the crop
     // Else store the crop if its not already existing.
@@ -188,13 +166,17 @@ export class CropDataService {
     });
   }
 
-  /*public deleteMyCrops(): boolean {
-    if (this.localStorage.get(CROPS_STORAGE_KEY)) {
-      this.setMyCrops(this.getEmptyMyCrops());
-      return true;
-    }
-    return false;
-  }*/
+  public deleteMyCrop(cropId) {
+    this.getMyCropsFromLocalStorage().subscribe( myCrops => {
+      myCrops.forEach((crop, index) => {
+        if (crop.id === cropId) {
+          myCrops.splice(index, 1);
+          this.localStorage.remove(CROPS_STORAGE_KEY);
+          this.localStorage.set(CROPS_STORAGE_KEY, myCrops);
+        }
+      })
+    })
+  }
 
   public getCropImageMapping(): Observable<ImageMapping> {
     return new Observable((observer: Observer<ImageMapping>) => {
@@ -237,10 +219,8 @@ export class CropDataService {
 
   private fetchCropListImage(crop: Crop) {
     this.getCropImageMapping().subscribe((cropImageMapping: ImageMapping) => {
-      console.log('fetchCropListImage: ', cropImageMapping)
     if (cropImageMapping != null &&
       cropImageMapping.cropsMap[crop.id]) {
-      console.log('fetchCropListImage: ', crop.id)
       crop.url = cropImageMapping.cropsMap[crop.id].url;
     } else {
       crop.url = this.defaultImage;

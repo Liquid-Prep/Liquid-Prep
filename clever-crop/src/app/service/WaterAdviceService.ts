@@ -33,10 +33,10 @@ export class WaterAdviceService {
     private TEMP_MED = 'temparature is slightly hot';
     private TEMP_HIGH = 'temparature is very hot';
 
-    private WATER_CROPS = 'Water your crops, as ';
-    private DONT_WATER = 'Do not water your crops, as ';
-    private WATER_CROPS_LESS = 'Water your crops less than the recommended value, as ';
-    private WATER_CROPS_MORE = 'Water your crops more than the recommended value, as ';
+    private WATER_CROPS = 'Water your crops';
+    private DONT_WATER = 'Do not water your crops';
+    private WATER_CROPS_LESS = 'Water your crops less than the recommended value';
+    private WATER_CROPS_MORE = 'Water your crops more than the recommended value';
     private DEFAULT_WATER_CROPS = 'Water your crops today ';
     private AND = ' and ';
 
@@ -103,23 +103,23 @@ export class WaterAdviceService {
     private determineRainyDayAdvice(rainIndex: string, soilMoistureIndex: string): string {
 
         if (rainIndex == this.LOW && soilMoistureIndex == this.LOW) {
-            return this.WATER_CROPS + this.RAIN_LOW + this.AND + this.SOIL_MOISTURE_LOW;
+            return this.WATER_CROPS;
         } else if (rainIndex == this.MED && soilMoistureIndex == this.LOW) {
-            return this.WATER_CROPS + this.RAIN_MED + this.AND+ this.SOIL_MOISTURE_LOW;
+            return this.WATER_CROPS;
         } else if (rainIndex == this.LOW && soilMoistureIndex == this.MED) {
-            return this.WATER_CROPS_LESS + this.RAIN_LOW + this.AND+ this.SOIL_MOISTURE_MED;
+            return this.WATER_CROPS_LESS;
         } else if (rainIndex == this.MED && soilMoistureIndex == this.MED) {
-            return this.WATER_CROPS_LESS + this.RAIN_MED + this.AND+ this.SOIL_MOISTURE_LOW;
+            return this.WATER_CROPS_LESS;
         } else if (rainIndex == this.LOW && soilMoistureIndex == this.HIGH) {
-            return this.DONT_WATER + this.RAIN_LOW + this.AND+ this.SOIL_MOISTURE_HIGH;
+            return this.DONT_WATER;
         } else if (rainIndex == this.MED && soilMoistureIndex == this.HIGH) {
-            return this.DONT_WATER + this.RAIN_MED + this.AND+ this.SOIL_MOISTURE_HIGH;
+            return this.DONT_WATER;
         } else if (rainIndex == this.HIGH && soilMoistureIndex == this.LOW) {
-            return this.DONT_WATER + this.RAIN_HIGH + this.AND+ this.SOIL_MOISTURE_LOW;
+            return this.DONT_WATER;
         } else if (rainIndex == this.HIGH && soilMoistureIndex == this.MED) {
-            return this.DONT_WATER + this.RAIN_HIGH + this.AND+ this.SOIL_MOISTURE_MED;
+            return this.DONT_WATER;
         } else if (rainIndex == this.HIGH && soilMoistureIndex == this.HIGH) {
-            return this.DONT_WATER + this.RAIN_HIGH + this.AND+ this.SOIL_MOISTURE_HIGH;
+            return this.DONT_WATER;
         } else {
             return this.DEFAULT_WATER_CROPS;
         }
@@ -129,23 +129,23 @@ export class WaterAdviceService {
     private determineNonRainyDayAdvice(soilMoistureIndex: string, temparatureIndex: string): string {
 
         if (soilMoistureIndex == this.LOW && temparatureIndex == this.OPT) {
-            return this.WATER_CROPS + this.SOIL_MOISTURE_LOW + this.AND+ this.TEMP_OPT;
+            return this.WATER_CROPS;
         } else if (soilMoistureIndex == this.LOW && temparatureIndex == this.MED) {
-            return this.WATER_CROPS + this.SOIL_MOISTURE_LOW + this.AND+ this.TEMP_MED;
+            return this.WATER_CROPS;
         } else if (soilMoistureIndex == this.MED && temparatureIndex == this.OPT) {
-            return this.WATER_CROPS + this.SOIL_MOISTURE_MED + this.AND+ this.TEMP_OPT;
+            return this.WATER_CROPS;
         } else if (soilMoistureIndex == this.MED && temparatureIndex == this.MED) {
-            return this.WATER_CROPS + this.SOIL_MOISTURE_MED + this.AND+ this.TEMP_MED;
+            return this.WATER_CROPS;
         } else if (soilMoistureIndex == this.LOW && temparatureIndex == this.HIGH) {
-            return this.WATER_CROPS_MORE + this.SOIL_MOISTURE_LOW + this.AND+ this.TEMP_HIGH;
+            return this.WATER_CROPS_MORE;
         } else if (soilMoistureIndex == this.MED && temparatureIndex == this.HIGH) {
-            return this.WATER_CROPS_MORE + this.SOIL_MOISTURE_MED + this.AND+ this.TEMP_HIGH;
+            return this.WATER_CROPS_MORE;
         } else if (soilMoistureIndex == this.HIGH && temparatureIndex == this.OPT) {
-            return this.WATER_CROPS_LESS + this.SOIL_MOISTURE_HIGH + this.AND+ this.TEMP_OPT;
+            return this.WATER_CROPS_LESS;
         } else if (soilMoistureIndex == this.HIGH && temparatureIndex == this.MED) {
-            return this.WATER_CROPS_LESS + this.SOIL_MOISTURE_HIGH + this.AND+ this.TEMP_MED;
+            return this.WATER_CROPS_LESS;
         } else if (soilMoistureIndex == this.HIGH && temparatureIndex == this.HIGH) {
-            return this.WATER_CROPS_LESS + this.SOIL_MOISTURE_HIGH + this.AND+ this.TEMP_HIGH;
+            return this.WATER_CROPS_LESS;
         } else {
             return this.DEFAULT_WATER_CROPS;
         }

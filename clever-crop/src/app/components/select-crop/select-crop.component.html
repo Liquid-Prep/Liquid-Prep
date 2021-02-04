@@ -25,14 +25,21 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-grid-list class="grid" cols="2" rowHeight="1:1"    gutterSize="2px"  >
-    <mat-grid-tile *ngFor="let crop of filterFunction()">
-      <mat-card (click)="addCrop(crop)">
-        <img mat-card-image class="cardImage" src="{{ crop.url }}" alt="{{ crop.cropName }}" />
-        <mat-card-footer>
-          <mat-card-title class="cardTittle">{{ crop.cropName }}</mat-card-title>
-        </mat-card-footer>
+  <div *ngIf=cropsList>
+    <mat-grid-list class="grid" cols="2" rowHeight="1:1"    gutterSize="2px">
+      <mat-grid-tile *ngFor="let crop of filterFunction()">
+        <mat-card (click)="addCrop(crop)">
+          <img mat-card-image class="cardImage" src="{{ crop.url }}" alt="{{ crop.cropName }}" />
+          <mat-card-footer>
+            <mat-card-title class="cardTittle">{{ crop.cropName }}</mat-card-title>
+          </mat-card-footer>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div *ngIf=!cropsList>
+      <mat-card>
+        <img mat-card-image class="cardImage" src="{{ NO_NEW_CROPS }}" />
       </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+  </div>
 </div>

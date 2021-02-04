@@ -47,7 +47,6 @@ export class DataService {
     return new Observable((observer: Observer<any>) => {
       this.http.get<CropListResponse>(this.cropsListAPIUrl).subscribe((cropListData) => {
         if (cropListData.status === 'success' && cropListData.statusCode === 200) {
-          //console.log('dataservice: ', cropListData.data.docs);
           observer.next(cropListData);
           observer.complete();
         } else {

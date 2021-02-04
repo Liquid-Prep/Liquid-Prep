@@ -68,7 +68,6 @@ export class WaterAdviceService {
         const dateTimeUtil = new DateTimeUtil();
         let waterAdvice = new Advice();
         waterAdvice.soilMoistureReading = new SoilMoisture();
-        console.log('cropInfo: ', soilMoisture.soilMoisturePercentage)
         waterAdvice.cropName = cropInfo.cropName;
         waterAdvice.id = cropInfo.id;
         waterAdvice.stage = cropInfo.stage.stage;

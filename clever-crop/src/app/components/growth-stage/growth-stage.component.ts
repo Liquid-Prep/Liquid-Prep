@@ -24,10 +24,8 @@ export class GrowthStageComponent implements OnInit {
 
   ngOnInit(): void {
     // TODO find the correct id or figure out a way to get the crop
-    console.log('select crop growth satge init: ', this.route.snapshot.paramMap.get('id'));
     const cropId = this.route.snapshot.paramMap.get('id');
     this.cropService.getCropData(cropId).subscribe((cropData) => {
-      console.log('crop data: ', cropData);
       this.crop = cropData;
       this.stages = cropData.cropGrowthStage.stages;
     });
@@ -42,9 +40,6 @@ export class GrowthStageComponent implements OnInit {
   }
 
   clickGrowthStage(stage: Stage) {
-
-    console.log('selected crop in growth stage: ',this.crop)
-
     // add crop info to my crops list
     this.cropService.storeMyCropsInLocalStorage(this.crop);
     // store selected crop in session to generate water advise

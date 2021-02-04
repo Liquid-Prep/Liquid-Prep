@@ -13,7 +13,6 @@ export class ConnectingDialogComponent implements OnInit {
     dialogRef.disableClose = true;
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('connecting dialog dismiss');
     });
 
     dialogRef.afterOpened().subscribe(_ => {

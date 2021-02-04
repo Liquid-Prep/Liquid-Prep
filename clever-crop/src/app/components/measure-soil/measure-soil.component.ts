@@ -52,9 +52,6 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
     // console.log(window.navigator.usb.getDevices());
     window.navigator.usb.requestDevice({filters: []})
       .then(usbDevice => {
-        console.log('Product name: ' + usbDevice.productName);
-        console.log('Product vendorId: ' + usbDevice.vendorId.toString(16));
-        console.log('Product productId: ' + usbDevice.productId);
         // dialogRef.close();
         this.setMeasureView('measuring');
         this.readingCountdown(5);
@@ -70,7 +67,6 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
   public onSwiperEvent(event: string): void { }
 
   public volumeClicked() {
-    console.log('volume clicked');
   }
 
   public backClicked() {
@@ -85,11 +81,9 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
   public readingCountdown(seconds){
     this.countdownSecond = seconds;
     this.interval = setInterval(() => {
-      console.log('go to after measuring', this.countdownSecond);
       if (this.countdownSecond <= 0){
         this.setMeasureView('after-measuring');
         clearInterval(this.interval);
-        console.log('go to after measuring');
         this.soilData = this.soilService.getSoilMoistureReading();
       }
       this.countdownSecond--;

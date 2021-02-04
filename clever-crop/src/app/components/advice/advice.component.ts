@@ -25,7 +25,6 @@ export class AdviceComponent implements OnInit {
   ngOnInit(): void {
     this.currentDate = 'Today, ' + formatDate(new Date(), 'MMMM d, yyyy', 'en');
     this.waterAdviceService.getWaterAdvice().subscribe( advice => {
-      console.log('water advice: ' + advice.soilMoistureReading.soilMoisturePercentage);
       this.waterRecommeded = advice.waterRecommended;
       this.wateringDecision = advice.wateringDecision;
       this.temperature = advice.temperature;

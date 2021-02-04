@@ -58,10 +58,8 @@ export class DataService {
 
   public getCropInfo(id: string): Observable<any> {
     return new Observable((observer: Observer<any>) => {
-      console.log('crop id: ', id);
       const params = 'id=' + id;
       const url = this.cropAPIUrl + params;
-      console.log(' crop inf url: ', url);
       this.http.get<any>(url).subscribe((cropData) => {
         if (cropData.status === 'success' && cropData.statusCode === 200) {
           observer.next(cropData);

@@ -38,6 +38,8 @@
     </mat-grid-list>
   </div>
   <div *ngIf=!cropsList>
-    <mat-grid-list class="grid" cols="2" rowHeight="1:1"    gutterSize="2px">No new crops to add.</mat-grid-list>
+      <mat-card>
+        <img mat-card-image class="cardImage" src="{{ NO_NEW_CROPS }}" />
+      </mat-card>
   </div>
 </div>

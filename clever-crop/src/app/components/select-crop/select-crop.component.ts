@@ -22,6 +22,7 @@ export class SelectCropComponent implements OnInit{
   toggleSearch = false;
   cropsList: Crop[];
   myCrops: CropListResponse;
+  NO_NEW_CROPS = ''
 
   constructor(private router: Router, private location: Location,
               private cropService: CropDataService) { }
@@ -30,9 +31,8 @@ export class SelectCropComponent implements OnInit{
 
     // Get list of crops from backend service
     this.cropService.getCropsListData().subscribe((cropsListResponse) => {
-      console.log('crops list data: ', cropsListResponse);
       if (cropsListResponse === undefined || cropsListResponse.length === 0) {
-        console.log('no new crops to add')
+        this.NO_NEW_CROPS = '../../assets/crops-images/noNewCrops.PNG'
       } else {
         this.cropsList = cropsListResponse;
       }

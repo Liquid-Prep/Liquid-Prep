@@ -16,7 +16,6 @@ export class SettingsComponent implements OnInit {
 
   public volumeClicked() {
     this.router.navigateByUrl('/my-crops');
-    console.log('volume clicked');
   }
 
   public backClicked() {

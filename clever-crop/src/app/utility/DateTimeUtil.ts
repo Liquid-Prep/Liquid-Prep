@@ -6,8 +6,6 @@ export class DateTimeUtil {
 
   public isToday(date: string) {
     const todayDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
-    console.log('today date: ', todayDate);
-
     if (date === todayDate.toString()) {
       return true;
     } else {
@@ -29,7 +27,6 @@ export class DateTimeUtil {
     // format sunrise and sunset time to milliseconds
     const formatsunriseTime = new Date(sunriseTime).getTime();
     const formatsunsetTime = new Date(sunsetTime).getTime();
-    console.log('hours: ',currentTime, this.getCurrentTimeInMilliSeconds(), formatsunriseTime, formatsunsetTime)
     if ((currentTime >= formatsunriseTime) && (currentTime < formatsunsetTime)) {
       return true;
     } else {

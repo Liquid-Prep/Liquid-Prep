@@ -158,9 +158,7 @@ export class CropDataService {
         this.localStorage.set(CROPS_STORAGE_KEY, cropsData);
       } else {
         myCrops.forEach((eachCrop) => {
-          if (crop.id === eachCrop.id) {
-            console.log('crop is already stored locally.');
-          } else {
+          if (crop.id !== eachCrop.id) {
             myCrops.push(crop);
             this.localStorage.remove(CROPS_STORAGE_KEY);
             this.localStorage.set(CROPS_STORAGE_KEY, myCrops);

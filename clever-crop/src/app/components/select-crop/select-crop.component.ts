@@ -54,7 +54,6 @@ export class SelectCropComponent implements OnInit{
   }
 
   addCrop(clickedCrop: Crop) {
-    console.log('clicked crop: ', clickedCrop.id);
     this.router.navigateByUrl('/select-growth/' + clickedCrop.id);
    
   }

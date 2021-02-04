@@ -29,16 +29,13 @@ export class WeatherDataService {
       if (localTodayWeather) {
         if (this.dateTimeUtil.isToday(localTodayWeather.date)) {
           return new Observable((observer: Observer<TodayWeather>) => {
-            console.log('sending back local weather');
             observer.next(localTodayWeather);
             observer.complete();
           });
         } else {
           return new Observable((observer: Observer<TodayWeather>) => {
             this.dataService.getWeatherInfo().subscribe((weatherInfo: WeatherResponse) => {
-              console.log('weather data from TWC: ', weatherInfo);
               this.today = this.createTodayWeather(weatherInfo);
-              console.log('today weather created: ', this.today);
               this.storeTodayWeatherInLocalStorage(this.today);
               observer.next(this.today);
               observer.complete();
@@ -52,9 +49,7 @@ export class WeatherDataService {
             observer.complete();
           } else {
             this.dataService.getWeatherInfo().subscribe((weatherInfo: WeatherResponse) => {
-              console.log('weather data from TWC: ', weatherInfo);
               this.today = this.createTodayWeather(weatherInfo);
-              console.log('today weather created: ', this.today);
               this.storeTodayWeatherInLocalStorage(this.today);
               observer.next(this.today);
               observer.complete();
@@ -145,7 +140,6 @@ export class WeatherDataService {
 
     /*public isToday(date: string) {
       const todayDate =  formatDate(new Date(), 'yyyy-MM-dd', 'en');
-      console.log('today date: ', todayDate);
       if (date === todayDate.toString()) {
         return true;
       } else {

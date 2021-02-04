@@ -27,10 +27,7 @@ export class MyCropsComponent implements OnInit {
 
   constructor(private router: Router, private location: Location,
               private weatherService: WeatherDataService, private cropDataService: CropDataService) {
-
-                console.log('currentDate: ' + this.currentDate);
                 this.weatherService.getTodayWeather().subscribe((todayWeather: TodayWeather) => {
-                  console.log('today weather: ', todayWeather);
                   const isDayTime = new DateTimeUtil().isDayTime(todayWeather.sunriseTime.toString(), todayWeather.sunsetTime.toString());
                   if (isDayTime) {
                     this.temperature = todayWeather.dayTime.temperature;
@@ -50,9 +47,7 @@ export class MyCropsComponent implements OnInit {
 
     // TODO: Add weather template
     /*this.dataService.getWeatherInfo().subscribe((weatherInfo: WeatherResponse) => {
-      //console.log('weather data: ', weatherInfo);
       const todayWeather = WeatherService.getInstance().createTodayWeather(weatherInfo);
-      console.log('today weather: ', todayWeather);
     });*/
 
   }

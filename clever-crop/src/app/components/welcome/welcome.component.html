@@ -5,22 +5,27 @@
           (indexChange)="onIndexChange($event)"
           (swiperTransitionStart)="onSwiperEvent('transitionStart')"
           (swiperTransitionEnd)="onSwiperEvent('transitionEnd')">
-    <div class="swiper-slide">
-      <div fxLayout="column" fxFlexFill>
-        <img src="assets/img-31.png" alt="welcome 1">
-        <button mat-flat-button class="c-btn" (click)="onGetStarted()">GET STARTED</button>
-      </div>
 
-    </div>
     <div class="swiper-slide">
-      <div fxLayout="column"  fxFlexFill>
-        <img src="assets/img-32.png" alt="welcome 2">
-        <button mat-flat-button class="c-btn" (click)="onGetStarted()">GET STARTED</button>
+      <div fxLayout="column" fxFlexFill
+           fxLayoutAlign="center center">
+        <img src="assets/welcome-1.png" alt="welcome 1" width="196" height="302">
+        <h1 class="title">Save water</h1>
+        <h3 class="description">Crops grow with the right amount of water</h3>
+      </div>
+    </div>
+    <div class="swiper-slide" >
+      <div fxLayout="column" fxFlexFill fxLayoutAlign="center center" >
+        <img src="assets/welcome-2.png" alt="welcome 2" width="196" height="302">
+        <h1 class="title">Save water</h1>
+        <h3 class="description">Crops grow with the right amount of water</h3>
       </div>
     </div>
     <div class="swiper-slide">
-      <div fxLayout="column" fxFlexFill>
-        <img src="assets/img-33.png" alt="welcome 3">
+      <div fxLayout="column" fxFlexFill fxLayoutAlign="center center" >
+        <img src="assets/welcome-3.png" alt="welcome 3" width="196" height="302">
+        <h1 class="title">Save water</h1>
+        <h3 class="description">Crops grow with the right amount of water</h3>
         <button mat-flat-button class="c-btn" (click)="onGetStarted()">GET STARTED</button>
       </div>
     </div>

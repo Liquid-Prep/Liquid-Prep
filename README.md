@@ -20,13 +20,13 @@ We have developed **Liquid Prep**, an end-to-end solution for farmers looking to
   <img src="https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/readme/LiquidPrep-Architecture-new.PNG" alt="liquidPrep-architecture" width ="60%" height="60%">
 </p>
 
--	Soil Moisture Sensor Module <br>
+### Soil Moisture Sensor Module <br>
   The Soil Moisture Sendor Module, measures the soil moisture level and transmits the data to Clever Crop App via USB serial connection/Bluetooth.  
-- Clever Crop App <br>
+### Clever Crop App <br>
   Clever Crop App is designed and developed for users/famers with low literacy to easily understand, interact and get water advice for selected crop in their current location. The App interacts with teh Soil Moisture Sensor Module to get the soil moisture data and IBM Cloud Backend Service to get weather data and crop data to generate watering advise for the selected crop.
--	IBM Cloud Backend Service <br>
+### IBM Cloud Backend Service <br>
   The Backend Service exposes APIs that are handled by Cloud Functions which interacts with Cloudant Database for crop data and The Weather Company APIs for weather data. The Backend Service is hosted on [IBM Cloud](https://www.ibm.com/cloud). 
-- [The Weather Company APIs](https://business.weather.com/).
+### [The Weather Company APIs](https://business.weather.com/).
 
 ### Get Started
 

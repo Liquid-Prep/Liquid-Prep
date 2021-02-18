@@ -1,4 +1,13 @@
-<div class="">
+
+<div class="horizontal">
+  <h2 class="date"> <b>Today, </b> {{  currentDate }}</h2>
+  <div class="imgHolder">
+    <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
+    <span class="vertical-align-middle temp">{{temperature}}&deg;C</span>
+  </div>
+</div>
+
+<div *ngIf="myCropStatus == 'crop-selected'">
 
   <!-- <mat-toolbar class="custom-toolbar">
     <button mat-icon-button class="white-icon" aria-label="back clicked" (click)="backClicked()">
@@ -24,13 +33,6 @@
     <mat-icon>add</mat-icon>
   </button>
 
-  <div class="horizontal">
-    <h2 class="date"> <b>Today, </b> {{  currentDate }}</h2>
-    <div class="imgHolder">
-      <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
-      <span class="vertical-align-middle temp">{{temperature}}&deg;C</span>
-    </div>
-  </div>
 
   <mat-grid-list class="grid" cols="2" rowHeight="1:1" gutterSize="2px" *ngIf="activeTab == tabs[0]">
     <mat-grid-tile *ngFor="let crop of myCrops">
@@ -58,4 +60,14 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
+</div>
+
+<div *ngIf="myCropStatus == 'no-crop'"
+     fxFlexFill fxLayout="column"
+     fxLayoutGap="25px"
+     fxLayoutAlign="center center">
+  <img src="assets/add-first-crop.png" alt="low-moisture" width="130" height="221">
+  <p class="mat-display-1">Add your first crop</p>
+  <p class="mat-body-1">Select the crop for your watering advice!</p>
+  <button mat-flat-button color="primary" style="width:33%" (click)="onAdd1stCrop()">ADD</button>
 </div>

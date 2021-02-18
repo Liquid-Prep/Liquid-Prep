@@ -74,15 +74,14 @@
     margin-top: 10px;
 }
 
-.float-btn {
+#img-container{
+  position: relative;
+}
+
+#measure-btn{
   position: absolute;
-  top: 56%;
-  left: 8%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  color: white;
-  background-color: #2F4FFE;
-  z-index:1
+  left: 10%;
+  bottom: -25px;
 }
 
 .rotate-45 {

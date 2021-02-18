@@ -9,14 +9,13 @@
         <mat-icon>volume_up</mat-icon>
     </button>
 </mat-toolbar>
-<div>
+<div id="img-container">
   <img class="topImage" src="/assets/crops-images/advice.png" width="359" height="311">
-  <button id="measure-btn" mat-fab color="primary" class="float-btn rotate-45" (click)="onFabClicked()">
-    <mat-icon>straighten</mat-icon>
-  </button>
+    <button id="measure-btn" mat-fab color="primary" class="rotate-45" (click)="onFabClicked()">
+      <mat-icon>straighten</mat-icon>
+    </button>
 </div>
-<br>
-<br>
+
 <div class="horizontal">
     <div class="vertical">
       <span class="vertical-align-middle title">{{waterRecommeded}}cm</span>

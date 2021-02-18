@@ -24,6 +24,7 @@ export class MyCropsComponent implements OnInit {
 
   public currentDate = '';
   public temperature = undefined;
+  public myCropStatus: 'no-crop' | 'crop-selected' = 'no-crop';
 
   constructor(private router: Router, private location: Location,
               private weatherService: WeatherDataService, private cropDataService: CropDataService) {
@@ -41,6 +42,9 @@ export class MyCropsComponent implements OnInit {
 
     this.cropDataService.getMyCrops().subscribe(myCrops => {
       this.myCrops = myCrops;
+      if (this.myCrops.length > 0){
+        this.myCropStatus = 'crop-selected';
+      }
     });
 
     this.currentDate =  formatDate(new Date(), 'MMMM d, yyyy', 'en');
@@ -62,7 +66,7 @@ export class MyCropsComponent implements OnInit {
   }
 
   public fabClicked() {
-    this.router.navigateByUrl('/select-crop');
+    this.router.navigateByUrl('/select-crop').then(r => {});
   }
 
   public volumeClicked() {
@@ -89,4 +93,7 @@ export class MyCropsComponent implements OnInit {
     window.location.reload();
   }
 
+  onAdd1stCrop() {
+    this.router.navigateByUrl('/select-crop').then(r => {});
+  }
 }

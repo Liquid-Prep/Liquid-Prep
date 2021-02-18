@@ -1,5 +1,5 @@
 
-<div class="horizontal">
+<div class="horizontal" style="margin-bottom: 8px">
   <h2 class="date"> <b>Today, </b> {{  currentDate }}</h2>
   <div class="imgHolder">
     <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
@@ -9,26 +9,6 @@
 
 <div *ngIf="myCropStatus == 'crop-selected'">
 
-  <!-- <mat-toolbar class="custom-toolbar">
-    <button mat-icon-button class="white-icon" aria-label="back clicked" (click)="backClicked()">
-      <mat-icon class="volume-icon">arrow_back</mat-icon>
-    </button>
-    <span class="toolbar-title">My Crops</span>
-    <span class="toolbar-spacer"></span>
-    <button mat-icon-button class="white-icon" aria-label="read text" (click)="volumeClicked()">
-      <mat-icon>volume_up</mat-icon>
-    </button>
-  </mat-toolbar> -->
-
-  <!-- <nav mat-tab-nav-bar [backgroundColor]="background">
-  <a mat-tab-link *ngFor="let tab of tabs" (click)="tabClicked(tab)" [active]="activeTab == tab">
-    <div class="vertical">
-      <mat-icon>{{ tab == tabs[0] ? "home" : "settings" }}</mat-icon>
-      <Label class="description" textWrap="true">{{ tab }}</Label>
-    </div>
-  </a>
-</nav> -->
-
   <button mat-mini-fab class="md-fab-bottom-right" (click)="fabClicked()">
     <mat-icon>add</mat-icon>
   </button>
@@ -36,27 +16,27 @@
 
   <mat-grid-list class="grid" cols="2" rowHeight="1:1" gutterSize="2px" *ngIf="activeTab == tabs[0]">
     <mat-grid-tile *ngFor="let crop of myCrops">
-      <mat-card class="card">
-        <img mat-card-image class="cardImage" src="{{ crop.url }}" alt="{{ crop.cropName }}" />
-        <mat-card-content>
-            <p class="mat-subheader">{{crop.cropName}}</p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-<!--          <button mat-button>{{ crop.cropName }}</button>-->
-          <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="onViewCropAdvice(crop)">
-              <mat-icon>visibility</mat-icon>
-              <span>View Crop Advice</span>
+      <mat-card class="card" style="padding: 0px">
+        <img mat-card-image class="cardImage" (click)="onViewCropAdvice(crop)" src="{{ crop.url }}" alt="{{ crop.cropName }}" />
+
+        <div fxLayout="row"
+             fxFill
+             fxLayoutGap="28px"
+             fxLayoutAlign="space-between end"
+             style="padding-left: 8px">
+          <p class="mat-subheader">{{crop.cropName}}</p>
+          <div align="end">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
             </button>
-            <button mat-menu-item (click)="onRemoveCrop(crop)">
-              <mat-icon>delete</mat-icon>
-              <span>Remove Crop</span>
-            </button>
-          </mat-menu>
-        </mat-card-actions>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="onRemoveCrop(crop)">
+                <mat-icon>delete</mat-icon>
+                <span>Remove Crop</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

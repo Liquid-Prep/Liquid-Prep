@@ -34,8 +34,10 @@ mat-card {
 }
 
 .cardTittle {
-  padding: 8px;
+  padding: 1px;
   font-weight: 100;
+  display: flex;
+  justify-content: space-between;
 }
 
 mat-card img{

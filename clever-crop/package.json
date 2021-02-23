@@ -1,5 +1,5 @@
 {
-  "name": "liquid-prep-app",
+  "name": "clever-crop",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-prod": "ng build --prod --output-hashing=none",
-    "serve-prod": "npm run build-prod && cd dist/liquid-prep-app && http-server -c-1",
+    "serve-prod": "npm run build-prod && cd dist/clever-crop && http-server -c-1",
     "deploy-github": "ng build --prod=true --outputPath=docs --baseHref=/Liquid-Prep/",
     "postinstall": "ngcc"
   },

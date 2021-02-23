@@ -5,14 +5,15 @@ import { WeatherMeasuringUnit } from '../utility/WeatherMeasuringUnit';
 import { GeoLocationService } from './GeoLocationService';
 import { WeatherResponse } from '../models/api/WeatherResponse';
 import { CropListResponse } from '../models/api/CropListResponse';
+import config from 'src/config.json';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
 
-  private commonAPI = 'https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/96fd655207897b11587cfcf2b3f58f6e0792f788cf2a04daa79b53fc3d4efb32/liquidprep-cf-api';
-  //private weatherUrl = '/assets/json/weather.json';
+  private commonAPI = config.backendAPIEndpoint; 
+
   private weatherAPIUrl = this.commonAPI + '/get_weather_info?';
 
   private cropsListAPIUrl = this.commonAPI + '/get_crop_list';

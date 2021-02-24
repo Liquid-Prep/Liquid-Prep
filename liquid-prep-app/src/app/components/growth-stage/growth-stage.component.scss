@@ -1,0 +1,47 @@
+header {
+  position: fixed;
+  top: 0;
+  z-index: 11;
+  transition: all 250ms ease-in-out;
+}
+
+.select-growth-stage-header{
+  @extend header;
+}
+
+.custom-toolbar {
+    background-color: #2F4FFE;
+    padding: 0 5px;
+  }
+
+  .toolbar-title {
+    color: #fff;
+  }
+
+.grid {
+  margin-top: 50px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+mat-card {
+  margin: 13px;
+  border: 2px solid #F5F5F6;
+}
+
+.cardImage {
+  margin-bottom: 0;
+}
+
+.cardTittle {
+  padding: 1px;
+  font-weight: 100;
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-card img{
+  object-fit: cover; /*this makes the image in src fit to the size specified below*/
+  width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+  height: 80%;
+}

@@ -1,0 +1,57 @@
+div {
+  overflow: hidden;
+}
+.content-container {
+  position: relative;
+  height: 600px;
+  min-height: 0;
+  margin: 0px 0px;
+  border-radius: 00px;
+
+  background-color: #fff;
+}
+
+.swiper-container {
+  position: absolute;
+  height: 600px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.swiper-slide {
+  height: 600px;
+  color: #aaa;
+  background-color: #eee;
+}
+
+.swiper-slide-active {
+  color: #fff;
+  background-color: #aaa;
+}
+
+/* customise*/
+.c-btn {
+  position: absolute;
+  top: 88%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  background-color: #2F4FFE;
+}
+
+div.swiper-slide {
+  background-color: white;
+}
+
+h1.title {
+  color: black;
+  margin-top: 20px;
+}
+
+h3.description {
+  color: gray;
+  margin-top: 6px;
+}

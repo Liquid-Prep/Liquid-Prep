@@ -1,0 +1,62 @@
+.content-container {
+  position: relative;
+  overflow: auto;
+  height: 90%;
+  min-height: 0;
+  margin: 0px 0px;
+  border-radius: 00px;
+  background-color: #fff;
+}
+
+.swiper-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.swiper-slide {
+  color: white;
+  background-color: white;
+}
+
+.title {
+  color: black;
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+
+.description {
+  color: gray;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.custom-toolbar {
+  background-color: #2F4FFE;
+  padding: 0 5px;
+}
+
+.toolbar-title {
+  color: #fff;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.white-icon {
+  color: #fff;
+}
+
+.text-area{
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  flex-wrap: nowrap;
+}

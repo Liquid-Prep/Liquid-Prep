@@ -1,0 +1,34 @@
+<div class="content-container">
+  <swiper class="swiper-container"
+          [config]="config"
+          [disabled]="disabled"
+          (indexChange)="onIndexChange($event)"
+          (swiperTransitionStart)="onSwiperEvent('transitionStart')"
+          (swiperTransitionEnd)="onSwiperEvent('transitionEnd')">
+
+    <div class="swiper-slide">
+      <div fxLayout="column" fxFlexFill
+           fxLayoutAlign="center center">
+        <img src="assets/welcome-1.png" alt="welcome 1" width="196" height="302">
+        <h1 class="title">Save water</h1>
+        <h3 class="description">Crops grow with the right amount of water</h3>
+      </div>
+    </div>
+    <div class="swiper-slide" >
+      <div fxLayout="column" fxFlexFill fxLayoutAlign="center center" >
+        <img src="assets/welcome-2.png" alt="welcome 2" width="196" height="302">
+        <h1 class="title">Save water</h1>
+        <h3 class="description">Crops grow with the right amount of water</h3>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div fxLayout="column" fxFlexFill fxLayoutAlign="center center" >
+        <img src="assets/welcome-3.png" alt="welcome 3" width="196" height="302">
+        <h1 class="title">Save water</h1>
+        <h3 class="description">Crops grow with the right amount of water</h3>
+        <button mat-flat-button class="c-btn" (click)="onGetStarted()">GET STARTED</button>
+      </div>
+    </div>
+
+  </swiper>
+</div>

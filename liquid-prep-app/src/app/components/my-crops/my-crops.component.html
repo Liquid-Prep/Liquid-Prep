@@ -1,0 +1,53 @@
+
+<div class="horizontal" style="margin-bottom: 8px">
+  <h2 class="date"> <b>Today, </b> {{  currentDate }}</h2>
+  <div class="imgHolder">
+    <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
+    <span class="vertical-align-middle temp">{{temperature}}&deg;C</span>
+  </div>
+</div>
+
+<div *ngIf="myCropStatus == 'crop-selected'">
+
+  <button mat-mini-fab class="md-fab-bottom-right" (click)="fabClicked()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+
+  <mat-grid-list class="grid" cols="2" rowHeight="1:1" gutterSize="2px" *ngIf="activeTab == tabs[0]">
+    <mat-grid-tile *ngFor="let crop of myCrops">
+      <mat-card class="card" style="padding: 0px">
+        <img mat-card-image class="cardImage" (click)="onViewCropAdvice(crop)" src="{{ crop.url }}" alt="{{ crop.cropName }}" />
+
+        <div fxLayout="row"
+             fxFill
+             fxLayoutGap="28px"
+             fxLayoutAlign="space-between end"
+             style="padding-left: 8px">
+          <p class="mat-subheader">{{crop.cropName}}</p>
+          <div align="end">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="onRemoveCrop(crop)">
+                <mat-icon>delete</mat-icon>
+                <span>Remove Crop</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div *ngIf="myCropStatus == 'no-crop'"
+     fxFlexFill fxLayout="column"
+     fxLayoutGap="25px"
+     fxLayoutAlign="center center">
+  <img src="assets/add-first-crop.png" alt="low-moisture" width="130" height="221">
+  <p class="mat-display-1">Add your first crop</p>
+  <p class="mat-body-1">Select the crop for your watering advice!</p>
+  <button mat-flat-button color="primary" style="width:33%" (click)="onAdd1stCrop()">ADD</button>
+</div>

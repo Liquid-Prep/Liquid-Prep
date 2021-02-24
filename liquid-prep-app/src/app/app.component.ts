@@ -7,7 +7,7 @@ import { SwUpdate } from '@angular/service-worker';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Welcome to  clever-crop';
+  title = 'Welcome to  liquid-prep-app';
 
   constructor(
     private swUpdate: SwUpdate

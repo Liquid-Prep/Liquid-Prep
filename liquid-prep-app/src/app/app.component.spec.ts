@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'clever-crop'`, () => {
+  it(`should have as title 'liquid-prep-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('clever-crop');
+    expect(app.title).toEqual('liquid-prep-app');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('clever-crop app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('liquid-prep app is running!');
   });
 });

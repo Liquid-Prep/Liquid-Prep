@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('clever-crop app is running!');
+    expect(page.getTitleText()).toEqual('liquid-prep app is running!');
   });
 
   afterEach(async () => {

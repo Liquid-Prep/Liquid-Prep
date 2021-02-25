@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 
@@ -22,7 +22,8 @@ export class SelectCropComponent implements OnInit{
   toggleSearch = false;
   cropsList: Crop[];
   myCrops: CropListResponse;
-  NO_NEW_CROPS = ''
+  NO_NEW_CROPS = '';
+  public requestingCrop = true;
 
   constructor(private router: Router, private location: Location,
               private cropService: CropDataService) { }
@@ -31,8 +32,9 @@ export class SelectCropComponent implements OnInit{
 
     // Get list of crops from backend service
     this.cropService.getCropsListData().subscribe((cropsListResponse) => {
+      this.requestingCrop = false;
       if (cropsListResponse === undefined || cropsListResponse.length === 0) {
-        this.NO_NEW_CROPS = '../../assets/crops-images/noNewCrops.PNG'
+        this.NO_NEW_CROPS = '../../assets/crops-images/noNewCrops.PNG';
       } else {
         this.cropsList = cropsListResponse;
       }
@@ -54,8 +56,7 @@ export class SelectCropComponent implements OnInit{
   }
 
   addCrop(clickedCrop: Crop) {
-    this.router.navigateByUrl('/select-growth/' + clickedCrop.id);
-   
+    this.router.navigateByUrl('/select-growth/' + clickedCrop.id).then(r => {});
   }
 
   filterFunction(): Crop[]{

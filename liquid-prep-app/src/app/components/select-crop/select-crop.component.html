@@ -1,4 +1,14 @@
-<div class="add-crop" style="overflow-x:hidden;" fxFlexFill cdkScrollable>
+<div *ngIf="requestingCrop"
+     fxFlexFill fxLayout="column"
+     fxLayoutGap="25px"
+     fxLayoutAlign="center center">
+  <div>
+    <mat-spinner diameter="100" color="primary"></mat-spinner>
+  </div>
+  <p>Loading...</p>
+</div>
+
+<div *ngIf="!requestingCrop" class="add-crop" style="overflow-x:hidden;" fxFlexFill cdkScrollable>
   <mat-toolbar class="add-crop-header mat-elevation-z4 custom-toolbar" [class.hidden]="toggleSearch">
     <mat-toolbar-row style="padding: 0 5px;">
       <button mat-icon-button class="toolbar-title" aria-label="Icon-button with close icon" (click)="backToMyCrops()">

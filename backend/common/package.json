@@ -10,7 +10,7 @@
   "author": "ljeff@us.ibm.com",
   "license": "ISC",
   "dependencies": {
-    "@cloudant/cloudant": "^4.2.2",
+    "@cloudant/cloudant": "^4.3.0",
     "ibm-cos-sdk": "^1.5.1",
     "node-uuid": "^1.4.8",
     "rxjs": "^6.5.2"
@@ -21,8 +21,7 @@
     "@types/node": "^12.6.8",
     "jasmine": "^3.4.0",
     "jasmine-ajax": "^4.0.0",
-    "jasmine-ts": "^0.3.0",
-    "nyc": "^14.1.1",
+    "nyc": "^15.1.0",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
   }

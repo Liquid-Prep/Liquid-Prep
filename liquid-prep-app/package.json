@@ -8,10 +8,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-prod": "ng build --prod --output-hashing=none",
+    "build-prod": "ng build --prod",
     "serve-prod": "npm run build-prod && cd dist/liquid-prep-app && http-server -c-1",
     "deploy-github": "ng build --prod=true --outputPath=docs --baseHref=/Liquid-Prep/",
-    "postinstall": "ngcc"
+    "postinstall": "ngcc",
+    "http-server": "http-server -o"
   },
   "private": true,
   "dependencies": {

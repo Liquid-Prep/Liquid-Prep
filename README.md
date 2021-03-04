@@ -21,9 +21,9 @@ We have developed **Liquid Prep**, an end-to-end solution for farmers looking to
 </p>
 
 #### Soil Moisture Sensor Module
-  The Soil Moisture Sendor Module, measures the soil moisture level and transmits the data to Clever Crop App via USB serial connection/Bluetooth.  
-#### Clever Crop App
-  Clever Crop App is designed and developed for users/famers with low literacy to easily understand, interact and get water advice for selected crop in their current location. The App interacts with the Soil Moisture Sensor Module to get the soil moisture data and IBM Cloud Backend Service to get weather data and crop data to generate watering advise for the selected crop.
+  The Soil Moisture Sendor Module, measures the soil moisture level and transmits the data to Liquid Prep App via USB serial connection/Bluetooth.  
+#### Liquid Prep App
+  Liquid Prep App is designed and developed for users/famers with low literacy to easily understand, interact and get water advice for selected crop in their current location. The App interacts with the Soil Moisture Sensor Module to get the soil moisture data and IBM Cloud Backend Service to get weather data and crop data to generate watering advise for the selected crop.
 #### IBM Cloud Backend Service
   The Backend Service exposes APIs that are handled by [Cloud Functions](https://cloud.ibm.com/docs/openwhisk) which interacts with [Cloudant Database](https://www.ibm.com/cloud/cloudant) for crop data and [The Weather Company APIs](https://business.weather.com/) for weather data. The Backend Service is hosted on [IBM Cloud](https://www.ibm.com/cloud).
   
@@ -34,7 +34,7 @@ We have developed **Liquid Prep**, an end-to-end solution for farmers looking to
 
 1. Project Setup
     - [Soil Moisture Sensor Module Setup](https://github.com/Call-for-Code/Liquid-Prep/blob/master/soilSensor/User-Manual.pdf)
-    - Clever Crop App Setup - coming soon
+    - [Liquid Prep App Setup](https://github.com/Call-for-Code/Liquid-Prep/blob/master/liquid-prep-app/README.md)
     - [IBM Cloud Backend Service Setup](https://github.com/Call-for-Code/Liquid-Prep/blob/master/backend/README.md)
 2. [Project Roadmap](#project-roadmap)
 3. [Contributing](#contributing)

@@ -1,9 +1,9 @@
 # Liquid Prep - Backend Service
 
-Liquid Prep backend service exposes Cloud Functions API endpoints for Clever Crop application to query weather and crop information. The backend service is deployed and hosted on IBM Cloud. It mainly consists of 2 IBM Cloud services;
+Liquid Prep backend service exposes Cloud Functions API endpoints for Liquid Prep application to query weather and crop information. The backend service is deployed and hosted on IBM Cloud. It mainly consists of 2 IBM Cloud services;
 1. **[IBM Cloud Functions](https://cloud.ibm.com/docs/openwhisk):** <br>
-    - The Cloud Functions hosts the Liquid Prep backend service which handles the requests from Clever-Crop app, process the requests to query weather data or crop data and sends back the response to Clever-Crop app.
-    - The Cloud Functions exposes an API endpoint for the Clever-Crop app to send requests to get data.
+    - The Cloud Functions hosts the Liquid Prep backend service which handles the requests from Liquid Prep app, process the requests to query weather data or crop data and sends back the response to Liquid Prep app.
+    - The Cloud Functions exposes an API endpoint for the Liquid Prep app to send requests to get data.
 
 2. **[IBM Cloudant DB](https://cloud.ibm.com/docs/Cloudant):** <br>
     - The Cloudant DB acts a storage for all the crop data which will explained in the **IBM Cloudant** section.
@@ -148,7 +148,7 @@ Instructions on how to setup, configure and deploy the backend service is as fol
 
 ## Deploy Liquid Prep Backend Service
 
-After configuring IBM Cloud Functions and Cloudant DB, the Liquid Prep backend project needs to built, bundled and deployed to IBM Cloud Functions to expose Cloud Functions API for Clever-Crop application. <br>
+After configuring IBM Cloud Functions and Cloudant DB, the Liquid Prep backend project needs to built, bundled and deployed to IBM Cloud Functions to expose Cloud Functions API for Liquid Prep application. <br>
 
 1. Go to Liquid Prep project directory `~/Liquid-Prep/backend/liquid-prep-cf` and create **.env** file.
 2. Add following entries to the **.env** file;

@@ -50,7 +50,7 @@ Instructions on how to run the App,
  2. **Build the App for production**
     - Start a terminal/CMD in `Liquid-Prep/liquid-prep-app` folder.
     - Run `npm install`.
-    - Run `npm build-prod`. 
+    - Run `npm run build-prod`. 
     - The build artifacts will be created and stored in the `dist/liquid-prep-app` directory.
 
   **NOTE:**

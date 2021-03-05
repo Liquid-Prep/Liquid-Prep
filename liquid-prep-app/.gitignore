@@ -13,4 +13,4 @@ firebase.json
 .firebaserc
 
 # Config file
-src/config.json
+#src/config.json

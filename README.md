@@ -34,8 +34,9 @@ We have developed **Liquid Prep**, an end-to-end solution for farmers looking to
 
 1. Project Setup
     - [Soil Moisture Sensor Module Setup](https://github.com/Call-for-Code/Liquid-Prep/blob/master/soilSensor/User-Manual.pdf)
-    - [Liquid Prep App Setup](https://github.com/Call-for-Code/Liquid-Prep/blob/master/liquid-prep-app/README.md)
     - [IBM Cloud Backend Service Setup](https://github.com/Call-for-Code/Liquid-Prep/blob/master/backend/README.md)
+    - [Liquid Prep App Setup](https://github.com/Call-for-Code/Liquid-Prep/blob/master/liquid-prep-app/README.md)
+    
 2. [Project Roadmap](#project-roadmap)
 3. [Contributing](#contributing)
 

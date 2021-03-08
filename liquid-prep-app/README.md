@@ -36,7 +36,7 @@ Instructions on how to run the App,
     - Run `npm install`.
 
  2. **Config.json**
-    - Rename the file from `src/config.json.sample` to `src/config.json`.
+    - Rename the file `src/config.json.sample` to `src/config.json`.
     - Update the `src/config.json` with Liquid Prep Backend Service Endpoint noted down in the [Pre-requisites](#pre-requisites) 6th point.
 
  3. **Run the App**
@@ -49,7 +49,7 @@ Instructions on how to run the App,
 # [Deploy App in IBM Cloud Object Storage](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage)
 
  1. **Config.json**
-    - Rename the file from `src/config.json.sample` to `src/config.json`.
+    - Rename the file `src/config.json.sample` to `src/config.json`.
     - Update the `src/config.json` with Liquid Prep Backend Service Endpoint noted down in the [Pre-requisites](#pre-requisites) 6th point.
 
  2. **Build the App for production**

@@ -32,7 +32,6 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { AdviceComponent } from './components/advice/advice.component';
 import { WaterAdviceComponent } from './components/water-advice/water-advice.component';
 import { DataService } from './service/DataService';
-import { ConnectingDialogComponent } from './components/measure-soil/connecting-dialog/connecting-dialog.component';
 import { WaterAdviceService } from './service/WaterAdviceService';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -53,8 +52,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     GrowthStageComponent,
     SettingsComponent,
     AdviceComponent,
-    WaterAdviceComponent,
-    ConnectingDialogComponent],
+    WaterAdviceComponent],
   imports: [
     BrowserModule,
     MaterialModule,

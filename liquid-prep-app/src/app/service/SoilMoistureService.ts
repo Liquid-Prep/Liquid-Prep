@@ -7,14 +7,16 @@ import { SoilMoisture } from "../models/SoilMoisture";
 
 export class SoilMoistureService {
 
-    // This static soil moisture value is temporary.
-    // Should be removed/replaced with the dynamic reading from the sensor.
-    private staticSoilMoisture = 30;
+    private soilMoistureReadingPercentage = 0;
+
+    public setSoilMoistureReading(valuePercentage) {
+        this.soilMoistureReadingPercentage = valuePercentage;
+    }
 
     public getSoilMoistureReading() {
         const soilMoisture = new SoilMoisture();
         // TODO: replace staticSoilMoisture with the real time value once the sensor connection is integrated.
-        soilMoisture.soilMoisturePercentage = this.staticSoilMoisture;
+        soilMoisture.soilMoisturePercentage = this.soilMoistureReadingPercentage;
 
         if (soilMoisture.soilMoisturePercentage <= 33) {
             soilMoisture.soilMoistureIndex = 'LOW'; 

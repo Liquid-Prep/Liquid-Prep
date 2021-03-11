@@ -2,9 +2,9 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { SwiperOptions } from 'swiper';
-import { USB } from 'webusb';
 import {SoilMoistureService} from '../../service/SoilMoistureService';
 import {SoilMoisture} from '../../models/SoilMoisture';
+import {LineBreakTransformer} from './LineBreakTransformer';
 
 @Component({
   selector: 'app-measure-soil',
@@ -45,22 +45,81 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
   }
 
   public onSensorConnect(){
-    // const dialogRef = this.dialog.open(ConnectingDialogComponent, {
-    //   panelClass: 'myapp-no-padding-dialog',
-    //   data: {}
-    // });
-    // console.log(window.navigator.usb.getDevices());
-    window.navigator.usb.requestDevice({filters: []})
-      .then(usbDevice => {
-        // dialogRef.close();
+
+      this.connectSensor().then( sensorValue => {
+        console.log('returned value: ', sensorValue)
+        this.soilService.setSoilMoistureReading(sensorValue);
         this.setMeasureView('measuring');
-        this.readingCountdown(5);
-      })
-      .catch(e => {
-        console.log(e);
-        // dialogRef.close();
+        this.readingCountdown();
       });
+      
+      
   }
+
+  public async connectSensor() {
+    // Vendor code to filter only for Arduino or similar micro-controllers
+    const filter = {
+      usbVendorId: 0x2341 // Arduino UNO
+    };
+
+    try {
+      const port = await (window.navigator as any).serial.requestPort({filters: [filter]});
+      // Continue connecting to port 9600.
+      await port.open({ baudRate: 9600 });
+
+      const textDecoder = new TextDecoderStream();
+      const readableStreamClosed = port.readable.pipeTo(textDecoder.writable);
+      const inputStream = textDecoder.readable.pipeThrough(new TransformStream(new LineBreakTransformer()));
+      const reader = inputStream.getReader();
+
+      let sensorMoisturePercantage: number;
+
+      // Listen to data coming from the serial device.
+      while (true) {
+        const { value, done } = await reader.read();
+        
+        if (done) {
+          reader.releaseLock();
+          break;
+        }
+
+        if (value !== "" || value !== 'NaN') {
+          // The value length between 4 and 6 is quite precise
+          if (value.length >= 4 && value.length <= 6){
+            sensorMoisturePercantage = +value;
+            if (sensorMoisturePercantage !== NaN) {
+              reader.cancel();
+              // When reader is cancelled an error will be thrown as designed which can be ignored
+              await readableStreamClosed.catch(() => { /* Ignore the error*/  });
+              await port.close();
+
+              return sensorMoisturePercantage;
+            } 
+          }
+        }
+        
+        // Capture sensor data only upto 3 digits
+        /*if (value.length >= 3 && value.length <= 5){
+          sensorValue = +((+value).toPrecision(3));
+          // Sometimes the value will return only 2 digits due to unknown glitch with the length method of the value.
+          // Therefore making sure the value is higher than 100.
+          if (sensorValue > 100) {
+            reader.cancel();
+            // When reader is cancelled an error will be thrown as designed which can be ignored
+            await readableStreamClosed.catch(() => { });
+            await port.close();
+
+            //return sensorValue;
+          }
+        }*/
+      }
+    } catch (e) {
+      // Permission to access a device was denied implicitly or explicitly by the user.
+      window.alert("Permission to access a device was denied implicitly or explicitly by the user.")
+    }
+  }
+
+
 
   public onIndexChange(index: number): void { }
 
@@ -78,8 +137,8 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
     }
   }
 
-  public readingCountdown(seconds){
-    this.countdownSecond = seconds;
+  public readingCountdown(){
+    //this.countdownSecond = seconds;
     this.interval = setInterval(() => {
       if (this.countdownSecond <= 0){
         this.setMeasureView('after-measuring');

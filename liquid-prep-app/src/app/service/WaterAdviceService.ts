@@ -103,14 +103,14 @@ export class WaterAdviceService {
 
         if (rainIndex == this.LOW && soilMoistureIndex == this.LOW) {
             return this.WATER_CROPS;
-        } else if (rainIndex == this.MED && soilMoistureIndex == this.LOW) {
-            return this.WATER_CROPS;
         } else if (rainIndex == this.LOW && soilMoistureIndex == this.MED) {
-            return this.WATER_CROPS_LESS;
-        } else if (rainIndex == this.MED && soilMoistureIndex == this.MED) {
             return this.WATER_CROPS_LESS;
         } else if (rainIndex == this.LOW && soilMoistureIndex == this.HIGH) {
             return this.DONT_WATER;
+        } else if (rainIndex == this.MED && soilMoistureIndex == this.LOW) {
+            return this.WATER_CROPS;
+        } else if (rainIndex == this.MED && soilMoistureIndex == this.MED) {
+            return this.WATER_CROPS_LESS;
         } else if (rainIndex == this.MED && soilMoistureIndex == this.HIGH) {
             return this.DONT_WATER;
         } else if (rainIndex == this.HIGH && soilMoistureIndex == this.LOW) {
@@ -127,22 +127,30 @@ export class WaterAdviceService {
 
     private determineNonRainyDayAdvice(soilMoistureIndex: string, temparatureIndex: string): string {
 
-        if (soilMoistureIndex == this.LOW && temparatureIndex == this.OPT) {
+        if (soilMoistureIndex === this.LOW && temparatureIndex === this.LOW){
+            return this.WATER_CROPS
+        } else if (soilMoistureIndex == this.LOW && temparatureIndex == this.OPT) {
             return this.WATER_CROPS;
         } else if (soilMoistureIndex == this.LOW && temparatureIndex == this.MED) {
             return this.WATER_CROPS;
+        } else if (soilMoistureIndex == this.LOW && temparatureIndex == this.HIGH) {
+            return this.WATER_CROPS_MORE;
+        } else if (soilMoistureIndex === this.MED && temparatureIndex === this.LOW) {
+            return this.DONT_WATER;
         } else if (soilMoistureIndex == this.MED && temparatureIndex == this.OPT) {
             return this.WATER_CROPS;
         } else if (soilMoistureIndex == this.MED && temparatureIndex == this.MED) {
             return this.WATER_CROPS;
-        } else if (soilMoistureIndex == this.LOW && temparatureIndex == this.HIGH) {
-            return this.WATER_CROPS_MORE;
         } else if (soilMoistureIndex == this.MED && temparatureIndex == this.HIGH) {
             return this.WATER_CROPS_MORE;
+        } else if (soilMoistureIndex === this.MED && temparatureIndex == this.LOW) {
+            return this.DONT_WATER;
+        } else if (soilMoistureIndex === this.HIGH && temparatureIndex == this.LOW) {
+            return this.DONT_WATER;
         } else if (soilMoistureIndex == this.HIGH && temparatureIndex == this.OPT) {
-            return this.WATER_CROPS_LESS;
+            return this.DONT_WATER;
         } else if (soilMoistureIndex == this.HIGH && temparatureIndex == this.MED) {
-            return this.WATER_CROPS_LESS;
+            return this.DONT_WATER;
         } else if (soilMoistureIndex == this.HIGH && temparatureIndex == this.HIGH) {
             return this.WATER_CROPS_LESS;
         } else {

@@ -47,7 +47,6 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
   public onSensorConnect(){
 
       this.connectSensor().then( sensorValue => {
-        console.log('returned value: ', sensorValue)
         this.soilService.setSoilMoistureReading(sensorValue);
         this.setMeasureView('measuring');
         this.readingCountdown();

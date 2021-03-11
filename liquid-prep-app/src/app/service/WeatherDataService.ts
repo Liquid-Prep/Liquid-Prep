@@ -118,8 +118,11 @@ export class WeatherDataService {
       }
     }
 
+    // Referred - https://www.britannica.com/technology/agricultural-technology/Weather-conditions-and-controls#ref558352
     public determineTemperatureIndex(temp: number) {
-      if (temp <= 25) {
+      if (temp < 5) {
+        return 'LOW'
+      } else if (temp >= 5 && temp <= 25) {
           return 'OPTIMUM'
       } else if (temp > 25 && temp < 30) {
           return 'MEDIUM'

@@ -54,7 +54,7 @@ will be prevented from making any decisions at the meeting.
 - [Yongcan Zhang](https://github.com/ilfreedom) - IBM Software Developer
 - [Jeff Lu](https://github.com/playground) - IBM Lead Software Developer
 - [Brian Rashap](https://github.com/brashap) - IoT Professor, CNM Ingenuity
-- [Jason Lee](jason@thesmartcone.com) - Founder & CEO, SmartCone Technologies Inc.
+- [Jason Lee](https://www.thesmartcone.com/) - Founder & CEO, SmartCone Technologies Inc.
 
 ## Contributing Guidelines
 

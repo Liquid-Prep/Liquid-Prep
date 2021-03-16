@@ -8,8 +8,8 @@ Liquid Prep is an open source project and always welcome contributions to the pr
 * Enhance watering advise agorithm
 * Pilot testing the solution
 * Improve the documentation
-* Report and work on existing [issues](https://github.com/Call-for-Code/Liquid-Prep/issues)
-* Request/recommend new features in our [discussions board](https://github.com/Call-for-Code/Liquid-Prep/discussions)
+* Report bug and/or work on existing [issues](https://github.com/Call-for-Code/Liquid-Prep/issues)
+* Request/recommend new features in our [issues](https://github.com/Call-for-Code/Liquid-Prep/issues) or [discussions board](https://github.com/Call-for-Code/Liquid-Prep/discussions)
 
 Please read our [contributing guidelines](#contributing-guidelines).
 

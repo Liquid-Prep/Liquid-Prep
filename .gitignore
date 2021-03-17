@@ -53,3 +53,8 @@ history*.txt
 notes/
 env.json
 .env
+
+#CNM 
+credentials.h
+config.h
+target/

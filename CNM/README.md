@@ -4,7 +4,9 @@
 
 ## The goal of this project is to develop a smart, internet connected soil moisture sensor to be integrated into IBM's Liquid Prep app. To do this, recent IoT Bootcamp graduates developed code for Particle Gen 3 microcontrollers to communicate analog data from a capacitive soil moisture sensor data via bluetooth and WiFi. The Adafruit BlueFruit app for iOS and Android is used to receive UART bluetooth data. Also, data is visualized on an Adafruit.io dashboard which allows the user to track soil moisture over time.
 
+# Device Schematic
 
+![TSL Image](images/SensorSchematic.jpg)
 
 # About the Students
 

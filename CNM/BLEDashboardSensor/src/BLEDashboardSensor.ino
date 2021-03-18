@@ -19,11 +19,11 @@
 Adafruit_SSD1306 display(OLED_RESET);
 
 TCPClient client;
-Adafruit_MQTT_SPARK mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO_KEY); 
+Adafruit_MQTT_SPARK mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO_KEY); //feed data for Adafruit.io online dashboard
 Adafruit_MQTT_Publish feed = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/Africa Soil Moisture");
 Adafruit_MQTT_Subscribe button = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/Africa Button");
 
-const int SOIL_SENSOR = A2;
+const int SOIL_SENSOR = A2; //analog pin to read input from soil moisture sensor
 int soilRead;
 bool buttonState;
 
@@ -45,12 +45,12 @@ BleCharacteristic rxCharacteristic("rx", BleCharacteristicProperty::WRITE_WO_RSP
 BleAdvertisingData data;
 
 void setup() {
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-  mqtt.subscribe(&button);
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C); //initializes the OLED display
+  mqtt.subscribe(&button); //begins subscription to virtual button Adafruit.io dashboard
   pinMode(SOIL_SENSOR, INPUT);
   currentTime = millis();
-  BLE.on();
-  Serial.printf("Argon BLE Address: %s\n",BLE.address().toString().c_str());
+  BLE.on(); //intializes the Particle Argon's bluetooth connection
+  Serial.printf("Argon BLE Address: %s\n",BLE.address().toString().c_str()); 
 
   BLE.addCharacteristic(txCharacteristic);
   BLE.addCharacteristic(rxCharacteristic);
@@ -60,7 +60,7 @@ void setup() {
 
 void loop() {
   MQTTbegin();
-  soilRead = analogRead(SOIL_SENSOR);
+  soilRead = analogRead(SOIL_SENSOR); //reads analog value from soil sensor
   display.clearDisplay();
   display.setRotation(1);
   display.setCursor(0, 0);
@@ -68,7 +68,7 @@ void loop() {
   display.setTextColor(WHITE);
   display.printf(" %i", soilRead);
   display.display();
-  Adafruit_MQTT_Subscribe *subscription;
+  Adafruit_MQTT_Subscribe *subscription; //publishes sensor data to Adafruit.io dashboard when virtual button is pressed
   while ((subscription = mqtt.readSubscription(10000))) {
     if(subscription == &button) {
         buttonState = atoi((char *)button.lastread);
@@ -80,7 +80,7 @@ void loop() {
   
   if(millis()-currentTime>5000){
       soilRead = analogRead(SOIL_SENSOR);
-      soil[0] = soilRead/1000;
+      soil[0] = soilRead/1000; 
       soil[1] = ((soilRead-(soil[0]*1000))/100);
       soil[2] = (soilRead-(soil[0]*1000)-(soil[1]*100))/10;
       soil[3] = (soilRead-(soil[0]*1000)-(soil[1]*100))%10;
@@ -91,7 +91,7 @@ void loop() {
       for(i=0;i<4;i++){
           txSoil[i] = soil[i]+0x30;
       }
-      txCharacteristic.setValue(txSoil, 4);  ///char itoa(int)
+      txCharacteristic.setValue(txSoil, 4); //sends sensor hexadecimal data to BlueFruit app
       currentTime = millis();
   }
 }
@@ -111,7 +111,7 @@ void MQTTbegin() {
   Serial.println("MQTT Connected!");
 }
 
-void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) {
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) { //prints text received from BlueFruit mobile app
     size_t i;
     Serial.printf("Received data from: %02X:%02X:%02X:%02X:%02X:%02X \n", peer.address()[0], peer.address()[1],peer.address()[2], peer.address()[3], peer.address()[4], peer.address()[5]);
     for (i = 0; i < len; i++) {

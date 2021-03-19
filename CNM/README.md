@@ -11,9 +11,23 @@ The Soil Moisture probe was developed on Particle's Boron development platform. 
 ![Boron_Image](images/boron.jpg)
 
 
-## Device Schematic
+## The Soil Probe
+
+The  Moisture Probe is created around a simple capacitive soil moisture sensor ( <$3 USD). It is wired into an analog input on of the Boron system. In addition, a low cost display is added to the system to allow a user to directly read the soil moisture measuremet. 
 
 ![Schematic](images/SensorSchematic.jpg)
+
+### Soil penentration device
+
+The capacitive sensor is attached to a metal penetration that can be pushed into the soil by stepping on a platorm near the base. The /Torchmate folder in this respository includes the files to plasma cut the penetration device. 
+
+![SoilProbe](images/Probe.jpg)
+
+Additionally, the students designed and 3D printed a smartphone holder that can be placed at the top of the penetration pole, holding the electronics and display. 
+
+![3DB](images/3DPrintBottomView.jpg)
+
+![3DT](images/3DPrintTopView.jpg)
 
 ## About the Students
 

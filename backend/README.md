@@ -161,6 +161,8 @@ After configuring IBM Cloud Functions and Cloudant DB, the Liquid Prep backend p
  WEATHER_API_KEY=xxxxxxxxxx
 ```
 
+where the entries should be filled out as follows:
+
     **IAM_API_KEY:** <br>
     It is the API key created at the beginning when an IBM Cloud account is created. Please refer to the **Pre-requisites** section on how to create/obtain the IAM API key.
     

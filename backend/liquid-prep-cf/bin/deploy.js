@@ -22,7 +22,7 @@ let build = {
     console.log('databaseName: ',process.env.CLOUDANT_DB_NAME);
     console.log('weatherApiKey: ',process.env.WEATHER_API_KEY);
 
-    let cfCMD = `ibmcloud fn deploy -m ${yaml} --param IAM_API_KEY ${process.env.IAM_API_KEY} --param CLOUD_FUNCTIONS_URL ${process.env.CLOUD_FUNCTIONS_URL} --param CLOUDANT_DB_NAME ${process.env.DB_NAME} --param WEATHER_API_KEY ${process.env.WEATHER_API_KEY}`;
+    let cfCMD = `ibmcloud fn deploy -m ${yaml} --param IAM_API_KEY ${process.env.IAM_API_KEY} --param CLOUD_FUNCTIONS_URL ${process.env.CLOUD_FUNCTIONS_URL} --param CLOUDANT_DB_NAME ${process.env.CLOUDANT_DB_NAME} --param WEATHER_API_KEY ${process.env.WEATHER_API_KEY}`;
     exec(cfCMD, {maxBuffer: 1024 * 2000}, (err, stdout, stderr) => {
       if(!err) {
         console.log(stdout)

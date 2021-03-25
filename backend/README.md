@@ -152,9 +152,16 @@ After configuring IBM Cloud Functions and Cloudant DB, the Liquid Prep backend p
 
 1. Go to Liquid Prep project directory `~/Liquid-Prep/backend/liquid-prep-cf` and create **.env** file.
 2. Add following entries to the **.env** file;
-   <p align="left">
-        <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/envEntries/env-entries.PNG" width ="30%" height="30%">
-    </p>
+
+```
+ IAM_API_KEY=xxxxxx
+ CLOUD_FUNCTIONS_URL=https://xxxxxx.appdomain.cloud/liquidprep-cf-api
+ CLOUDANT_DB_URL=https://xxxxxx-bluemix.cloudant.com/
+ CLOUDANT_DB_NAME=liquid-prep-crops
+ WEATHER_API_KEY=xxxxxxxxxx
+```
+
+where the entries should be filled out as follows:
 
     **IAM_API_KEY:** <br>
     It is the API key created at the beginning when an IBM Cloud account is created. Please refer to the **Pre-requisites** section on how to create/obtain the IAM API key.
@@ -252,4 +259,4 @@ The backend service is deployed in Liquid Prep cloud account and the APIs can be
 
 3. **GET-CROP-INFO:**
    Get list of all crop names supported by Liquid Prep. <br>
-   https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/96fd655207897b11587cfcf2b3f58f6e0792f788cf2a04daa79b53fc3d4efb32/liquidprep-cf-api/liquidprep-cf-api/get_crop_list <br>
+   https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/96fd655207897b11587cfcf2b3f58f6e0792f788cf2a04daa79b53fc3d4efb32/liquidprep-cf-api/get_crop_list <br>

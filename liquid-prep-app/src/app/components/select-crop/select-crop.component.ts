@@ -31,15 +31,20 @@ export class SelectCropComponent implements OnInit{
   ngOnInit(): void {
 
     // Get list of crops from backend service
-    this.cropService.getCropsListData().subscribe((cropsListResponse) => {
-      this.requestingCrop = false;
-      if (cropsListResponse === undefined || cropsListResponse.length === 0) {
-        this.NO_NEW_CROPS = '../../assets/crops-images/noNewCrops.PNG';
-      } else {
-        this.cropsList = cropsListResponse;
-      }
-    });
-
+    this.cropService.getCropsListData()
+      .subscribe(
+        (cropsListResponse) => {
+          this.requestingCrop = false;
+          if (cropsListResponse === undefined || cropsListResponse.length === 0) {
+            this.NO_NEW_CROPS = '../../assets/crops-images/noNewCrops.PNG';
+          } else {
+            this.cropsList = cropsListResponse;
+          }
+        },
+        (err) => {
+          alert("Could not get crop list: " + err);
+        }
+      );
   }
 
   backToMyCrops(){

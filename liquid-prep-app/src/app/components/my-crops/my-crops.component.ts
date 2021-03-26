@@ -23,20 +23,19 @@ export class MyCropsComponent implements OnInit {
   background: ThemePalette = undefined;
 
   public currentDate = '';
+  public weatherIcon = '';
+  public loading:Boolean = false;
   public temperature = undefined;
+  public todayWeather = null;
   public myCropStatus: 'no-crop' | 'crop-selected' = 'no-crop';
+  public errorMessage = "";
 
-  constructor(private router: Router, private location: Location,
-              private weatherService: WeatherDataService, private cropDataService: CropDataService) {
-                this.weatherService.getTodayWeather().subscribe((todayWeather: TodayWeather) => {
-                  const isDayTime = new DateTimeUtil().isDayTime(todayWeather.sunriseTime.toString(), todayWeather.sunsetTime.toString());
-                  if (isDayTime) {
-                    this.temperature = todayWeather.dayTime.temperature;
-                  } else {
-                    this.temperature = todayWeather.nightTime.temperature;
-                  }
-                });
-              }
+  constructor(
+    private router: Router, private location: Location,
+    private weatherService: WeatherDataService, private cropDataService: CropDataService
+    ) {
+    this.updateWeatherInfo();
+  }
 
   ngOnInit(): void {
 
@@ -96,4 +95,34 @@ export class MyCropsComponent implements OnInit {
   onAdd1stCrop() {
     this.router.navigateByUrl('/select-crop').then(r => {});
   }
+
+
+  updateWeatherInfo(){
+    var self = this;
+    self.loading = true;
+    self.weatherService.getTodayWeather().subscribe(
+        (todayWeather: TodayWeather) => {
+          self.loading = false;
+          self.todayWeather = todayWeather;
+          const isDayTime = new DateTimeUtil().isDayTime(todayWeather.sunriseTime.toString(), todayWeather.sunsetTime.toString());
+          if (isDayTime) {
+            self.temperature = todayWeather.dayTime.temperature;
+            self.weatherIcon = "wb_sunny";
+          } else {
+            self.temperature = todayWeather.nightTime.temperature;
+            self.weatherIcon = "bed";
+          }
+        },
+        (err) => {
+          self.loading = false;
+          self.errorMessage = err ;
+        }
+    );
+  }
+
+  showError() {
+    var self = this;
+    alert(self.errorMessage);
+  }
+  
 }

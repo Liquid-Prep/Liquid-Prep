@@ -1,9 +1,32 @@
 
 <div class="horizontal" style="margin-bottom: 8px">
   <h2 class="date"> <b>Today, </b> {{  currentDate }}</h2>
-  <div class="imgHolder">
-    <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
-    <span class="vertical-align-middle temp">{{temperature}}&deg;C</span>
+  <div class="imgHolder" *ngIf="!temperature">
+    
+    <mat-icon class="vertical-align-middle primary-blue" *ngIf="loading">hourglass_empty</mat-icon>
+    <div  *ngIf="!loading" (click)="showError(errorMessage)">
+      <mat-icon class="vertical-align-middle alert-color">error</mat-icon>
+    </div>
+  </div>
+  <div class="imgHolder" *ngIf="temperature">
+      <table boder=0>
+      <tr>
+        <td>
+          <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
+        </td>
+        <td align=right>
+          <span class="vertical-align-middle temp">{{todayWeather.maxTemperature}}&deg;C</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-icon class="vertical-align-middle darkblue">bedtime</mat-icon>
+        </td>
+        <td align=right>
+          <span class="vertical-align-middle temp">{{todayWeather.minTemperature}}&deg;C</span>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
 

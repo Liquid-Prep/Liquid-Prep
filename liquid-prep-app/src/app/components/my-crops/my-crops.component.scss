@@ -10,6 +10,16 @@
   color: #FFCA26;
 }
 
+
+.alert-color{
+  color: #FF0000;
+}
+
+
+.darkblue{
+  color: #0000aa;
+}
+
 .vertical {
   display: flex;
   flex-direction: column;
@@ -61,7 +71,7 @@
 }
 
 .imgHolder {
-  display: inline-block;
+  display: block;
   float: right;
 }
 

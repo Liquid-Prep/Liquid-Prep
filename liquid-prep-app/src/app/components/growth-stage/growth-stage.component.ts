@@ -25,10 +25,16 @@ export class GrowthStageComponent implements OnInit {
   ngOnInit(): void {
     // TODO find the correct id or figure out a way to get the crop
     const cropId = this.route.snapshot.paramMap.get('id');
-    this.cropService.getCropData(cropId).subscribe((cropData) => {
-      this.crop = cropData;
-      this.stages = cropData.cropGrowthStage.stages;
-    });
+    this.cropService.getCropData(cropId)
+      .subscribe(
+        (cropData) => {
+          this.crop = cropData;
+          this.stages = cropData.cropGrowthStage.stages;
+        },
+        (err) => {
+          alert("Could not get crop info: " + err);
+        }
+    );
   }
 
   public volumeClicked() {

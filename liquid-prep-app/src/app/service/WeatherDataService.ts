@@ -23,36 +23,47 @@ export class WeatherDataService {
                 }
 
     public getTodayWeather(): Observable<TodayWeather>  {
+      var self = this;
       // check if the weather data stored locally is valid for today
       // else get today weather data from backend
-      const localTodayWeather = this.getTodayWeatherFromLocalStorage();
+      const localTodayWeather = self.getTodayWeatherFromLocalStorage();
       if (localTodayWeather) {
-        if (this.dateTimeUtil.isToday(localTodayWeather.date)) {
+        if (self.dateTimeUtil.isToday(localTodayWeather.date)) {
           return new Observable((observer: Observer<TodayWeather>) => {
             observer.next(localTodayWeather);
             observer.complete();
           });
         } else {
           return new Observable((observer: Observer<TodayWeather>) => {
-            this.dataService.getWeatherInfo().subscribe((weatherInfo: WeatherResponse) => {
-              this.today = this.createTodayWeather(weatherInfo);
-              this.storeTodayWeatherInLocalStorage(this.today);
-              observer.next(this.today);
-              observer.complete();
+            this.dataService.getWeatherInfo().subscribe({
+              next(weatherInfo: WeatherResponse) {
+                self.today = self.createTodayWeather(weatherInfo);
+                self.storeTodayWeatherInLocalStorage(self.today);
+                observer.next(self.today);
+                observer.complete();
+              },
+              error(err) { 
+                observer.error('Error getting weather data: ' + (err.message ? err.message : err) )
+              }
             });
           });
         } 
       } else {
         return new Observable((observer: Observer<TodayWeather>) => {
-          if (this.today.dayOfWeek) {
-            observer.next(this.today);
+          if (self.today.dayOfWeek) {
+            observer.next(self.today);
             observer.complete();
           } else {
-            this.dataService.getWeatherInfo().subscribe((weatherInfo: WeatherResponse) => {
-              this.today = this.createTodayWeather(weatherInfo);
-              this.storeTodayWeatherInLocalStorage(this.today);
-              observer.next(this.today);
-              observer.complete();
+            this.dataService.getWeatherInfo().subscribe({
+              next(weatherInfo: WeatherResponse) {
+                self.today = self.createTodayWeather(weatherInfo);
+                self.storeTodayWeatherInLocalStorage(self.today);
+                observer.next(self.today);
+                observer.complete();
+              },
+              error(err) { 
+                console.log('Error getting weather data: ' + (err.message ? err.message : err) )
+              }
             });
           }
         });
@@ -95,7 +106,7 @@ export class WeatherDataService {
     }
 
     public storeTodayWeatherInLocalStorage(todayWeather: TodayWeather){
-      if (this.dateTimeUtil.isToday(todayWeather.date)) {
+      if (todayWeather && this.dateTimeUtil.isToday(todayWeather.date)) {
         this.localStorage.set(TODAY_WEATHER, todayWeather);
       }
 

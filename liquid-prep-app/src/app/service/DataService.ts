@@ -12,63 +12,89 @@ import config from 'src/config.json';
 })
 export class DataService {
 
-  private commonAPI = config.backendAPIEndpoint; 
+  private weatherAPIUrl =  '/get_weather_info?';
 
-  private weatherAPIUrl = this.commonAPI + '/get_weather_info?';
+  private cropsListAPIUrl = '/get_crop_list';
 
-  private cropsListAPIUrl = this.commonAPI + '/get_crop_list';
-
-  private cropAPIUrl = this.commonAPI + '/get_crop_info?';
+  private cropAPIUrl = '/get_crop_info?';
 
   constructor(private http: HttpClient) {}
 
   public getWeatherInfo(): Observable<WeatherResponse> {
+    var self = this;
     return new Observable((observer: Observer<WeatherResponse>) => {
       const unit = WeatherMeasuringUnit.getInstance().getUnit();
       let coordinates;
       GeoLocationService.getInstance()
         .getCurrentLocation()
-        .subscribe((location) => {
-          coordinates = location;
-          const params = 'geoCode=' + coordinates + '&units=' + unit;
-          const url = this.weatherAPIUrl + params;
-          this.http.get<WeatherResponse>(url).subscribe((weatherData) => {
-            if (weatherData.status === 'success' && weatherData.statusCode === 200) {
-              observer.next(weatherData);
-              observer.complete();
-            } else {
-              observer.error(weatherData.message);
-            }
+          .subscribe({
+              next(location){
+                coordinates = location;
+                const params = 'geoCode=' + coordinates + '&units=' + unit;
+                const url = config.backendAPIEndpoint + self.weatherAPIUrl + params;
+                self.http.get<WeatherResponse>(url)
+                  .subscribe(
+                    (weatherData) => {
+                      if (weatherData.status === 'success' && weatherData.statusCode === 200) {
+                        observer.next(weatherData);
+                        observer.complete();
+                      } else {
+                        observer.error(weatherData.message);
+                      }
+                    },
+                    (err) => {
+                      observer.error(err.message);
+                    }
+                );
+              },
+              error(err) {
+                let msg = `Geolocation and weather data not found because \n${err.message}`;
+                alert(msg);
+              }
           });
-        });
     });
   }
 
   public getCropsList(): Observable<CropListResponse> {
+    var self = this;
     return new Observable((observer: Observer<any>) => {
-      this.http.get<CropListResponse>(this.cropsListAPIUrl).subscribe((cropListData) => {
-        if (cropListData.status === 'success' && cropListData.statusCode === 200) {
-          observer.next(cropListData);
-          observer.complete();
-        } else {
-          observer.error(cropListData.message);
-        }
-      });
+      const url = config.backendAPIEndpoint + self.cropsListAPIUrl;
+      self.http.get<CropListResponse>(url)
+        .subscribe(
+            (cropListData) => {
+              if (cropListData.status === 'success' && cropListData.statusCode === 200) {
+                observer.next(cropListData);
+                observer.complete();
+              } else {
+                observer.error(cropListData.message);
+              }
+            },
+            (err) => {
+              observer.error(err);
+            }
+      );
     });
   }
 
   public getCropInfo(id: string): Observable<any> {
+    var self = this;
     return new Observable((observer: Observer<any>) => {
       const params = 'id=' + id;
-      const url = this.cropAPIUrl + params;
-      this.http.get<any>(url).subscribe((cropData) => {
-        if (cropData.status === 'success' && cropData.statusCode === 200) {
-          observer.next(cropData);
-          observer.complete();
-        } else {
-          observer.error(cropData.message);
-        }
-      });
+      const url = config.backendAPIEndpoint + self.cropAPIUrl + params;
+      self.http.get<any>(url)
+        .subscribe(
+          (cropData) => {
+            if (cropData.status === 'success' && cropData.statusCode === 200) {
+              observer.next(cropData);
+              observer.complete();
+            } else {
+              observer.error(cropData.message);
+            }
+          },
+          (err) => {
+            observer.error(err);
+          }
+      );
     });
   }
 }

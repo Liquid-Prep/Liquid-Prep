@@ -120,9 +120,9 @@ export class MyCropsComponent implements OnInit {
     );
   }
 
-  showError() {
+  showError(msg) {
     var self = this;
-    alert(self.errorMessage);
+    alert(msg ? msg : self.errorMessage);
   }
   
 }

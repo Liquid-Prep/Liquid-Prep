@@ -21,7 +21,7 @@ export class GeoLocationService {
       let coordinates = null;
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
-          (position: GeolocationPosition ) => {
+          (position ) => {
             // Successful getCurrentPosition
             if (position) {
               this.latitude = position.coords.latitude;
@@ -34,7 +34,7 @@ export class GeoLocationService {
               throw Error('Geo coordinates are undefined.');
             }
           },
-          (error: GeolocationPositionError) => {
+          (error) => {
             // Error with getCurrentPosition
             observer.error(error);
           }

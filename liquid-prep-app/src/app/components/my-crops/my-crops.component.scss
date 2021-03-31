@@ -54,12 +54,13 @@
 }
 
 .horizontal {
-  display: block;
+  display: flex;
   flex-direction: row;
   padding-top: 10px;
-  // padding-bottom: 10px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 8px;
+  padding-right: 6px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .date {
@@ -81,7 +82,11 @@
 
 .temp {
   font-size: 20px;
+  width: 60px;
+  text-align: right;
+  padding-right: 6px;
 }
+
 
 .grid {
   margin-left: 16px;
@@ -96,7 +101,8 @@ mat-card {
   margin-bottom: 0px;
 }
 
-.cardTittle {
+.toolbarTitle {
   padding: 8px;
-  font-weight: 100;
+  font-weight: 100;  
+  font-size: 20px;
 }

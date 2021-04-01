@@ -21,12 +21,16 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14'
+    - name: Rename sample config file
     - run: |
         cd src
-        ls -la
+        pwd
         mv config-sample.json config.json
         ls -l config.json
         cd ../
+        pwd
+    - name: Install node dependencies and build the project
+    - run: |
         npm install
         npm run build --prod
   build_backend_service_common:

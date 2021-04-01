@@ -1,0 +1,52 @@
+# This workflow will do a clean install of node dependencies and build the source code of Liquid Prep App and backend service for node version 14.
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Liquid Prep CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build_web_app:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./liquid-prep-app
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+    - run: npm install
+    - run: npm run build --prod
+  build_backend_service_common:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend/common
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+    - run: npm install
+  build_backend_service_cloudFunctions:
+    needs: build_backend_service_common
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend/liquid-prep-cf
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+    - run: npm install
+    - run: npm run build
+    - run: npm run bundle

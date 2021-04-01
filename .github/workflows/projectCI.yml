@@ -25,11 +25,9 @@ jobs:
     - name: Rename sample config file
       run: |
         cd src
-        pwd
         mv config-sample.json config.json
         ls -l config.json
         cd ../
-        pwd
     - name: Install node dependencies and build the project
       run: |
         npm install
@@ -49,14 +47,11 @@ jobs:
     - name: Install Node dependencies for common folder
       run: |
         cd common
-        pwd
         npm install
         cd ../
-        pwd
     - name: Install Node dependencies for cloud functions and build
       run: |
         cd liquid-prep-cf
-        pwd
         npm install
         npm run build
         npm run bundle

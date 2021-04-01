@@ -22,7 +22,7 @@ jobs:
       with:
         node-version: '14'
     - run: cd ./src
-    - run: mv ./config.json.sample ./config.json
+    - run: mv config-sample.json config.json
     - run: ls -l config.json
     - run: cd ../
     - run: npm install

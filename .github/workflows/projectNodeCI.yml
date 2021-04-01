@@ -21,6 +21,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14'
+    - run: cd ./src
+    - run: touch config.json
+    - run: ls -l config.json
+    - run: cd ../
     - run: npm install
     - run: npm run build --prod
   build_backend_service_common:

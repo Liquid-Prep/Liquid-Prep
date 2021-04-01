@@ -1,4 +1,3 @@
 {
-    // Enter the Backend Service Endpoint URL value
-    "backendAPIEndpoint": ""
+    "backendAPIEndpoint": "add the backend URL endpoint here"
 }

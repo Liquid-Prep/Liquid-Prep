@@ -76,8 +76,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatGridListModule,
     MatToolbarModule,
     MatDialogModule,
-    MatMenuModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    MatMenuModule
   ],
   providers: [
     DataService,

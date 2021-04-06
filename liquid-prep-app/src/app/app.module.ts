@@ -76,7 +76,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatGridListModule,
     MatToolbarModule,
     MatDialogModule,
-    MatMenuModule,
+    MatMenuModule
   ],
   providers: [
     DataService,

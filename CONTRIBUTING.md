@@ -2,27 +2,30 @@
 
 Liquid Prep is an open source project and always welcome contributions to the project. You can contribute in the following ways:
 
-* Software and Hardware testing
-* Localization and improvisation of the application
-* Add/Update crop data
-* Enhance watering advise agorithm
-* Pilot testing the solution
-* Improve the documentation
-* Report bug and/or work on existing [issues](https://github.com/Call-for-Code/Liquid-Prep/issues)
-* Request/recommend new features in our [issues](https://github.com/Call-for-Code/Liquid-Prep/issues) or [discussions board](https://github.com/Call-for-Code/Liquid-Prep/discussions)
+- Software and Hardware testing
+- Localization and improvisation of the application
+- Add/Update crop data
+- Enhance watering advise agorithm
+- Pilot testing the solution
+- Improve the documentation
+- Report bug and/or work on existing [issues](https://github.com/Call-for-Code/Liquid-Prep/issues)
+- Request/recommend new features in our [issues](https://github.com/Call-for-Code/Liquid-Prep/issues) or [discussions board](https://github.com/Call-for-Code/Liquid-Prep/discussions)
 
-Please read our [contributing guidelines](#contributing-guidelines).
+Please read our [contributing guidelines](#contributing-guidelines) and founding [Technical Charter](Liquid-Prep-Technical-Charter.pdf).
 
 ## Technical Steering Committee (TSC)
+
 The TSC will be responsible for all technical oversight of the Liquid Prep project. Participation in the Project through becoming a Contributor and Committer is
 open to anyone.
 
-The TSC may 
-1. Establish work flow procedures for the submission, approval, and closure/archiving of projects 
-2. Set requirements for the promotion of Contributors to Committer status, as applicable 
+The TSC may
+
+1. Establish work flow procedures for the submission, approval, and closure/archiving of projects
+2. Set requirements for the promotion of Contributors to Committer status, as applicable
 3. Amend, adjust, refine and/or eliminate the roles of Contributors, and Committers, and create new roles, and publicly document any TSC roles, as it sees fit.
 
-### Responsibilities 
+### Responsibilities
+
 The TSC will be responsible for all aspects of oversight relating to the Project, which may include:
 
 - Coordinating the technical direction of the Project.
@@ -39,13 +42,15 @@ and any such alternative approach will be documented in this CONTRIBUTING file. 
 to the public, and can be conducted electronically, via teleconference, or in person.
 
 ### TSC Voting
+
 While the Project aims to operate as a consensus-based community, if any TSC decision requires a vote to move the Project forward, the voting members of the
 TSC will vote on a one vote per voting member basis.
 
 Quorum for TSC meetings requires at least fifty percent of all voting members of the TSC to be present. The TSC may continue to meet if quorum is not met but
 will be prevented from making any decisions at the meeting.
 
-###  Current TSC members
+### Current TSC members
+
 - [Ilse Breedvelt](https://github.com/ilsebreedvelt) - IBM Design Principal/Master Inventor
 - [Gaurav Ramakrishna](https://github.com/Gaurav-Ramakrishna) - IBM Software Developer
 - [Cornelius Nesen](https://github.com/cnesen) - IBM Software Developer
@@ -67,8 +72,8 @@ Please note we have a [Code of Conduct](#code-of-conduct), please follow it in a
 
 ## Pull request process
 
-1. Fork the repository. 
-2. Commit your changes to your fork. 
+1. Fork the repository.
+2. Commit your changes to your fork.
 3. Submit a pull request.
 4. Handle any feedback before the request is merged.
 5. Accept our sincere Thank You!
@@ -86,21 +91,21 @@ our community a harassment-free experience for everyone, regardless of age, body
 Examples of behavior that contributes to creating a positive environment
 include:
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
+- Using welcoming and inclusive language
+- Being respectful of differing viewpoints and experiences
+- Gracefully accepting constructive criticism
+- Focusing on what is best for the community
+- Showing empathy towards other community members
 
 Examples of unacceptable behavior by participants include:
 
-* The use of sexualized language or imagery and unwelcome sexual attention or
-advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic
+- The use of sexualized language or imagery and unwelcome sexual attention or
+  advances
+- Trolling, insulting/derogatory comments, and personal or political attacks
+- Public or private harassment
+- Publishing others' private information, such as a physical or electronic
   address, without explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
+- Other conduct which could reasonably be considered inappropriate in a
   professional setting
 
 ### Our responsibilities
@@ -127,7 +132,7 @@ further defined and clarified by project maintainers.
 ### Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team on [Slack in the #liquid-prep channel](https://callforcode.org/slack) or send an email to **info.liquidprep@gmail.com**. 
+reported by contacting the project team on [Slack in the #liquid-prep channel](https://callforcode.org/slack) or send an email to **info.liquidprep@gmail.com**.
 
 All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident.Further details of specific enforcement policies may be posted separately.
 

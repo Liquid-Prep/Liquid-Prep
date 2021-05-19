@@ -66,7 +66,7 @@ Christian is a recent graduate of CNM Ingenuity's Internet of Things Coding and 
 ### Brian Rashap (Professor)
 
 Janel and Christian worked on this project under the guidance of Dr. Brian Rashap. Brian is a workforce development instructor focused on training the next generation of Internet of Things professionals. 
-
+Copyright CNM 2021
 ##
 ##
 ##

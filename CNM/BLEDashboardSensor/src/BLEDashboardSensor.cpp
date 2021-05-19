@@ -1,3 +1,8 @@
+/******************************************************/
+//       THIS IS A GENERATED FILE - DO NOT EDIT       //
+/******************************************************/
+
+#line 1 "c:/Users/IoT_Instructor/Documents/TSL/Liquid-Prep/CNM/BLEDashboardSensor/src/BLEDashboardSensor.ino"
 /*
  * Project: Africa
  * Description: This program reads an analog signal from a capactive
@@ -15,6 +20,11 @@
 #include "Particle.h"
 #include "credentials.h"
 
+void setup();
+void loop();
+void MQTTbegin();
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context);
+#line 18 "c:/Users/IoT_Instructor/Documents/TSL/Liquid-Prep/CNM/BLEDashboardSensor/src/BLEDashboardSensor.ino"
 #define OLED_RESET D4
 Adafruit_SSD1306 display(OLED_RESET);
 

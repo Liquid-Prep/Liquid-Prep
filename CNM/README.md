@@ -19,9 +19,13 @@ Coding for the current iteration of the soil moisture probe was done using the P
 
 ## The Soil Probe
 
-The  Moisture Probe is created around a simple capacitive soil moisture sensor ( <$3 USD). It is wired into an analog input on of the Boron system. In addition, a low cost display is added to the system to allow a user to directly read the soil moisture measuremet. The sensor provides a unitless integer representation of the moisture (a lower value wetter, a higher value drier). This would need to be calibrated to specific situations. 
+The  Moisture Probe is created around a simple capacitive soil moisture sensor ( <$3 USD). It is wired into an analog input on of the Boron system. In addition, a low cost display is added to the system to allow a user to directly read the soil moisture measuremet. The soil moisture sensor value is mapped to a percentage - 0% when in dry air, 100% when submerged in water. In practice, the value will be somewhere in between. The desired value will be dependant on the plant and soil type.
+
+* The Code: SoilSensorCal collects the calibration factors for the soil moisture probe and stores them in the Particle's EEPROM.
 
 ![Schematic](images/SensorSchematic.jpg)
+
+
 
 ### Soil penentration device
 
@@ -75,3 +79,4 @@ Copyright CNM 2021
 ![TSL Image](images/TSL.jpg)
 
 
+Copyright CNM Ingenuity 2021

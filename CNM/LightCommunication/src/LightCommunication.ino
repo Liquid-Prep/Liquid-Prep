@@ -52,8 +52,7 @@ void loop() {
     soilRead = map(analogRead(soilPin),3600,1700,0,100);
     soil[0]=soilRead/100; //calculations for accessing individual characters from soil reading
     soil[1]=((soilRead-(soil[0]*100))/10);
-    soil[2]=(soilRead-(soil[0]*100)-(soil[1]*10))/10;
-    soil[3]=(soilRead-(soil[0]*1000)-(soil[1]*100))%10;
+    soil[2]=(soilRead-(soil[0]*100)-(soil[1]*10))%10;
     sendMorse();
   }
 }

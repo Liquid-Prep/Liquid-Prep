@@ -52,7 +52,32 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
         this.readingCountdown();
       });
       
+
+      //this.connectBluetooth();
       
+  }
+
+  public async connectBluetooth() {
+    // Vendor code to filter only for Arduino or similar micro-controllers
+    const filter = {
+      usbVendorId: 0x2341,
+      esp32: 0x1234,
+      sample2: 0x12345678,
+      device: 0x40080698 // Arduino UNO
+    };
+    /*const port = await (window.navigator as any).bluetooth.requestDevice({ filters: [{
+      name: 'ESP32test'
+    }] })
+      .then(device => { console.log("device: ", device)})
+      .catch(error => { console.error(error); });*/
+
+      await (window.navigator as any).bluetooth.requestDevice({
+        acceptAllDevices: true,
+        optionalServices: ['battery_service'] // Required to access service later.
+      })
+      .then(device => { console.log("device: ", device) })
+      .catch(error => { console.error(error); });
+
   }
 
   public async connectSensor() {

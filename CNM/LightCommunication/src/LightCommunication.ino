@@ -49,16 +49,18 @@ void setup() {
 
 void loop() {
   if(millis()-currentTime>10000){ //sends morse code sequence every 10 seconds
-    soilRead = map(analogRead(soilPin),3600,1700,0,100);
+    soilRead = map(analogRead(soilPin),3800,1200,0,100);
     soil[0]=soilRead/100; //calculations for accessing individual characters from soil reading
     soil[1]=((soilRead-(soil[0]*100))/10);
     soil[2]=(soilRead-(soil[0]*100)-(soil[1]*10))%10;
+    //soil[3]=(soilRead-(soil[0]*1000)-(soil[1]*100))%10;
     sendMorse();
   }
 }
   
 void sendMorse(){  //.-. / -.-.- <your message> .-.-. //format for sending messages
   if(calState==true){
+    Serial.printf("Soil Read: %i\n",soilRead);
     dot(); dash(); dot(); //calibrate camera brightness
     calState=false;
     cameraState=true;

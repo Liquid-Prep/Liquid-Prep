@@ -7,6 +7,7 @@
 
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
+// Note, the neopixel library needs to be installed / imported from the Particle Cloud 
 #include <neopixel.h>
 
 #define PIXEL_PIN D2

@@ -7,7 +7,7 @@
  * Author: Christian Chavez and Brian Rashap
  */
 
-// From the Particle Cloud - install Adafruit_MQTT and Adafruit_SSD1306
+// From the Particle Cloud - install Adafruit_MQTT and Adafruit_SSD1306 to enable the below
 #include <Adafruit_MQTT.h>
 #include "Adafruit_MQTT/Adafruit_MQTT.h" 
 #include "Adafruit_MQTT/Adafruit_MQTT_SPARK.h" 

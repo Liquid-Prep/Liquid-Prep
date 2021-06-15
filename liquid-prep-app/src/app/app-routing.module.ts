@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { MyCropsComponent } from './components/my-crops/my-crops.component';
 import { MeasureSoilComponent } from './components/measure-soil/measure-soil.component';
-import { GrowthStageComponent } from './components/growth-stage/growth-stage.component';
+import { SeedDateComponent } from './components/seed-date/seed-date.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AdviceComponent } from './components/advice/advice.component';
 import { WaterAdviceComponent } from './components/water-advice/water-advice.component';
@@ -27,8 +27,8 @@ const routes: Routes = [
     component: MeasureSoilComponent
   },
   {
-    path: 'select-growth/:id',
-    component: GrowthStageComponent
+    path: 'seed-date/:id',
+    component: SeedDateComponent
   },
   {
     path: 'settings',

@@ -20,9 +20,12 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import { MatDialogModule} from '@angular/material/dialog';
-import {MatMenuModule} from "@angular/material/menu";
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from "@angular/material/menu";
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SwiperModule, SwiperConfigInterface, SWIPER_CONFIG } from 'ngx-swiper-wrapper';
@@ -31,8 +34,10 @@ import { GrowthStageComponent } from './components/growth-stage/growth-stage.com
 import { SettingsComponent } from './components/settings/settings.component';
 import { AdviceComponent } from './components/advice/advice.component';
 import { WaterAdviceComponent } from './components/water-advice/water-advice.component';
+import { SeedDateComponent } from './components/seed-date/seed-date.component';
 import { DataService } from './service/DataService';
 import { WaterAdviceService } from './service/WaterAdviceService';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   observer: true,
@@ -52,7 +57,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     GrowthStageComponent,
     SettingsComponent,
     AdviceComponent,
-    WaterAdviceComponent],
+    WaterAdviceComponent,
+    SeedDateComponent,
+    DateAgoPipe],
   imports: [
     BrowserModule,
     MaterialModule,
@@ -71,6 +78,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatSortModule,
     MatProgressSpinnerModule,
     MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule,
     SwiperModule,
     FlexLayoutModule,
     MatGridListModule,

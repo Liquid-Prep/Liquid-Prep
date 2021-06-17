@@ -4,7 +4,7 @@
  *              soil moisture sensor. The soil moisture data is then
  *              displayed to an OLED display, sent to a mobile device via bluetooth,
  *              and uploaded to the Adafruit IO dashboard.
- * Author: Christian Chavez and Brian Rashap
+ * Author: Christian Chavez, Janel Sanchez, Saige Martinez, and Brian Rashap
  */
 
 // From the Particle Cloud - install Adafruit_MQTT and Adafruit_SSD1306 to enable the below

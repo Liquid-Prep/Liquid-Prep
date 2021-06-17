@@ -22,32 +22,7 @@ The  Moisture Probe is created around a simple capacitive soil moisture sensor (
 
 * The Code: SoilSensorCal collects the calibration factors for the soil moisture probe and stores them in the Particle's EEPROM.
 
-## Device Hardware
-
-![Hardware](images/Hardware.jpg)
-
-### Parts
-
-1. Particle Argon Wi-Fi Development Board - [Particle Argon](https://store.particle.io/collections/wifi/products/argon)
-2. Capacative soil moisture sensor - [Soil moisture sensor](https://www.amazon.com/PAGOW-Capacitive-Sensitivity-Corrosion-Resistant/dp/B08C56GYSB/ref=asc_df_B08C56GYSB/?tag=hyprod-20&linkCode=df0&hvadid=475809787591&hvpos=&hvnetw=g&hvrand=13217261096924105848&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9030461&hvtargid=pla-1046214210147&psc=1)
-3. OLED display - [OLED](https://www.amazon.com/Display-0-96inch-SSD1306-Arduino-Raspberry/dp/B0871KW7BD/ref=asc_df_B0871KW7BD/?tag=hyprod-20&linkCode=df0&hvadid=459772643279&hvpos=&hvnetw=g&hvrand=8938130720117891581&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9030461&hvtargid=pla-955947987978&psc=1)
-4. 3.7V battery with  2-pin JST-PH connection - [Battery](https://www.adafruit.com/product/2011?gclid=CjwKCAjw_JuGBhBkEiwA1xmbRZznc2GC1adzDu5trw1C1eiGxD09blxWQx84KcmvJtDXtWI3MnGMpRoCHhAQAvD_BwE)
-5. Mounting hardware such as protective case or probe(varies on use case).
-![Schematic](images/SensorDiagram.jpg)
-
-![Diagram](images/SensorSchematic.jpg)
-
-![HardwareRunning](images/HardwareRunning.jpg)
-
-### Setup
-1. Wire both the soil moisture sensor and OLED as shown in schematic.
-2. Affix moisture sensor to a soil penetration probe as seen below or other appropriate hardware depending on use case. 
-3. Connect the Argon into a computer using a micro-USB cable. 
-4. Follow the following Particle documentation to set the device and connect it to Wi-Fi
-[ParticleDocumentation](https://support.particle.io/hc/en-us/articles/360045547634-How-can-I-set-up-my-Argon-or-Boron-via-USB-)
-5. After setup, use Visual Studio Code to compile and upload the "BLEDashboardSensor" application.
-
-### Soil penentration device
+### Soil Penentration Device
 
 The capacitive sensor is attached to a metal penetration that can be pushed into the soil by stepping on a platorm near the base. The pentration device was cut from 0.25 inch steel on a Torchmate CNC Plasma Table. The /Torchmate folder in this respository includes the files to plasma cut the penetration device. 
 
@@ -82,14 +57,13 @@ Additionally, the "LightCommunication" application allows users to read data fro
 
 ## About the Students
 
-The original work was created by students of Central New Mexico Community College's Internet of Things Deep Dive bootcamp (www.cnm.edu/deepdive). Since graduating, the two students have continued to work with IBM's Call for Code Liquid-Prep team to add functionality and connectivity, as well as improve upon the physical components. 
+This original work was created by students of Central New Mexico Community College's Internet of Things Deep Dive bootcamp (www.cnm.edu/deepdive). Since graduating, the two students have continued to work with IBM's Call for Code Liquid-Prep team to add functionality and connectivity, as well as improve upon the physical components. 
 
 ### Janel Sanchez
 
 A student from the Deep Dive Internet of Things Cohort 3, which allowed her the opportunity to learn the fundamentals of creating and coding smart connected devices. Coming from a medical background and a strong passion to help in her community, Janel seeks to find opportunities that aid in kindness and positive change. By taking the bootcamp she was able to incorporate new STEM skills that she hopes to pass on to future generations.
 
 In this project she was able to contribute in the planning of the project as well as design from the beginning to end stages. From incorporation code previously learned in the bootcamp to cutting and welding metal pieces together and powder coating them, she enjoyed being able to be part of a team that is set out to make a difference in the world.
-
 
 ### Christian Chavez
 
@@ -98,6 +72,109 @@ Christian is a recent graduate of CNM Ingenuity's Internet of Things Coding and 
 ### Brian Rashap (Professor)
 
 Janel and Christian worked on this project under the guidance of Dr. Brian Rashap. Brian is a workforce development instructor focused on training the next generation of Internet of Things professionals. 
+
+
+## Device Hardware and Setup Guide
+
+![Hardware](images/Hardware.jpg)
+
+### Parts
+
+1. Particle Argon Wi-Fi Development Board (Available from store.particle.io)
+
+2. Capacitive soil moisture with jumper wires (Available from gikfun.com or Amazon) 
+
+3. OLED Display - Adafruit SSD1306 (Available from Mouser.com)
+
+4. Solderless breadboard or solderboard (Available from Amazon or a variety of electronic retailers)
+
+5. 3.7V battery with  2-pin JST-PH connection (Available from Amazon or a variety of electronic retailers)
+
+6. 22 gauge jumper wire
+(Available from Amazon or a variety of electronic retailers)
+
+7. Materials for protective case(varies by use case, see examples)
+
+![HardwareRunning](images/HardwareRunning.jpg)
+
+### Setup
+
+1. Wire both the soil moisture sensor and OLED as shown in schematic and described below.
+
+Moisture Sensor:
+AOUT - A3 pin on Argon
+VCC - 3.3V power supply on Argon
+GND - GND on Argon
+
+OLED:
+SCL - SCL on Argon
+SDA - SDA on Argon
+VCC - 3.3V power supply on Argon
+GND - GND on Argon
+
+![Schematic](images/SensorDiagram.jpg)
+
+![Diagram](images/SensorSchematic.jpg)
+
+2. Build case to protect microcontroller and moisture probe depending on use case.
+
+
+### Creating an Adafruit.io Dashboard:
+
+1. Visit Adafruit.io and create a free user account. https://accounts.adafruit.com/users/sign_up
+
+2. Keep note of your Username and Active Key.
+
+
+### Software Setup
+1. Clone the Liquid Prep GitHub repository: https://github.com/Call-for-Code/Liquid-Prep.git
+
+2. Install Visual Studio Code: [VS Code Download](https://code.visualstudio.com)
+
+3. Install the Particle Workbench for Visual Studio Code. Select all defaults during install.
+[Particle Workbench Download](https://docs.particle.io/quickstart/workbench/)
+
+4. Use the following documentation to set up the Particle Argon to a Particle account and to connect the device to Wi-Fi. [Particle Setup Documentation](https://support.particle.io/hc/en-us/articles/360045547634-How-can-I-set-up-my-Argon-or-Boron-via-USB-)
+
+5. Using Visual Studio Code, open the BLEDashboardSensor file from the CNM folder within the GitHub repository. 
+
+6. Click “File” then “New File”. Save this file as “credentials.h”
+
+7. Navigate to the “My Key” tab within the Adafruit.io account.
+
+![Adafruit.io Key](images/KeySample.jpg)
+
+8. Copy the Arduino code sample with #define AIO_USERNAME and AIO_KEY then paste into the “credentials.h” file. Also define the AIO_SERVER and AIO_SERVERPORT as shown in the example below.
+
+![Adafruit.io Key](images/KeySample2.jpg)
+
+9.  Ensure Particle Argon is plugged into the computer via USB. Using the toolbar in the top right corner, first Compile and then Flash code to the device. 
+
+![Adafruit.io Key](images/Compile.jpg)
+
+
+## Using the Device:
+
+1. After ensuring all previous steps are complete, supply power to the device using either a battery or USB.
+
+2. Wait for the device to power on, then moisture data will be updated in real time on the OLED display, sent to the Adafruit.io Dashboard, and be sent via Bluetooth to the Adafruit Bluefruit app.
+
+![Dashboard](images/SensorWithDashboard.jpg)
+
+### Using Bluetooth Features:
+
+1. Download the Bluefruit Connect app for iOS or Android.
+
+![Bluefruit](images/BluefruitConnect.jpg)
+
+2. Open the app and select the Argon device from the list.
+
+![BluefruitList](images/BluefruitList.jpg)
+
+3. UART data will stream in real time to the mobile app.
+
+![UART](images/BluefruitUART.jpg)
+
 Copyright CNM 2021
 ##
 ##

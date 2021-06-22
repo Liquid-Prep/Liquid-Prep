@@ -22,9 +22,9 @@ The  Moisture Probe is created around a simple capacitive soil moisture sensor (
 
 * The Code: SoilSensorCal collects the calibration factors for the soil moisture probe and stores them in the Particle's EEPROM.
 
-### Soil Penentration Device
+### Soil Penetration Device
 
-The capacitive sensor is attached to a metal penetration that can be pushed into the soil by stepping on a platorm near the base. The pentration device was cut from 0.25 inch steel on a Torchmate CNC Plasma Table. The /Torchmate folder in this respository includes the files to plasma cut the penetration device. 
+The capacitive sensor is attached to a metal penetration that can be pushed into the soil by stepping on a platorm near the base. The penetration device was cut from 0.25 inch steel on a Torchmate CNC Plasma Table. The `./Torchmate` folder in this respository includes the files to plasma cut the penetration device. 
 
 ![SoilProbe](images/Probe.jpg)
 

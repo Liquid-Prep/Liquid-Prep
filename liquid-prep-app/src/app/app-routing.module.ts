@@ -6,7 +6,6 @@ import { MeasureSoilComponent } from './components/measure-soil/measure-soil.com
 import { SeedDateComponent } from './components/seed-date/seed-date.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AdviceComponent } from './components/advice/advice.component';
-import { WaterAdviceComponent } from './components/water-advice/water-advice.component';
 
 const routes: Routes = [
   {
@@ -37,10 +36,6 @@ const routes: Routes = [
   {
     path: 'advice',
     component: AdviceComponent
-  },
-  {
-    path: 'water-advice/:id',
-    component: WaterAdviceComponent
   }
 ];
 

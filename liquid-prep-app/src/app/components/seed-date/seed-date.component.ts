@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Location, formatDate } from '@angular/common';
+import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Crop, Stage } from '../../models/Crop';
@@ -28,7 +28,6 @@ export class SeedDateComponent implements OnInit {
 
   ngOnInit(): void {
     const cropId = this.route.snapshot.paramMap.get('id');
-    console.log("cropId: "+cropId)
     this.cropService.getCropData(cropId)
       .subscribe(
         (cropData) => {

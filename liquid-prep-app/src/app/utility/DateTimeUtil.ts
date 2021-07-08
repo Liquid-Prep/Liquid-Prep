@@ -36,7 +36,5 @@ export class DateTimeUtil {
 
   public getTodayDate() {
     return new Date();
-
-    //eturn new Date().toLocaleDateString()
   }
 }

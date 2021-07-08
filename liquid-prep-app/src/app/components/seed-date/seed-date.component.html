@@ -17,13 +17,13 @@
     <img mat-card-image class="cardImg" src="/assets/select-seed.png" alt="select seed date" />
     <label class="label">Select a seed date</label>
     <mat-form-field class="datePicker" appearance="fill">
-      <input matInput [matDatepicker]="picker"[max]="maxDate" [(ngModel)]="date">
+      <input matInput [matDatepicker]="picker"[max]="maxDate" [(ngModel)]="userSelectiondate">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker touchUi #picker></mat-datepicker>
     </mat-form-field>
     <div class="dateAgo">
-      {{date | dateAgo}}
+      {{userSelectiondate | dateAgo}}
     </div>
-    <button mat-flat-button class="c-btn" (click)="clickConfirm()">CONFIRM</button>
+    <button mat-flat-button class="c-btn" (click)="clickConfirm(userSelectiondate)">CONFIRM</button>
   </div>
 </div>

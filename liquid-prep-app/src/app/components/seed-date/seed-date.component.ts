@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Crop, Stage } from '../../models/Crop';
 import { CropDataService } from 'src/app/service/CropDataService';
+import { DateTimeUtil } from 'src/app/utility/DateTimeUtil';
 
 @Component({
   selector: 'app-seed-date',
@@ -13,7 +14,7 @@ import { CropDataService } from 'src/app/service/CropDataService';
 export class SeedDateComponent implements OnInit {
   crop: Crop;
   stages: Stage[];
-  date: Date;
+  userSelectiondate: Date;
   maxDate = new Date();
 
   constructor(
@@ -22,11 +23,10 @@ export class SeedDateComponent implements OnInit {
     private route: ActivatedRoute,
     private cropService: CropDataService
   ) {
-    this.date = new Date();
+    this.userSelectiondate = new Date();
   }
 
   ngOnInit(): void {
-    // TODO find the correct id or figure out a way to get the crop
     const cropId = this.route.snapshot.paramMap.get('id');
     this.cropService.getCropData(cropId)
       .subscribe(
@@ -48,14 +48,41 @@ export class SeedDateComponent implements OnInit {
     this.location.back();
   }
 
-  clickConfirm() {
+  clickConfirm(userSelectedDate: Date) {
+    
+    let todayDate = new DateTimeUtil().getTodayDate();
+    let numberOfDaysFromSeedingDate = Math.floor((Math.abs(todayDate.getTime() - userSelectedDate.getTime()))/ (1000 * 3600 * 24));
+    
+    // identify the current crop growth stage based on the number days of seeding date
+    const stage: Stage = this.identifyGrowthStage(numberOfDaysFromSeedingDate);
+
     // add crop info to my crops list
     this.cropService.storeMyCropsInLocalStorage(this.crop);
     // store selected crop in session to generate water advise
-    // const selectedCrop = this.cropService.createSelectedCrop(this.crop, stage);
-    // this.cropService.storeSelectedCropInSession(selectedCrop);
+     const selectedCrop = this.cropService.createSelectedCrop(this.crop, stage);
+     this.cropService.storeSelectedCropInSession(selectedCrop);
 
     this.router.navigate(['/measure-soil']).then(r => {});
+  }
+
+  // @desc  Identify the current crop growth stage based on the number of days from the seeding date
+  // @param numberOfDaysFromSeedingDate
+  // @return The current crop growth stage
+  private identifyGrowthStage(numberOfDaysFromSeedingDate) {
+    let stage: Stage;
+    let cummulativeStagesLength: number[] = [this.stages[0].stageLength];
+    for(let i=1; i < this.stages.length; i++){
+      cummulativeStagesLength[i] = cummulativeStagesLength[i-1] + this.stages[i].stageLength
+    }
+    for(let i=0; i < this.stages.length; i++){
+      if(numberOfDaysFromSeedingDate <= cummulativeStagesLength[i]){
+        stage = this.stages[i];
+        break;
+      } else {
+        stage = this.stages[i];
+      }
+    }
+    return stage;
   }
 
 }

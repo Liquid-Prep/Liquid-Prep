@@ -30,10 +30,8 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SwiperModule, SwiperConfigInterface, SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { MeasureSoilComponent } from './components/measure-soil/measure-soil.component';
-import { GrowthStageComponent } from './components/growth-stage/growth-stage.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AdviceComponent } from './components/advice/advice.component';
-import { WaterAdviceComponent } from './components/water-advice/water-advice.component';
 import { SeedDateComponent } from './components/seed-date/seed-date.component';
 import { DataService } from './service/DataService';
 import { WaterAdviceService } from './service/WaterAdviceService';
@@ -54,10 +52,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     WelcomeComponent,
     MyCropsComponent,
     MeasureSoilComponent,
-    GrowthStageComponent,
     SettingsComponent,
     AdviceComponent,
-    WaterAdviceComponent,
     SeedDateComponent,
     DateAgoPipe],
   imports: [

@@ -98,7 +98,7 @@ Instructions on how to setup, configure and deploy the backend service is as fol
     <p align="left">
         <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudFunctions/createAPI_CF.PNG" width ="30%" height="30%">
     </p>
-7.	Once API is created, select the API **liquidPrep-cf-api**, select **Mange Sharing and Keys** on the left pane of the API dashboard. Enable **Include API in organization-level Shared APIs view**.
+7.	Once API is created, select the API **liquidPrep-cf-api**, select **Manage Sharing and Keys** on the left pane of the API dashboard. Enable **Include API in organization-level Shared APIs view**.
     <p align="left">
         <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/cloudFunctions/shareAPI_CF.PNG" width ="30%" height="30%">
     </p>

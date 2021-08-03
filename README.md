@@ -28,7 +28,7 @@ The Soil Moisture Sendor Module, measures the soil moisture level and transmits 
 
 #### Liquid Prep App
 
-Liquid Prep App is designed and developed for users/famers with low literacy to easily understand, interact and get water advice for selected crop in their current location. The App interacts with the Soil Moisture Sensor Module to get the soil moisture data and IBM Cloud Backend Service to fetch weather data and crop data to generate watering advice for the selected crop.
+Liquid Prep App is designed and developed for users/farmers with low literacy to easily understand, interact and get water advice for selected crop in their current location. The App interacts with the Soil Moisture Sensor Module to get the soil moisture data and IBM Cloud Backend Service to fetch weather data and crop data to generate watering advice for the selected crop.
 
 #### IBM Cloud Backend Service
 

@@ -49,18 +49,20 @@ export class SeedDateComponent implements OnInit {
   }
 
   clickConfirm(userSelectedDate: Date) {
-    
+
     let todayDate = new DateTimeUtil().getTodayDate();
     let numberOfDaysFromSeedingDate = Math.floor((Math.abs(todayDate.getTime() - userSelectedDate.getTime()))/ (1000 * 3600 * 24));
-    
+
     // identify the current crop growth stage based on the number days of seeding date
     const stage: Stage = this.identifyGrowthStage(numberOfDaysFromSeedingDate);
 
     // add crop info to my crops list
+    this.crop.seedingDate = userSelectedDate;
     this.cropService.storeMyCropsInLocalStorage(this.crop);
     // store selected crop in session to generate water advise
-     const selectedCrop = this.cropService.createSelectedCrop(this.crop, stage);
-     this.cropService.storeSelectedCropInSession(selectedCrop);
+    const selectedCrop = this.cropService.createSelectedCrop(this.crop, stage);
+    this.cropService.storeSelectedCropInSession(selectedCrop);
+    this.cropService.storeSelectedCropIdInSession(this.crop.id);
 
     this.router.navigate(['/measure-soil']).then(r => {});
   }

@@ -16,20 +16,35 @@ import { Injectable } from '@angular/core';
 })
 export class WaterAdviceService {
 
-    public ADVICE_IMAGES: string[] = [
-      '/assets/moisture-water/littlewater_highmoisture.png',
-      '/assets/moisture-water/littlewater_lowmoisture.png',
-      '/assets/moisture-water/littlewater_mediummoisture.png',
-      '/assets/moisture-water/lotswater_highmoisture.png',
-      '/assets/moisture-water/lotswater_lowmoisture.png',
-      '/assets/moisture-water/lotswater_mediummoisture.png',
-      '/assets/moisture-water/moderatewater_highmoisture.png',
-      '/assets/moisture-water/moderatewater_lowmoisture.png',
-      '/assets/moisture-water/moderatewater_mediummoisture.png',
-      '/assets/moisture-water/nowater_highmoisture.png',
-      '/assets/moisture-water/nowater_lowmoisture.png',
-      '/assets/moisture-water/nowater_mediummoisture.png',
-    ];
+    public moisture_water_map = new Map([
+      ['None', new Map(
+        [
+          ['LOW', '/assets/moisture-water/nowater_lowmoisture.png'],
+          ['MEDIUM', '/assets/moisture-water/nowater_mediummoisture.png'],
+          ['HIGH', '/assets/moisture-water/nowater_highmoisture.png']
+        ])],
+      ['Little', new Map(
+        [
+          ['LOW', '/assets/moisture-water/littlewater_lowmoisture.png'],
+          ['MEDIUM', '/assets/moisture-water/littlewater_mediummoisture.png'],
+          ['HIGH', '/assets/moisture-water/littlewater_highmoisture.png']
+        ]
+      )],
+      ['Modest', new Map(
+        [
+          ['LOW', '/assets/moisture-water/moderatewater_lowmoisture.png'],
+          ['MEDIUM', '/assets/moisture-water/moderatewater_mediummoisture.png'],
+          ['HIGH', '/assets/moisture-water/moderatewater_highmoisture.png']
+        ]
+      )],
+      ['Plenty', new Map(
+        [
+          ['LOW', '/assets/moisture-water/lotswater_lowmoisture.png'],
+          ['MEDIUM', '/assets/moisture-water/lotswater_mediummoisture.png'],
+          ['HIGH', '/assets/moisture-water/lotswater_highmoisture.png']
+        ]
+      )]
+    ]);
 
     public ADVICE_TEXT: string[] = ['Plenty', 'Modest', 'Little', 'None'];
 
@@ -77,31 +92,30 @@ export class WaterAdviceService {
     }
 
     private createWaterAdvice(weatherInfo: TodayWeather, crop: Crop, soilMoisture: SoilMoisture): Advice {
-        // gather weather info
-        // gather crop info for a stage
-        const dateTimeUtil = new DateTimeUtil();
-        const waterAdvice = new Advice();
-        waterAdvice.soilMoistureReading = new SoilMoisture();
-        waterAdvice.cropName = crop.cropName;
-        waterAdvice.id = crop.id;
-        const stage: Stage = this.cropDataService.generateCropGrowthStage(crop);
-        waterAdvice.stage = stage;
-        waterAdvice.waterRecommended = stage.waterUse;
-        waterAdvice.soilMoistureReading.soilMoisturePercentage = soilMoisture.soilMoisturePercentage;
-        waterAdvice.soilMoistureReading.soilMoistureIndex = soilMoisture.soilMoistureIndex;
+      // gather weather info
+      // gather crop info for a stage
+      const dateTimeUtil = new DateTimeUtil();
+      const waterAdvice = new Advice();
+      waterAdvice.soilMoistureReading = new SoilMoisture();
+      waterAdvice.cropName = crop.cropName;
+      waterAdvice.id = crop.id;
+      const stage: Stage = this.cropDataService.generateCropGrowthStage(crop);
+      waterAdvice.stage = stage;
+      waterAdvice.waterRecommended = stage.waterUse;
+      waterAdvice.soilMoistureReading.soilMoisturePercentage = soilMoisture.soilMoisturePercentage;
+      waterAdvice.soilMoistureReading.soilMoistureIndex = soilMoisture.soilMoistureIndex;
 
-        waterAdvice.imageUrl = this.ADVICE_IMAGES[0];
+      const isDayTime = dateTimeUtil.isDayTime(weatherInfo.sunriseTime.toString(), weatherInfo.sunsetTime.toString());
 
-        const isDayTime = dateTimeUtil.isDayTime(weatherInfo.sunriseTime.toString(), weatherInfo.sunsetTime.toString());
-
-        if (isDayTime){
-            waterAdvice.temperature = weatherInfo.dayTime.temperature;
-            waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.dayTime, soilMoisture.soilMoistureIndex);
-        } else {
-            waterAdvice.temperature = weatherInfo.nightTime.temperature;
-            waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.nightTime, soilMoisture.soilMoistureIndex);
-        }
-        return waterAdvice;
+      if (isDayTime){
+        waterAdvice.temperature = weatherInfo.dayTime.temperature;
+        waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.dayTime, soilMoisture.soilMoistureIndex);
+      } else {
+        waterAdvice.temperature = weatherInfo.nightTime.temperature;
+        waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.nightTime, soilMoisture.soilMoistureIndex);
+      }
+      waterAdvice.imageUrl = this.moisture_water_map.get(waterAdvice.wateringDecision).get(soilMoisture.soilMoistureIndex);
+      return waterAdvice;
     }
 
     private generateWaterAdvice(weatherInfo: WeatherInfo, soilMoistureIndex: string): string{

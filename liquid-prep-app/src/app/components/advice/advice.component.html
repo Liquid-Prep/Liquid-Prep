@@ -32,14 +32,13 @@
       </div>
       <div class="vertical">
         <div class="imgHolder">
-          <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
-          <span class="vertical-align-middle temp">{{temperature}}&deg;C</span>
+          <span class="vertical-align-middle txt-font">{{stageNumber}}</span>
         </div>
-        <Label class="description" textWrap="true">{{"TEMPERATURE"}}</Label>
+        <Label class="description" textWrap="true">{{ "GROWTH STAGE" }}</Label>
       </div>
       <div class="vertical">
         <div class="imgHolder">
-          <span class="vertical-align-middle color-medium txt-font">{{soilMoistureLevel}}</span>
+          <span class="vertical-align-middle color-medium txt-font">{{soilMoistureLevel}} {{soilMoisturePercentage}}%</span>
         </div>
         <Label class="description" textWrap="true">{{"SOIL MOISTURE"}}</Label>
       </div>
@@ -58,15 +57,17 @@
       </div>
       <div class="vertical">
         <div class="imgHolder">
-          <span class="vertical-align-middle txt-font">{{stageNumber}}</span>
+          <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
+          <span class="vertical-align-middle temp">{{temperature}}&deg;C</span>
         </div>
-        <Label class="description" textWrap="true">{{ "GROWTH STAGE" }}</Label>
+        <Label class="description" textWrap="true">{{"TEMPERATURE"}}</Label>
       </div>
       <div class="vertical">
         <div class="imgHolder">
-          <span class="vertical-align-middle txt-font">TUE</span>
+          <mat-icon class="vertical-align-middle blue">wb_cloudy</mat-icon>
+          <span class="vertical-align-middle temp">{{rainfallPercentage}}%</span>
         </div>
-        <Label class="description" textWrap="true">{{ "CHECK AGAIN" }}</Label>
+        <Label class="description" textWrap="true">{{"RAINFALL"}}</Label>
       </div>
     </div>
   </div>

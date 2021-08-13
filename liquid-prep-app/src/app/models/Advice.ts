@@ -7,6 +7,8 @@ export class Advice {
     stage: Stage;
     waterRecommended: number;
     temperature: number;
+    rainfallPercentage: number;
+    rainfallIndex: string;
     wateringDecision: string;
     soilMoistureReading: SoilMoisture;
     imageUrl: string;

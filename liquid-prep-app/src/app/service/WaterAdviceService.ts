@@ -71,9 +71,12 @@ export class WaterAdviceService {
     private DEFAULT_WATER_CROPS = 'None'; // 'Water your crops today ';
     private AND = ' and ';
 
+    private waterAdvice: Advice;
+
     constructor(private weatherDataService: WeatherDataService,
                 private cropDataService: CropDataService,
                 private soilMoistureService: SoilMoistureService) {
+                    this.waterAdvice = new Advice();
     }
 
     public getWaterAdvice(): Observable<Advice> {
@@ -94,36 +97,42 @@ export class WaterAdviceService {
       // gather weather info
       // gather crop info for a stage
       const dateTimeUtil = new DateTimeUtil();
-      const waterAdvice = new Advice();
-      waterAdvice.soilMoistureReading = new SoilMoisture();
-      waterAdvice.cropName = crop.cropName;
-      waterAdvice.id = crop.id;
+      
+      this.waterAdvice.soilMoistureReading = new SoilMoisture();
+      this.waterAdvice.cropName = crop.cropName;
+      this.waterAdvice.id = crop.id;
       const stage: Stage = this.cropDataService.generateCropGrowthStage(crop);
-      waterAdvice.stage = stage;
-      waterAdvice.waterRecommended = stage.waterUse;
-      waterAdvice.soilMoistureReading.soilMoisturePercentage = soilMoisture.soilMoisturePercentage;
-      waterAdvice.soilMoistureReading.soilMoistureIndex = soilMoisture.soilMoistureIndex;
+      this.waterAdvice.stage = stage;
+      this.waterAdvice.waterRecommended = stage.waterUse;
+      this.waterAdvice.soilMoistureReading.soilMoisturePercentage = soilMoisture.soilMoisturePercentage;
+      this.waterAdvice.soilMoistureReading.soilMoistureIndex = soilMoisture.soilMoistureIndex;
 
       const isDayTime = dateTimeUtil.isDayTime(weatherInfo.sunriseTime.toString(), weatherInfo.sunsetTime.toString());
 
       if (isDayTime){
-        waterAdvice.temperature = weatherInfo.dayTime.temperature;
-        waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.dayTime, soilMoisture.soilMoistureIndex);
+        this.waterAdvice.temperature = weatherInfo.dayTime.temperature;
+        this.waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.dayTime, soilMoisture.soilMoistureIndex);
       } else {
-        waterAdvice.temperature = weatherInfo.nightTime.temperature;
-        waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.nightTime, soilMoisture.soilMoistureIndex);
+        this.waterAdvice.temperature = weatherInfo.nightTime.temperature;
+        this.waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.nightTime, soilMoisture.soilMoistureIndex);
       }
-      waterAdvice.imageUrl = this.moisture_water_map.get(waterAdvice.wateringDecision).get(soilMoisture.soilMoistureIndex);
-      return waterAdvice;
+      this.waterAdvice.imageUrl = this.moisture_water_map.get(this.waterAdvice.wateringDecision).get(soilMoisture.soilMoistureIndex);
+
+      console.log('wateradvise: '+this.waterAdvice.rainfallPercentage)
+      return this.waterAdvice;
     }
 
     private generateWaterAdvice(weatherInfo: WeatherInfo, soilMoistureIndex: string): string{
 
         if (this.weatherDataService.isRaining(weatherInfo)) {
             const rainIndex = this.weatherDataService.determineRainIndex(weatherInfo.precipChance);
+            this.waterAdvice.rainfallIndex = rainIndex;
+            this.waterAdvice.rainfallPercentage = weatherInfo.precipChance;
             return this.determineRainyDayAdvice(rainIndex, soilMoistureIndex);
         } else {
             const temparatureIndex = this.weatherDataService.determineTemperatureIndex(weatherInfo.temperature);
+            this.waterAdvice.rainfallIndex = 'NONE';
+            this.waterAdvice.rainfallPercentage = 0;
             return this.determineNonRainyDayAdvice(soilMoistureIndex, temparatureIndex);
         }
     }

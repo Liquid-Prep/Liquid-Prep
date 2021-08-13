@@ -16,8 +16,11 @@ export class AdviceComponent implements OnInit {
   wateringDecision = '';
   temperature = undefined;
   soilMoistureLevel = undefined;
+  soilMoisturePercentage = undefined;
   plantingDays = undefined;
   stageNumber = undefined;
+  rainfallPercentage: number = undefined;
+  rainfallIndex: string = undefined;
 
   adviceImg = undefined; // this.ADVICE_IMAGES[0];
 
@@ -35,6 +38,9 @@ export class AdviceComponent implements OnInit {
       this.stageNumber = advice.stage.stageNumber;
       this.temperature = advice.temperature;
       this.soilMoistureLevel = advice.soilMoistureReading.soilMoistureIndex;
+      this.soilMoisturePercentage = advice.soilMoistureReading.soilMoisturePercentage;
+      this.rainfallIndex = advice.rainfallIndex;
+      this.rainfallPercentage = advice.rainfallPercentage;
       this.adviceImg = advice.imageUrl;
     });
   }

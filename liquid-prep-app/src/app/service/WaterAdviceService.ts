@@ -117,8 +117,6 @@ export class WaterAdviceService {
         this.waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.nightTime, soilMoisture.soilMoistureIndex);
       }
       this.waterAdvice.imageUrl = this.moisture_water_map.get(this.waterAdvice.wateringDecision).get(soilMoisture.soilMoistureIndex);
-
-      console.log('wateradvise: '+this.waterAdvice.rainfallPercentage)
       return this.waterAdvice;
     }
 

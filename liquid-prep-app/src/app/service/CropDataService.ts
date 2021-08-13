@@ -9,12 +9,10 @@ import {
   SESSION_STORAGE,
   StorageService,
 } from 'ngx-webstorage-service';
-import { SelectedCrop } from '../models/SelectedCrop';
 import {DateTimeUtil} from '../utility/DateTimeUtil';
 
 const CROP_LIST_KEY = 'crop-list';
 const CROPS_STORAGE_KEY = 'my-crops';
-const SELECTED_CROP = 'selected-crop';
 const SELECTED_CROP_ID = 'selected-crop-id';
 
 @Injectable({
@@ -78,27 +76,6 @@ export class CropDataService {
           }
       );
     });
-  }
-
-  public createSelectedCrop(crop: Crop, stage: Stage) {
-    const selectedCrop = new SelectedCrop();
-    selectedCrop.cropName = crop.cropName;
-    selectedCrop.id = crop.id;
-    selectedCrop.stage = stage;
-    selectedCrop.imageUrl = crop.url;
-
-    return selectedCrop;
-  }
-
-  // Storing selected crop in session to access later to generate water advise
-  public storeSelectedCropInSession(selectedCrop: SelectedCrop) {
-    if (selectedCrop) {
-      this.sessionStorage.set(SELECTED_CROP, selectedCrop);
-    }
-  }
-
-  public getSelectedCropFromSession() {
-    return this.sessionStorage.get(SELECTED_CROP);
   }
 
   // store crops list in session storage

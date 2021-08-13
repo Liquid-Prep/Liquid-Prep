@@ -1,7 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Advice } from '../models/Advice';
 import {Crop, Stage} from '../models/Crop';
-import { SelectedCrop } from '../models/SelectedCrop';
 import { TodayWeather, WeatherInfo } from '../models/TodayWeather';
 import { DateTimeUtil } from '../utility/DateTimeUtil';
 import { CropDataService } from './CropDataService';

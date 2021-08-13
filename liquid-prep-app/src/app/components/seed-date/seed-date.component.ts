@@ -59,9 +59,7 @@ export class SeedDateComponent implements OnInit {
     // add crop info to my crops list
     this.crop.seedingDate = userSelectedDate;
     this.cropService.storeMyCropsInLocalStorage(this.crop);
-    // store selected crop in session to generate water advise
-    const selectedCrop = this.cropService.createSelectedCrop(this.crop, stage);
-    this.cropService.storeSelectedCropInSession(selectedCrop);
+    // store selected crop id in session to generate water advise
     this.cropService.storeSelectedCropIdInSession(this.crop.id);
 
     this.router.navigate(['/measure-soil']).then(r => {});

@@ -16,6 +16,13 @@ export class AdviceComponent implements OnInit {
   wateringDecision = '';
   temperature = undefined;
   soilMoistureLevel = undefined;
+  soilMoisturePercentage = undefined;
+  plantingDays = undefined;
+  stageNumber = undefined;
+  rainfallPercentage: number = undefined;
+  rainfallIndex: string = undefined;
+
+  adviceImg = undefined; // this.ADVICE_IMAGES[0];
 
   constructor(
     private router: Router,
@@ -25,10 +32,16 @@ export class AdviceComponent implements OnInit {
   ngOnInit(): void {
     this.currentDate = 'Today, ' + formatDate(new Date(), 'MMMM d, yyyy', 'en');
     this.waterAdviceService.getWaterAdvice().subscribe( advice => {
-      this.waterRecommeded = advice.waterRecommended;
+      this.waterRecommeded = advice.stage.waterUse;
       this.wateringDecision = advice.wateringDecision;
+      this.plantingDays = advice.stage.age;
+      this.stageNumber = advice.stage.stageNumber;
       this.temperature = advice.temperature;
-      this.soilMoistureLevel = advice.soilMoistureReading.soilMoisturePercentage;
+      this.soilMoistureLevel = advice.soilMoistureReading.soilMoistureIndex;
+      this.soilMoisturePercentage = advice.soilMoistureReading.soilMoisturePercentage;
+      this.rainfallIndex = advice.rainfallIndex;
+      this.rainfallPercentage = advice.rainfallPercentage;
+      this.adviceImg = advice.imageUrl;
     });
   }
 

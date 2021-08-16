@@ -36,6 +36,7 @@ import { SeedDateComponent } from './components/seed-date/seed-date.component';
 import { DataService } from './service/DataService';
 import { WaterAdviceService } from './service/WaterAdviceService';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
+import {ConnectSensorComponent} from "./components/conect-sensor/connect-sensor.component";
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   observer: true,
@@ -55,7 +56,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SettingsComponent,
     AdviceComponent,
     SeedDateComponent,
-    DateAgoPipe],
+    DateAgoPipe,
+    ConnectSensorComponent],
   imports: [
     BrowserModule,
     MaterialModule,

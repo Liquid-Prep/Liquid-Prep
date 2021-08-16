@@ -1,0 +1,27 @@
+<div class="connect-to-sensor">
+  <mat-toolbar class="connect-to-sensor-header mat-elevation-z4 custom-toolbar">
+    <mat-toolbar-row style="padding:0 5px;">
+      <button mat-icon-button class="toolbar-title" aria-label="back clicked" (click)="backClicked()">
+        <mat-icon class="volume-icon">arrow_back</mat-icon>
+      </button>
+      <div style="padding:8px 0 0 10px; flex:1;">
+        <div class="mat-title toolbar-title" style="margin-bottom:2px;">Connect to Sensor</div>
+      </div>
+      <button mat-icon-button class="toolbar-title" aria-label="read text" (click)="volumeClicked()">
+        <mat-icon>volume_up</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div class="connect-to-sensor-container">
+    <img mat-card-image class="cardImg" src="/assets/connect-to-sensor.png" alt="Connect to Sensor" />
+    <label class="label">Connect to Sensor</label>
+    <label class="explain">How would you like to connect to your moisture sensor?</label>
+
+    <div class="connect-to-sensor-buttons">
+      <button mat-flat-button class="c-btn" (click)="clickConfirm('connectWithBluetooth')">CONNECT WITH BLUETOOTH</button>
+      <button mat-flat-button class="c-btn" (click)="clickConfirm('connectWithUSB')">CONNECT WITH USB</button>
+    </div>
+
+  </div>
+</div>

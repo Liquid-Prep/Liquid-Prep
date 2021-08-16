@@ -1,0 +1,72 @@
+.connect-to-sensor {
+  height: 100%;
+  display: flex;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 11;
+  transition: all 250ms ease-in-out;
+}
+
+.connect-to-sensor-header {
+  @extend header;
+}
+
+.connect-to-sensor-container {
+  margin: auto;
+}
+
+.cardImg {
+  display: block;
+  width: 35%;
+  margin: auto;
+}
+
+.label {
+  display: block;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 200;
+  padding: 20px 10px 10px 10px;
+}
+
+.explain {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 200;
+  padding: 20px 10px 10px 10px;
+}
+
+.c-btn {
+  width: 75%;
+  height: auto;
+  margin:  auto;
+  display: flex;
+  color: white;
+  text-align: center;
+  background-color: #2F4FFE;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 50%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}

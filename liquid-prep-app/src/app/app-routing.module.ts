@@ -6,6 +6,7 @@ import { MeasureSoilComponent } from './components/measure-soil/measure-soil.com
 import { SeedDateComponent } from './components/seed-date/seed-date.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AdviceComponent } from './components/advice/advice.component';
+import {ConnectSensorComponent} from './components/conect-sensor/connect-sensor.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'advice',
     component: AdviceComponent
+  },
+  {
+    path: 'connect-sensor',
+    component: ConnectSensorComponent
   }
 ];
 

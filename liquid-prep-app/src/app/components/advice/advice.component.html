@@ -16,62 +16,47 @@
     </button>
 </div>
 
-<div style="margin-top: 64px">
-  <div fxLayout="column"
-       fxFill
-       fxLayoutGap="30px"
-       fxLayoutAlign="start center">
-
-    <div fxLayout="row"
-         fxFill
-         fxLayoutGap="4px"
-         fxLayoutAlign="space-evenly end">
-      <div class="vertical">
-        <span class="vertical-align-middle txt-font">{{wateringDecision}}</span>
-        <Label class="description" textWrap="true">{{ "WATERING ADVICE" }}</Label>
-      </div>
-      <div class="vertical">
-        <div class="imgHolder">
-          <span class="vertical-align-middle txt-font">{{stageNumber}}</span>
-        </div>
-        <Label class="description" textWrap="true">{{ "GROWTH STAGE" }}</Label>
-      </div>
-      <div class="vertical">
-        <div class="imgHolder">
-          <span class="vertical-align-middle color-medium txt-font">{{soilMoistureLevel}} {{soilMoisturePercentage}}%</span>
-        </div>
-        <Label class="description" textWrap="true">{{"SOIL MOISTURE"}}</Label>
-      </div>
+<mat-grid-list cols="3" rowHeight="2:1" gutterSize="12px" style="padding-top: 64px">
+  <mat-grid-tile>
+    <div class="vertical">
+      <span class="vertical-align-middle txt-font">{{wateringDecision}}</span>
+      <Label class="description" textWrap="true">{{ "WATERING ADVICE" }}</Label>
     </div>
-
-
-    <div fxLayout="row"
-         fxFill
-         fxLayoutGap="4px"
-         fxLayoutAlign="space-evenly end">
-      <div class="vertical">
-        <div class="imgHolder">
-          <span class="vertical-align-middle txt-font">{{plantingDays}}d</span>
-        </div>
-        <Label class="description" textWrap="true">{{ "SINCE PLANTING" }}</Label>
-      </div>
-      <div class="vertical">
-        <div class="imgHolder">
-          <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
-          <span class="vertical-align-middle temp">{{temperature}}&deg;C</span>
-        </div>
-        <Label class="description" textWrap="true">{{"TEMPERATURE"}}</Label>
-      </div>
-      <div class="vertical">
-        <div class="imgHolder">
-          <mat-icon class="vertical-align-middle blue">wb_cloudy</mat-icon>
-          <span class="vertical-align-middle temp">{{rainfallPercentage}}%</span>
-        </div>
-        <Label class="description" textWrap="true">{{"RAINFALL"}}</Label>
-      </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="vertical">
+      <span class="vertical-align-middle txt-font">{{stageNumber}}</span>
+      <Label class="description" textWrap="true">{{ "GROWTH STAGE" }}</Label>
     </div>
-  </div>
-</div>
-
-
-
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="vertical">
+      <span class="vertical-align-middle color-medium txt-font">{{soilMoistureLevel}} {{soilMoisturePercentage}}%</span>
+      <Label class="description" textWrap="true">{{"SOIL MOISTURE"}}</Label>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="vertical">
+      <span class="vertical-align-middle txt-font">{{plantingDays}}d</span>
+      <Label class="description" textWrap="true">{{ "SINCE PLANTING" }}</Label>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="vertical">
+      <div class="imgHolder">
+        <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
+        <span class="vertical-align-middle temp">{{temperature}}&deg;C</span>
+      </div>
+      <Label class="description" textWrap="true">{{"TEMPERATURE"}}</Label>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="vertical">
+      <div class="imgHolder">
+        <mat-icon class="vertical-align-middle blue">wb_cloudy</mat-icon>
+        <span class="vertical-align-middle temp">{{rainfallPercentage}}%</span>
+      </div>
+      <Label class="description" textWrap="true">{{"RAINFALL"}}</Label>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

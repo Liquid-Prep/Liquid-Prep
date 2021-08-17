@@ -44,8 +44,11 @@
                 </div>
                 <Label class="title" textWrap="true">Connect to Sensor</Label>
                 <Label class="description" textWrap="true">How would you like to connect to your moisture sensor?</Label>
-                <button mat-flat-button class="c-btn" (click)="onSensorConnect()">Connect with USB</button>
-                <button mat-flat-button class="c-btn" (click)="connectBluetooth()">Connect with Bluetooth</button>
+                <button mat-flat-button class="c-btn" (click)="onSensorConnect()"><mat-icon>usb</mat-icon> Connect with USB
+                </button>
+                <button mat-flat-button class="c-btn" (click)="connectBluetooth()">
+                  <mat-icon>bluetooth</mat-icon> Connect with Bluetooth
+                </button>
               </div>
             </div>
           </div>

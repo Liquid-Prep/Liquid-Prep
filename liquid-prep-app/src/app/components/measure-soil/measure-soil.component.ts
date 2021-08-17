@@ -6,7 +6,7 @@ import {SoilMoistureService} from '../../service/SoilMoistureService';
 import {SoilMoisture} from '../../models/SoilMoisture';
 import {LineBreakTransformer} from './LineBreakTransformer';
 import { Buffer } from 'buffer';
-//import { Buffer } from '@ty'
+// import { Buffer } from '@ty'
 
 @Component({
   selector: 'app-measure-soil',
@@ -53,10 +53,10 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
         this.setMeasureView('measuring');
         this.readingCountdown();
       });
-      
 
-      //this.connectBluetooth();
-      
+
+      // this.connectBluetooth();
+
   }
 
   public async connectBluetooth() {
@@ -84,15 +84,15 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
         characteristicUuid = parseInt(characteristicUuid);
       }*/
 
-      await (window.navigator as any).bluetooth.requestDevice({
+    await (window.navigator as any).bluetooth.requestDevice({
         filters: [{
           name: 'ESP32-LiquidPrep'
         }],
         optionalServices: ['4fafc201-1fb5-459e-8fcc-c5c9c331914b'] // Required to access service later.
       })
-      .then(device => { 
-        console.log("device name: ", device.name);
-        console.log("device: ", device);
+      .then(device => {
+        console.log('device name: ', device.name);
+        console.log('device: ', device);
 
         // Set up event listener for when device gets disconnected.
         device.addEventListener('gattserverdisconnected', onDisconnected);
@@ -102,43 +102,43 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
       })
       .then(server => {
         // Getting Battery Service…
-        console.log("server: "+server)
+        console.log('server: ' + server);
         return server.getPrimaryService('4fafc201-1fb5-459e-8fcc-c5c9c331914b');
       })
       .then(service => {
         // Getting Battery Level Characteristic…
-        console.log("service: "+service)
+        console.log('service: ' + service);
         return service.getCharacteristic('beb5483e-36e1-4688-b7f5-ea07361b26a8');
-        //return service.getCharacteristics();
+        // return service.getCharacteristics();
       })
       .then(characteristic => {
         // Reading Battery Level…
-        //console.log("characteristic declaration: "+characteristic.readDeclarartion())
-        console.log("characteristic : "+characteristic)
+        // console.log("characteristic declaration: "+characteristic.readDeclarartion())
+        console.log('characteristic : ' + characteristic);
         console.log('> Characteristic UUID:  ' + characteristic.uuid);
         console.log('> Broadcast:            ' + characteristic.properties.broadcast);
         console.log('> Read:                 ' + characteristic.properties.read);
         console.log('> Write w/o response:   ' +
           characteristic.properties.writeWithoutResponse);
-          console.log('> Write:                ' + characteristic.properties.write);
-          console.log('> Notify:               ' + characteristic.properties.notify);
-          console.log('> Indicate:             ' + characteristic.properties.indicate);
-          console.log('> Signed Write:         ' +
+        console.log('> Write:                ' + characteristic.properties.write);
+        console.log('> Notify:               ' + characteristic.properties.notify);
+        console.log('> Indicate:             ' + characteristic.properties.indicate);
+        console.log('> Signed Write:         ' +
           characteristic.properties.authenticatedSignedWrites);
-          console.log('> Queued Write:         ' + characteristic.properties.reliableWrite);
-          console.log('> Writable Auxiliaries: ' +
+        console.log('> Queued Write:         ' + characteristic.properties.reliableWrite);
+        console.log('> Writable Auxiliaries: ' +
           characteristic.properties.writableAuxiliaries);
         /*console.log("characteristic uuid : "+characteristic.map(c => c.uuid).join('\n' + ' '.repeat(19)))
         console.log("characteristic value: "+characteristic.map(c => c.value).join('\n' + ' '.repeat(19)))*/
-        //console.log("characteristic value: "+characteristic.readValue())
+        // console.log("characteristic value: "+characteristic.readValue())
         characteristic.readValue().then(value => {
-          console.log('character value: '+value)
-          //console.log('character unit 8 value: '+value.getUint64())
+          console.log('character value: ' + value);
+          // console.log('character unit 8 value: '+value.getUint64())
           const decoder = new TextDecoder('utf-8');
           console.log(`User Description: ${decoder.decode(value)}`);
-        })
-        
-        //return characteristic.readValue();
+        });
+
+        // return characteristic.readValue();
       })
       /*.then(value => {
         console.log("Battery percentage is "+value.getUint8(0));
@@ -146,7 +146,7 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
       })*/
       .catch(error => { console.error(error); });
 
-      function onDisconnected(event) {
+    function onDisconnected(event) {
         const device = event.target;
         console.log(`Device ${device.name} is disconnected.`);
       }
@@ -168,7 +168,7 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
 
   }
 
-  
+
 
   public async connectSensor() {
     // Vendor code to filter only for Arduino or similar micro-controllers
@@ -191,27 +191,27 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
       // Listen to data coming from the serial device.
       while (true) {
         const { value, done } = await reader.read();
-        
+
         if (done) {
           reader.releaseLock();
           break;
         }
 
-        if (value !== "" || value !== 'NaN') {
+        if (value !== '' || value !== 'NaN') {
           // The value length between 4 and 6 is quite precise
           if (value.length >= 4 && value.length <= 6){
             sensorMoisturePercantage = +value;
-            if (sensorMoisturePercantage !== NaN) {
+            if (!isNaN(sensorMoisturePercantage)) {
               reader.cancel();
               // When reader is cancelled an error will be thrown as designed which can be ignored
               await readableStreamClosed.catch(() => { /* Ignore the error*/  });
               await port.close();
 
               return sensorMoisturePercantage;
-            } 
+            }
           }
         }
-        
+
         // Capture sensor data only upto 3 digits
         /*if (value.length >= 3 && value.length <= 5){
           sensorValue = +((+value).toPrecision(3));
@@ -229,7 +229,7 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
       }
     } catch (e) {
       // Permission to access a device was denied implicitly or explicitly by the user.
-      window.alert("Permission to access a device was denied implicitly or explicitly by the user.")
+      window.alert('Failed to connect to sensor') ;
     }
   }
 
@@ -252,7 +252,7 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
   }
 
   public readingCountdown(){
-    //this.countdownSecond = seconds;
+    // this.countdownSecond = seconds;
     this.interval = setInterval(() => {
       if (this.countdownSecond <= 0){
         this.setMeasureView('after-measuring');

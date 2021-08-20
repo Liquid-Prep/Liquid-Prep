@@ -46,16 +46,24 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
   }
 
-  public onSensorConnect(){
+  public onSensorConnect(connectionOption){
 
+    if (connectionOption === 'usb') {
       this.connectSensor().then( sensorValue => {
         this.soilService.setSoilMoistureReading(sensorValue);
         this.setMeasureView('measuring');
         this.readingCountdown();
       });
-
-
-      // this.connectBluetooth();
+    } else if (connectionOption === 'ble') {
+      this.connectBluetooth().then( sensorValue => {
+        this.soilService.setSoilMoistureReading(sensorValue);
+        this.setMeasureView('measuring');
+        this.readingCountdown();
+      });
+    } else {
+      alert("Please choose one soil sensor connection option.")
+    }
+      
 
   }
 
@@ -68,103 +76,64 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
       device: 0x40080698, // Arduino UNO
       esp32test: 0x400806a8
     };
-    /*const port = await (window.navigator as any).bluetooth.requestDevice({ filters: [{
-      name: 'ESP32test'
-    }] })
-      .then(device => { console.log("device: ", device)})
-      .catch(error => { console.error(error); });*/
 
-      /*let serviceUuid = document.querySelector('#service').value;
-      if (serviceUuid.startsWith('0x')) {
-        serviceUuid = parseInt(serviceUuid);
-      }
+    let sensorMoisturePercantage: number;
+    /**
+     * The bluetoothName value is defined in the ESP32 BLE server sketch file.
+     * The value should match to exactly to what is defined in the BLE server sketch file. 
+     * Otherwise the App won't be able to identify the BLE device.
+     */
+     const bluetoothName = "ESP32-LiquidPrep";
 
-      let characteristicUuid = document.querySelector('#characteristic').value;
-      if (characteristicUuid.startsWith('0x')) {
-        characteristicUuid = parseInt(characteristicUuid);
-      }*/
+    /**
+     * The serviceUUID and characteristicUUID are the values defined in the ESP32 BLE server sketch file.
+     * These values should match to exactly to what is defined in the BLE server sketch file. 
+     * Otherwise the App won't be able to identify the BLE device.
+     */
+    const serviceUUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
+    const characteristicUUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8"
 
-    await (window.navigator as any).bluetooth.requestDevice({
-        filters: [{
-          name: 'ESP32-LiquidPrep'
-        }],
-        optionalServices: ['4fafc201-1fb5-459e-8fcc-c5c9c331914b'] // Required to access service later.
-      })
-      .then(device => {
-        console.log('device name: ', device.name);
-        console.log('device: ', device);
+    try {
+      await (window.navigator as any).bluetooth.requestDevice({
+          filters: [{
+            name: bluetoothName
+          }],
+          optionalServices: [serviceUUID] // Required to access service later.
+        })
+        .then(device => {
+          // Set up event listener for when device gets disconnected.
+          device.addEventListener('gattserverdisconnected', onDisconnected);
 
-        // Set up event listener for when device gets disconnected.
-        device.addEventListener('gattserverdisconnected', onDisconnected);
-
-        // Attempts to connect to remote GATT Server.
-        return device.gatt.connect();
-      })
-      .then(server => {
-        // Getting Battery Service…
-        console.log('server: ' + server);
-        return server.getPrimaryService('4fafc201-1fb5-459e-8fcc-c5c9c331914b');
-      })
-      .then(service => {
-        // Getting Battery Level Characteristic…
-        console.log('service: ' + service);
-        return service.getCharacteristic('beb5483e-36e1-4688-b7f5-ea07361b26a8');
-        // return service.getCharacteristics();
-      })
-      .then(characteristic => {
-        // Reading Battery Level…
-        // console.log("characteristic declaration: "+characteristic.readDeclarartion())
-        console.log('characteristic : ' + characteristic);
-        console.log('> Characteristic UUID:  ' + characteristic.uuid);
-        console.log('> Broadcast:            ' + characteristic.properties.broadcast);
-        console.log('> Read:                 ' + characteristic.properties.read);
-        console.log('> Write w/o response:   ' +
-          characteristic.properties.writeWithoutResponse);
-        console.log('> Write:                ' + characteristic.properties.write);
-        console.log('> Notify:               ' + characteristic.properties.notify);
-        console.log('> Indicate:             ' + characteristic.properties.indicate);
-        console.log('> Signed Write:         ' +
-          characteristic.properties.authenticatedSignedWrites);
-        console.log('> Queued Write:         ' + characteristic.properties.reliableWrite);
-        console.log('> Writable Auxiliaries: ' +
-          characteristic.properties.writableAuxiliaries);
-        /*console.log("characteristic uuid : "+characteristic.map(c => c.uuid).join('\n' + ' '.repeat(19)))
-        console.log("characteristic value: "+characteristic.map(c => c.value).join('\n' + ' '.repeat(19)))*/
-        // console.log("characteristic value: "+characteristic.readValue())
-        characteristic.readValue().then(value => {
-          console.log('character value: ' + value);
-          // console.log('character unit 8 value: '+value.getUint64())
+          // Attempts to connect to remote GATT Server.
+          return device.gatt.connect();
+        })
+        .then(server => {
+          // Getting Service defined in the BLE server
+          return server.getPrimaryService(serviceUUID);
+        })
+        .then(service => {
+          // Getting Characteristic defined in the BLE server
+          return service.getCharacteristic(characteristicUUID);
+        })
+        .then(characteristic => {
+          return characteristic.readValue();
+        })
+        .then(value => {
           const decoder = new TextDecoder('utf-8');
-          console.log(`User Description: ${decoder.decode(value)}`);
-        });
+          sensorMoisturePercantage = Number(decoder.decode(value));
+        })
+        .catch(error => { console.error(error); });
 
-        // return characteristic.readValue();
-      })
-      /*.then(value => {
-        console.log("Battery percentage is "+value.getUint8(0));
-        console.log(`Battery percentage is ${value.getUint8(0)}`);
-      })*/
-      .catch(error => { console.error(error); });
+      function onDisconnected(event) {
+          const device = event.target;
+          console.log(`Device ${device.name} is disconnected.`);
+        }
 
-    function onDisconnected(event) {
-        const device = event.target;
-        console.log(`Device ${device.name} is disconnected.`);
-      }
-
-      /*await (window.navigator as any).bluetooth.requestDevice({
-        acceptAllDevices: true,
-        optionalServices: ['battery_service'] // Required to access service later.
-      })
-      .then(device => { console.log("device: ", device) })
-      .catch(error => { console.error(error); });*/
-
-      /*await (window.navigator as any).bluetooth.requestDevice({
-        filters: [{
-          services: [0x400, 0x1234, 0x12345678, '4fafc201-1fb5-459e-8fcc-c5c9c331914b']
-        }]
-      })
-      .then(device => { console.log("device: ", device) })
-      .catch(error => { console.error(error); });*/
+      return sensorMoisturePercantage;
+    
+    } catch(e) {
+      window.alert('Failed to connect to sensor via Bluetooth');
+    }
 
   }
 
@@ -197,7 +166,7 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
           break;
         }
 
-        if (value !== '' || value !== 'NaN') {
+        if (value !== '' || !isNaN(value)) {
           // The value length between 4 and 6 is quite precise
           if (value.length >= 4 && value.length <= 6){
             sensorMoisturePercantage = +value;
@@ -229,7 +198,7 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
       }
     } catch (e) {
       // Permission to access a device was denied implicitly or explicitly by the user.
-      window.alert('Failed to connect to sensor') ;
+      window.alert('Failed to connect to sensor via USB') ;
     }
   }
 

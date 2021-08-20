@@ -6,26 +6,37 @@
     "numberOfStages": 4,
     "waterMeasurementMetric": "cm",
     "waterUsage": "daily",
+    "growthStageLengthMeasure": "days",
+    "totalGrowthStageLength": 149,
+    "rootDepthMetric": "m",
     "stages": [
       {
         "stageNumber": 1,
         "stage": "initial",
-        "waterUse": 0.25
+        "waterUse": 0.25,
+        "stageLength": 26,
+        "rootDepth": 0.3
       },
       {
         "stageNumber": 2,
         "stage": "development",
-        "waterUse": 0.66
+        "waterUse": 0.66,
+        "stageLength": 40,
+        "rootDepth": 0.53
       },
       {
         "stageNumber": 3,
         "stage": "mid-season",
-        "waterUse": 0.81
+        "waterUse": 0.81,
+        "stageLength": 48,
+        "rootDepth": 0.76
       },
       {
         "stageNumber": 4,
         "stage": "late",
-        "waterUse": 0.5
+        "waterUse": 0.5,
+        "stageLength": 35,
+        "rootDepth": 1.0
       }
     ]
   }

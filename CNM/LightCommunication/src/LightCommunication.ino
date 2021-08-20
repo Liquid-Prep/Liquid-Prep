@@ -7,6 +7,7 @@
 
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
+// Note, the neopixel library needs to be installed / imported from the Particle Cloud 
 #include <neopixel.h>
 
 #define PIXEL_PIN D2
@@ -24,34 +25,43 @@ int soilRead;
 int soilPin=A2;
 uint8_t i;
 uint8_t n;
-uint8_t soil[4];
+uint8_t soil[3];
 
 bool calState=true;
 bool cameraState=false;
 bool morseState=false;
 
+uint16_t dry,wet; // Variables to store calibration factors
+
 void setup() {
+  Serial.begin(9600);
   pinMode(soilPin, INPUT);
   pixel.begin();
   pixel.show();
   pixel.clear();
   pixel.setBrightness(20);
   currentTime=millis();
+
+  dry = EEPROM.read(0x13) << 8 | EEPROM.read(0x14); //get calibration
+  wet = EEPROM.read(0x15) << 8 | EEPROM.read(0x16);
+  if(dry==0) dry = 3300;
+  if(wet==0) wet = 1500;
 }
 
 void loop() {
-  if(millis()-currentTime>10000){ //send morse code sequence every 10 seconds
-    soilRead=analogRead(soilPin);
-    soil[0]=soilRead/1000; //calculations for accessing individual characters from soil reading
-    soil[1]=((soilRead-(soil[0]*1000))/100);
-    soil[2]=(soilRead-(soil[0]*1000)-(soil[1]*100))/10;
-    soil[3]=(soilRead-(soil[0]*1000)-(soil[1]*100))%10;
+  if(millis()-currentTime>10000){ //sends morse code sequence every 10 seconds
+    soilRead = map(analogRead(soilPin),3800,1200,0,100);
+    soil[0]=soilRead/100; //calculations for accessing individual characters from soil reading
+    soil[1]=((soilRead-(soil[0]*100))/10);
+    soil[2]=(soilRead-(soil[0]*100)-(soil[1]*10))%10;
+    //soil[3]=(soilRead-(soil[0]*1000)-(soil[1]*100))%10;
     sendMorse();
   }
 }
   
 void sendMorse(){  //.-. / -.-.- <your message> .-.-. //format for sending messages
   if(calState==true){
+    Serial.printf("Soil Read: %i\n",soilRead);
     dot(); dash(); dot(); //calibrate camera brightness
     calState=false;
     cameraState=true;
@@ -66,7 +76,7 @@ void sendMorse(){  //.-. / -.-.- <your message> .-.-. //format for sending messa
    Serial.printf("Camera\n");
   }
   if(millis()-morseTime>300&&morseState==true){
-    for(i=0;i<4;i++){ //loop for sending morse code to neopixel
+    for(i=0;i<3;i++){ //loop for sending morse code to neopixel
       Serial.printf("soil[i] = %i i = %i\n",soil[i],i);
       switch (soil[i]){
         case 0:
@@ -90,7 +100,7 @@ void sendMorse(){  //.-. / -.-.- <your message> .-.-. //format for sending messa
         case 9:
           dash(); dash(); dash(); dash(); dot(); space(); break;
       }
-      if(i==3){
+      if(i==2){
         dot(); dash(); dot(); dash(); dot(); //end of message
         Serial.printf("Over\n");
         currentTime=millis();

@@ -19,8 +19,8 @@
     height: 50%;
     width: 100%;
     align-items: center;
-
-    background-color: #2F4FFE;
+    padding-top: 50px;
+    background-color: #edf5ff;
 }
 
 .date {
@@ -61,6 +61,10 @@
     color: #FFCA26;
 }
 
+.blue {
+    color: #72b8e7;
+}
+
 .redText {
     color: red;
 }
@@ -90,4 +94,20 @@
   -ms-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
+}
+
+.txt-font {
+  font-size: x-large;
+}
+
+.color-low{
+  color: #db1d22;
+}
+
+.color-medium{
+  color: #e3963a;
+}
+
+.color-high{
+  color: #3f6a17;
 }

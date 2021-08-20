@@ -33,4 +33,8 @@ export class DateTimeUtil {
       return false;
     }
   }
+
+  public getTodayDate() {
+    return new Date();
+  }
 }

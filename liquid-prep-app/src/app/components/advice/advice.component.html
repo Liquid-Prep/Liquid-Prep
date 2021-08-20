@@ -10,38 +10,53 @@
     </button>
 </mat-toolbar>
 <div id="img-container">
-  <img class="topImage" src="/assets/crops-images/advice.png" width="359" height="311">
+  <img class="topImage" [src]="adviceImg" width="345" height="267">
     <button id="measure-btn" mat-fab color="primary" class="rotate-45" (click)="onFabClicked()">
       <mat-icon>straighten</mat-icon>
     </button>
 </div>
 
-<div class="horizontal">
+<mat-grid-list cols="3" rowHeight="2:1" gutterSize="12px" style="padding-top: 64px">
+  <mat-grid-tile>
     <div class="vertical">
-      <span class="vertical-align-middle title">{{waterRecommeded}}cm</span>
-      <Label class="description" textWrap="true">{{ "WATER RECOMMENDED" }}</Label>
+      <span class="vertical-align-middle txt-font">{{wateringDecision}}</span>
+      <Label class="description" textWrap="true">{{ "WATERING ADVICE" }}</Label>
     </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
     <div class="vertical">
-      <span class="vertical-align-middle title">{{ wateringDecision }}</span>
-      <Label class="description" textWrap="true">{{"WATER ADVISE"}}</Label>
+      <span class="vertical-align-middle txt-font">{{stageNumber}}</span>
+      <Label class="description" textWrap="true">{{ "GROWTH STAGE" }}</Label>
     </div>
-</div>
-
-<div class="horizontal">
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="vertical">
+      <span class="vertical-align-middle color-medium txt-font">{{soilMoistureLevel}} {{soilMoisturePercentage}}%</span>
+      <Label class="description" textWrap="true">{{"SOIL MOISTURE"}}</Label>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="vertical">
+      <span class="vertical-align-middle txt-font">{{plantingDays}}d</span>
+      <Label class="description" textWrap="true">{{ "SINCE PLANTING" }}</Label>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
     <div class="vertical">
       <div class="imgHolder">
         <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
         <span class="vertical-align-middle temp">{{temperature}}&deg;C</span>
       </div>
-      <Label class="description" textWrap="true">{{ "TEMPERATURE" }}</Label>
+      <Label class="description" textWrap="true">{{"TEMPERATURE"}}</Label>
     </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
     <div class="vertical">
       <div class="imgHolder">
-        <span class="vertical-align-middle redText title">{{soilMoistureLevel}}%</span>
+        <mat-icon class="vertical-align-middle blue">wb_cloudy</mat-icon>
+        <span class="vertical-align-middle temp">{{rainfallPercentage}}%</span>
       </div>
-      <Label class="description" textWrap="true">{{ "SOIL MOISTURE" }}</Label>
+      <Label class="description" textWrap="true">{{"RAINFALL"}}</Label>
     </div>
-
-</div>
-
-
+  </mat-grid-tile>
+</mat-grid-list>

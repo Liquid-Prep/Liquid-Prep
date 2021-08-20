@@ -61,7 +61,7 @@ export class SelectCropComponent implements OnInit{
   }
 
   addCrop(clickedCrop: Crop) {
-    this.router.navigateByUrl('/select-growth/' + clickedCrop.id).then(r => {});
+    this.router.navigateByUrl('/seed-date/' + clickedCrop.id).then(r => {});
   }
 
   filterFunction(): Crop[]{

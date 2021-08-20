@@ -5,7 +5,7 @@ Liquid Prep is an open source project and always welcome contributions to the pr
 - Software and Hardware testing
 - Localization and improvisation of the application
 - Add/Update crop data
-- Enhance watering advise agorithm
+- Enhance watering advise algorithm
 - Pilot testing the solution
 - Improve the documentation
 - Report bug and/or work on existing [issues](https://github.com/Call-for-Code/Liquid-Prep/issues)

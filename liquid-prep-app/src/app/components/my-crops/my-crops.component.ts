@@ -24,11 +24,11 @@ export class MyCropsComponent implements OnInit {
 
   public currentDate = '';
   public weatherIcon = '';
-  public loading:Boolean = false;
+  public loading = false;
   public temperature = undefined;
   public todayWeather = null;
   public myCropStatus: 'no-crop' | 'crop-selected' = 'no-crop';
-  public errorMessage = "";
+  public errorMessage = '';
 
   constructor(
     private router: Router, private location: Location,
@@ -58,9 +58,9 @@ export class MyCropsComponent implements OnInit {
   public tabClicked(tab) {
     this.activeTab = tab;
     if (tab === tab[0]) {
-      this.router.navigateByUrl('/my-crops');
+      this.router.navigateByUrl('/my-crops').then(r => {});
     } else {
-      this.router.navigateByUrl('/settings');
+      this.router.navigateByUrl('/settings').then(r => {});
     }
   }
 
@@ -84,6 +84,7 @@ export class MyCropsComponent implements OnInit {
   }
 
   onViewCropAdvice(crop: Crop) {
+    this.cropDataService.storeSelectedCropIdInSession(crop.id);
     this.router.navigate(['advice']).then(r => {});
   }
 
@@ -96,33 +97,31 @@ export class MyCropsComponent implements OnInit {
     this.router.navigateByUrl('/select-crop').then(r => {});
   }
 
-
   updateWeatherInfo(){
-    var self = this;
-    self.loading = true;
-    self.weatherService.getTodayWeather().subscribe(
+
+    this.loading = true;
+    this.weatherService.getTodayWeather().subscribe(
         (todayWeather: TodayWeather) => {
-          self.loading = false;
-          self.todayWeather = todayWeather;
+          this.loading = false;
+          this.todayWeather = todayWeather;
           const isDayTime = new DateTimeUtil().isDayTime(todayWeather.sunriseTime.toString(), todayWeather.sunsetTime.toString());
           if (isDayTime) {
-            self.temperature = todayWeather.dayTime.temperature;
-            self.weatherIcon = "wb_sunny";
+            this.temperature = todayWeather.dayTime.temperature;
+            this.weatherIcon = 'wb_sunny';
           } else {
-            self.temperature = todayWeather.nightTime.temperature;
-            self.weatherIcon = "bed";
+            this.temperature = todayWeather.nightTime.temperature;
+            this.weatherIcon = 'bed';
           }
         },
         (err) => {
-          self.loading = false;
-          self.errorMessage = err ;
+          this.loading = false;
+          this.errorMessage = err ;
         }
     );
   }
 
   showError(msg) {
-    var self = this;
-    alert(msg ? msg : self.errorMessage);
+    alert(msg ? msg : this.errorMessage);
   }
-  
+
 }

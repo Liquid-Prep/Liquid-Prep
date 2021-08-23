@@ -5,8 +5,6 @@ import { SwiperOptions } from 'swiper';
 import {SoilMoistureService} from '../../service/SoilMoistureService';
 import {SoilMoisture} from '../../models/SoilMoisture';
 import {LineBreakTransformer} from './LineBreakTransformer';
-import { Buffer } from 'buffer';
-// import { Buffer } from '@ty'
 
 @Component({
   selector: 'app-measure-soil',
@@ -49,7 +47,7 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
   public onSensorConnect(connectionOption){
 
     if (connectionOption === 'usb') {
-      this.connectSensor().then( sensorValue => {
+      this.connectUSB().then( sensorValue => {
         this.soilService.setSoilMoistureReading(sensorValue);
         this.setMeasureView('measuring');
         this.readingCountdown();
@@ -139,7 +137,7 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
 
 
 
-  public async connectSensor() {
+  public async connectUSB() {
     // Vendor code to filter only for Arduino or similar micro-controllers
     const filter = {
       usbVendorId: 0x2341 // Arduino UNO

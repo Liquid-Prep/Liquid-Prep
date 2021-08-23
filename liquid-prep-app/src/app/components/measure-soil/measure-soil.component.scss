@@ -35,6 +35,20 @@
   margin-bottom: 10px;
 }
 
+.image-cover{
+  margin-top: 400px;
+  width: 100%;
+  height: 100%;
+  line-height: 100%;
+  text-align: center;}
+
+.cardImg {
+  margin: 0 auto;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .custom-toolbar {
   background-color: #2F4FFE;
   padding: 0 5px;
@@ -59,4 +73,16 @@
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   flex-wrap: nowrap;
+}
+
+.c-btn {
+  width: 100%;
+  height: auto;
+  margin:  5px;
+  display: flex;
+  color: white;
+  text-align: center;
+  background-color: #2F4FFE;
+  font-size: 16px;
+  letter-spacing: 2px;
 }

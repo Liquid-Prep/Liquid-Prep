@@ -41,9 +41,9 @@ The Weather Data for a given location is being requested to [The Weather Company
 ### Get Started
 
 1. Project Setup
-   - [Soil Moisture Sensor Module Setup](https://github.com/Call-for-Code/Liquid-Prep/blob/master/soilSensor/User-Manual.pdf)
-   - [IBM Cloud Backend Service Setup](https://github.com/Call-for-Code/Liquid-Prep/blob/master/backend/README.md)
-   - [Liquid Prep App Setup](https://github.com/Call-for-Code/Liquid-Prep/blob/master/liquid-prep-app/README.md)
+   - [Soil Moisture Sensor Device Setup](./soilSensor/README.md)
+   - [IBM Cloud Backend Service Setup](./backend/README.md)
+   - [Liquid Prep App Setup](./liquid-prep-app/README.md)
 2. [Project Roadmap](#project-roadmap)
 3. [Contributing](#contributing)
 

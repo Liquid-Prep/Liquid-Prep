@@ -44,18 +44,100 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
   }
 
-  public onSensorConnect(){
+  public onSensorConnect(connectionOption){
 
-      this.connectSensor().then( sensorValue => {
+    if (connectionOption === 'usb') {
+      this.connectUSB().then( sensorValue => {
         this.soilService.setSoilMoistureReading(sensorValue);
         this.setMeasureView('measuring');
         this.readingCountdown();
       });
+    } else if (connectionOption === 'ble') {
+      this.connectBluetooth().then( sensorValue => {
+        this.soilService.setSoilMoistureReading(sensorValue);
+        this.setMeasureView('measuring');
+        this.readingCountdown();
+      });
+    } else {
+      alert("Please choose one soil sensor connection option.")
+    }
       
-      
+
   }
 
-  public async connectSensor() {
+  public async connectBluetooth() {
+    // Vendor code to filter only for Arduino or similar micro-controllers
+    const filter = {
+      usbVendorId: 0x2341,
+      esp32: 0x1234,
+      sample2: 0x12345678,
+      device: 0x40080698, // Arduino UNO
+      esp32test: 0x400806a8
+    };
+
+    let sensorMoisturePercantage: number;
+    /**
+     * The bluetoothName value is defined in the ESP32 BLE server sketch file.
+     * The value should match to exactly to what is defined in the BLE server sketch file. 
+     * Otherwise the App won't be able to identify the BLE device.
+     */
+     const bluetoothName = "ESP32-LiquidPrep";
+
+    /**
+     * The serviceUUID and characteristicUUID are the values defined in the ESP32 BLE server sketch file.
+     * These values should match to exactly to what is defined in the BLE server sketch file. 
+     * Otherwise the App won't be able to identify the BLE device.
+     */
+    const serviceUUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
+    const characteristicUUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8"
+
+    try {
+      await (window.navigator as any).bluetooth.requestDevice({
+          filters: [{
+            name: bluetoothName
+          }],
+          optionalServices: [serviceUUID] // Required to access service later.
+        })
+        .then(device => {
+          // Set up event listener for when device gets disconnected.
+          device.addEventListener('gattserverdisconnected', onDisconnected);
+
+          // Attempts to connect to remote GATT Server.
+          return device.gatt.connect();
+        })
+        .then(server => {
+          // Getting Service defined in the BLE server
+          return server.getPrimaryService(serviceUUID);
+        })
+        .then(service => {
+          // Getting Characteristic defined in the BLE server
+          return service.getCharacteristic(characteristicUUID);
+        })
+        .then(characteristic => {
+          return characteristic.readValue();
+        })
+        .then(value => {
+          const decoder = new TextDecoder('utf-8');
+          sensorMoisturePercantage = Number(decoder.decode(value));
+        })
+        .catch(error => { console.error(error); });
+
+      function onDisconnected(event) {
+          const device = event.target;
+          console.log(`Device ${device.name} is disconnected.`);
+        }
+
+      return sensorMoisturePercantage;
+    
+    } catch(e) {
+      window.alert('Failed to connect to sensor via Bluetooth');
+    }
+
+  }
+
+
+
+  public async connectUSB() {
     // Vendor code to filter only for Arduino or similar micro-controllers
     const filter = {
       usbVendorId: 0x2341 // Arduino UNO
@@ -76,27 +158,27 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
       // Listen to data coming from the serial device.
       while (true) {
         const { value, done } = await reader.read();
-        
+
         if (done) {
           reader.releaseLock();
           break;
         }
 
-        if (value !== "" || value !== 'NaN') {
+        if (value !== '' || !isNaN(value)) {
           // The value length between 4 and 6 is quite precise
           if (value.length >= 4 && value.length <= 6){
             sensorMoisturePercantage = +value;
-            if (sensorMoisturePercantage !== NaN) {
+            if (!isNaN(sensorMoisturePercantage)) {
               reader.cancel();
               // When reader is cancelled an error will be thrown as designed which can be ignored
               await readableStreamClosed.catch(() => { /* Ignore the error*/  });
               await port.close();
 
               return sensorMoisturePercantage;
-            } 
+            }
           }
         }
-        
+
         // Capture sensor data only upto 3 digits
         /*if (value.length >= 3 && value.length <= 5){
           sensorValue = +((+value).toPrecision(3));
@@ -114,7 +196,7 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
       }
     } catch (e) {
       // Permission to access a device was denied implicitly or explicitly by the user.
-      window.alert("Permission to access a device was denied implicitly or explicitly by the user.")
+      window.alert('Failed to connect to sensor via USB') ;
     }
   }
 
@@ -137,7 +219,7 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
   }
 
   public readingCountdown(){
-    //this.countdownSecond = seconds;
+    // this.countdownSecond = seconds;
     this.interval = setInterval(() => {
       if (this.countdownSecond <= 0){
         this.setMeasureView('after-measuring');

@@ -39,11 +39,17 @@
           <div class="swiper-slide">
             <div class="container" fxLayout="column" fxFlexFill fxLayoutAlign="end center" >
               <div class="container text-area" fxLayout="column" fxFlexWrap fxLayoutAlign="space-evenly center" >
-                <Label class="title" textWrap="true">Step 3:</Label>
-                <Label class="description" textWrap="true">You are all set!</Label>
-                <button mat-flat-button color="primary" (click)="onSensorConnect()">READ NOW</button>
+                <div class="image-cover">
+                  <img mat-card-image class="cardImg" src="/assets/connect-to-sensor.png" alt="Connect to Sensor" />
+                </div>
+                <Label class="title" textWrap="true">Connect to Sensor</Label>
+                <Label class="description" textWrap="true">How would you like to connect to your moisture sensor?</Label>
+                <button mat-flat-button class="c-btn" (click)="onSensorConnect('usb')"><mat-icon>usb</mat-icon> Connect with USB
+                </button>
+                <button mat-flat-button class="c-btn" (click)="onSensorConnect('ble')">
+                  <mat-icon>bluetooth</mat-icon> Connect with Bluetooth
+                </button>
               </div>
-              <img src="../../../assets/crops-images/ms3.png" alt="Step 3:">
             </div>
           </div>
     </swiper>

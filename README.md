@@ -24,7 +24,7 @@ We have developed **Liquid Prep**, an end-to-end solution for farmers looking to
 
 #### Soil Moisture Sensor Module
 
-The Soil Moisture Sendor Module, measures the soil moisture level and transmits the data to Liquid Prep App via USB serial connection/Bluetooth.
+The Soil Moisture Sensor Module, measures the soil moisture level and transmits the data to Liquid Prep App via USB serial connection/Bluetooth.
 
 #### Liquid Prep App
 

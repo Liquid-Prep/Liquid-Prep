@@ -18,13 +18,13 @@ Coding for the current iteration of the soil moisture probe was done using the P
 
 ## The Soil Probe
 
-The  Moisture Probe is created around a simple capacitive soil moisture sensor ( <$3 USD). It is wired into an analog input on of the Argon system. In addition, a low cost display is added to the system to allow a user to directly read the soil moisture measuremet. The soil moisture sensor value is mapped to a percentage - 0% when in dry air, 100% when submerged in water. In practice, the value will be somewhere in between. The desired value will be dependant on the plant and soil type.
+The  Moisture Probe is created around a simple capacitive soil moisture sensor ( <$3 USD). It is wired into an analog input on of the Argon system. In addition, a low cost display is added to the system to allow a user to directly read the soil moisture measurement. The soil moisture sensor value is mapped to a percentage - 0% when in dry air, 100% when submerged in water. In practice, the value will be somewhere in between. The desired value will be dependent on the plant and soil type.
 
 * The Code: SoilSensorCal collects the calibration factors for the soil moisture probe and stores them in the Particle's EEPROM.
 
 ### Soil Penetration Device
 
-The capacitive sensor is attached to a metal penetration that can be pushed into the soil by stepping on a platorm near the base. The penetration device was cut from 0.25 inch steel on a Torchmate CNC Plasma Table. The `./Torchmate` folder in this respository includes the files to plasma cut the penetration device. 
+The capacitive sensor is attached to a metal penetration that can be pushed into the soil by stepping on a platform near the base. The penetration device was cut from 0.25 inch steel on a Torchmate CNC Plasma Table. The `./Torchmate` folder in this repository includes the files to plasma cut the penetration device. 
 
 ![SoilProbe](images/Probe.jpg)
 
@@ -48,7 +48,7 @@ Periodically, the Argon microcontroller sends the soil moisture data to an Adafr
 ![adafruitio](images/AdafruitDashboard.jpg)
 
 ### Morse Code
-Additionally, the "LightCommunication" application allows users to read data from the Argon microcontroller using the Morse Cam app for iOS. The purpose of this application is to demonstrate the ability to transfer data using nontraditional methods. This requires an additonal LED light such an Adafruit NeoPixel LED Ring. [NeoPixel](https://www.adafruit.com/product/1463?gclid=CjwKCAjw_JuGBhBkEiwA1xmbRQ8KXl8inKbKAIjFVllt0GIqpISXa4G-AfsbOtpaIZPw4mE5cVrjJhoC324QAvD_BwE)
+Additionally, the "LightCommunication" application allows users to read data from the Argon microcontroller using the Morse Cam app for iOS. The purpose of this application is to demonstrate the ability to transfer data using non-traditional methods. This requires an additional LED light such an Adafruit NeoPixel LED Ring. [NeoPixel](https://www.adafruit.com/product/1463?gclid=CjwKCAjw_JuGBhBkEiwA1xmbRQ8KXl8inKbKAIjFVllt0GIqpISXa4G-AfsbOtpaIZPw4mE5cVrjJhoC324QAvD_BwE)
 
 [MorseCam](https://apps.apple.com/us/app/morse-cam/id1538642469)
 

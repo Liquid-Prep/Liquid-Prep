@@ -85,7 +85,7 @@ Instructions on how to run the App,
           <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/App/COS/cosCreateBucket.PNG" width ="30%" height="30%">
       </p>
 
-    - Configure the bucket by entering a **Unique bucket name**, select the required **Resiliency**, **Locaton** and **Storage class** options. Then configure **Static website hosting** by clicking **Add rule**, turn on the **Public access** switch and enter `index.html` for **Index document**. Finally click **Create Bucket** button end of the page.
+    - Configure the bucket by entering a **Unique bucket name**, select the required **Resiliency**, **Location** and **Storage class** options. Then configure **Static website hosting** by clicking **Add rule**, turn on the **Public access** switch and enter `index.html` for **Index document**. Finally click **Create Bucket** button end of the page.
       <p align="left">
           <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/App/COS/cosBucketConfig1.PNG" width ="30%" height="30%">
       </p>

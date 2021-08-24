@@ -38,7 +38,7 @@ Instructions on how to setup, configure and deploy the backend service is as fol
 
    - **Create Resource Group**;
      - Click on **Manage** tab on top right of the IBM Cloud dashboard. And click on **Account** option to open **Account** dashboard.
-     - Select **Resource groups** option on the left panee of the dashboard. Usually a **Default** resource group will be ceated when a cloud account is created. If not a new Resource group can be created by clicking on the **Create** button on the right of the **Resource groups** dashboard.
+     - Select **Resource groups** option on the left panel of the dashboard. Usually a **Default** resource group will be created when a cloud account is created. If not a new Resource group can be created by clicking on the **Create** button on the right of the **Resource groups** dashboard.
      <p align="left">
         <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/account/resourceGrp.PNG" width ="30%" height="30%">
      </p>
@@ -193,7 +193,7 @@ where the entries should be filled out as follows:
         <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/envEntries/cloudantService.PNG" width ="30%" height="30%">
     </p>
 
-    - The **External Endpoint (preffered)** value is the **CLOUDANT_DB_URL** value.
+    - The **External Endpoint (preferred)** value is the **CLOUDANT_DB_URL** value.
     <p align="left">
         <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/backend/envEntries/cloudantEndpoint.PNG" width ="30%" height="30%">
     </p>
@@ -240,7 +240,7 @@ The backend service is deployed in Liquid Prep cloud account and the APIs can be
 
    **Params:** <br>
    - **geoCode**: Geo-coordinates (latitude, longitude) of location.
-   - **units**: metric (e) or imperical (m)
+   - **units**: metric (e) or imperial (m)
 
    **Example:** <br>
    Get weather information for geo-coordinates latitude 42.359, longitude 71.068 and units in metrics (e). <br>

@@ -1,4 +1,4 @@
-  
+
 export class WeatherInfo {
     public narrative: string;
     public  precipChance: number;

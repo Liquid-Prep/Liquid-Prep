@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SettingsComponent implements OnInit {
 
-  constructor(private router: Router, private _location: Location) { }
+  constructor(private router: Router, private location: Location) { }
 
   ngOnInit(): void {
   }
@@ -19,6 +19,6 @@ export class SettingsComponent implements OnInit {
   }
 
   public backClicked() {
-    this._location.back();
+    this.location.back();
   }
 }

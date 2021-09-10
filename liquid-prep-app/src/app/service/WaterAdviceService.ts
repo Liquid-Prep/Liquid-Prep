@@ -15,7 +15,7 @@ import { Injectable } from '@angular/core';
 })
 export class WaterAdviceService {
 
-    public moisture_water_map = new Map([
+    public moistureWaterMap = new Map([
       ['None', new Map(
         [
           ['LOW', '/assets/moisture-water/nowater_lowmoisture.png'],
@@ -97,7 +97,7 @@ export class WaterAdviceService {
       // gather weather info
       // gather crop info for a stage
       const dateTimeUtil = new DateTimeUtil();
-      
+
       this.waterAdvice.soilMoistureReading = new SoilMoisture();
       this.waterAdvice.cropName = crop.cropName;
       this.waterAdvice.id = crop.id;
@@ -116,7 +116,7 @@ export class WaterAdviceService {
         this.waterAdvice.temperature = weatherInfo.nightTime.temperature;
         this.waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.nightTime, soilMoisture.soilMoistureIndex);
       }
-      this.waterAdvice.imageUrl = this.moisture_water_map.get(this.waterAdvice.wateringDecision).get(soilMoisture.soilMoistureIndex);
+      this.waterAdvice.imageUrl = this.moistureWaterMap.get(this.waterAdvice.wateringDecision).get(soilMoisture.soilMoistureIndex);
       return this.waterAdvice;
     }
 

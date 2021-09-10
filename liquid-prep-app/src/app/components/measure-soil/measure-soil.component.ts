@@ -59,10 +59,8 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
         this.readingCountdown();
       });
     } else {
-      alert("Please choose one soil sensor connection option.")
+      alert('Please choose one soil sensor connection option.');
     }
-      
-
   }
 
   public async connectBluetooth() {
@@ -78,18 +76,18 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
     let sensorMoisturePercantage: number;
     /**
      * The bluetoothName value is defined in the ESP32 BLE server sketch file.
-     * The value should match to exactly to what is defined in the BLE server sketch file. 
+     * The value should match to exactly to what is defined in the BLE server sketch file.
      * Otherwise the App won't be able to identify the BLE device.
      */
-     const bluetoothName = "ESP32-LiquidPrep";
+    const bluetoothName = 'ESP32-LiquidPrep';
 
     /**
      * The serviceUUID and characteristicUUID are the values defined in the ESP32 BLE server sketch file.
-     * These values should match to exactly to what is defined in the BLE server sketch file. 
+     * These values should match to exactly to what is defined in the BLE server sketch file.
      * Otherwise the App won't be able to identify the BLE device.
      */
-    const serviceUUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
-    const characteristicUUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8"
+    const serviceUUID = '4fafc201-1fb5-459e-8fcc-c5c9c331914b';
+    const characteristicUUID = 'beb5483e-36e1-4688-b7f5-ea07361b26a8';
 
     try {
       await (window.navigator as any).bluetooth.requestDevice({
@@ -128,8 +126,8 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
         }
 
       return sensorMoisturePercantage;
-    
-    } catch(e) {
+
+    } catch (e) {
       window.alert('Failed to connect to sensor via Bluetooth');
     }
 

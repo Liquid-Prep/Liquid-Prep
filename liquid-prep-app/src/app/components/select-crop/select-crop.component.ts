@@ -42,7 +42,7 @@ export class SelectCropComponent implements OnInit{
           }
         },
         (err) => {
-          alert("Could not get crop list: " + err);
+          alert('Could not get crop list: ' + err);
         }
       );
   }

@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
-import { SoilMoisture } from "../models/SoilMoisture";
+import { Injectable } from '@angular/core';
+import { SoilMoisture } from '../models/SoilMoisture';
 
 @Injectable({
     providedIn: 'root',
@@ -19,13 +19,13 @@ export class SoilMoistureService {
         soilMoisture.soilMoisturePercentage = this.soilMoistureReadingPercentage;
 
         if (soilMoisture.soilMoisturePercentage <= 33) {
-            soilMoisture.soilMoistureIndex = 'LOW'; 
+            soilMoisture.soilMoistureIndex = 'LOW';
         } else if (soilMoisture.soilMoisturePercentage > 33 && soilMoisture.soilMoisturePercentage <= 66) {
-            soilMoisture.soilMoistureIndex = 'MEDIUM'
+            soilMoisture.soilMoistureIndex = 'MEDIUM';
         } else {
-            soilMoisture.soilMoistureIndex = 'HIGH'
+            soilMoisture.soilMoistureIndex = 'HIGH';
         }
 
-        return soilMoisture;  
+        return soilMoisture;
     }
 }

@@ -21,7 +21,7 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   public getWeatherInfo(): Observable<WeatherResponse> {
-    var self = this;
+    const self = this;
     return new Observable((observer: Observer<WeatherResponse>) => {
       const unit = WeatherMeasuringUnit.getInstance().getUnit();
       let coordinates;
@@ -48,7 +48,7 @@ export class DataService {
                 );
               },
               error(err) {
-                let msg = `Geolocation and weather data not found because \n${err.message}`;
+                const msg = `Geolocation and weather data not found because \n${err.message}`;
                 alert(msg);
               }
           });
@@ -56,7 +56,7 @@ export class DataService {
   }
 
   public getCropsList(): Observable<CropListResponse> {
-    var self = this;
+    const self = this;
     return new Observable((observer: Observer<any>) => {
       const url = config.backendAPIEndpoint + self.cropsListAPIUrl;
       self.http.get<CropListResponse>(url)
@@ -77,7 +77,7 @@ export class DataService {
   }
 
   public getCropInfo(id: string): Observable<any> {
-    var self = this;
+    const self = this;
     return new Observable((observer: Observer<any>) => {
       const params = 'id=' + id;
       const url = config.backendAPIEndpoint + self.cropAPIUrl + params;

@@ -23,7 +23,7 @@ export class WeatherDataService {
                 }
 
     public getTodayWeather(): Observable<TodayWeather>  {
-      var self = this;
+      const self = this;
       // check if the weather data stored locally is valid for today
       // else get today weather data from backend
       const localTodayWeather = self.getTodayWeatherFromLocalStorage();
@@ -42,12 +42,12 @@ export class WeatherDataService {
                 observer.next(self.today);
                 observer.complete();
               },
-              error(err) { 
-                observer.error('Error getting weather data: ' + (err.message ? err.message : err) )
+              error(err) {
+                observer.error('Error getting weather data: ' + (err.message ? err.message : err) );
               }
             });
           });
-        } 
+        }
       } else {
         return new Observable((observer: Observer<TodayWeather>) => {
           if (self.today.dayOfWeek) {
@@ -61,8 +61,8 @@ export class WeatherDataService {
                 observer.next(self.today);
                 observer.complete();
               },
-              error(err) { 
-                console.log('Error getting weather data: ' + (err.message ? err.message : err) )
+              error(err) {
+                console.log('Error getting weather data: ' + (err.message ? err.message : err) );
               }
             });
           }
@@ -118,7 +118,7 @@ export class WeatherDataService {
 
     // determine if its raining more than 25%
     public isRaining(weatherInfo: WeatherInfo) {
-      if ((weatherInfo.precipType === "rain") || (weatherInfo.precipType === "precip")) {
+      if ((weatherInfo.precipType === 'rain') || (weatherInfo.precipType === 'precip')) {
           if (weatherInfo.precipChance > 25) {
               return true;
           } else {
@@ -132,23 +132,23 @@ export class WeatherDataService {
     // Referred - https://www.britannica.com/technology/agricultural-technology/Weather-conditions-and-controls#ref558352
     public determineTemperatureIndex(temp: number) {
       if (temp < 5) {
-        return 'LOW'
+        return 'LOW';
       } else if (temp >= 5 && temp <= 25) {
-          return 'OPTIMUM'
+          return 'OPTIMUM';
       } else if (temp > 25 && temp < 30) {
-          return 'MEDIUM'
+          return 'MEDIUM';
       } else {
-          return 'HIGH'
+          return 'HIGH';
       }
     }
 
     public determineRainIndex(precip: number) {
       if (precip >= 25 && precip < 50) {
-          return 'LOW'
+          return 'LOW';
       } else if (precip >= 50 && precip < 75) {
-          return 'MEDIUM'
+          return 'MEDIUM';
       } else {
-          return 'HIGH'
+          return 'HIGH';
       }
     }
 

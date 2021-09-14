@@ -14,12 +14,12 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if(this.swUpdate.isEnabled) {
+    if (this.swUpdate.isEnabled) {
       this.swUpdate.available.subscribe(() => {
-        if(confirm('New version available, would like to update?')) {
+        if (confirm('New version available, would like to update?')) {
           window.location.reload();
         }
-      })
+      });
     }
   }
 }

@@ -14,8 +14,8 @@ export class DateTimeUtil {
   }
 
   public extractDateFromDateTime(dateTime) {
-    return new DatePipe('en-US').transform(dateTime, 'yyyy-MM-dd')
-    //return this.datePipe.transform(dateTime, 'yyyy-MM-dd');
+    return new DatePipe('en-US').transform(dateTime, 'yyyy-MM-dd');
+    // return this.datePipe.transform(dateTime, 'yyyy-MM-dd');
   }
 
   public getCurrentTimeInMilliSeconds() {

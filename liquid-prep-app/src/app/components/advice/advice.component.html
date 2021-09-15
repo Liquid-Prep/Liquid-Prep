@@ -31,7 +31,7 @@
   </mat-grid-tile>
   <mat-grid-tile>
     <div class="vertical">
-      <span class="vertical-align-middle color-medium txt-font">{{soilMoistureLevel}} {{soilMoisturePercentage}}%</span>
+      <span class="vertical-align-middle color-medium txt-font">{{soilMoistureLevel}}</span>
       <Label class="description" textWrap="true">{{"SOIL MOISTURE"}}</Label>
     </div>
   </mat-grid-tile>
@@ -44,7 +44,7 @@
   <mat-grid-tile>
     <div class="vertical">
       <div class="imgHolder">
-        <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
+        <mat-icon class="vertical-align-middle txt-font yellow">wb_sunny</mat-icon>
         <span class="vertical-align-middle temp">{{temperature}}&deg;C</span>
       </div>
       <Label class="description" textWrap="true">{{"TEMPERATURE"}}</Label>
@@ -53,7 +53,7 @@
   <mat-grid-tile>
     <div class="vertical">
       <div class="imgHolder">
-        <mat-icon class="vertical-align-middle blue">wb_cloudy</mat-icon>
+        <mat-icon class="vertical-align-middle txt-font blue">wb_cloudy</mat-icon>
         <span class="vertical-align-middle temp">{{rainfallPercentage}}%</span>
       </div>
       <Label class="description" textWrap="true">{{"RAINFALL"}}</Label>

@@ -105,6 +105,9 @@ Instructions on how to run the App,
       <p align="left">
           <img src="https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/App/COS/cosUpload.PNG" width ="30%" height="30%">
       </p>
+      
+    - Contents being uploaded from nested directories will need to prefixed with a path in the **Prefix for objects** field to create equivalent folders in object storage. 
+    E.g. **assets/crops-images/** for contents located in the crops-images directory.
 
     - Once uploading is complete, select **Configuration** for the bucket.
       <p align="left">

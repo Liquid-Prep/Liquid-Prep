@@ -71,13 +71,14 @@ export class WeatherDataService {
     }
 
     public createTodayWeather(weatherData: WeatherResponse): TodayWeather {
+      
         const weatherInfo = weatherData.data;
         this.today.dayOfWeek = weatherInfo.dayOfWeek[0];
         this.today.narrative = weatherInfo.narrative[0];
         this.today.sunriseTime = weatherInfo.sunriseTimeLocal[0];
         this.today.sunsetTime = weatherInfo.sunsetTimeLocal[0];
-        this.today.maxTemperature = weatherInfo.temperatureMax[0];
-        this.today.minTemperature = weatherInfo.temperatureMin[0];
+        this.today.maxTemperature = weatherInfo.calendarDayTemperatureMax[0];
+        this.today.minTemperature = weatherInfo.calendarDayTemperatureMin[0];
         this.today.date = this.dateTimeUtil.extractDateFromDateTime(weatherInfo.validTimeLocal[0]);
 
         const dayPart = weatherInfo.daypart[0];

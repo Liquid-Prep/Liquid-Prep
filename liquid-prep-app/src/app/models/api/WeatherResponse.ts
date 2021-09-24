@@ -39,8 +39,8 @@ export class Data {
   sunriseTimeUtc: number[];
   sunsetTimeLocal: Date[];
   sunsetTimeUtc: number[];
-  temperatureMax: number[];
-  temperatureMin: number[];
+  calendarDayTemperatureMax: number[];
+  calendarDayTemperatureMin: number[];
   validTimeLocal: Date[];
   validTimeUtc: number[];
   daypart: Daypart[];

@@ -25,7 +25,8 @@ export class MyCropsComponent implements OnInit {
   public currentDate = '';
   public weatherIcon = '';
   public loading = false;
-  public temperature = undefined;
+  public temperatureMax = null;
+  public temperatureMin = null;
   public todayWeather = null;
   public myCropStatus: 'no-crop' | 'crop-selected' = 'no-crop';
   public errorMessage = '';
@@ -104,14 +105,6 @@ export class MyCropsComponent implements OnInit {
         (todayWeather: TodayWeather) => {
           this.loading = false;
           this.todayWeather = todayWeather;
-          const isDayTime = new DateTimeUtil().isDayTime(todayWeather.sunriseTime.toString(), todayWeather.sunsetTime.toString());
-          if (isDayTime) {
-            this.temperature = todayWeather.dayTime.temperature;
-            this.weatherIcon = 'wb_sunny';
-          } else {
-            this.temperature = todayWeather.nightTime.temperature;
-            this.weatherIcon = 'bed';
-          }
         },
         (err) => {
           this.loading = false;

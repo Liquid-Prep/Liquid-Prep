@@ -36,6 +36,7 @@ export class CropDataService {
         .subscribe(
           (cropsList: any) => {
             const cropListData = cropsList.data.docs;
+            // Map the crop images
             if (cropListData) {
               cropListData.map((crop) => {
                 crop.id = crop._id;

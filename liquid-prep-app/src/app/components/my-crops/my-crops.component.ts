@@ -23,7 +23,8 @@ export class MyCropsComponent implements OnInit {
   background: ThemePalette = undefined;
 
   public currentDate = '';
-  public weatherIcon = '';
+  public weatherIconDay = '';
+  public weatherIconNight = '';
   public loading = false;
   public temperatureMax = null;
   public temperatureMin = null;

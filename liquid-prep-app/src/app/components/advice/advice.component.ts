@@ -21,6 +21,8 @@ export class AdviceComponent implements OnInit {
   stageNumber = undefined;
   rainfallPercentage: number = undefined;
   rainfallIndex: string = undefined;
+  weatherIcon: string = null;
+  rainfallIcon: string = '../../../assets/icons/weatherIcons/Rain.png'
 
   adviceImg = undefined; // this.ADVICE_IMAGES[0];
 
@@ -41,6 +43,7 @@ export class AdviceComponent implements OnInit {
       this.soilMoisturePercentage = advice.soilMoistureReading.soilMoisturePercentage;
       this.rainfallIndex = advice.rainfallIndex;
       this.rainfallPercentage = advice.rainfallPercentage;
+      this.weatherIcon = advice.weatherIconTemp;
       this.adviceImg = advice.imageUrl;
     });
   }

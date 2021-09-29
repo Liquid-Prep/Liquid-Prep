@@ -44,8 +44,8 @@
   <mat-grid-tile>
     <div class="vertical">
       <div class="imgHolder">
-        <mat-icon class="vertical-align-middle txt-font yellow">wb_sunny</mat-icon>
-        <span class="vertical-align-middle temp">{{temperature}}&deg;C</span>
+        <img class="vertical-align-middle" src="{{weatherIcon}}" width="25" height="25">
+        <span class="vertical-align-middle temp"> {{temperature}}&deg;C</span>
       </div>
       <Label class="description" textWrap="true">{{"TEMPERATURE"}}</Label>
     </div>
@@ -53,8 +53,8 @@
   <mat-grid-tile>
     <div class="vertical">
       <div class="imgHolder">
-        <mat-icon class="vertical-align-middle txt-font blue">wb_cloudy</mat-icon>
-        <span class="vertical-align-middle temp">{{rainfallPercentage}}%</span>
+        <img class="vertical-align-middle" src="{{rainfallIcon}}" width="25" height="25">
+        <span class="vertical-align-middle temp"> {{rainfallPercentage}}%</span>
       </div>
       <Label class="description" textWrap="true">{{"RAINFALL"}}</Label>
     </div>

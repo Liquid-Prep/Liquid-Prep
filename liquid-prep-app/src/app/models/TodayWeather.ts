@@ -1,11 +1,13 @@
 
 export class WeatherInfo {
     public narrative: string;
-    public  precipChance: number;
-    public  precipType: string;
-    public  humidity: number;
-    public  temperature: number;
-    public  windSpeed: number;
+    public precipChance: number;
+    public precipType: string;
+    public humidity: number;
+    public temperature: number;
+    public windSpeed: number;
+    public iconCode: number;
+    public iconImageUrl: string;
 }
 
 export class TodayWeather {

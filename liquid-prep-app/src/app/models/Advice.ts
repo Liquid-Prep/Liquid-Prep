@@ -7,6 +7,7 @@ export class Advice {
     stage: Stage;
     waterRecommended: number;
     temperature: number;
+    weatherIconTemp: string;
     rainfallPercentage: number;
     rainfallIndex: string;
     wateringDecision: string;

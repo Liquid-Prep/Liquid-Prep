@@ -110,10 +110,20 @@ export class WaterAdviceService {
       const isDayTime = dateTimeUtil.isDayTime(weatherInfo.sunriseTime.toString(), weatherInfo.sunsetTime.toString());
 
       if (isDayTime){
-        this.waterAdvice.temperature = weatherInfo.dayTime.temperature;
-        this.waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.dayTime, soilMoisture.soilMoistureIndex);
+          // The The Weather Company by design returns null values for the dayPart after 3 pm local time.
+          // Therefore we should default to nighPart if the dayPart returns null values.
+          if (weatherInfo.dayTime.temperature !== null) {
+            this.waterAdvice.temperature = weatherInfo.dayTime.temperature;
+            this.waterAdvice.weatherIconTemp = weatherInfo.dayTime.iconImageUrl;
+            this.waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.dayTime, soilMoisture.soilMoistureIndex);
+          } else {
+            this.waterAdvice.temperature = weatherInfo.nightTime.temperature;
+            this.waterAdvice.weatherIconTemp = weatherInfo.nightTime.iconImageUrl;
+            this.waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.nightTime, soilMoisture.soilMoistureIndex);
+          }
       } else {
         this.waterAdvice.temperature = weatherInfo.nightTime.temperature;
+        this.waterAdvice.weatherIconTemp = weatherInfo.nightTime.iconImageUrl;
         this.waterAdvice.wateringDecision = this.generateWaterAdvice(weatherInfo.nightTime, soilMoisture.soilMoistureIndex);
       }
       this.waterAdvice.imageUrl = this.moistureWaterMap.get(this.waterAdvice.wateringDecision).get(soilMoisture.soilMoistureIndex);

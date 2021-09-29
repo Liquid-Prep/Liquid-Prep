@@ -13,7 +13,7 @@
         <span class="vertical-align-middle">{{todayWeather.maxTemperature}}&deg;C</span>
       </div>
       <div>
-        <mat-icon class="vertical-align-middle yellow">wb_sunny</mat-icon>
+        <img class="vertical-align-middle" src="{{todayWeather.dayTime.iconImageUrl}}" width="25" height="25">
       </div>
     </div>
     <div class="horizontal" >
@@ -21,7 +21,7 @@
         <span class="vertical-align-middle">{{todayWeather.minTemperature}}&deg;C</span>
       </div>
       <div>
-        <mat-icon class="vertical-align-middle darkblue">bedtime</mat-icon>
+        <img class="vertical-align-middle" src="{{todayWeather.nightTime.iconImageUrl}}" width="25" height="25">
       </div>
     </div>
   </div>

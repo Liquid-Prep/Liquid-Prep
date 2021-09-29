@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { DatePipe, formatDate } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { Observable, Observer } from 'rxjs';
 import { WeatherResponse } from '../models/api/WeatherResponse';
 import { WeatherInfo, TodayWeather } from '../models/TodayWeather';
@@ -8,7 +8,6 @@ import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { DateTimeUtil } from '../utility/DateTimeUtil';
 import { ImageMapping } from '../models/ImageMapping';
 import { HttpClient } from '@angular/common/http';
-import { ConstantPool } from '@angular/compiler';
 
 const TODAY_WEATHER = 'today-weather';
 
@@ -22,7 +21,6 @@ export class WeatherDataService {
   constructor(
     private dataService: DataService,
     @Inject(LOCAL_STORAGE) private localStorage: StorageService,
-    private datePipe: DatePipe,
     private http: HttpClient
   ) {
     this.dateTimeUtil = new DateTimeUtil();
@@ -125,31 +123,12 @@ export class WeatherDataService {
 
       // assign weather icon images for the icons codes
       this.assignWeatherIconImage(dayTime, nightTime).subscribe(response => {
-        console.log('response: ', response)
         this.today.dayTime = dayTime;
         this.today.nightTime = nightTime;
-        console.log('day assignWeatherIconImage url', dayTime.iconImageUrl)
-        console.log('night assignWeatherIconImage url', nightTime.iconImageUrl)
         observer.next(this.today);
         observer.complete();
       });
-
-      /*this.today.dayTime = dayTime;
-      this.today.nightTime = nightTime;*/
-
-      
     });
-    
-
-    // assign weather icon images for the icons codes
-    /*this.assignWeatherIconImage(dayTime, nightTime).subscribe(response => {
-      this.today.dayTime = dayTime;
-      this.today.nightTime = nightTime;
-      console.log('day assignWeatherIconImage url', dayTime.iconImageUrl)
-      console.log('night assignWeatherIconImage url', nightTime.iconImageUrl)
-      return this.today;
-    });*/
-    //return this.today;
   }
 
   private assignWeatherIconImage(dayTime: WeatherInfo, nightTime: WeatherInfo): Observable<any> {
@@ -160,19 +139,14 @@ export class WeatherDataService {
           // assign dayTime icon 
           if (imageMapping != null && imageMapping.weatherIconMap[dayTime.iconCode]) {
             dayTime.iconImageUrl = imageMapping.weatherIconMap[dayTime.iconCode].url;
-            console.log('day assignWeatherIconImage 1', imageMapping.weatherIconMap[dayTime.iconCode])
-            console.log('day assignWeatherIconImage 2', dayTime.iconImageUrl)
           } else {
             // sunny icon code
             dayTime.iconImageUrl = imageMapping.weatherIconMap[32].url;
-            console.log('day assignWeatherIconImage 3', dayTime.iconImageUrl)
           }
 
           // assign dnightTime icon 
           if (imageMapping != null && imageMapping.weatherIconMap[nightTime.iconCode]) {
             nightTime.iconImageUrl = imageMapping.weatherIconMap[nightTime.iconCode].url;
-            console.log('night assignWeatherIconImage 1', imageMapping.weatherIconMap[nightTime.iconCode])
-            console.log('night assignWeatherIconImage 2', nightTime.iconImageUrl)
           } else {
             // night icon code
             nightTime.iconImageUrl = imageMapping.weatherIconMap[33].url;
@@ -193,7 +167,6 @@ export class WeatherDataService {
     return new Observable((observer: Observer<ImageMapping>) => {
       this.http.get<ImageMapping>(this.weatherIconMappingFile).subscribe(
         (data) => {
-          console.log('data: ',data)
           observer.next(data);
           observer.complete();
         },

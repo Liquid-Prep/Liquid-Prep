@@ -73,7 +73,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 ## Technical Steering Committee
 
-Per the [The Liquid Prep Technical Charter](Liquid-Prep-Technical-Charter.pdf)
+Per the [The Liquid Prep Technical Charter](Liquid-Prep-Technical-Charter.pdf).
 
 See the [CONTRIBUTING.md](CONTRIBUTING.md) file for TSC details.
 

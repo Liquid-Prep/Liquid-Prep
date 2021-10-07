@@ -1,6 +1,6 @@
 # Liquid Prep
 
-[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/static/v1?label=Community&message=%23liquid-prep&color=blue)](https://developer.ibm.com/callforcode/solutions/projects/get-started/) [![Web App](https://img.shields.io/badge/WebApp-Liquid%20%20Prep-blue)](https://liquid-prep-app-v2.s3-web.us-east.cloud-object-storage.appdomain.cloud/)
+[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/static/v1?label=Community&message=%23liquid-prep&color=blue)](https://callforcode.org/slack) [![Web App](https://img.shields.io/badge/WebApp-Liquid%20%20Prep-blue)](https://liquid-prep-app-v2.s3-web.us-east.cloud-object-storage.appdomain.cloud/)
 
 Liquid Prep offers an end-to-end solution for farmers who want to optimize their water usage; especially during times of drought. It is specially designed for low-literate farmers in developing countries who also need access to advanced agricultural advice to be successful.
 
@@ -49,7 +49,7 @@ The Weather Data for a given location is being requested to [The Weather Company
 
 ## Project Roadmap
 
-The Liquid Prep solution currently comprises mainly highly visual and easy-to-use mobile web application, a hardware sensor to measure soil moisture, a back-end data service to power the app, and the IBM Cloud platform for accessing weather and crop data. Our future roadmap adds more functionality to the Liquid Prep platform by: 
+The Liquid Prep solution currently comprises mainly highly visual and easy-to-use mobile web application, a hardware sensor to measure soil moisture, a back-end data service to power the app, and the IBM Cloud platform for accessing weather and crop data. Our future roadmap adds more functionality to the Liquid Prep platform by:
 
 1. Localizing the app
 2. Adding more crop data
@@ -57,7 +57,7 @@ The Liquid Prep solution currently comprises mainly highly visual and easy-to-us
 
 The goal of the project is to help farmers globally farm their crops with the least amount of water by taking advantage of real-time information that can help improve sustainability and build resiliency to climate change.
 
-Participation is welcomed from software developers, designers, testers, agronomists/agri experts/soil experts, IoT engineers, researchers, students, farmers, and others that can help improve the quality and value of the solution for small farmers around the world. 
+Participation is welcomed from software developers, designers, testers, agronomists/agri experts/soil experts, IoT engineers, researchers, students, farmers, and others that can help improve the quality and value of the solution for small farmers around the world.
 
 Key areas the team are interested in developing include localizing the mobile app, considering soil properties for the improvement of the watering advice, updating project documentation, software and hardware testing, more in-depth research, and adding more crops data to the database.
 
@@ -70,6 +70,16 @@ Key areas the team are interested in developing include localizing the mobile ap
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, areas where we'd like to see community contributions, and the process for submitting pull requests to the project.
+
+## Technical Steering Committee
+
+Per the [The Liquid Prep Technical Charter](Liquid-Prep-Technical-Charter.pdf).
+
+See the [CONTRIBUTING.md](CONTRIBUTING.md) file for TSC details.
+
+### Public meetings
+
+Thursdays at 4:30pm ET. [Join us on Zoom](https://us05web.zoom.us/j/9124577210?pwd=NDFUV1EvdGFLZWpQb3ZYcm10ZEpxdz09).
 
 ## License
 

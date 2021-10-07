@@ -22,7 +22,7 @@ export class AdviceComponent implements OnInit {
   rainfallPercentage: number = undefined;
   rainfallIndex: string = undefined;
   weatherIcon: string = null;
-  rainfallIcon: string = '../../../assets/icons/weatherIcons/Rain.png'
+  rainfallIcon = '../../../assets/icons/weatherIcons/Rain.png';
 
   adviceImg = undefined; // this.ADVICE_IMAGES[0];
 

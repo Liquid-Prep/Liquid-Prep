@@ -43,7 +43,7 @@ export class WeatherDataService {
         return new Observable((observer: Observer<TodayWeather>) => {
           this.dataService.getWeatherInfo().subscribe({
             next(weatherInfo: WeatherResponse) {
-              //self.today = self.createTodayWeather(weatherInfo);
+              // self.today = self.createTodayWeather(weatherInfo);
               self.createTodayWeather(weatherInfo).subscribe(todayWeather => {
                 self.storeTodayWeatherInLocalStorage(todayWeather);
                 observer.next(todayWeather);
@@ -67,13 +67,12 @@ export class WeatherDataService {
         } else {
           this.dataService.getWeatherInfo().subscribe({
             next(weatherInfo: WeatherResponse) {
-              //self.today = self.createTodayWeather(weatherInfo);
+              // self.today = self.createTodayWeather(weatherInfo);
               self.createTodayWeather(weatherInfo).subscribe(todayWeather => {
                 self.storeTodayWeatherInLocalStorage(todayWeather);
                 observer.next(todayWeather);
                 observer.complete();
               });
-              
             },
             error(err) {
               console.log(
@@ -112,7 +111,7 @@ export class WeatherDataService {
       dayTime.temperature = dayPart.temperature[0];
       dayTime.windSpeed = dayPart.windSpeed[0];
       dayTime.iconCode = dayPart.iconCode[0];
-      
+
       nightTime.narrative = dayPart.narrative[1];
       nightTime.precipChance = dayPart.precipChance[1];
       nightTime.precipType = dayPart.precipType[1];
@@ -136,7 +135,7 @@ export class WeatherDataService {
       this.getWeatherIconMapping()
       .subscribe(
         (imageMapping: ImageMapping) => {
-          // assign dayTime icon 
+          // assign dayTime icon
           if (imageMapping != null && imageMapping.weatherIconMap[dayTime.iconCode]) {
             dayTime.iconImageUrl = imageMapping.weatherIconMap[dayTime.iconCode].url;
           } else {
@@ -144,7 +143,7 @@ export class WeatherDataService {
             dayTime.iconImageUrl = imageMapping.weatherIconMap[32].url;
           }
 
-          // assign dnightTime icon 
+          // assign dnightTime icon
           if (imageMapping != null && imageMapping.weatherIconMap[nightTime.iconCode]) {
             nightTime.iconImageUrl = imageMapping.weatherIconMap[nightTime.iconCode].url;
           } else {
@@ -158,9 +157,7 @@ export class WeatherDataService {
           console.error('assignWeatherIconImage', err);
         }
       );
-      
     });
-    
   }
 
   private getWeatherIconMapping(): Observable<ImageMapping> {

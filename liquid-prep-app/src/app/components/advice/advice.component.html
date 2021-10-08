@@ -19,7 +19,7 @@
 <mat-grid-list cols="3" rowHeight="2:1" gutterSize="12px" style="padding-top: 64px">
   <mat-grid-tile>
     <div class="vertical">
-      <span class="vertical-align-middle txt-font">{{wateringDecision}}</span>
+      <span class="vertical-align-middle txt-font water-des-color">{{wateringDecision}}</span>
       <Label class="description" textWrap="true">{{ "WATERING ADVICE" }}</Label>
     </div>
   </mat-grid-tile>
@@ -31,7 +31,7 @@
   </mat-grid-tile>
   <mat-grid-tile>
     <div class="vertical">
-      <span class="vertical-align-middle color-medium txt-font">{{soilMoistureLevel}}</span>
+      <span class="vertical-align-middle txt-font" [class]="soilMoistureColorClass">{{soilMoistureLevel}}</span>
       <Label class="description" textWrap="true">{{"SOIL MOISTURE"}}</Label>
     </div>
   </mat-grid-tile>

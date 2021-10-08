@@ -26,6 +26,13 @@ export class AdviceComponent implements OnInit {
 
   adviceImg = undefined; // this.ADVICE_IMAGES[0];
 
+  public soilMoistureColorClass = 'color-high';
+  public soilMoistureIndexColorMap = new Map([
+    ['Low', 'color-low'],
+    ['Medium', 'color-medium'],
+    ['High', 'color-high']
+  ]);
+
   constructor(
     private router: Router,
     private waterAdviceService: WaterAdviceService
@@ -40,6 +47,7 @@ export class AdviceComponent implements OnInit {
       this.stageNumber = advice.stage.stageNumber;
       this.temperature = advice.temperature;
       this.soilMoistureLevel = advice.soilMoistureReading.soilMoistureIndex;
+      this.soilMoistureColorClass = this.soilMoistureIndexColorMap.get(this.soilMoistureLevel);
       this.soilMoisturePercentage = advice.soilMoistureReading.soilMoisturePercentage;
       this.rainfallIndex = advice.rainfallIndex;
       this.rainfallPercentage = advice.rainfallPercentage;

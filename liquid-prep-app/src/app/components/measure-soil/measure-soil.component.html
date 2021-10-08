@@ -70,8 +70,11 @@
        fxFlexFill fxLayout="column"
        fxLayoutGap="28px"
        fxLayoutAlign="center center">
-    <img src="../../assets/low-moisture.png" alt="low-moisture">
+    <img [src]="moistureIcon" alt="low-moisture" height="160px" width="160px">
     <p class="mat-body-1">SOIL MOISTURE</p>
-    <p class="mat-display-1"><span style="color:red">{{ soilData.soilMoistureIndex }} </span> <span> {{soilData.soilMoisturePercentage}}% </span></p>
-    <button mat-flat-button color="primary" (click)="onGetAdvise()">GET ADVISE</button>
+    <p class="mat-display-1">
+      <span [class]="soilMoistureColorClass">{{ soilData.soilMoistureIndex }} </span> 
+      <span> {{soilData.soilMoisturePercentage}}% </span>
+    </p>
+    <button mat-flat-button color="primary" (click)="onGetAdvise()">GET ADVICE</button>
   </div>

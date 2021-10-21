@@ -12,6 +12,8 @@
 #define SERVICE_UUID        "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
 #define CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26a8"
 
+BLECharacteristic *pCharacteristic;
+
 void setup() {
   Serial.begin(115200);
   Serial.println("Starting BLE work!");
@@ -19,13 +21,14 @@ void setup() {
   BLEDevice::init("ESP32-LiquidPrep");
   BLEServer *pServer = BLEDevice::createServer();
   BLEService *pService = pServer->createService(SERVICE_UUID);
-  BLECharacteristic *pCharacteristic = pService->createCharacteristic(
+  pCharacteristic = pService->createCharacteristic(
                                          CHARACTERISTIC_UUID,
                                          BLECharacteristic::PROPERTY_READ |
                                          BLECharacteristic::PROPERTY_WRITE
                                        );
 
-  pCharacteristic->setValue("92");
+  // pCharacteristic->setValue("92");  // use this to hard-code value sent via bluetooth (for testing)
+  
   pService->start();
   // BLEAdvertising *pAdvertising = pServer->getAdvertising();  // this still is working for backward compatibility
   BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
@@ -38,6 +41,19 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  delay(2000);
+
+  int max = 1750;  // enter your max value here
+  int min = 3420;  // enter your min value here
+  int val = analogRead(4);  // connect sensor to Analog 4
+
+  int valueMinDiff = abs(val - min);
+  int maxMinDiff = abs(max - min);
+  float moistPercentage = ((float)valueMinDiff / maxMinDiff) * 100;
+  Serial.println(moistPercentage);  // print the value to serial port
+
+  char str[8];
+  dtostrf(moistPercentage, 1, 2, str);
+  pCharacteristic->setValue(str);  // push the value via bluetooth
+  
+  delay(1000);
 }

@@ -18,9 +18,6 @@ export class SoilMoistureService {
         // TODO: replace staticSoilMoisture with the real time value once the sensor connection is integrated.
         soilMoisture.soilMoisturePercentage = this.soilMoistureReadingPercentage;
 
-        // Just for test
-        soilMoisture.soilMoisturePercentage = Math.floor(Math.random() * 100) + 1;
-
         if (soilMoisture.soilMoisturePercentage <= 33) {
             soilMoisture.soilMoistureIndex = 'Low';
         } else if (soilMoisture.soilMoisturePercentage > 33 && soilMoisture.soilMoisturePercentage <= 66) {

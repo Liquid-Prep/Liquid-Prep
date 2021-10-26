@@ -19,7 +19,7 @@
 <mat-grid-list cols="3" rowHeight="2:1" gutterSize="12px" style="padding-top: 64px">
   <mat-grid-tile>
     <div class="vertical">
-      <span class="vertical-align-middle txt-font">{{wateringDecision}}</span>
+      <span class="vertical-align-middle txt-font water-des-color">{{wateringDecision}}</span>
       <Label class="description" textWrap="true">{{ "WATERING ADVICE" }}</Label>
     </div>
   </mat-grid-tile>
@@ -31,7 +31,7 @@
   </mat-grid-tile>
   <mat-grid-tile>
     <div class="vertical">
-      <span class="vertical-align-middle color-medium txt-font">{{soilMoistureLevel}}</span>
+      <span class="vertical-align-middle txt-font" [class]="soilMoistureColorClass">{{soilMoistureLevel}}</span>
       <Label class="description" textWrap="true">{{"SOIL MOISTURE"}}</Label>
     </div>
   </mat-grid-tile>
@@ -45,17 +45,14 @@
     <div class="vertical">
       <div class="imgHolder">
         <img class="vertical-align-middle" src="{{weatherIcon}}" width="25" height="25">
-        <span class="vertical-align-middle temp"> {{temperature}}&deg;C</span>
+        <span class="vertical-align-middle txt-font"> {{temperature}}&deg;C</span>
       </div>
       <Label class="description" textWrap="true">{{"TEMPERATURE"}}</Label>
     </div>
   </mat-grid-tile>
   <mat-grid-tile>
     <div class="vertical">
-      <div class="imgHolder">
-        <img class="vertical-align-middle" src="{{rainfallIcon}}" width="25" height="25">
-        <span class="vertical-align-middle temp"> {{rainfallPercentage}}%</span>
-      </div>
+      <span class="vertical-align-middle txt-font"> {{rainfallPercentage}}%</span>
       <Label class="description" textWrap="true">{{"RAINFALL"}}</Label>
     </div>
   </mat-grid-tile>

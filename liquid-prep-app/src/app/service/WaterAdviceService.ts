@@ -18,29 +18,29 @@ export class WaterAdviceService {
     public moistureWaterMap = new Map([
       ['None', new Map(
         [
-          ['LOW', '/assets/moisture-water/nowater_lowmoisture.png'],
-          ['MEDIUM', '/assets/moisture-water/nowater_mediummoisture.png'],
-          ['HIGH', '/assets/moisture-water/nowater_highmoisture.png']
+          ['Low', '/assets/moisture-water/nowater_lowmoisture.png'],
+          ['Medium', '/assets/moisture-water/nowater_mediummoisture.png'],
+          ['High', '/assets/moisture-water/nowater_highmoisture.png']
         ])],
       ['Little', new Map(
         [
-          ['LOW', '/assets/moisture-water/littlewater_lowmoisture.png'],
-          ['MEDIUM', '/assets/moisture-water/littlewater_mediummoisture.png'],
-          ['HIGH', '/assets/moisture-water/littlewater_highmoisture.png']
+          ['Low', '/assets/moisture-water/littlewater_lowmoisture.png'],
+          ['Medium', '/assets/moisture-water/littlewater_mediummoisture.png'],
+          ['High', '/assets/moisture-water/littlewater_highmoisture.png']
         ]
       )],
       ['Modest', new Map(
         [
-          ['LOW', '/assets/moisture-water/moderatewater_lowmoisture.png'],
-          ['MEDIUM', '/assets/moisture-water/moderatewater_mediummoisture.png'],
-          ['HIGH', '/assets/moisture-water/moderatewater_highmoisture.png']
+          ['Low', '/assets/moisture-water/moderatewater_lowmoisture.png'],
+          ['Medium', '/assets/moisture-water/moderatewater_mediummoisture.png'],
+          ['High', '/assets/moisture-water/moderatewater_highmoisture.png']
         ]
       )],
       ['Plenty', new Map(
         [
-          ['LOW', '/assets/moisture-water/lotswater_lowmoisture.png'],
-          ['MEDIUM', '/assets/moisture-water/lotswater_mediummoisture.png'],
-          ['HIGH', '/assets/moisture-water/lotswater_highmoisture.png']
+          ['Low', '/assets/moisture-water/lotswater_lowmoisture.png'],
+          ['Medium', '/assets/moisture-water/lotswater_mediummoisture.png'],
+          ['High', '/assets/moisture-water/lotswater_highmoisture.png']
         ]
       )]
     ]);

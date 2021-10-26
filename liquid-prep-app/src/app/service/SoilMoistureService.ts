@@ -19,11 +19,11 @@ export class SoilMoistureService {
         soilMoisture.soilMoisturePercentage = this.soilMoistureReadingPercentage;
 
         if (soilMoisture.soilMoisturePercentage <= 33) {
-            soilMoisture.soilMoistureIndex = 'LOW';
+            soilMoisture.soilMoistureIndex = 'Low';
         } else if (soilMoisture.soilMoisturePercentage > 33 && soilMoisture.soilMoisturePercentage <= 66) {
-            soilMoisture.soilMoistureIndex = 'MEDIUM';
+            soilMoisture.soilMoistureIndex = 'Medium';
         } else {
-            soilMoisture.soilMoistureIndex = 'HIGH';
+            soilMoisture.soilMoistureIndex = 'High';
         }
 
         return soilMoisture;

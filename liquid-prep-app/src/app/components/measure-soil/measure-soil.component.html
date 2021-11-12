@@ -75,8 +75,6 @@
   </div>
 
   <mat-toolbar *ngIf="measureView=='before-measuring'" class="toolbarNav">
-<!--    <mat-icon class="blue-icon" (click)="onSlideNav('back')">navigate_before</mat-icon>-->
-<!--    <span class="tool-bar-text" (click)="onSlideNav('back')">BACK</span>-->
     <button *ngIf="!isFirstSlide" mat-icon-button [disabled]=isFirstSlide>
       <mat-icon [ngClass]="{'blue-icon': !isFirstSlide}" (click)="onSlideNav('back')">navigate_before</mat-icon>
       <span [ngClass]="isFirstSlide? 'tool-bar-text-disable' : 'tool-bar-text'" (click)="onSlideNav('back')">BACK</span>
@@ -84,10 +82,8 @@
 
     <span class="tool-bar-spacer"></span>
 
-    <!--<button mat-icon-button [disabled]=isLastSlide>
+    <button *ngIf="!isLastSlide" mat-icon-button [disabled]=isLastSlide style="margin-right: 24px">
       <span [ngClass]="isLastSlide? 'tool-bar-text-disable' : 'tool-bar-text'" (click)="onSlideNav('next')">NEXT</span>
       <mat-icon [ngClass]="{'blue-icon': !isLastSlide}" (click)="onSlideNav('next')">navigate_next</mat-icon>
-    </button>-->
-    <span class="tool-bar-text" (click)="onSlideNav('next')">NEXT</span>
-    <mat-icon class="blue-icon" (click)="onSlideNav('next')">navigate_next</mat-icon>
+    </button>
   </mat-toolbar>

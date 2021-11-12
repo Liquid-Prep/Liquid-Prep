@@ -19,6 +19,18 @@
 .swiper-slide {
   color: white;
   background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 .title {
@@ -33,6 +45,10 @@
   font-size: 14px;
   margin-top: 5px;
   margin-bottom: 10px;
+  text-align: center;
+  width:240px;
+  word-break: break-all;
+  white-space: normal;
 }
 
 .image-cover{
@@ -66,13 +82,20 @@
   color: #fff;
 }
 
+.blue-icon {
+  color: #2F4FFE;
+}
+
 .text-area{
   position: absolute;
   top: 12%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  flex-wrap: nowrap;
+}
+
+.sensor-text{
+  margin-top: 12%;
 }
 
 .c-btn {
@@ -85,4 +108,34 @@
   background-color: #2F4FFE;
   font-size: 16px;
   letter-spacing: 2px;
+}
+
+.mat-success {
+  color: #2F4FFE;
+}
+
+.toolbarNav{
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0px;
+  background-color: white;
+  //-webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  //-moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+  //box-shadow:        2px 2px 4px 5px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.tool-bar-spacer {
+  flex: 1 1 auto;
+}
+
+.tool-bar-text {
+  font-size: medium;
+  color: #2F4FFE;
+}
+
+.tool-bar-text-disable{
+  color: rgba(black, 0.38);
 }

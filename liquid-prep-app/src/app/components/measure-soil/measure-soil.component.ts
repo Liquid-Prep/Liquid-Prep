@@ -1,7 +1,8 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { SwiperOptions } from 'swiper';
+import { SwiperComponent} from 'ngx-swiper-wrapper';
 import {SoilMoistureService} from '../../service/SoilMoistureService';
 import {SoilMoisture} from '../../models/SoilMoisture';
 import {LineBreakTransformer} from './LineBreakTransformer';
@@ -32,7 +33,11 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
     threshold: 5,
   };
 
+  @ViewChild(SwiperComponent, { static: false }) swiper?: SwiperComponent;
+
   public index = 0;
+  public isFirstSlide = true;
+  public isLastSlide = false;
   public disabled = false;
   public countdownSecond = 5;
   public measureView: 'before-measuring' | 'measuring' | 'after-measuring' = 'before-measuring';
@@ -143,7 +148,6 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
     } catch (e) {
       window.alert('Failed to connect to sensor via Bluetooth');
     }
-
   }
 
 
@@ -213,9 +217,22 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
 
 
 
-  public onIndexChange(index: number): void { }
+  public onIndexChange(index: number): void {
+    this.index = index;
+    if (index === 0 ){
+      this.isFirstSlide = true;
+      this.isLastSlide = false;
+    }else if (index === 2){
+      this.isFirstSlide = false;
+      this.isLastSlide = true;
+    }else{
+      this.isFirstSlide = false;
+      this.isLastSlide = false;
+    }
+  }
 
-  public onSwiperEvent(event: string): void { }
+  public onSwiperEvent(event: string): void {
+  }
 
   public volumeClicked() {
   }
@@ -253,5 +270,15 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
 
   onGetAdvise() {
     this.router.navigate(['advice']).then(r => {});
+  }
+
+  onSlideNav(direction: string){
+    console.log(this.swiper.index);
+    console.log(this.swiper.directiveRef);
+    if (direction === 'next'){
+      this.swiper.directiveRef.nextSlide(200);
+    }else{
+      this.swiper.directiveRef.prevSlide(200);
+    }
   }
 }

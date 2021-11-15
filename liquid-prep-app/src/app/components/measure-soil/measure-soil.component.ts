@@ -273,8 +273,6 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
   }
 
   onSlideNav(direction: string){
-    console.log(this.swiper.index);
-    console.log(this.swiper.directiveRef);
     if (direction === 'next'){
       this.swiper.directiveRef.nextSlide(200);
     }else{

@@ -216,7 +216,6 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
   }
 
   private sensorValueLimitCorrection(sensorMoisturePercantage: number) {
-    console.log('moisture: ',sensorMoisturePercantage)
     if (sensorMoisturePercantage > 100.00) {
       return 100.00;
     } else if (sensorMoisturePercantage < 0.0) {

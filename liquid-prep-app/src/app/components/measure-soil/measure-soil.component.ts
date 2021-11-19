@@ -66,13 +66,15 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
 
     if (connectionOption === 'usb') {
       this.connectUSB().then( sensorValue => {
-        this.soilService.setSoilMoistureReading(sensorValue);
+        const soilMoisture = this.sensorValueLimitCorrection(sensorValue);
+        this.soilService.setSoilMoistureReading(soilMoisture);
         this.setMeasureView('measuring');
         this.readingCountdown();
       });
     } else if (connectionOption === 'ble') {
       this.connectBluetooth().then( sensorValue => {
-        this.soilService.setSoilMoistureReading(sensorValue);
+        const soilMoisture = this.sensorValueLimitCorrection(sensorValue);
+        this.soilService.setSoilMoistureReading(soilMoisture);
         this.setMeasureView('measuring');
         this.readingCountdown();
       });
@@ -150,8 +152,6 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
     }
   }
 
-
-
   public async connectUSB() {
     // Vendor code to filter only for Arduino or similar micro-controllers
     const filter = {
@@ -215,7 +215,15 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
     }
   }
 
-
+  private sensorValueLimitCorrection(sensorMoisturePercantage: number) {
+    if (sensorMoisturePercantage > 100.00) {
+      return 100.00;
+    } else if (sensorMoisturePercantage < 0.0) {
+      return 0.0
+    } else {
+      return sensorMoisturePercantage;
+    }
+  }
 
   public onIndexChange(index: number): void {
     this.index = index;

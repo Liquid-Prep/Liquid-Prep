@@ -1,6 +1,6 @@
 # [Liquid Prep - App](https://liquid-prep-app.s3-web.us-east.cloud-object-storage.appdomain.cloud/)
 
-[![Web App](https://img.shields.io/badge/WebApp-Liquid%20%20Prep-blue)](https://liquid-prep-app-v2.s3-web.us-east.cloud-object-storage.appdomain.cloud/)
+[![Web App](https://img.shields.io/badge/WebApp-Liquid%20%20Prep-blue)](https://liquid-prep-app.s3-web.us-east.cloud-object-storage.appdomain.cloud/)
 
 Liquid Prep App is an user interface that is accessed on your mobile device to get water advise for the selected crop. It is a [Progressive Web App (PWA)](https://web.dev/progressive-web-apps/) developed with [Angular](https://angular.io/) web framework.
 

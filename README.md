@@ -1,6 +1,6 @@
 # Liquid Prep
 
-[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/static/v1?label=Community&message=%23liquid-prep&color=blue)](https://callforcode.org/slack) [![Web App](https://img.shields.io/badge/WebApp-Liquid%20%20Prep-blue)](https://liquid-prep-app-v2.s3-web.us-east.cloud-object-storage.appdomain.cloud/)
+[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/static/v1?label=Community&message=%23liquid-prep&color=blue)](https://callforcode.org/slack) [![Web App](https://img.shields.io/badge/WebApp-Liquid%20%20Prep-blue)](https://liquid-prep-app.s3-web.us-east.cloud-object-storage.appdomain.cloud/)
 
 Liquid Prep offers an end-to-end solution for farmers who want to optimize their water usage; especially during times of drought. It is specially designed for low-literate farmers in developing countries who also need access to advanced agricultural advice to be successful.
 
@@ -41,9 +41,9 @@ The Weather Data for a given location is being requested to [The Weather Company
 ### Get Started
 
 1. Project Setup
-   - [Soil Moisture Sensor Device Setup](./soilSensor/README.md)
-   - [IBM Cloud Backend Service Setup](./backend/README.md)
-   - [Liquid Prep App Setup](./liquid-prep-app/README.md)
+   - [Soil Moisture Sensor Device Setup](https://github.com/Call-for-Code/Liquid-Prep/tree/master/soilSensor#liquid-prep---soil-sensor)
+   - [IBM Cloud Backend Service Setup](https://github.com/Call-for-Code/Liquid-Prep/tree/master/backend#liquid-prep---backend-service)
+   - [Liquid Prep App Setup](https://github.com/Call-for-Code/Liquid-Prep/tree/master/liquid-prep-app#liquid-prep---app)
 2. [Project Roadmap](#project-roadmap)
 3. [Contributing](#contributing)
 

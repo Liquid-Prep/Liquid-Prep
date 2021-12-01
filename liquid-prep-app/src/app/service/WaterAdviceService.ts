@@ -18,29 +18,29 @@ export class WaterAdviceService {
     public moistureWaterMap = new Map([
       ['None', new Map(
         [
-          ['Low', '/assets/moisture-water/nowater_lowmoisture.png'],
-          ['Medium', '/assets/moisture-water/nowater_mediummoisture.png'],
-          ['High', '/assets/moisture-water/nowater_highmoisture.png']
+          ['LOW', '/assets/moisture-water/nowater_lowmoisture.png'],
+          ['MEDIUM', '/assets/moisture-water/nowater_mediummoisture.png'],
+          ['HIGH', '/assets/moisture-water/nowater_highmoisture.png']
         ])],
       ['Little', new Map(
         [
-          ['Low', '/assets/moisture-water/littlewater_lowmoisture.png'],
-          ['Medium', '/assets/moisture-water/littlewater_mediummoisture.png'],
-          ['High', '/assets/moisture-water/littlewater_highmoisture.png']
+          ['LOW', '/assets/moisture-water/littlewater_lowmoisture.png'],
+          ['MEDIUM', '/assets/moisture-water/littlewater_mediummoisture.png'],
+          ['HIGH', '/assets/moisture-water/littlewater_highmoisture.png']
         ]
       )],
       ['Modest', new Map(
         [
-          ['Low', '/assets/moisture-water/moderatewater_lowmoisture.png'],
-          ['Medium', '/assets/moisture-water/moderatewater_mediummoisture.png'],
-          ['High', '/assets/moisture-water/moderatewater_highmoisture.png']
+          ['LOW', '/assets/moisture-water/moderatewater_lowmoisture.png'],
+          ['MEDIUM', '/assets/moisture-water/moderatewater_mediummoisture.png'],
+          ['HIGH', '/assets/moisture-water/moderatewater_highmoisture.png']
         ]
       )],
       ['Plenty', new Map(
         [
-          ['Low', '/assets/moisture-water/lotswater_lowmoisture.png'],
-          ['Medium', '/assets/moisture-water/lotswater_mediummoisture.png'],
-          ['High', '/assets/moisture-water/lotswater_highmoisture.png']
+          ['LOW', '/assets/moisture-water/lotswater_lowmoisture.png'],
+          ['MEDIUM', '/assets/moisture-water/lotswater_mediummoisture.png'],
+          ['HIGH', '/assets/moisture-water/lotswater_highmoisture.png']
         ]
       )]
     ]);
@@ -68,7 +68,7 @@ export class WaterAdviceService {
     private DONT_WATER = 'None'; // 'Do not water your crops';
     private WATER_CROPS_LESS = 'Little'; // 'Water your crops less than the recommended value';
     private WATER_CROPS_MORE = 'Plenty'; // 'Water your crops more than the recommended value';
-    private DEFAULT_WATER_CROPS = 'None'; // 'Water your crops today ';
+    private DEFAULT_WATER_CROPS = this.WATER_CROPS; // 'Water your crops today ';
     private AND = ' and ';
 
     private waterAdvice: Advice;
@@ -131,7 +131,6 @@ export class WaterAdviceService {
     }
 
     private generateWaterAdvice(weatherInfo: WeatherInfo, soilMoistureIndex: string): string{
-
         if (this.weatherDataService.isRaining(weatherInfo)) {
             const rainIndex = this.weatherDataService.determineRainIndex(weatherInfo.precipChance);
             this.waterAdvice.rainfallIndex = rainIndex;
@@ -140,7 +139,7 @@ export class WaterAdviceService {
         } else {
             const temparatureIndex = this.weatherDataService.determineTemperatureIndex(weatherInfo.temperature);
             this.waterAdvice.rainfallIndex = 'NONE';
-            this.waterAdvice.rainfallPercentage = 0;
+            this.waterAdvice.rainfallPercentage = weatherInfo.precipChance;
             return this.determineNonRainyDayAdvice(soilMoistureIndex, temparatureIndex);
         }
     }
@@ -171,7 +170,6 @@ export class WaterAdviceService {
     }
 
     private determineNonRainyDayAdvice(soilMoistureIndex: string, temparatureIndex: string): string {
-
         if (soilMoistureIndex === this.LOW && temparatureIndex === this.LOW){
             return this.WATER_CROPS;
         } else if (soilMoistureIndex === this.LOW && temparatureIndex === this.OPT) {

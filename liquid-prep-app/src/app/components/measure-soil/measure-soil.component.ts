@@ -46,15 +46,15 @@ export class MeasureSoilComponent implements OnInit, AfterViewInit {
 
   public soilMoistureColorClass = 'color-high';
   public soilMoistureIndexColorMap = new Map([
-    ['Low', 'color-low'],
-    ['Medium', 'color-medium'],
-    ['High', 'color-high']
+    ['LOW', 'color-low'],
+    ['MEDIUM', 'color-medium'],
+    ['HIGH', 'color-high']
   ]);
   public moistureIcon = undefined;
   public soilMoistureIconMap = new Map([
-    ['Low', '/assets/moisture-water/soil_moisture_low.png'],
-    ['Medium', '/assets/moisture-water/soil_moisture_medium.png'],
-    ['High', '/assets/moisture-water/soil_moisture_high.png']
+    ['LOW', '/assets/moisture-water/soil_moisture_low.png'],
+    ['MEDIUM', '/assets/moisture-water/soil_moisture_medium.png'],
+    ['HIGH', '/assets/moisture-water/soil_moisture_high.png']
   ]);
 
   ngOnInit(): void { }

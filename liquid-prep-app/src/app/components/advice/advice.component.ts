@@ -27,9 +27,9 @@ export class AdviceComponent implements OnInit {
 
   public soilMoistureColorClass = 'color-high';
   public soilMoistureIndexColorMap = new Map([
-    ['Low', 'color-low'],
-    ['Medium', 'color-medium'],
-    ['High', 'color-high']
+    ['LOW', 'color-low'],
+    ['MEDIUM', 'color-medium'],
+    ['HIGH', 'color-high']
   ]);
 
   constructor(

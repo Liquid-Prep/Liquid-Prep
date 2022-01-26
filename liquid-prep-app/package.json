@@ -16,19 +16,19 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-devkit/schematics": "^13.1.4",
-    "@angular/animations": "^12.2.15",
+    "@angular-devkit/schematics": "^13.2.0",
+    "@angular/animations": "^13.2.0",
     "@angular/cdk": "^10.2.2",
-    "@angular/common": "^12.2.15",
-    "@angular/compiler": "^12.2.15",
-    "@angular/core": "^12.2.15",
+    "@angular/common": "^13.2.0",
+    "@angular/compiler": "^13.2.0",
+    "@angular/core": "^13.2.0",
     "@angular/flex-layout": "^11.0.0-beta.33",
-    "@angular/forms": "^12.2.15",
+    "@angular/forms": "^13.2.0",
     "@angular/material": "^10.2.2",
-    "@angular/platform-browser": "^12.2.15",
-    "@angular/platform-browser-dynamic": "^12.2.15",
-    "@angular/router": "^12.2.15",
-    "@angular/service-worker": "^12.2.15",
+    "@angular/platform-browser": "^13.2.0",
+    "@angular/platform-browser-dynamic": "^13.2.0",
+    "@angular/router": "^13.2.0",
+    "@angular/service-worker": "^13.2.0",
     "ng2-search-filter": "^0.5.1",
     "ngx-swiper-wrapper": "^10.0.0",
     "ngx-webstorage-service": "^4.1.0",
@@ -39,10 +39,10 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^12.2.15",
-    "@angular/cli": "^12.2.15",
-    "@angular/compiler-cli": "^12.2.15",
-    "@angular/language-service": "^12.2.15",
+    "@angular-devkit/build-angular": "^13.2.0",
+    "@angular/cli": "^13.2.0",
+    "@angular/compiler-cli": "^13.2.0",
+    "@angular/language-service": "^13.2.0",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "^2.0.3",
     "@types/node": "^14.11.1",
@@ -57,6 +57,6 @@
     "protractor": "^7.0.0",
     "ts-node": "^8.10.2",
     "tslint": "^6.1.0",
-    "typescript": "^4.3.5"
+    "typescript": "^4.5.5"
   }
 }

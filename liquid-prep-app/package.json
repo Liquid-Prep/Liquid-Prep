@@ -32,7 +32,7 @@
     "ngx-webstorage-service": "^4.1.0",
     "ng2-search-filter": "^0.5.1",
     "rxjs": "^6.6.2",
-    "swiper": "^6.2.0",
+    "swiper": "^6.5.1",
     "tslib": "^2.0.1",
     "zone.js": "^0.10.2",
     "webusb": "^2.2.0"

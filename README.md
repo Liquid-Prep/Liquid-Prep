@@ -6,7 +6,7 @@ Liquid Prep offers an end-to-end solution for farmers who want to optimize their
 
 By using an intuitive mobile app, local soil sensors, and backend service in IBM cloud, farmers can be better informed on how to use limited water supplies and increase their chances of growing healthy crops for their small plots of land.
 
-[![Watch the video](https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/readme/IBM-interview-video-image.png)](https://youtu.be/uJ7DUfCzypE)
+[![Watch the video](images/readme/IBM-interview-video-image.png)](https://youtu.be/uJ7DUfCzypE)
 
 ## Solution Details
 
@@ -19,7 +19,7 @@ Farmers are the key food providers of the world. Their crops are essential to gl
 We have developed **Liquid Prep**, an end-to-end solution for farmers looking to optimize their usage of water; especially during times of drought. The following depicts the Liquid Prep solution architecture:
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Call-for-Code/Liquid-Prep/master/images/readme/LiquidPrep-Architecture-LF.PNG" alt="Liquid Prep architecture" width ="100%" height="120%">
+  <img src="images/readme/LiquidPrep-Architecture-LF.PNG" alt="Liquid Prep architecture" width ="100%" height="120%">
 </p>
 
 #### Soil Moisture Sensor Module
@@ -41,9 +41,9 @@ The Weather Data for a given location is being requested to [The Weather Company
 ### Get Started
 
 1. Project Setup
-   - [Soil Moisture Sensor Device Setup](https://github.com/Call-for-Code/Liquid-Prep/tree/master/soilSensor#liquid-prep---soil-sensor)
-   - [IBM Cloud Backend Service Setup](https://github.com/Call-for-Code/Liquid-Prep/tree/master/backend#liquid-prep---backend-service)
-   - [Liquid Prep App Setup](https://github.com/Call-for-Code/Liquid-Prep/tree/master/liquid-prep-app#liquid-prep---app)
+   - [Soil Moisture Sensor Device Setup](https://github.com/Liquid-Prep/Liquid-Prep/tree/master/soilSensor#liquid-prep---soil-sensor)
+   - [IBM Cloud Backend Service Setup](https://github.com/Liquid-Prep/Liquid-Prep/tree/master/backend#liquid-prep---backend-service)
+   - [Liquid Prep App Setup](https://github.com/Liquid-Prep/Liquid-Prep/tree/master/liquid-prep-app#liquid-prep---app)
 2. [Project Roadmap](#project-roadmap)
 3. [Contributing](#contributing)
 
@@ -63,8 +63,8 @@ Key areas the team are interested in developing include localizing the mobile ap
 
 ## Contributors
 
-<a href="https://github.com/Call-for-Code/Liquid-Prep/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=Call-for-Code/Liquid-Prep" />
+<a href="https://github.com/Liquid-Prep/Liquid-Prep/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=Liquid-Prep/Liquid-Prep" />
 </a>
 
 ## Contributing
@@ -83,6 +83,6 @@ Thursdays at 4:30pm ET. [Join us on Zoom](https://us05web.zoom.us/j/9124577210?p
 
 ## License
 
-Copyright 2019-2021 Liquid Prep
+Copyright 2019-2022 Liquid Prep
 
 Unless otherwise noted, this project is licensed under the Apache 2 License - see the [LICENSE](LICENSE) file for details.

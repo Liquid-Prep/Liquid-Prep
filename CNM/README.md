@@ -8,7 +8,7 @@
 
 ## The Platform
 
-The Soil Moisture probe was developed on Particle's Argon development platform. The featherwing-compatible development board was selected for its integrated Wi-Fi and bluetooth connectivity, which allows for multiple avenues of data transfer between the probe and the Liquid-Prep application. In addition, the Argon has a readily available LiPo battery connection to enable the device to work in a fully wireless mode. 
+The Soil Moisture probe was developed on Particle's Argon development platform. The featherwing-compatible development board was selected for its integrated Wi-Fi and bluetooth connectivity, which allows for multiple avenues of data transfer between the probe and the Liquid-Prep application. In addition, the Argon has a readily available LiPo battery connection to enable the device to work in a fully wireless mode.
 
 ![Argon_Image](images/argon.jpg)
 
@@ -18,17 +18,18 @@ Coding for the current iteration of the soil moisture probe was done using the P
 
 ## The Soil Probe
 
-The  Moisture Probe is created around a simple capacitive soil moisture sensor ( <$3 USD). It is wired into an analog input on of the Argon system. In addition, a low cost display is added to the system to allow a user to directly read the soil moisture measurement. The soil moisture sensor value is mapped to a percentage - 0% when in dry air, 100% when submerged in water. In practice, the value will be somewhere in between. The desired value will be dependent on the plant and soil type.
+The Moisture Probe is created around a simple capacitive soil moisture sensor ( <$3 USD). It is wired into an analog input on of the Argon system. In addition, a low cost display is added to the system to allow a user to directly read the soil moisture measurement. The soil moisture sensor value is mapped to a percentage - 0% when in dry air, 100% when submerged in water. In practice, the value will be somewhere in between. The desired value will be dependent on the plant and soil type.
 
-* The Code: SoilSensorCal collects the calibration factors for the soil moisture probe and stores them in the Particle's EEPROM.
+- The Code: SoilSensorCal collects the calibration factors for the soil moisture probe and stores them in the Particle's EEPROM.
 
 ### Soil Penetration Device
 
-The capacitive sensor is attached to a metal penetration that can be pushed into the soil by stepping on a platform near the base. The penetration device was cut from 0.25 inch steel on a Torchmate CNC Plasma Table. The `./Torchmate` folder in this repository includes the files to plasma cut the penetration device. 
+The capacitive sensor is attached to a metal penetration that can be pushed into the soil by stepping on a platform near the base. The penetration device was cut from 0.25 inch steel on a Torchmate CNC Plasma Table. The `./Torchmate` folder in this repository includes the files to plasma cut the penetration device.
 
 ![SoilProbe](images/Probe.jpg)
 
 ### Electronics holder
+
 Additionally, the students designed and 3D printed a smartphone holder that can be placed at the top of the penetration pole, holding the electronics and display. The .stl files for the 3D prints are included the /3D Print folder in this repository.
 
 ![3DB](images/3DPrintBottomView.jpg)
@@ -38,26 +39,28 @@ Additionally, the students designed and 3D printed a smartphone holder that can 
 ## Data Transfer
 
 ### BLE
+
 The Argon microcontroller sends the soil moisture data over BLE via a UART stream. This data can be read by a future Liquid-Prep application allowing it directly get data from the probe. Sample data is seen below using the Bluefruit smartphone app.
 
 ![ble](images/BluefruitUART.jpg)
 
 ### Adafruit.io
-Periodically, the Argon microcontroller sends the soil moisture data to an Adafruit.io dashboard via its cellular connection. This allows for easy visualization of the moisture data.  
+
+Periodically, the Argon microcontroller sends the soil moisture data to an Adafruit.io dashboard via its cellular connection. This allows for easy visualization of the moisture data.
 
 ![adafruitio](images/AdafruitDashboard.jpg)
 
 ### Morse Code
+
 Additionally, the "LightCommunication" application allows users to read data from the Argon microcontroller using the Morse Cam app for iOS. The purpose of this application is to demonstrate the ability to transfer data using non-traditional methods. This requires an additional LED light such an Adafruit NeoPixel LED Ring. [NeoPixel](https://www.adafruit.com/product/1463?gclid=CjwKCAjw_JuGBhBkEiwA1xmbRQ8KXl8inKbKAIjFVllt0GIqpISXa4G-AfsbOtpaIZPw4mE5cVrjJhoC324QAvD_BwE)
 
 [MorseCam](https://apps.apple.com/us/app/morse-cam/id1538642469)
 
 ![morse](images/MorseDemo.jpg)
 
-
 ## About the Students
 
-This original work was created by students of Central New Mexico Community College's Internet of Things Deep Dive bootcamp (www.cnm.edu/deepdive). Since graduating, the two students have continued to work with IBM's Call for Code Liquid-Prep team to add functionality and connectivity, as well as improve upon the physical components. 
+This original work was created by students of Central New Mexico Community College's Internet of Things Deep Dive bootcamp (www.cnm.edu/deepdive). Since graduating, the two students have continued to work with IBM's Call for Code Liquid-Prep team to add functionality and connectivity, as well as improve upon the physical components.
 
 ### Janel Sanchez
 
@@ -71,8 +74,7 @@ Christian is a recent graduate of CNM Ingenuity's Internet of Things Coding and 
 
 ### Brian Rashap (Professor)
 
-Janel and Christian worked on this project under the guidance of Dr. Brian Rashap. Brian is a workforce development instructor focused on training the next generation of Internet of Things professionals. 
-
+Janel and Christian worked on this project under the guidance of Dr. Brian Rashap. Brian is a workforce development instructor focused on training the next generation of Internet of Things professionals.
 
 ## Device Hardware and Setup Guide
 
@@ -82,16 +84,16 @@ Janel and Christian worked on this project under the guidance of Dr. Brian Rasha
 
 1. Particle Argon Wi-Fi Development Board (Available from store.particle.io)
 
-2. Capacitive soil moisture with jumper wires (Available from gikfun.com or Amazon) 
+2. Capacitive soil moisture with jumper wires (Available from gikfun.com or Amazon)
 
 3. OLED Display - Adafruit SSD1306 (Available from Mouser.com)
 
 4. Solderless breadboard or solderboard (Available from Amazon or a variety of electronic retailers)
 
-5. 3.7V battery with  2-pin JST-PH connection (Available from Amazon or a variety of electronic retailers)
+5. 3.7V battery with 2-pin JST-PH connection (Available from Amazon or a variety of electronic retailers)
 
 6. 22 gauge jumper wire
-(Available from Amazon or a variety of electronic retailers)
+   (Available from Amazon or a variety of electronic retailers)
 
 7. Materials for protective case(varies by use case, see examples)
 
@@ -118,25 +120,24 @@ GND - GND on Argon
 
 2. Build case to protect microcontroller and moisture probe depending on use case.
 
-
 ### Creating an Adafruit.io Dashboard:
 
 1. Visit Adafruit.io and create a free user account. https://accounts.adafruit.com/users/sign_up
 
 2. Keep note of your Username and Active Key.
 
-
 ### Software Setup
-1. Clone the Liquid Prep GitHub repository: https://github.com/Call-for-Code/Liquid-Prep.git
+
+1. Clone the Liquid Prep GitHub repository: https://github.com/Liquid-Prep/Liquid-Prep.git
 
 2. Install Visual Studio Code: [VS Code Download](https://code.visualstudio.com)
 
 3. Install the Particle Workbench for Visual Studio Code. Select all defaults during install.
-[Particle Workbench Download](https://docs.particle.io/quickstart/workbench/)
+   [Particle Workbench Download](https://docs.particle.io/quickstart/workbench/)
 
 4. Use the following documentation to set up the Particle Argon to a Particle account and to connect the device to Wi-Fi. [Particle Setup Documentation](https://support.particle.io/hc/en-us/articles/360045547634-How-can-I-set-up-my-Argon-or-Boron-via-USB-)
 
-5. Using Visual Studio Code, open the BLEDashboardSensor file from the CNM folder within the GitHub repository. 
+5. Using Visual Studio Code, open the BLEDashboardSensor file from the CNM folder within the GitHub repository.
 
 6. Click “File” then “New File”. Save this file as “credentials.h”
 
@@ -148,10 +149,9 @@ GND - GND on Argon
 
 ![Adafruit.io Key](images/KeySample2.jpg)
 
-9.  Ensure Particle Argon is plugged into the computer via USB. Using the toolbar in the top right corner, first Compile and then Flash code to the device. 
+9.  Ensure Particle Argon is plugged into the computer via USB. Using the toolbar in the top right corner, first Compile and then Flash code to the device.
 
 ![Adafruit.io Key](images/Compile.jpg)
-
 
 ## Using the Device:
 
@@ -176,12 +176,13 @@ GND - GND on Argon
 ![UART](images/BluefruitUART.jpg)
 
 Copyright CNM 2021
-##
-##
+
 ##
 
+##
+
+##
 
 ![TSL Image](images/TSL.jpg)
-
 
 Copyright CNM Ingenuity 2021

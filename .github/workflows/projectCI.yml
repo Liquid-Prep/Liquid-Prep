@@ -5,9 +5,9 @@ name: Liquid Prep CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [main]
   pull_request:
-    branches: [ master ]
+    branches: [main]
 
 jobs:
   build_web_app:
@@ -16,42 +16,42 @@ jobs:
       run:
         working-directory: ./liquid-prep-app
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v2
-    - name: Setup Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14'
-    - name: Rename sample config file
-      run: |
-        cd src
-        mv config-sample.json config.json
-        ls -l config.json
-        cd ../
-    - name: Install node dependencies and build the project
-      run: |
-        npm install
-        npm run build --prod
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - name: Rename sample config file
+        run: |
+          cd src
+          mv config-sample.json config.json
+          ls -l config.json
+          cd ../
+      - name: Install node dependencies and build the project
+        run: |
+          npm install
+          npm run build-prod
   build_backend_service:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./backend
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v2
-    - name: Setup Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14'
-    - name: Install Node dependencies for common folder
-      run: |
-        cd common
-        npm install
-        cd ../
-    - name: Install Node dependencies for cloud functions and build
-      run: |
-        cd liquid-prep-cf
-        npm install
-        npm run build
-        npm run bundle
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - name: Install Node dependencies for common folder
+        run: |
+          cd common
+          npm install
+          cd ../
+      - name: Install Node dependencies for cloud functions and build
+        run: |
+          cd liquid-prep-cf
+          npm install
+          npm run build
+          npm run bundle

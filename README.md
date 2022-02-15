@@ -22,15 +22,19 @@ We have developed **Liquid Prep**, an end-to-end solution for farmers looking to
   <img src="images/readme/LiquidPrep-Architecture-LF.PNG" alt="Liquid Prep architecture" width ="100%" height="120%">
 </p>
 
-#### Soil Moisture Sensor Module
+<p align="center">
+  <img src="images/readme/LP-Solution.png" alt="Liquid Prep architecture" width ="50%" height="70%">
+</p>
 
-The Soil Moisture Sensor Module, measures the soil moisture level and transmits the data to Liquid Prep App via USB serial connection/Bluetooth.
+#### [Soil Sensor Module](https://github.com/Liquid-Prep/LiquidPrep-Hardware)
 
-#### Liquid Prep App
+The Soil Moisture Sensor Module, measures the soil moisture level and transmits the data to Liquid Prep App when the App is connected to the sensor module.
+
+#### [Liquid Prep App](https://github.com/Liquid-Prep/LiquidPrep-App)
 
 Liquid Prep App is designed and developed for users/farmers with low literacy to easily understand, interact and get water advice for selected crop in their current location. The App interacts with the Soil Moisture Sensor Module to get the soil moisture data and IBM Cloud Backend Service to fetch weather data and crop data to generate watering advice for the selected crop.
 
-#### IBM Cloud Backend Service
+#### [Backend Service](https://github.com/Liquid-Prep/LiquidPrep-Backend)
 
 The Backend Service exposes APIs that are handled by [Cloud Functions](https://cloud.ibm.com/docs/openwhisk) which interacts with [Cloudant Database](https://www.ibm.com/cloud/cloudant) for crop data and [The Weather Company APIs](https://business.weather.com/) for weather data. The Backend Service is hosted on the [IBM Cloud](https://www.ibm.com/cloud).
 
@@ -38,14 +42,15 @@ The Backend Service exposes APIs that are handled by [Cloud Functions](https://c
 
 The Weather Data for a given location is being requested to [The Weather Company APIs](https://business.weather.com/) from the Backend Service.
 
-### Get Started
+## Get Started
 
-1. Project Setup
-   - [Soil Moisture Sensor Device Setup](https://github.com/Liquid-Prep/Liquid-Prep/tree/master/soilSensor#liquid-prep---soil-sensor)
-   - [IBM Cloud Backend Service Setup](https://github.com/Liquid-Prep/Liquid-Prep/tree/master/backend#liquid-prep---backend-service)
-   - [Liquid Prep App Setup](https://github.com/Liquid-Prep/Liquid-Prep/tree/master/liquid-prep-app#liquid-prep---app)
-2. [Project Roadmap](#project-roadmap)
-3. [Contributing](#contributing)
+- Project Setup <br>
+  The Liquid Prep solution has 3 main components for its end to end operation. Please go through the following setup guidance for individual component setup.
+  - [Soil Moisture Sensor Device Setup](https://github.com/Liquid-Prep/LiquidPrep-Hardware#liquid-prep---soil-sensor)
+  - [IBM Cloud Backend Service Setup](https://github.com/Liquid-Prep/LiquidPrep-Backend#liquid-prep---backend-service)
+  - [Liquid Prep App Setup](https://github.com/Liquid-Prep/LiquidPrep-App#liquid-prep---app)
+- [Project Roadmap](#project-roadmap)
+- [Contributing](#contributing)
 
 ## Project Roadmap
 

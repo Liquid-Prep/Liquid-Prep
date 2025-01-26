@@ -2,21 +2,21 @@
 
 [![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/static/v1?label=Community&message=%23liquid-prep&color=blue)](https://callforcode.org/slack) [![Web App](https://img.shields.io/badge/WebApp-Liquid%20%20Prep-blue)](https://liquid-prep-app.s3-web.us-east.cloud-object-storage.appdomain.cloud/)
 
-Liquid Prep offers an end-to-end solution for farmers who want to optimize their water usage; especially during times of drought. It is specially designed for low-literate farmers in developing countries who also need access to advanced agricultural advice to be successful.
+Liquid Prep offers an end-to-end solution for farmers who want to optimize water usage, conserve resources and maximize crop volune, especially in times of drought. It is designed for farmers worldwide who want or need access to advanced agricultural advice.
 
-By using an intuitive mobile app, local soil sensors, and backend service in IBM cloud, farmers can be better informed on how to use limited water supplies and increase their chances of growing healthy crops for their small plots of land.
+By using an intuitive mobile app, local soil sensors, and backend service in IBM Cloud, farmers can be better informed on how to use limited water supplies and increase their chances of growing healthy crops for their small plots of land.
 
 [![Watch the video](images/readme/IBM-interview-video-image.png)](https://youtu.be/uJ7DUfCzypE)
 
 ## Solution Details
 
-The [Call for Code 2019](https://callforcode.org/) Global Challenge asked teams of developers, designers, data scientists and business analysts to build solutions that significantly improve preparedness for natural disasters and accelerate relief when they hit. That year, the team answered the call and we have developed a solution for the many low-literate farmers in mostly developing countries to optimize the use of their limited water supply during times of drought.
+The [Call for Code 2019](https://callforcode.org/) Global Challenge asked teams of developers, designers, data scientists and business analysts to build solutions that significantly improve preparedness for natural disasters and accelerate relief when they hit. That year, the team answered the call and developed a solution.
 
 > Learn more about the [history, testing, and ecosystem of Liquid Prep](BACKGROUND.md)
 
-Farmers are the key food providers of the world. Their crops are essential to global human survival and prosperity. Natural disasters, such as droughts, end up affecting farmers and all of us down the line. With increasing fluctuations in global climate, we believe this is a very important problem to tackle.
+Farmers are key food providers, and their crops are essential to human survival and prosperity. Natural disasters, such as droughts and floods, affect farmers and all of us. With increasing fluctuations in global climate, we believe this is an important challenge to tackle.
 
-We have developed **Liquid Prep**, an end-to-end solution for farmers looking to optimize their usage of water; especially during times of drought. The following depicts the Liquid Prep solution architecture:
+**Liquid Prep** is an end-to-end solution for farmers looking to optimize their usage of water, especially in times of drought. The following depicts the Liquid Prep solution architecture:
 
 <p align="center">
   <img src="images/readme/LiquidPrep-Architecture-LF.PNG" alt="Liquid Prep architecture" width ="100%" height="120%">
